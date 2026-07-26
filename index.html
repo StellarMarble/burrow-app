@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#161310">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Burrow">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<title>Burrow</title>
+<style>
+  :root {
+    --bg: #161310;
+    --card: #1e1a15;
+    --ink: #ece5d8;
+    --ink-dim: #a89f8d;
+    --accent: #d9a441;
+    --accent-dim: #8a6a2f;
+    --rule: #35302a;
+    --serif: "Iowan Old Style", "Palatino", "Georgia", serif;
+    --sans: -apple-system, "Segoe UI", system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; background: var(--bg); color: var(--ink); font-family: var(--sans); overscroll-behavior: none; }
+
+  #feed {
+    height: 100dvh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none;
+  }
+  #feed::-webkit-scrollbar { display: none; }
+
+  .card {
+    min-height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: calc(env(safe-area-inset-top) + 3.2rem) 1.6rem calc(env(safe-area-inset-bottom) + 5rem);
+    position: relative;
+  }
+
+  .chip {
+    display: inline-block;
+    font-size: .72rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent-dim);
+    border-radius: 999px;
+    padding: .28em .9em;
+    margin-bottom: 1.1rem;
+    align-self: flex-start;
+  }
+  .chip.callback { color: #7fb4a2; border-color: #43645a; }
+
+  .hook {
+    font-family: var(--serif);
+    font-size: clamp(1.55rem, 6.4vw, 2.1rem);
+    line-height: 1.22;
+    font-weight: 600;
+    margin-bottom: 1.1rem;
+    text-wrap: balance;
+  }
+
+  .body {
+    font-size: 1.02rem;
+    line-height: 1.62;
+    color: var(--ink);
+    max-width: 34em;
+  }
+  .body strong { color: var(--accent); font-weight: 600; }
+
+  .depth-toggle {
+    margin-top: 1.2rem;
+    font-size: .88rem;
+    color: var(--ink-dim);
+    background: none; border: none;
+    font-family: var(--sans);
+    cursor: pointer;
+    padding: .4em 0;
+  }
+  .depth-toggle::before { content: "+ "; color: var(--accent); }
+  .depth {
+    display: none;
+    margin-top: .8rem;
+    padding: .9rem 1rem;
+    border-left: 2px solid var(--accent-dim);
+    font-size: .93rem;
+    line-height: 1.58;
+    color: var(--ink-dim);
+    max-width: 34em;
+  }
+  .depth.open { display: block; }
+
+  .actions {
+    position: absolute;
+    bottom: calc(env(safe-area-inset-bottom) + 1.1rem);
+    left: 1.6rem; right: 1.6rem;
+    display: flex;
+    gap: .7rem;
+    align-items: center;
+  }
+  .act {
+    font-family: var(--sans);
+    font-size: .85rem;
+    color: var(--ink-dim);
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: .55em 1.1em;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .act.saved { color: var(--accent); border-color: var(--accent-dim); }
+  .card-date { margin-left: auto; font-size: .72rem; color: var(--rule); }
+
+  /* top bar */
+  #topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: calc(env(safe-area-inset-top) + .6rem) 1.2rem .6rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    z-index: 10;
+    background: linear-gradient(var(--bg) 55%, transparent);
+    pointer-events: none;
+  }
+  #topbar > * { pointer-events: auto; }
+  #logo { font-family: var(--serif); font-weight: 700; font-size: 1.05rem; color: var(--accent); text-decoration: none; }
+  #newbadge { font-size: .72rem; color: var(--ink-dim); }
+  .navbtn {
+    margin-left: auto;
+    background: none; border: none;
+    color: var(--ink-dim);
+    font-size: .85rem;
+    font-family: var(--sans);
+    cursor: pointer;
+    padding: .3em .5em;
+  }
+  .navbtn + .navbtn { margin-left: 0; }
+
+  /* overlays */
+  .overlay {
+    position: fixed; inset: 0;
+    background: var(--bg);
+    z-index: 20;
+    display: none;
+    overflow-y: auto;
+    padding: calc(env(safe-area-inset-top) + 3.4rem) 1.4rem 3rem;
+  }
+  .overlay.open { display: block; }
+  .overlay h2 { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 1.2rem; }
+  .overlay .close {
+    position: fixed;
+    top: calc(env(safe-area-inset-top) + .6rem);
+    right: 1.2rem;
+    background: none; border: none; color: var(--accent);
+    font-size: 1rem; cursor: pointer; font-family: var(--sans);
+  }
+  .saved-item { border-bottom: 1px solid var(--rule); padding: 1rem 0; }
+  .saved-item .h { font-family: var(--serif); font-size: 1.05rem; margin-bottom: .3rem; }
+  .saved-item .b { display: none; font-size: .9rem; line-height: 1.55; color: var(--ink-dim); margin-top: .5rem; }
+  .saved-item.open .b { display: block; }
+  .stat-row { display: flex; justify-content: space-between; padding: .8rem 0; border-bottom: 1px solid var(--rule); font-size: .95rem; }
+  .stat-row .v { color: var(--accent); font-variant-numeric: tabular-nums; }
+  .gate-note { margin-top: 1.4rem; font-size: .82rem; line-height: 1.5; color: var(--ink-dim); }
+
+  #empty { padding: 40dvh 2rem 0; text-align: center; color: var(--ink-dim); font-size: .95rem; }
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <a id="logo" href="#" onclick="scrollTop_();return false;">Burrow</a>
+  <span id="newbadge"></span>
+  <button class="navbtn" onclick="openOverlay('saved')">Saved</button>
+  <button class="navbtn" onclick="openOverlay('stats')">Stats</button>
+</div>
+
+<div id="feed"><div id="empty">digging&hellip;</div></div>
+
+<div class="overlay" id="ov-saved">
+  <button class="close" onclick="closeOverlays()">Done</button>
+  <h2>Saved cards</h2>
+  <div id="saved-list"></div>
+</div>
+
+<div class="overlay" id="ov-stats">
+  <button class="close" onclick="closeOverlays()">Done</button>
+  <h2>The dig log</h2>
+  <div id="stats-list"></div>
+  <p class="gate-note">Kill-gate: this only earns its keep if you open it in idle moments.
+  30-day review looks at "days opened / 30." Under ~10 and we bury it, no mourning.</p>
+</div>
+
+<script>
+const LS = {
+  get(k, d) { try { return JSON.parse(localStorage.getItem("burrow." + k)) ?? d; } catch { return d; } },
+  set(k, v) { localStorage.setItem("burrow." + k, JSON.stringify(v)); }
+};
+
+let cards = [];
+let seen  = new Set(LS.get("seen", []));
+let saved = new Set(LS.get("saved", []));
+
+// ---- open tracking (kill-gate data) ----
+(function trackOpen() {
+  const today = new Date().toISOString().slice(0, 10);
+  const opens = LS.get("opens", {});          // { "2026-07-17": 3, ... }
+  opens[today] = (opens[today] || 0) + 1;
+  const keys = Object.keys(opens).sort();
+  while (keys.length > 90) delete opens[keys.shift()];
+  LS.set("opens", opens);
+})();
+
+function esc(s) { const d = document.createElement("div"); d.textContent = s || ""; return d.innerHTML; }
+
+function goDeeper(id) {
+  // email lives only in this device's localStorage - never in the served files
+  let email = LS.get("email", "");
+  if (!email) {
+    email = (prompt("One-time setup: email address for deep-dive requests?") || "").trim();
+    if (!email) return;
+    LS.set("email", email);
+  }
+  const c = cards.find(x => x.id === id);
+  const sub = encodeURIComponent("Burrow deep dive: " + c.hook);
+  const body = encodeURIComponent(
+    "Go deeper on this card.\n\nTopic: " + c.topicLabel + "\nCard: " + c.hook + "\n\n" + c.body + "\n\n(id: " + c.id + ")");
+  location.href = "mailto:" + email + "?subject=" + sub + "&body=" + body;
+}
+
+function render() {
+  const feed = document.getElementById("feed");
+  feed.innerHTML = "";
+  if (!cards.length) { feed.innerHTML = '<div id="empty">No cards yet. The generator runs daily.</div>'; return; }
+
+  cards.forEach(c => {
+    const el = document.createElement("section");
+    el.className = "card";
+    el.dataset.id = c.id;
+    const isCb = c.type === "callback";
+    el.innerHTML =
+      '<span class="chip' + (isCb ? " callback" : "") + '">' + esc(isCb ? "remember this?" : c.topicLabel) + '</span>' +
+      '<h1 class="hook">' + esc(c.hook) + '</h1>' +
+      '<p class="body">' + c.bodyHtml + '</p>' +
+      (c.depth ? '<button class="depth-toggle" onclick="this.nextElementSibling.classList.toggle(\'open\')">go a little deeper</button><div class="depth">' + esc(c.depth) + '</div>' : '') +
+      '<div class="actions">' +
+        '<button class="act ' + (saved.has(c.id) ? "saved" : "") + '" onclick="toggleSave(\'' + c.id + '\', this)">' + (saved.has(c.id) ? "&#9733; saved" : "&#9734; save") + '</button>' +
+        '<button class="act" onclick="goDeeper(\'' + c.id + '\')">&#128371;&#65039; deeper</button>' +
+        '<span class="card-date">' + esc(c.date) + '</span>' +
+      '</div>';
+    feed.appendChild(el);
+  });
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        seen.add(e.target.dataset.id);
+        LS.set("seen", [...seen]);
+        updateBadge();
+      }
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll(".card").forEach(el => io.observe(el));
+  updateBadge();
+}
+
+function updateBadge() {
+  const n = cards.filter(c => !seen.has(c.id)).length;
+  document.getElementById("newbadge").textContent = n ? n + " new" : "";
+}
+
+function toggleSave(id, btn) {
+  if (saved.has(id)) { saved.delete(id); btn.classList.remove("saved"); btn.innerHTML = "&#9734; save"; }
+  else { saved.add(id); btn.classList.add("saved"); btn.innerHTML = "&#9733; saved"; }
+  LS.set("saved", [...saved]);
+}
+
+function scrollTop_() { document.getElementById("feed").scrollTo({ top: 0, behavior: "smooth" }); }
+
+function openOverlay(which) {
+  closeOverlays();
+  if (which === "saved") {
+    const list = document.getElementById("saved-list");
+    const items = cards.filter(c => saved.has(c.id));
+    list.innerHTML = items.length
+      ? items.map(c =>
+          '<div class="saved-item" onclick="this.classList.toggle(\'open\')">' +
+          '<div class="h">' + esc(c.hook) + '</div>' +
+          '<span class="chip">' + esc(c.topicLabel) + '</span>' +
+          '<div class="b">' + c.bodyHtml + '</div></div>').join("")
+      : '<p style="color:var(--ink-dim)">Nothing saved yet. Tap &#9734; on a card.</p>';
+    document.getElementById("ov-saved").classList.add("open");
+  } else {
+    const opens = LS.get("opens", {});
+    const days = Object.keys(opens);
+    const last30cut = new Date(Date.now() - 30 * 864e5).toISOString().slice(0, 10);
+    const days30 = days.filter(d => d >= last30cut);
+    const totalOpens = Object.values(opens).reduce((a, b) => a + b, 0);
+    // streak
+    let streak = 0; const d = new Date();
+    for (;;) {
+      const k = d.toISOString().slice(0, 10);
+      if (opens[k]) { streak++; d.setDate(d.getDate() - 1); } else break;
+    }
+    document.getElementById("stats-list").innerHTML =
+      '<div class="stat-row"><span>Days opened (last 30)</span><span class="v">' + days30.length + ' / 30</span></div>' +
+      '<div class="stat-row"><span>Current streak</span><span class="v">' + streak + (streak === 1 ? " day" : " days") + '</span></div>' +
+      '<div class="stat-row"><span>Total opens</span><span class="v">' + totalOpens + '</span></div>' +
+      '<div class="stat-row"><span>Cards seen</span><span class="v">' + seen.size + ' / ' + cards.length + '</span></div>' +
+      '<div class="stat-row"><span>Cards saved</span><span class="v">' + saved.size + '</span></div>';
+    document.getElementById("ov-stats").classList.add("open");
+  }
+}
+function closeOverlays() { document.querySelectorAll(".overlay").forEach(o => o.classList.remove("open")); }
+
+// ---- load feed ----
+fetch("feed.json?t=" + Date.now())
+  .then(r => r.json())
+  .then(data => {
+    cards = data.cards.map(c => ({
+      ...c,
+      // allow **bold** in body text
+      bodyHtml: esc(c.body).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    }));
+    render();
+  })
+  .catch(() => { document.getElementById("empty").textContent = "Couldn't load the feed. Check connection."; });
+
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
+</script>
+</body>
+</html>
