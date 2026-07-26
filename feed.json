@@ -19,7 +19,8 @@
       "body": "A robust edge is a plateau in parameter space, not a spike. If your 20-day lookback prints money but 15 and 25 both lose, you did not find a signal, you found the one setting that best fit the noise in your sample. **Perturb every parameter and demand the neighborhood survive**: nearby lookbacks, nearby entry thresholds, nearby delta targets should all stay profitable, just less so. Real market effects are smooth; overfit ones are brittle. This one check kills more false discoveries than any statistical correction, and it costs ten minutes.",
       "depth": "The same logic extends to time and instruments: shift the start date a month, rerun on a correlated underlying. A genuine effect degrades gracefully; a fitted one collapses. The formal version is a parameter-sensitivity heatmap, and one glance tells you plateau or spike.",
       "id": "burrow-0042",
-      "date": "2026-07-26"
+      "date": "2026-07-26",
+      "svg": "<svg viewBox='0 0 400 240' xmlns='http://www.w3.org/2000/svg'><line x1='40' y1='200' x2='368' y2='200' stroke='#35302a' stroke-width='2'/><line x1='40' y1='200' x2='40' y2='30' stroke='#35302a' stroke-width='2'/><text x='46' y='42' fill='#a89f8d' font-family='sans-serif' font-size='13'>backtest P&amp;L</text><text x='270' y='220' fill='#a89f8d' font-family='sans-serif' font-size='13'>parameter value</text><path d='M40,190 C100,125 160,112 210,114 C270,118 320,150 362,185' fill='none' stroke='#d9a441' stroke-width='3'/><path d='M40,186 C90,184 125,182 138,178 L150,62 L162,178 C220,183 300,185 362,187' fill='none' stroke='#7fb4a2' stroke-width='2'/><text x='150' y='95' fill='#d9a441' font-family='sans-serif' font-size='14'>robust: a plateau</text><text x='168' y='60' fill='#7fb4a2' font-family='sans-serif' font-size='14'>overfit: one lucky setting</text></svg>"
     },
     {
       "topic": "ai-media-law",
