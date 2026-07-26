@@ -1,5 +1,5 @@
 // Burrow service worker — cache-first shell, network-first feed.
-const SHELL = "burrow-shell-v1";
+const SHELL = "burrow-shell-v2";
 const SHELL_FILES = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "icon-180.png"];
 
 self.addEventListener("install", e => {

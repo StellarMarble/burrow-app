@@ -55,6 +55,9 @@
     padding: .28em .9em;
     margin-bottom: 1.1rem;
     align-self: flex-start;
+    background: none;
+    font-family: var(--sans);
+    cursor: pointer;
   }
   .chip.callback { color: #7fb4a2; border-color: #43645a; }
 
@@ -74,6 +77,19 @@
     max-width: 34em;
   }
   .body strong { color: var(--accent); font-weight: 600; }
+
+  .fig { margin: .2rem 0 1.1rem; max-width: 34em; }
+  .fig svg { width: 100%; height: auto; max-height: 32vh; display: block; }
+
+  /* topic picker */
+  .topic-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: .85rem 0; border-bottom: 1px solid var(--rule);
+    font-size: .95rem; cursor: pointer;
+  }
+  .topic-row .cnt { color: var(--ink-dim); font-size: .8rem; }
+  .topic-row.on { color: var(--accent); }
+  .topic-row.on::after { content: "\2713"; color: var(--accent); margin-left: .6rem; }
 
   .depth-toggle {
     margin-top: 1.2rem;
@@ -179,6 +195,7 @@
 <div id="topbar">
   <a id="logo" href="#" onclick="scrollTop_();return false;">Burrow</a>
   <span id="newbadge"></span>
+  <button class="navbtn" onclick="openOverlay('topics')">Topics</button>
   <button class="navbtn" onclick="openOverlay('saved')">Saved</button>
   <button class="navbtn" onclick="openOverlay('stats')">Stats</button>
 </div>
@@ -189,6 +206,12 @@
   <button class="close" onclick="closeOverlays()">Done</button>
   <h2>Saved cards</h2>
   <div id="saved-list"></div>
+</div>
+
+<div class="overlay" id="ov-topics">
+  <button class="close" onclick="closeOverlays()">Done</button>
+  <h2>Topics</h2>
+  <div id="topics-list"></div>
 </div>
 
 <div class="overlay" id="ov-stats">
@@ -208,6 +231,19 @@ const LS = {
 let cards = [];
 let seen  = new Set(LS.get("seen", []));
 let saved = new Set(LS.get("saved", []));
+let topicFilter = new Set(LS.get("topicFilter", []));   // empty = all topics
+
+function visibleCards() {
+  return topicFilter.size ? cards.filter(c => topicFilter.has(c.topic)) : cards;
+}
+
+function safeSvg(svg) {
+  if (typeof svg !== "string") return "";
+  const s = svg.trim();
+  if (!/^<svg[\s>]/i.test(s) || !/<\/svg>\s*$/i.test(s)) return "";
+  if (/<script|<foreignobject|javascript:|\son\w+\s*=|href\s*=/i.test(s)) return "";
+  return s;
+}
 
 // ---- open tracking (kill-gate data) ----
 (function trackOpen() {
@@ -239,16 +275,19 @@ function goDeeper(id) {
 function render() {
   const feed = document.getElementById("feed");
   feed.innerHTML = "";
-  if (!cards.length) { feed.innerHTML = '<div id="empty">No cards yet. The generator runs daily.</div>'; return; }
+  const list = visibleCards();
+  if (!list.length) { feed.innerHTML = '<div id="empty">' + (cards.length ? "No cards in the selected topics." : "No cards yet. The generator runs daily.") + '</div>'; updateBadge(); return; }
 
-  cards.forEach(c => {
+  list.forEach(c => {
     const el = document.createElement("section");
     el.className = "card";
     el.dataset.id = c.id;
     const isCb = c.type === "callback";
+    const fig = safeSvg(c.svg);
     el.innerHTML =
-      '<span class="chip' + (isCb ? " callback" : "") + '">' + esc(isCb ? "remember this?" : c.topicLabel) + '</span>' +
+      '<button class="chip' + (isCb ? " callback" : "") + '" onclick="tapChip(\'' + esc(c.topic) + '\')">' + esc(isCb ? "remember this?" : c.topicLabel) + '</button>' +
       '<h1 class="hook">' + esc(c.hook) + '</h1>' +
+      (fig ? '<div class="fig">' + fig + '</div>' : '') +
       '<p class="body">' + c.bodyHtml + '</p>' +
       (c.depth ? '<button class="depth-toggle" onclick="this.nextElementSibling.classList.toggle(\'open\')">go a little deeper</button><div class="depth">' + esc(c.depth) + '</div>' : '') +
       '<div class="actions">' +
@@ -273,8 +312,51 @@ function render() {
 }
 
 function updateBadge() {
-  const n = cards.filter(c => !seen.has(c.id)).length;
-  document.getElementById("newbadge").textContent = n ? n + " new" : "";
+  const n = visibleCards().filter(c => !seen.has(c.id)).length;
+  let label = "";
+  if (topicFilter.size === 1) label = cards.find(c => topicFilter.has(c.topic))?.topicLabel || "";
+  else if (topicFilter.size > 1) label = topicFilter.size + " topics";
+  document.getElementById("newbadge").textContent =
+    (n ? n + " new" : "") + (label ? (n ? " · " : "") + label : "");
+}
+
+function tapChip(topic) {
+  // tap a card's topic chip: focus that topic; tap again to clear
+  if (topicFilter.size === 1 && topicFilter.has(topic)) topicFilter.clear();
+  else topicFilter = new Set([topic]);
+  LS.set("topicFilter", [...topicFilter]);
+  render();
+  scrollTop_();
+}
+
+function toggleTopic(topic) {
+  if (topicFilter.has(topic)) topicFilter.delete(topic); else topicFilter.add(topic);
+  LS.set("topicFilter", [...topicFilter]);
+  buildTopicsList();
+  render();
+}
+function clearTopics() {
+  topicFilter.clear();
+  LS.set("topicFilter", []);
+  buildTopicsList();
+  render();
+}
+
+function buildTopicsList() {
+  const byTopic = {};
+  cards.forEach(c => {
+    if (!byTopic[c.topic]) byTopic[c.topic] = { label: c.topicLabel, count: 0, fresh: 0 };
+    byTopic[c.topic].count++;
+    if (!seen.has(c.id)) byTopic[c.topic].fresh++;
+  });
+  const rows = Object.entries(byTopic)
+    .sort((a, b) => a[1].label.localeCompare(b[1].label))
+    .map(([key, t]) =>
+      '<div class="topic-row ' + (topicFilter.has(key) ? "on" : "") + '" onclick="toggleTopic(\'' + esc(key) + '\')">' +
+      '<span>' + esc(t.label) + '</span><span class="cnt">' + (t.fresh ? t.fresh + " new · " : "") + t.count + '</span></div>');
+  document.getElementById("topics-list").innerHTML =
+    '<div class="topic-row ' + (topicFilter.size ? "" : "on") + '" onclick="clearTopics()"><span>All topics</span><span class="cnt">' + cards.length + '</span></div>' +
+    rows.join("");
 }
 
 function toggleSave(id, btn) {
@@ -287,7 +369,10 @@ function scrollTop_() { document.getElementById("feed").scrollTo({ top: 0, behav
 
 function openOverlay(which) {
   closeOverlays();
-  if (which === "saved") {
+  if (which === "topics") {
+    buildTopicsList();
+    document.getElementById("ov-topics").classList.add("open");
+  } else if (which === "saved") {
     const list = document.getElementById("saved-list");
     const items = cards.filter(c => saved.has(c.id));
     list.innerHTML = items.length
