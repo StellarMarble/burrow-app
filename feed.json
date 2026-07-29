@@ -1,6 +1,57 @@
 {
-  "updated": "2026-07-27",
+  "updated": "2026-07-29",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A four-option box is just a loan in disguise.",
+      "svg": "<svg viewBox=\"0 0 400 240\"><line x1=\"55\" y1=\"195\" x2=\"375\" y2=\"195\" stroke=\"#35302a\" stroke-width=\"1.5\"/><line x1=\"55\" y1=\"35\" x2=\"55\" y2=\"195\" stroke=\"#35302a\" stroke-width=\"1.5\"/><line x1=\"55\" y1=\"95\" x2=\"360\" y2=\"95\" stroke=\"#d9a441\" stroke-width=\"3\"/><text x=\"72\" y=\"85\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"15\">payoff fixed = K2 - K1</text><text x=\"180\" y=\"218\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">underlying at expiry</text><text x=\"58\" y=\"28\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">payoff</text></svg>",
+      "body": "Buy a call and sell a put at one strike, reverse it at a higher strike, and the payoff at expiry is fixed at the strike gap no matter where the index lands. That is a zero-coupon bond built from options. Pay less than the gap today, collect the full gap at expiry, and you just lent money at an implied rate. Sell the box and you borrowed. On European, cash-settled SPX, with no early-assignment risk, traders use short boxes to **finance at rates that undercut broker margin**. Options as a treasury desk, not a directional bet.",
+      "depth": "Caveat: this only works clean with European-style, cash-settled index options like SPX. Run a box on American single-stock options and early assignment on the short legs can turn your riskless bond into a margin call. In 2019 a Robinhood trader famously blew up selling boxes he thought were free money. The rate you get is the market's, not magic, and it moves with funding stress.",
+      "id": "burrow-0051",
+      "date": "2026-07-29"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "You can copyright AI-assisted work, but you must disclaim the machine.",
+      "body": "The US Copyright Office will register a work made with generative AI, but only the human-authored parts are protected, and the applicant has to disclose and disclaim the AI-generated material. Prompting alone does not make you the author of the output, because you do not control the expressive result closely enough. A 2025 DC Circuit decision reaffirmed that a work with **no human author cannot be registered at all**. For anyone shipping AI-in-the-loop content, the registration is only as strong as the human contribution you can actually point to.",
+      "depth": "The practical tell: selection, arrangement, and modification of AI outputs can carry a thin copyright even when the individual elements cannot, the same logic that protects a compilation. So the deal question shifts from 'did AI touch this' to 'what did the human add that a court could point to.' Draft the credit and warranty around that line, not around the tool.",
+      "id": "burrow-0052",
+      "date": "2026-07-29"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "practice",
+      "hook": "Sharpe ratio flatters anything that blows up rarely.",
+      "body": "Sharpe divides return by standard deviation, and standard deviation treats a steady drip of small gains as low-risk no matter how ugly the left tail is. Short-premium and carry strategies exploit exactly this: they post smooth, high-Sharpe track records right up until the one month that eats years of profit. The number is **blind to skew and kurtosis**, the two moments where option-selling risk actually lives. A backtest that ranks candidate strategies by Sharpe will systematically promote the ones most likely to ruin you.",
+      "depth": "Fixes exist: sort by Sortino, which counts only downside deviation, or stress the worst rolling drawdown, or run the strategy through a real tail like 2008 or 2020 instead of trusting the summary stat. Better still, ask what single event would be fatal and whether your sample even contains one. A clean Sharpe on a sample with no crash is a story about luck.",
+      "id": "burrow-0053",
+      "date": "2026-07-29"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Why did the flight instructors conclude that punishment beats praise?",
+      "body": "Think back to Kahneman's Israeli Air Force story. The instructors saw praise followed by worse flights and criticism followed by better ones, and drew the obvious causal lesson. The catch they missed: an exceptional maneuver is partly luck, so the next attempt **regresses toward the mean** regardless of any feedback. Praise did not cause the decline; criticism did not cause the improvement. The pattern was pure noise wearing the mask of causation. Any process that only intervenes after extremes will quietly teach itself the same false lesson.",
+      "depth": "This is everywhere you trade: your best week is usually followed by a worse one, tempting you to credit or blame a tweak you just made. Same with a struggling analyst who 'turns it around' right after a talking-to. Before you attribute a change to your intervention, ask whether the starting point was simply an outlier that had nowhere to go but back.",
+      "id": "burrow-0054",
+      "date": "2026-07-29"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "history",
+      "hook": "One trader lost $6.6 billion in natural gas in a week.",
+      "body": "In September 2006, Amaranth Advisors lost roughly $6.6 billion, most of it on one trader's concentrated bet on natural gas calendar spreads. Brian Hunter was not obviously wrong about the fundamentals; he was simply too big for the market he was in. The positions were so large that when the spread moved against them, there was no one to sell to at anything near the marked price. **Liquidity, not the thesis, is what killed them.** You can be completely right about direction and still be unable to exit at your own valuation.",
+      "depth": "The structural tell is mark-to-market versus mark-to-liquidation. A position marked at the last screen price can be worth far less the instant you try to unwind size into a thin market. The bigger you are relative to daily volume, the more your own exit becomes the risk. It is the same trap that later caught JPMorgan's London Whale in 2012.",
+      "id": "burrow-0055",
+      "date": "2026-07-29"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
