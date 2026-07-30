@@ -1,6 +1,57 @@
 {
-  "updated": "2026-07-29",
+  "updated": "2026-07-30",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Your short strangle's worst day is a vol spike, not a move.",
+      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"55\" y1=\"200\" x2=\"360\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"2\"/><rect x=\"95\" y=\"158\" width=\"70\" height=\"42\" fill=\"#7fb4a2\"/><rect x=\"240\" y=\"60\" width=\"70\" height=\"140\" fill=\"#d9a441\"/><text x=\"130\" y=\"220\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\" text-anchor=\"middle\">Move / delta</text><text x=\"275\" y=\"220\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\" text-anchor=\"middle\">Vol spike (vega)</text><text x=\"200\" y=\"34\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"15\" text-anchor=\"middle\">Same down day, loss by source</text></svg>",
+      "body": "Sell a strangle and you are short two things at once: gamma and vega. When the market gaps down, traders instinctively watch the delta loss. But implied volatility can spike 30% or more in the same session, and that repricing hits every strike you are short at once. On a still-out-of-the-money position, the **vega loss frequently dwarfs the directional loss**. Your strikes never got touched, and you are still deep in the red. The move is the excuse; the volatility repricing is the actual damage.",
+      "depth": "This is why hedging short vega beats hedging delta in a tail. A small long-gamma tail position, or a ratio that owns the wings, caps the vol-spike bleed. Volmageddon in February 2018 wiped out short-vol ETPs not because the S&P fell far, but because the VIX roughly doubled in a day and their short vega had nowhere to hide.",
+      "id": "burrow-0056",
+      "date": "2026-07-30"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "'In the style of' is not the copyright violation you think.",
+      "body": "Copyright protects specific expression, never style, method, or idea. Section 102(b) is explicit. So an image generated 'in the style of' a living illustrator does not infringe merely by resembling her aesthetic. Style is free to copy; that is why homage and pastiche have always been legal. **The real infringement question lives upstream**: whether protected works were copied into the training set, and whether that copying was fair use. Practitioners who argue the output looks like Ghibli are litigating the weak half of the case.",
+      "depth": "This is why the training-data suits, like Andersen v. Stability and the authors' cases, target ingestion, not output resemblance. Output-side claims usually need near-verbatim reproduction of a specific protected work, not a shared vibe. The move practitioners miss: attack the copies made to train, where the law is unsettled, not the style, where the law is settled against you.",
+      "id": "burrow-0057",
+      "date": "2026-07-30"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "The 'hot hand fallacy' was itself a statistical fallacy.",
+      "body": "For 30 years, 'the hot hand is a myth' was settled science, built on a 1985 study that found no streakiness in shooting. Then in 2018, two economists found the study's own method was biased. In any finite sequence, picking the shots that follow a streak of hits mechanically undersamples further hits. Correct the bias and **the hot hand reappears in the same data**. The lesson for traders: a debunking can be as overfit as the claim it debunked. Check the debunker's math too.",
+      "depth": "The bias is subtle. Flip a fair coin four times, look only at flips right after a heads, and the expected proportion of heads is below one-half, not equal to it. Miller and Sanjurjo formalized this in Econometrica. Gilovich's original finding was not fake, just measured through a lens that guaranteed the answer.",
+      "id": "burrow-0058",
+      "date": "2026-07-30"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "practice",
+      "hook": "Root-12 annualizing quietly assumes your returns are independent.",
+      "body": "The standard move is to compute a monthly Sharpe and multiply by the square root of 12. That shortcut is valid only if monthly returns are independent and identically distributed. They rarely are. Strategies holding illiquid or stale-marked positions show **positive autocorrelation that inflates the annualized Sharpe**. Andrew Lo showed the correct annualization factor depends on the return autocorrelation, and for smoothed series a headline Sharpe can fall well below its root-12 value once corrected.",
+      "depth": "The correction cuts both ways. Negatively autocorrelated returns, common in short-gamma or mean-reversion books, mean root-12 actually understates your true annualized Sharpe. Either way, the number you quote to allocators rests on an autocorrelation assumption nobody checks. Reference: Lo, 'The Statistics of Sharpe Ratios,' Financial Analysts Journal, 2002.",
+      "id": "burrow-0059",
+      "date": "2026-07-30"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "insight",
+      "hook": "You devalue any concession the moment your opponent offers it.",
+      "body": "Reactive devaluation is the reflex that makes a term look worse simply because the other side proposed it. In a classic study, people rated an identical arms-reduction plan as fair or lopsided depending only on whether it was attributed to their own leader or the rival's. The terms never changed, only the source. In a deal, this means **your best concession lands weakest when you announce it directly**. The fix: surface it as the counterparty's own idea, or route it through a neutral, so they own the win instead of smelling a trap.",
+      "depth": "This also explains why mediators extract agreements the parties could have reached alone. The mediator launders the concession, stripping the 'they-wanted-it-so-it-must-be-bad' signal. Practical version: ask questions that lead them to propose your preferred term, then accept it as if reluctantly. The concession they generate is worth more to them than the identical one you hand over.",
+      "id": "burrow-0060",
+      "date": "2026-07-30"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
