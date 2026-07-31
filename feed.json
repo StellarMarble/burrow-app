@@ -1,6 +1,57 @@
 {
-  "updated": "2026-07-30",
+  "updated": "2026-07-31",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Delta is the risk-neutral odds, not your true odds.",
+      "body": "Retail lore says an option's delta approximates its probability of finishing in the money. It does approximate a probability, but the risk-neutral one, which already bakes in the market's price of risk. For an out-of-the-money put, the real-world chance of expiring worthless sits **above the delta-implied number**, because the pricing measure loads extra weight onto down moves that the physical world does not deliver. That gap is why systematically selling the 16-delta put pays: you collect against roughly 84% risk-neutral odds while the true odds of keeping the premium run higher.",
+      "depth": "Two forces open the gap. The risk-neutral drift is the risk-free rate rather than the higher real equity drift, and put skew prices downside volatility richer than stocks tend to realize it. Both push the risk-neutral probability of a down finish above the physical one. Measure that gap and you are measuring the variance risk premium directly.",
+      "id": "burrow-0061",
+      "date": "2026-07-31"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "ADHD does not weaken willpower. It steepens the discount curve.",
+      "body": "Delay discounting is how much a reward loses value as it moves into the future, and in ADHD the curve is steeper: a payoff two weeks out is worth far less right now than it is to a neurotypical brain. This is not a motivation deficit, it is a valuation defect. The move follows straight from the mechanism: **stop relying on distant consequences and manufacture a near one**. A body-double session today, a stake you forfeit tonight if the draft is not started, a reward that lands within the hour. You are not disciplining the curve, you are refusing to bet against it.",
+      "depth": "The pattern generalizes: steeper discounting predicts choosing the small-now over the large-later, and it does not respond to being told the large-later is smarter. It responds to changing the schedule. Medication flattens the curve somewhat; environment design does the rest. Design the payoff to arrive before the discount can eat it.",
+      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"45\" y1=\"200\" x2=\"378\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1\"/><line x1=\"45\" y1=\"35\" x2=\"45\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1\"/><text x=\"210\" y=\"228\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">delay until reward</text><text x=\"34\" y=\"120\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\" transform=\"rotate(-90 34 120)\">value now</text><path d=\"M50 55 Q170 80 375 118\" fill=\"none\" stroke=\"#7fb4a2\" stroke-width=\"2.5\"/><path d=\"M50 55 Q120 130 375 182\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2.5\"/><line x1=\"235\" y1=\"97\" x2=\"235\" y2=\"165\" stroke=\"#a89f8d\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><text x=\"243\" y=\"135\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">the gap</text><text x=\"300\" y=\"108\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">typical</text><text x=\"300\" y=\"175\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">ADHD</text></svg>",
+      "id": "burrow-0062",
+      "date": "2026-07-31"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "A model of your judgment beats your judgment.",
+      "body": "Build a simple linear model from an expert's own past decisions, the cues she used and the weights implied by her calls, then let the model replace her going forward. It reliably outperforms the human it was cloned from. The reason is not that the model knows more; it knows strictly less. What it lacks is **noise: the expert's inconsistency across identical cases**, the mood, the fatigue, the last case still echoing. The human supplies the valid weights and then corrupts them with random variation. Strip the variation and you keep the signal. Goldberg showed this in the 1960s; Kahneman later made noise the whole subject.",
+      "depth": "The practical read for a trader or a lawyer: your edge is your model, not your in-the-moment override. When you overrule your own checklist, you are usually adding noise, not insight. Write the weights down once, then follow them, and reserve discretion for the genuinely novel case the model never saw.",
+      "id": "burrow-0063",
+      "date": "2026-07-31"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "The first AI case fair use lost was not generative.",
+      "body": "Amid the Anthropic and Meta training wins, the AI copyright case that actually rejected fair use gets overlooked: Thomson Reuters v. Ross Intelligence. In February 2025 Judge Bibas held that Ross's use of Westlaw headnotes to train a legal-research tool was **not fair use, largely on the fourth factor**: Ross built a market substitute for the very product it had copied from. The tell was that Ross's tool was not generative; it competed head-on with Westlaw. The generative cases turned on transformation and diffuse markets. This one had a clean substitute, and substitution is what kills a fair-use defense.",
+      "depth": "The lesson for reading the training-data fight: the doctrine is sorting cases by market substitution, not by whether the defendant used AI. A model that competes with its training source is exposed; one that produces something diffuse and different is safer. Ask what market the output lands in, not whether a machine learned from the input.",
+      "id": "burrow-0064",
+      "date": "2026-07-31"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Your 20-day lookback prints money. What ten-minute check comes first?",
+      "body": "Before you size anything on that result, ask what the neighboring parameters did. Give yourself a beat. The answer from before: **a real edge is a plateau, not a spike**. If 20 days wins but 15 and 25 both lose, you did not find a signal, you found the single setting that best fit your sample's noise. Perturb every parameter, the lookback, the entry threshold, the delta target, and demand the whole neighborhood stay profitable, just less so. Smooth degradation is the fingerprint of a real effect; a lonely peak surrounded by losers is overfitting wearing a good Sharpe.",
+      "depth": "Why it resurfaces: this is the cheapest overfitting check you own, and it catches what statistical corrections miss. Every time one parameter setting looks magic, the neighbor test is the ten-minute triage. If the plateau is not there, nothing downstream, no walk-forward, no cost model, will save the strategy.",
+      "id": "burrow-0065",
+      "date": "2026-07-31"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
