@@ -1,6 +1,57 @@
 {
-  "updated": "2026-07-31",
+  "updated": "2026-08-01",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Net-zero vega can still lose on a vol twist.",
+      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"50\" y1=\"200\" x2=\"370\" y2=\"200\" stroke=\"#35302a\"/><line x1=\"50\" y1=\"30\" x2=\"50\" y2=\"200\" stroke=\"#35302a\"/><polyline points=\"60,150 160,135 260,125 360,118\" fill=\"none\" stroke=\"#7fb4a2\" stroke-width=\"2\"/><polyline points=\"60,70 160,108 260,120 360,118\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2\"/><text x=\"70\" y=\"58\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">vol twist: front-end spike</text><text x=\"238\" y=\"145\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">calm term structure</text><text x=\"55\" y=\"216\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">short</text><text x=\"335\" y=\"216\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">long</text><text x=\"30\" y=\"40\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">IV</text></svg>",
+      "body": "Vega is not one number. It is a curve across expirations, and your book can sum to zero while being long front-month vol and short the back, or the reverse. When the **term structure twists** instead of shifting in parallel, that netted-out exposure comes alive. A short-dated spike with a calm back end hammers a position that read as vega-neutral on the risk screen. Bucket your vega by expiration, not into a single line, or the number is quietly lying to you.",
+      "depth": "This is why calendars and diagonals are term-structure trades, not directional ones. VIX futures usually sit in contango, and the front reacts hardest to shocks. A parallel-shift model of vol misprices every one of them. Any greek that assumes the whole surface moves together hides the risk that actually pays or bites.",
+      "id": "burrow-0066",
+      "date": "2026-08-01"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "California voids a digital-replica clause that is too vague.",
+      "body": "AB 2602, effective January 2025, added Labor Code section 927. It makes a contract provision permitting a **digital replica** of a performer unenforceable when two conditions both hold: the clause lacks a reasonably specific description of the intended uses, and the performer was not represented by a lawyer or a union bargaining for them. The blanket 'any and all uses, in perpetuity, throughout the universe' grant that boilerplate loves does not clear that bar. Specificity is now the price of enforceability, at least in California.",
+      "depth": "The statute targets the exact move studios reached for during the 2023 strikes: acquire broad replica rights cheap, in language the signer cannot parse. Read it alongside AB 1836, which requires estate consent for digital replicas of deceased performers. Two California statutes, one theme. The replica right no longer travels on vague paper.",
+      "id": "burrow-0067",
+      "date": "2026-08-01"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "Evidence moves you by its likelihood ratio, nothing else.",
+      "body": "Bayes says your posterior odds equal your prior odds times one quantity: the **likelihood ratio**, how much more probable the evidence is if the claim is true versus if it is false. A detail can be vivid, specific, and emotionally loaded and still carry a ratio near one, because it is equally likely under both stories. That evidence feels decisive and moves nothing. The right question is never 'does this fit my theory' but 'does this fit my theory better than the rival one.'",
+      "depth": "This is the engine under base-rate neglect. People swap the diagnostic question for a resemblance question: does the evidence look like the conclusion. Resemblance is not a likelihood ratio. A witness detail consistent with guilt but equally consistent with innocence is, formally, worthless, however it plays on the stand.",
+      "id": "burrow-0068",
+      "date": "2026-08-01"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "The fix has to sit where the behavior happens.",
+      "body": "Barkley's sharpest clinical claim: in ADHD, knowledge does not transfer to the moment of action. You can fully understand what to do and still not do it, because the bottleneck is **performance, not information**. So the intervention belongs at what he calls the point of performance, the exact place and time the behavior is needed. Not a reminder earlier that morning. The pill bottle on the coffee machine. The signed check clipped to the door. Move the cue to the moment, not upstream of it.",
+      "depth": "This is why insight-heavy approaches underperform here and environmental ones win. The deficit is executive, a gap between knowing and doing, so you engineer the physical world to close it. Externalize the rule into the spot where it fires. Willpower staged upstream is precisely the thing that keeps failing.",
+      "id": "burrow-0069",
+      "date": "2026-08-01"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "insight",
+      "hook": "A range offer can out-anchor a single number.",
+      "body": "Conventional advice says never give a range, because you will get pinned to the bad end. The research complicates that. Ames and Mason found that a **bolstering-range offer**, where the low end is the number you actually want, often beats a precise point offer set at that same number. The range signals reasonableness and room while the counterpart anchors on the whole span, not just its floor. The failure mode is the opposite construction: a range whose top is your target. That one does get you pinned low.",
+      "depth": "Mechanism: the range widens the counterpart's read of your resistance point and adds a politeness signal that dampens aggressive countering, without conceding your anchor. Direction is everything. Anchor from strength, and let the span do the softening for you.",
+      "id": "burrow-0070",
+      "date": "2026-08-01"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
