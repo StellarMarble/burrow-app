@@ -1,6 +1,56 @@
 {
-  "updated": "2026-08-01",
+  "updated": "2026-08-02",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Same strike, same implied vol for put and call.",
+      "body": "Retail traders eyeball an out-of-the-money put quoted richer than the equidistant call and conclude the put carries more implied volatility. It cannot. Put-call parity is a **model-free no-arbitrage identity**. Knowing the call's price at a strike fixes the put's price, given the forward. Back out implied vol from either and you get the same number, because the map from vol to price is monotonic. The skew you see is real, but it lives across strikes, not between the put and call at one strike. A gap there is a box-spread arbitrage, not an edge.",
+      "depth": "The forward matters. Dividends and carry shift the parity line, so a comparison that ignores them can manufacture a phantom vol gap. Screen a skew by strike and moneyness, never by call-versus-put, or you will chase differences that exist only in stale quotes from your data feed.",
+      "id": "burrow-0071",
+      "date": "2026-08-02"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Training on the books was fair use. Pirating them was not.",
+      "body": "In Bartz v. Anthropic, decided June 2025, Judge Alsup called training a model on copyrighted books **exceedingly transformative** and squarely fair use. Then he split the question the industry keeps blurring. How you obtained the corpus is a different legal question from what you did with it. Downloading and warehousing pirated copies to build a permanent library was not excused by the eventual fair use, and that piracy headed toward trial. The parties later settled, reported at roughly $1.5 billion. The lesson for anyone assembling training data is that a clean use does not launder a dirty acquisition.",
+      "depth": "This pairs with Kadrey v. Meta. Kadrey said the use theory plaintiffs need is market dilution. Bartz says even a winning use theory does not cure unlawful sourcing. Provenance and transformation are now two separate gates, and a defendant has to clear both. Acquire the data lawfully, then argue fair use, not the reverse.",
+      "id": "burrow-0072",
+      "date": "2026-08-02"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Bind the action to a cue, not to your intention.",
+      "body": "A goal held in mind, like 'call the client this afternoon,' leans on prospective memory and self-started action, the two things ADHD taxes hardest. An implementation intention rewires the job into **if situation X, then behavior Y**. For example, 'when I sit down after lunch, I open the client file first.' Gollwitzer's meta-analysis across dozens of studies found this if-then format produced a medium-to-large jump in follow-through. The mechanism is delegation. You pre-decide once, and the cue itself triggers the action, so starting no longer waits on you noticing the moment and choosing to begin.",
+      "depth": "The cue must be concrete and unavoidable, an event you will physically hit, not a clock time, because time blindness eats 'at 2pm.' Anchor it to something already in the flow: the first coffee, closing the laptop, the daycare drive. You are not adding willpower. You are moving the decision earlier, to a calmer moment when choosing is easy.",
+      "id": "burrow-0073",
+      "date": "2026-08-02"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "If no answer changes your move, do not run the test.",
+      "body": "Decision theory gives a clean rule for when to gather information. Its value is exactly zero if no possible result would change your choice. **The expected value of information is the payoff of your decision after learning, minus the payoff of your best decision now.** When those are equal, the data is entertainment, not input. Traders backtest one more variant that would not alter position size. Lawyers pull one more document that would not change the advice. The discipline is to name, in advance, which finding flips which action. If you cannot name one, the research is procrastination wearing a lab coat.",
+      "depth": "This is not a license to stay ignorant. A finding can change how strongly you act, not only whether you act, and that still counts. The trap is the study run for comfort, to feel diligent before doing what you were always going to do. Ask what would move, and by how much, first. A zero answer means zero value.",
+      "id": "burrow-0074",
+      "date": "2026-08-02"
+    },
+    {
+      "topic": "ai-orchestration",
+      "topicLabel": "AI Systems",
+      "type": "callback",
+      "hook": "Chain twenty 95%-reliable steps. What's your finish rate?",
+      "body": "A few days back: an agent that nails each step 95% of the time, run twenty steps deep. Before you read on, estimate the odds the whole chain finishes clean. Most people guess somewhere in the eighties. The real number is **about 36%**, because 0.95 to the twentieth power does not care how good your prompt is. That is why the payoff was not sharper per-step instructions but recoverable failure: validators that catch bad output, checkpoints that retry one step instead of the whole run, and shorter dependent paths. It is yield math, the logic a factory runs on.",
+      "depth": "Why it matters again: under pressure the instinct is always to sharpen the prompt, the one lever that barely moves a long chain. Reliability compounds multiplicatively, so the wins live in architecture, not wording. Every time a run dies at step fifteen, ask whether step fifteen should have been catchable, not whether it should have been perfect.",
+      "id": "burrow-0075",
+      "date": "2026-08-02"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
