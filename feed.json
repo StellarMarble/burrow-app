@@ -1,6 +1,56 @@
 {
-  "updated": "2026-08-02",
+  "updated": "2026-08-04",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A calendar spread bets on the term structure, not direction.",
+      "body": "Sell a near-dated option, buy a far-dated one at the same strike, and retail calls it a theta trade. Go deeper: you are long forward volatility. The position's value is set by the difference between near-term realized vol and the vol implied for the back month, and by how the whole term structure shifts and rolls. **A calendar can lose money even with spot pinned at the strike** if the back-month implied vol collapses. You are not renting time decay. You are taking a view on the shape of the vol curve.",
+      "depth": "This is why calendars behave best when back-month implied vol is stable or rising and near-term realized stays quiet. A vol-crush after an earnings event can gut a calendar you opened to harvest that same event. The greek that matters is not theta. It is vega spread across two expirations, plus the term-structure roll.",
+      "id": "burrow-0076",
+      "date": "2026-08-04"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Your ADHD med was engineered to have no kick.",
+      "body": "Lisdexamfetamine is a prodrug: the molecule you swallow is inert. It only becomes active dextroamphetamine after enzymes in your bloodstream slowly cleave off an attached amino acid. That rate-limiting step is the whole point. It smooths the onset, stretches the duration, and blunts the euphoric spike that drives abuse. The practical move follows from the mechanism: **do not judge the dose by a felt surge.** It was designed not to produce one. Titrate on how your afternoon and evening actually function, not on whether you noticed it kick in an hour after breakfast.",
+      "depth": "The amino acid is L-lysine, and the cleavage happens largely in red blood cells, which is why food and stomach pH barely move its absorption. Compare Strattera, a pure norepinephrine reuptake inhibitor with a different mechanism entirely. Same diagnosis, different pharmacology, and the wrong mental model of 'kick' makes you over-titrate chasing a feeling the drug is built to suppress.",
+      "id": "burrow-0077",
+      "date": "2026-08-04"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "A forecast is only as honest as its scoring rule.",
+      "body": "Say you are '70% confident' all year. Were you right? You cannot know without a scoring rule that punishes both timid and reckless probabilities. Proper scoring rules, like the Brier or logarithmic score, are built so your best strategy is to report your true belief; shading toward 0 or 100 to game them costs you on average. The score decomposes into two parts, **calibration and resolution.** Calibration asks whether your 70%s happen 70% of the time; resolution asks whether you bother to say 95% when you should. A single accuracy number hides which one you lack.",
+      "depth": "The distinction is why two forecasters with identical hit rates are not equal. A weather service that always says '30% rain' in a 30%-rain climate is perfectly calibrated and perfectly useless. Resolution is the skill of moving off the base rate when you actually know something. Keep a ledger and you can see, over time, which half you are missing.",
+      "id": "burrow-0078",
+      "date": "2026-08-04"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "A film grossed nearly $300M and 'lost money' on paper.",
+      "body": "Coming to America earned roughly $288 million worldwide in 1988. On the studio's books it never showed a net profit. Art Buchwald, who had sold Paramount the story idea for a share of net profits, sued and won: in 1990 a California judge ruled the contract's net-profit definition **unconscionable.** The mechanism is arithmetic, not fraud. Gross participants take their cut off the top, then a distribution fee, then interest charged on the negative cost, then studio overhead figured as a percentage of costs that already include overhead. 'Net profit' is engineered to approach zero.",
+      "depth": "The lesson generalizes past Hollywood: whenever the other side controls the definition of the number you are paid on, the number is theirs to shape. Gross players, the stars and directors with leverage, get paid off a defined, hard-to-manipulate figure. Everyone paid on 'net' is paid on a formula. Structure your deal on gross, adjusted gross, or a fixed number, never on someone else's net.",
+      "id": "burrow-0079",
+      "date": "2026-08-04"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Which ratio makes a time bomb look like a bond?",
+      "body": "Think back to the metric that rewards a smooth track record no matter how ugly the tail is. Give yourself a beat. It is the **Sharpe ratio.** It divides return by standard deviation, and standard deviation cannot see skew or kurtosis, the two moments where option-selling risk actually lives. So a strategy that drips small gains and rarely detonates posts a beautiful Sharpe right up until the month that erases years. Rank candidate strategies by Sharpe and you systematically promote the ones most able to ruin you.",
+      "depth": "You saw this a week ago and it still governs how you screen. The fix is not to abandon Sharpe but to pair it with a tail metric: Sortino, max drawdown, or the ratio of worst month to average month. Any screen that ranks on a single volatility-based number will keep handing you the short-premium strategies that look best precisely because their disaster has not printed yet.",
+      "id": "burrow-0080",
+      "date": "2026-08-04"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
