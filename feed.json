@@ -1,6 +1,57 @@
 {
-  "updated": "2026-08-04",
+  "updated": "2026-08-05",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "At implied vol, your theta exactly pays for your gamma.",
+      "body": "Sell a delta-hedged option and two forces fight. Theta pays you daily for time decay. Gamma bleeds you every time the underlying moves, because re-hedging locks in losses at the highs and lows. Priced at the option's implied vol, those two are engineered to cancel in expectation: the market sets theta to exactly compensate the gamma you will pay if the stock realizes its implied vol. So a hedged short option carries **zero expected edge at implied vol**. Your entire profit is the gap between implied and what actually gets realized. You are not short options. You are short realized variance.",
+      "depth": "This is why selling 'expensive' options is not automatically edge. Expensive means high implied vol; if realized comes in just as high, theta and gamma wash and you netted transaction costs against yourself. The variance risk premium, implied minus realized running a few vol points on average, is the only durable reason the short side pays.",
+      "id": "burrow-0081",
+      "date": "2026-08-05"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Turn time into a shrinking wedge you can see.",
+      "body": "ADHD blunts the internal sense of time passing, what Barkley calls **time blindness**: the future does not feel like it is approaching, so urgency stays flat until a deadline is nearly on top of you. A digital clock does not fix this. It shows a number, not a rate. An analog countdown timer that drains a colored wedge converts the invisible interval into a physical quantity that visibly disappears. You are not motivating yourself harder. You are giving a time-blind brain an external sense organ for duration.",
+      "depth": "The move generalizes: any deadline you cannot feel, make continuous and visible. A progress bar, a burning candle, a timer sitting on the desk. The point is not the countdown itself but converting a discounted future event into present sensory input, which is the one channel a time-blind system reliably registers.",
+      "id": "burrow-0082",
+      "date": "2026-08-05"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Tennessee protects your voice, and targets the cloning tool itself.",
+      "body": "Most right-of-publicity statutes grew up around image and name. Tennessee's ELVIS Act, effective July 1, 2024, was the first US law to add **voice as its own protected right** and, more importantly, to reach upstream. It creates liability not just for whoever publishes an unauthorized vocal clone but for distributing any tool or service whose primary function is producing one. That is the frontier move practitioners keep missing: the exposure attaches to the model and platform makers, not only the end user who hit generate.",
+      "depth": "Compare California's AB 1836 and AB 2602, which regulate the use of a digital replica of a performer; Tennessee instead went after the supply chain. For anyone building or licensing voice AI, the diligence question is no longer only 'did we get consent for this voice' but 'could our product be characterized as a tool whose main purpose is unauthorized replication.'",
+      "id": "burrow-0083",
+      "date": "2026-08-05"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "Positive expected value can still ruin almost every player.",
+      "body": "Offer a bet that adds 50% to your stake on heads and cuts it 40% on tails, fifty-fifty. The arithmetic mean is +5% per flip, so a room full of gamblers, taken together, gets richer. But you are not the room. You are one person compounding one sequence, and the **time-average growth rate is negative**: heads then tails multiplies your money by 1.5 times 0.6, which is 0.9. Repeat and almost every individual path decays toward zero. The mean describes parallel worlds. You live one. This gap is non-ergodicity, and it is why bet sizing, not edge, decides survival.",
+      "depth": "The ensemble average and the time average agree for additive processes and diverge for multiplicative ones, which is nearly everything involving wealth. Kelly sizing is the operational fix: it maximizes the time-average growth rate, not the expected value, which is exactly why a positive-EV bet can still be too big to survive.",
+      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"45\" y1=\"205\" x2=\"378\" y2=\"205\" stroke=\"#35302a\" stroke-width=\"1.5\"/><line x1=\"45\" y1=\"22\" x2=\"45\" y2=\"205\" stroke=\"#35302a\" stroke-width=\"1.5\"/><polyline points=\"45,196 378,52\" fill=\"none\" stroke=\"#7fb4a2\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/><polyline points=\"45,196 100,150 150,124 215,150 300,184 378,199\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2.5\"/><text x=\"232\" y=\"56\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">ensemble mean</text><text x=\"228\" y=\"176\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">your one path</text><text x=\"50\" y=\"18\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">wealth</text><text x=\"345\" y=\"223\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">flips</text></svg>",
+      "id": "burrow-0084",
+      "date": "2026-08-05"
+    },
+    {
+      "topic": "brain-science",
+      "topicLabel": "Brain & Focus",
+      "type": "insight",
+      "hook": "Working memory holds about four items, not the famous seven.",
+      "body": "Miller's 1956 'magical number seven plus or minus two' became the most-cited number in psychology and is mostly wrong for raw capacity. When later researchers, notably Nelson Cowan, blocked the tricks people use to inflate the count, rehearsal and chunking, the real limit of pure working memory landed closer to **four chunks**. The practical consequence is not trivia. Any instruction, checklist, or interface that expects someone to juggle more than about four novel elements at once is exceeding the hardware. Design past four by chunking, or by putting the rest on paper.",
+      "depth": "Chunking is how experts fake a bigger buffer: a grandmaster sees one meaningful pattern where a novice sees six pieces, spending one slot instead of six. The capacity did not grow, the units did. This is also why externalizing, writing the other items down, is not a crutch but the correct response to a fixed limit.",
+      "id": "burrow-0085",
+      "date": "2026-08-05"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
