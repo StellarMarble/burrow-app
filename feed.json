@@ -1,6 +1,57 @@
 {
-  "updated": "2026-08-05",
+  "updated": "2026-08-06",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Half Kelly keeps three-quarters of the growth, a quarter of the variance.",
+      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"200\" x2=\"372\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1\"/><line x1=\"40\" y1=\"36\" x2=\"40\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1\"/><polyline points=\"40,200 80,130 120,80 160,50 200,40 240,50 280,80 320,130 360,200\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2\"/><line x1=\"120\" y1=\"80\" x2=\"120\" y2=\"200\" stroke=\"#7fb4a2\" stroke-width=\"1\" stroke-dasharray=\"4 3\"/><line x1=\"200\" y1=\"40\" x2=\"200\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1\" stroke-dasharray=\"4 3\"/><circle cx=\"120\" cy=\"80\" r=\"4\" fill=\"#7fb4a2\"/><circle cx=\"200\" cy=\"40\" r=\"4\" fill=\"#d9a441\"/><text x=\"200\" y=\"30\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">full Kelly</text><text x=\"126\" y=\"74\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">half Kelly = 3/4 growth</text><text x=\"120\" y=\"216\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">0.5x</text><text x=\"200\" y=\"216\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">1x</text><text x=\"360\" y=\"216\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">2x</text><text x=\"22\" y=\"118\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" transform=\"rotate(-90 22 118)\" text-anchor=\"middle\">growth rate</text></svg>",
+      "body": "The growth-rate curve as a function of bet fraction is a dome, peaking at full Kelly and falling back to zero at twice Kelly. Because it is flat near the top and the penalty is quadratic, betting half of Kelly still captures **three-quarters of the maximum growth rate**, while variance, which scales with fraction squared, drops to a quarter. Overbetting is punished asymmetrically: past the peak you add risk and lose growth at the same time. Kelly assumes you know your edge exactly, and you never do, so fractional Kelly is the honest default.",
+      "depth": "The dome is g(f) roughly proportional to f times edge minus f squared times variance over two. Maximize it and you get the Kelly fraction; plug in half of it and the algebra returns exactly three-quarters. Near the optimum, undershooting is cheap and overshooting is not.",
+      "id": "burrow-0086",
+      "date": "2026-08-06"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Stop while the next step is still obvious.",
+      "body": "In ADHD the expensive moment is not the work, it is the restart. Re-entering a paused task means paying the same activation threshold that made starting hard the first time, and a cold task offers no foothold. So do not run each session until you are empty and stuck. Stop at a point where the next move is trivial and already known: a half-finished sentence, the test written but not yet run. You are buying down tomorrow's **activation energy** by leaving a foothold today. Hemingway did this on purpose, ending while it was still going well so beginning again was easy.",
+      "depth": "The mechanism is task initiation, the self-directed action ADHD taxes most heavily. A warm task with an obvious next step barely requires initiation. A cold one requires all of it. Move the friction to the moment you have the most momentum, not the moment you have the least.",
+      "id": "burrow-0087",
+      "date": "2026-08-06"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Consent to build the replica is not consent to use it.",
+      "body": "SAG-AFTRA's 2023 film and television contract, ratified after the strike, treats a digital replica as two separate gates, not one. A performer must give informed consent to create the replica, accompanied by a reasonably specific description of how it will be used, and that description is the leash. Deploying the replica in new material beyond that description requires **separate consent and separate compensation**. A blanket grant, the perpetual any-and-all-uses language boilerplate loves, does not clear the bar. The practitioner error is treating consent-to-create as a license to reuse. It is not.",
+      "depth": "This rhymes with California's AB 2602: specificity is doing the enforcement work in both regimes. A clause that cannot say what the replica is for is a clause a court or a union can unwind. Vague scope, once the cheap default, is now the exposure.",
+      "id": "burrow-0088",
+      "date": "2026-08-06"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "insight",
+      "hook": "The short leg that makes the backtest is unborrowable.",
+      "body": "Long-short backtests usually assume you can short any name at zero cost. In reality the shorts that generate the alpha, heavily shorted small caps, distressed names, crowded meme stocks, are exactly the ones that are **hard or impossible to borrow**. Borrow fees on those can run double digits annualized, and sometimes there are no shares to locate at any price. The paper edge concentrates in the leg you cannot actually harvest. Strip the unborrowable names and rerun, and a strategy that looked like free money often flattens into the cost of the borrow.",
+      "depth": "This is selection bias hiding inside the cost model. The market charges the most to short exactly what everyone wants to short, and that fee is the market pricing away your anomaly. A backtest that fills shorts for free is quietly assuming the crowd left money on the table.",
+      "id": "burrow-0089",
+      "date": "2026-08-06"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Clone an expert's own past calls. Why does the copy win?",
+      "body": "You built a plain linear model from an expert's own decisions, the same cues, the weights her calls imply, then let it replace her going forward. It reliably beats her. Take a beat before the reason. It is not that the model knows more. It knows strictly less. What it drops is **noise**: her inconsistency across identical cases, the mood and fatigue and last-case echo riding on top of an otherwise valid rule. She supplies the weights, then corrupts them with random variation. Strip the variation, keep the signal. Goldberg showed this in the 1960s; Kahneman later made noise the whole subject.",
+      "depth": "Why it matters again: your own trade checklist and your own redline standards are the expert. Written once and followed mechanically, they beat the discretionary you who overrides them on a Tuesday. Most overrides are not insight. They are noise wearing the costume of judgment.",
+      "id": "burrow-0090",
+      "date": "2026-08-06"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
