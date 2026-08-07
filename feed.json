@@ -1,6 +1,57 @@
 {
-  "updated": "2026-08-06",
+  "updated": "2026-08-07",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A variance swap is a whole strip of options, not one.",
+      "svg": "<svg viewBox=\"0 0 400 240\"><line x1=\"55\" y1=\"30\" x2=\"55\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1.5\"/><line x1=\"55\" y1=\"200\" x2=\"370\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1.5\"/><path d=\"M65 48 C 130 150, 200 182, 365 193\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2.5\"/><text x=\"60\" y=\"24\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">weight per strike</text><text x=\"250\" y=\"222\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">strike K &#8594;</text><text x=\"92\" y=\"72\" fill=\"#7fb4a2\" font-family=\"sans-serif\" font-size=\"15\">&#8733; 1/K&#178;</text><text x=\"150\" y=\"118\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">low strikes carry the most weight</text></svg>",
+      "body": "A variance swap pays the gap between realized and strike variance, and its fair strike cannot come from any single at-the-money option. To hedge it, a dealer holds a **strip of options weighted by one over strike squared**, so far-out-of-the-money puts carry the most weight. That is why the fair strike sits above at-the-money implied vol: the skew priced into cheap downside puts gets loaded heavily. The VIX is built exactly this way, which is why it is a variance measure and not an option price.",
+      "depth": "The 1/K-squared weighting drops straight out of the replication of a log contract: to match that payoff, each strike's weight is inversely proportional to its square. Practically, your downside wings, not the body, set the number. Misjudge deep-put pricing and your whole variance mark is wrong.",
+      "id": "burrow-0091",
+      "date": "2026-08-07"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "A convincing soundalike can infringe even if it isn't your voice.",
+      "body": "Right of publicity reaches imitation, not just recording. In Midler v. Ford, a studio hired an impersonator after Bette Midler declined, and the Ninth Circuit held that deliberately evoking a distinctive voice to sell a product is actionable. Tom Waits later won the same argument, with damages. The 2024 rhyme was OpenAI's 'Sky' voice, which drew Scarlett Johansson's objection and was pulled, though the company said it hired a different actor. For AI voice work the rule is old: **sounding like someone can be enough**, whoever's cords made the sound.",
+      "depth": "Midler and Waits are Ninth Circuit, so they bind in California, where most of this work lands. The doctrine turns on a voice being distinctive and the imitation being intentional. A generic voice is not protected; a signature one is, and a model trained to evoke it inherits that exposure.",
+      "id": "burrow-0092",
+      "date": "2026-08-07"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Every 'quick email check' is a costly reload, not a break.",
+      "body": "Switching tasks forces your brain to dump the current mental state and rebuild the next one. For an ADHD brain the penalty lands harder, because reloading the dropped context leans on **working memory, the exact system that runs short**. So a thirty-second glance at email is not a rest; it is a demolition of the state you spent minutes assembling. The move is structural: batch like tasks, and treat 'I'll just quickly check' as an expensive switch to refuse, not a harmless pause. Guard one block, finish one thing.",
+      "depth": "The cost is not the seconds spent away; it is the minutes to rebuild afterward. Put a physical barrier on the cheap switches: close the tab, phone in another room, notifications off for the block. You are not fighting laziness, you are lowering the number of reloads per hour.",
+      "id": "burrow-0093",
+      "date": "2026-08-07"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "One actress's lawsuit capped every Hollywood contract at seven years.",
+      "body": "Studios once held stars on seven-year deals, then added the length of every suspension: refuse a role and the clock paused, so seven years could stretch past a decade. Olivia de Havilland sued Warner Bros. and, in 1944, California's courts read Labor Code section 2855 literally. Seven calendar years means seven calendar years, not seven years of actual work. Overnight the studios lost their power to hold talent indefinitely. The 'De Havilland Law' still caps personal service contracts today, which is why **a single suit reset the balance of power** for eighty years.",
+      "depth": "Section 2855 is still litigated; recording artists have invoked it against long album commitments. The mechanism is durable because it is a bright-line statute, not a balancing test. Bright lines are hard to erode, which is exactly why studios could not suspend their way around it once the court fixed the meaning of a year.",
+      "id": "burrow-0094",
+      "date": "2026-08-07"
+    },
+    {
+      "topic": "story-craft",
+      "topicLabel": "Story Craft",
+      "type": "practice",
+      "hook": "If your beats connect with 'and then,' the story is dead.",
+      "body": "Trey Parker and Matt Stone teach one editing test: read your outline and see whether each beat links to the next with 'and then' or with **'but' or 'therefore.'** 'And then' is a list, one thing after another, no momentum. 'But' introduces a reversal; 'therefore' introduces a consequence. Both create causation, and causation is what makes an audience lean forward instead of drift. Run the test on any sequence of scenes: if you can only say 'and then,' the beats are merely adjacent, not connected, and the engine is off.",
+      "depth": "The rule scales down to the paragraph and up to the act. It also diagnoses the fix, not just the flaw: a dead 'and then' usually means a missing decision or reaction that would have turned it into a 'therefore.' Add the causal link and the same events start to move.",
+      "id": "burrow-0095",
+      "date": "2026-08-07"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
