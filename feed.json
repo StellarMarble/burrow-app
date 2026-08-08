@@ -1,6 +1,57 @@
 {
-  "updated": "2026-08-07",
+  "updated": "2026-08-08",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Selling index options is mostly selling correlation.",
+      "body": "An index option's vol is built from two ingredients: component vols and the correlation binding them. Back out the correlation implied by index options versus single-name options and you find it **persistently trades above what correlation subsequently realizes**. That gap is why the index variance risk premium runs fatter than the average single-stock premium - the difference is a correlation risk premium. Dispersion desks harvest it directly: short index vol, long a basket of single-name vols, sized so aggregate vol exposure roughly cancels. What remains is a pure bet that stocks move together less than the market fears. Sell an index straddle and that is mostly what you are collecting.",
+      "depth": "The premium exists because correlation spikes exactly when it hurts. In a crash, pairwise correlations lurch toward one, index vol explodes relative to the basket, and short-correlation books take their worst mark. Like the vol risk premium itself, it is insurance income: paid for bearing a left tail that arrives on everyone's worst day. CBOE's implied correlation indexes let you watch the spread directly.",
+      "id": "burrow-0096",
+      "date": "2026-08-08"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "In London, Stable Diffusion's weights are not a copy.",
+      "body": "In November 2025 the UK High Court delivered the first major ruling on whether an AI model is itself an infringing copy of its training data. Getty had dropped its core training and output claims mid-trial, leaving secondary infringement: did Stability import an 'infringing copy' of Getty's images into the UK in the form of Stable Diffusion? No, held the court, because the weights **store and reproduce none of the training images**. The model is not a copy, even though copies were unquestionably used to make it. Getty salvaged a narrow trademark win over generated watermarks. The model-as-derivative-of-its-corpus theory just took its first direct hit on the merits.",
+      "depth": "The ruling blesses less than headlines suggest. Getty abandoned the training and output claims for jurisdictional and evidentiary reasons, so UK law on training itself remains open, and Getty's parallel US case against Stability continues in Delaware. But the weights holding travels: if a model is not a copy of its corpus, distributing the model is not distributing the works.",
+      "id": "burrow-0097",
+      "date": "2026-08-08"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Two underwriters, same file, quotes 55 percent apart.",
+      "body": "When Kahneman's team asked an insurer's executives how far apart two underwriters would land pricing the same policy, the guesses centered near 10 percent. The audit's reported answer: a median gap of 55 percent. The mechanism is that **noise is invisible in the single case**. A biased shop at least leaves a pattern you can catch; noisy judgments each look reasonable alone, and the scatter only appears when two professionals judge the identical file, which almost no organization stages. In squared-error terms, noise degrades accuracy exactly as much as the same amount of bias. Any desk pricing deals or grading risk runs a lottery it has never audited.",
+      "depth": "System noise splits into level noise (some graders run harsh), pattern noise (idiosyncratic reactions to specific cases), and occasion noise (the same person on a different day). The cheap countermeasure is decision hygiene: collect independent judgments before anyone talks, then aggregate. Averaging independent reads cuts noise by the square root of the count - two readers buy roughly a 29 percent reduction.",
+      "svg": "<svg viewBox='0 0 400 240' xmlns='http://www.w3.org/2000/svg'><circle cx='110' cy='105' r='72' fill='none' stroke='#35302a' stroke-width='1.5'/><circle cx='110' cy='105' r='48' fill='none' stroke='#35302a' stroke-width='1.5'/><circle cx='110' cy='105' r='24' fill='none' stroke='#35302a' stroke-width='1.5'/><circle cx='110' cy='105' r='3' fill='#a89f8d'/><circle cx='290' cy='105' r='72' fill='none' stroke='#35302a' stroke-width='1.5'/><circle cx='290' cy='105' r='48' fill='none' stroke='#35302a' stroke-width='1.5'/><circle cx='290' cy='105' r='24' fill='none' stroke='#35302a' stroke-width='1.5'/><circle cx='290' cy='105' r='3' fill='#a89f8d'/><circle cx='140' cy='72' r='5' fill='#d9a441'/><circle cx='150' cy='78' r='5' fill='#d9a441'/><circle cx='143' cy='84' r='5' fill='#d9a441'/><circle cx='152' cy='68' r='5' fill='#d9a441'/><circle cx='136' cy='80' r='5' fill='#d9a441'/><circle cx='262' cy='85' r='5' fill='#7fb4a2'/><circle cx='318' cy='78' r='5' fill='#7fb4a2'/><circle cx='300' cy='140' r='5' fill='#7fb4a2'/><circle cx='258' cy='126' r='5' fill='#7fb4a2'/><circle cx='297' cy='96' r='5' fill='#7fb4a2'/><text x='110' y='205' text-anchor='middle' fill='#a89f8d' font-family='sans-serif' font-size='14'>Bias: wrong on average</text><text x='290' y='205' text-anchor='middle' fill='#a89f8d' font-family='sans-serif' font-size='14'>Noise: wrong in scatter</text><text x='200' y='228' text-anchor='middle' fill='#a89f8d' font-family='sans-serif' font-size='14'>Squared error punishes both the same</text></svg>",
+      "id": "burrow-0098",
+      "date": "2026-08-08"
+    },
+    {
+      "topic": "brain-science",
+      "topicLabel": "Brain & Focus",
+      "type": "insight",
+      "hook": "Six hours a night, and you stop noticing the damage.",
+      "body": "In the classic Penn dose-response study, adults limited to six hours of sleep for two weeks accumulated attention lapses equivalent to going one to two full nights without sleep. The unnerving part was the self-ratings. Subjective sleepiness rose for a few days, then flattened, while objective performance kept sliding all fourteen days: **the felt sense of impairment decouples from the impairment itself**. Chronic short sleepers recalibrate 'normal' around the deficit and report feeling roughly fine while performing like the acutely deprived. So 'do I feel rested?' is nearly worthless as a gauge. Only the objective signal stays honest - reaction-time data, the tracker's trend, actual hours in bed.",
+      "depth": "The eight-hour control group held steady across the two weeks, and the four-hour group degraded materially faster, reaching total-deprivation territory within the same window. Nothing in the data suggested adaptation; the curves never flattened. For a CPAP-plus-tracker setup, treat duration trends as the leading indicator and treat 'I feel fine' as lagging, self-serving data.",
+      "id": "burrow-0099",
+      "date": "2026-08-08"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "callback",
+      "hook": "If knowing isn't the bottleneck, where does the fix go?",
+      "body": "A few days ago a card carried Barkley's sharpest clinical claim: in ADHD, knowing what to do does not transfer to the moment of doing it. The bottleneck is performance, not information. So, before reading on: where did he say the intervention has to live? Take the beat. His answer was the **point of performance** - the exact place and second the behavior is needed. The pill bottle sits on the coffee machine, the signed check is clipped to the exit door. When one of your fixes keeps failing, check its address first; it is almost always installed upstream of the moment instead of inside it.",
+      "depth": "Recalling this beats rereading it; retrieval is the rehearsal that actually strengthens the trace. To make it operational: pick the one commitment that slipped this week, name the exact moment it should have fired, and physically move its cue there. If the fix cannot be placed at that address, it is a wish, not a system.",
+      "id": "burrow-0100",
+      "date": "2026-08-08"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
