@@ -1,6 +1,57 @@
 {
-  "updated": "2026-08-08",
+  "updated": "2026-08-09",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "An at-the-money call's delta is above 0.50, not at it.",
+      "body": "Struck at the forward, a call's d1 term equals half sigma-root-T, which is positive. So its delta, N(d1), sits just above 0.50, and it climbs with more time or higher vol. The reason is structural: a lognormal price has its median below its mean, so the strike that gives a true coin-flip finish lies slightly out of the money relative to the forward. **A 'symmetric' at-the-money straddle is quietly long delta.** Retail treats 50-delta as the ATM anchor, but the forward, not spot, is the real center of mass.",
+      "depth": "How much? At 20% vol and one month, half-sigma-root-T is about 0.03, nudging delta to roughly 0.51. Stretch to a year and it is near 0.54. Small, yes. But your 'delta-neutral' short straddle then needs a few shares of hedge you probably never put on.",
+      "id": "burrow-0101",
+      "date": "2026-08-09"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "The Warhol ruling quietly reloaded every AI fair-use defense.",
+      "body": "In 2023 the Supreme Court, in Warhol v Goldsmith, narrowed transformative use: a new meaning or message no longer saves a copy if the use serves the **same commercial purpose** as the original. AI training defenses had leaned hard on transformativeness. Now a plaintiff can argue that a model trained on their work to make competing work shares that work's purpose, weakening factor one before factor four is even reached. Practitioners still cite pre-Warhol wins like Google v Oracle as if the ground has not shifted. It has.",
+      "depth": "The nuance the headlines missed: Warhol touched only factor one, and the Court called it a narrow holding. But 'same purpose' is exactly the wedge in AI suits, since a model that outputs marketable images arguably competes with the images it trained on. Whether courts stretch it from one Prince photo to a billion-image corpus is the open question.",
+      "id": "burrow-0102",
+      "date": "2026-08-09"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Your reminder system stops working the day it stops being new.",
+      "body": "The mechanism is salience. An ADHD brain allocates attention by how much a cue stands out, not by how much it matters. A new checklist, a fresh sticky note, a just-built app all grab you because novelty spikes the signal. Two weeks later the cue is furniture and your eye slides past it. This is **tool decay**, and it is why every system you build works for a while and then quietly dies. The fix is not a better system. It is changing the cue's form on a schedule: move it, recolor it, reword it, so novelty keeps the signal alive.",
+      "depth": "Practical version: stop chasing the perfect permanent system, because it will decay no matter how good it is. Build one that is cheap to refresh instead. A whiteboard you rewrite every Sunday beats an elegant app you stop seeing by Wednesday. The refresh is the feature, not a sign the tool failed.",
+      "id": "burrow-0103",
+      "date": "2026-08-09"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "insight",
+      "hook": "Fifteen years of daily data is not 3,750 independent tests.",
+      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><text x=\"200\" y=\"26\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"15\" text-anchor=\"middle\">Two ways to size the same 11 years</text><line x1=\"40\" y1=\"70\" x2=\"360\" y2=\"70\" stroke=\"#7fb4a2\" stroke-width=\"10\"/><text x=\"200\" y=\"98\" fill=\"#7fb4a2\" font-family=\"sans-serif\" font-size=\"14\" text-anchor=\"middle\">3,750 daily rows</text><rect x=\"40\" y=\"140\" width=\"120\" height=\"40\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2\"/><rect x=\"170\" y=\"140\" width=\"70\" height=\"40\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2\"/><rect x=\"250\" y=\"140\" width=\"110\" height=\"40\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2\"/><text x=\"100\" y=\"165\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">bull</text><text x=\"205\" y=\"165\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">crash</text><text x=\"305\" y=\"165\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">recovery</text><text x=\"200\" y=\"206\" fill=\"#d9a441\" font-family=\"sans-serif\" font-size=\"14\" text-anchor=\"middle\">3 independent regimes</text><text x=\"200\" y=\"230\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">your t-stat trusts the top row</text></svg>",
+      "body": "A backtest brags about sample size in observations, but statistics only reward **independent** observations. Daily returns clump into regimes: a low-vol bull, a crash, a recovery. A strategy fit on 2010 to 2021 mostly saw one macro environment, falling rates and rising multiples, dressed up as thousands of data points. Its real out-of-sample count might be two or three. That is why models 'validated on 15 years' die in year sixteen. They were tuned against a handful of regimes while reading the calendar as if it were the sample.",
+      "depth": "The discipline: count regimes, not rows. Ask how many genuinely different environments the data spans, rate cycles, vol regimes, liquidity states, and treat that as your degrees of freedom. A Sharpe earned across four regimes outranks one earned across four thousand correlated days inside a single regime.",
+      "id": "burrow-0104",
+      "date": "2026-08-09"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "callback",
+      "hook": "You met the seven-year rule. What made it bite?",
+      "body": "The cap comes from **California Labor Code section 2855**, which holds any personal-service contract to seven years. Studios used to gut it by tolling the clock every time an actor refused a role and drew a suspension, stretching a seven-year deal across a decade. In 1944 Olivia de Havilland won the reading that seven years means seven calendar years of the contract's life, not seven years of service actually rendered. That is the whole mechanism: suspensions stopped pausing the clock. It is why the statute still governs long artist and recording deals today.",
+      "depth": "Modern echo: recording artists have invoked 2855 to break out of multi-album deals, running the same calendar-years logic. Labels push back with claims for undelivered albums. The tension De Havilland pried open, service rendered versus term elapsed, has never fully closed.",
+      "id": "burrow-0105",
+      "date": "2026-08-09"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
