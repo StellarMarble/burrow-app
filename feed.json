@@ -1,6 +1,56 @@
 {
-  "updated": "2026-08-11",
+  "updated": "2026-08-12",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "insight",
+      "hook": "Implied vol beats realized most months. That spread is the wage.",
+      "body": "Over long samples of index options, option-implied volatility sits a few points above the volatility that later shows up in the underlying. Sellers of that insurance collect the difference, the **variance risk premium**, and it is one of the most persistent edges in markets. But it is not a mispricing to arbitrage away. It is payment for holding a position that loses badly in crashes, exactly when your other assets fall too. The premium is the fee for absorbing that correlated tail. It pays steadily, then hands some back all at once.",
+      "depth": "The premium concentrates in downside strikes, which is why put skew is steep and why naive 'sell the wings' books look brilliant right up until a Volmageddon. The honest read: this is risk transfer, not alpha. Size it like insurance underwriting, where one bad year can erase several good ones, and the edge only compounds if you survive the payout.",
+      "id": "burrow-0116",
+      "date": "2026-08-12"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "Praise seems to hurt performance, criticism seems to help. Both illusions.",
+      "body": "Israeli flight instructors told Kahneman that praising a cadet after a great maneuver was followed by a worse one, while chewing out a bad maneuver was followed by improvement. So praise hurt and punishment worked. Both conclusions were **regression to the mean** wearing a causal mask. Exceptional results are part skill, part luck, and the luck does not repeat, so the next attempt drifts back toward average no matter what you said. Intervene right after any extreme outcome and the expected bounce-back will flatter or frame whatever you did.",
+      "depth": "This quietly corrupts trading journals and management alike. Cut a strategy after its worst month and it 'recovers' once you are out. Reward a trader after a hot streak and they cool. The fix is a control: compare against the base rate of what follows extremes anyway, not against your memory of what you changed. Mean reversion is the null hypothesis your intervention has to beat.",
+      "id": "burrow-0117",
+      "date": "2026-08-12"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "A second person in the room does your regulating for you.",
+      "body": "Body doubling means working next to someone, in person or on a video call, while you each do your own separate task. It works because ADHD is a deficit of **self-directed regulation**, not of ability, and another person's presence supplies from outside the structure your prefrontal system supplies unreliably from inside. Their attention raises the task's salience and adds a thin thread of accountability, so starting and staying both cost less. Nothing is delegated and no one touches your work. You are borrowing an external regulator to run an internal function.",
+      "depth": "This is why the same task is impossible alone and easy in a cafe or on a coworking call. Choose a partner you would rather not look idle in front of, and keep the task visible between you. The mechanism is identical to the one behind deadlines and public commitments: outsource the executive function you cannot summon on command.",
+      "id": "burrow-0118",
+      "date": "2026-08-12"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Your fully AI-generated ad may belong to no one, including you.",
+      "body": "US copyright protects works of human authorship, and courts have held that output generated autonomously by a machine has no author to protect. The D.C. Circuit and the Copyright Office have both landed there: an image a model produces from your prompt is, standing alone, **uncopyrightable**. Prompts are treated as instructions, not authorship, because you do not control the output the way an author controls a sentence. The trap is assuming that elaborate prompting earns you a copyright. It does not. What you can protect is the human selection, arrangement, and editing you layer on top.",
+      "depth": "This inverts the usual worry. The risk is not only that a model copied someone else. It is that your own generated asset falls straight into the public domain, where a competitor can lawfully lift it. Register what a human meaningfully authored, document that contribution, and treat raw model output as unowned until a person shapes it into something.",
+      "id": "burrow-0119",
+      "date": "2026-08-12"
+    },
+    {
+      "topic": "story-craft",
+      "topicLabel": "Story Craft",
+      "type": "callback",
+      "hook": "Two words turn adjacent scenes into a story. Which two?",
+      "body": "You already met this one, from Trey Parker and Matt Stone. Read your outline and listen to the word joining each beat to the next. One connector is fatal; two are alive. Take a second before the reveal. The fatal link is 'and then,' which only sets events side by side. The living ones are **'but' and 'therefore.'** Reversal and consequence, the two shapes of causation that make an audience lean forward. If the only honest word between two scenes is 'and then,' they are adjacent, not connected, and the engine is off.",
+      "depth": "It bites hardest in the audio fiction you produce, where a listener has no picture to coast on and drifts the instant causation drops. Run the connective test on every episode outline before you record, and where a stretch only earns 'and then,' collapse it or find the 'but' that turns it. Recalling the rule cold, not just recognizing it, is what makes it fire while you are actually drafting.",
+      "id": "burrow-0120",
+      "date": "2026-08-12"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
