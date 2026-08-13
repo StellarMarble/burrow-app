@@ -1,6 +1,57 @@
 {
-  "updated": "2026-08-12",
+  "updated": "2026-08-13",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Your covered call is a short put in disguise.",
+      "body": "Put-call parity forces it. Long stock plus a short call equals a short put plus a bond, so a **covered call and a cash-secured put** at the same strike and expiry carry the same payoff shape, the same max profit, and the same downside. The 'conservative income' label on covered calls and the 'risky' label on naked puts describe one identical risk. If you would not sell the put, you have no business writing the call. The only real differences are financing, dividends, and early-assignment path, not the exposure you are actually taking on.",
+      "depth": "Parity says C minus P equals S minus the discounted strike. Rearranged, long-stock-short-call equals a short put plus lending the strike. The bond piece is a constant vertical shift, so it moves the breakeven but not the shape. Assignment timing and dividend capture differ, which is why the two are not literally interchangeable in a taxable, dividend-paying account.",
+      "svg": "<svg viewBox=\"0 0 400 240\"><line x1=\"50\" y1=\"120\" x2=\"380\" y2=\"120\" stroke=\"#35302a\" stroke-width=\"1\"/><line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"210\" stroke=\"#35302a\" stroke-width=\"1\"/><line x1=\"230\" y1=\"95\" x2=\"230\" y2=\"210\" stroke=\"#35302a\" stroke-width=\"1\" stroke-dasharray=\"4 3\"/><polyline points=\"55,205 230,95 380,95\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2.5\"/><text x=\"244\" y=\"88\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">capped profit = premium</text><text x=\"205\" y=\"226\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">strike</text><text x=\"60\" y=\"35\" fill=\"#7fb4a2\" font-family=\"sans-serif\" font-size=\"14\">same shape as a short put</text></svg>",
+      "id": "burrow-0121",
+      "date": "2026-08-13"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "insight",
+      "hook": "The MFN you grant is a free option on your future deals.",
+      "body": "A most-favored-nations clause promises party A your best terms. Its real cost is not felt today. It is that every future negotiation now carries a hidden liability: any concession you make to party B ratchets back to A automatically. You have **written a free option** on your own future flexibility, and the counterparty holds it at zero premium. Seasoned drafters price this by narrowing scope hard: same category of licensee, same territory, same term length, economic terms only. The unscoped MFN across all future deals is the one that quietly detonates years later.",
+      "depth": "Scope levers that actually contain it: comparability baskets, so only genuinely like deals trigger the clause; economic-only, excluding creative or approval rights; a sunset date; and a carve-out for affiliate or bundled transactions. The broadest version, all terms and all future deals, silently turns every later negotiation into a three-party negotiation you never invited the first party to attend.",
+      "id": "burrow-0122",
+      "date": "2026-08-13"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "history",
+      "hook": "In 2006, one fund lost $6.6 billion on a gas spread.",
+      "body": "Amaranth Advisors bet on natural gas calendar spreads through trader Brian Hunter. The thesis itself was not crazy. The problem was scale: the fund's positions were a reported outsized fraction of open interest in the contracts it traded, so Amaranth was no longer betting on the market, it had **become the market**. When the spread turned against it in September 2006, there was no one to sell to at a sane price, and every attempt to exit pushed the spread further away. Roughly $6.6 billion evaporated in about a week. The lesson is not that spreads are dangerous. It is that size relative to liquidity is its own greek.",
+      "depth": "Liquidity risk is invisible in a backtest that assumes you trade at the mid. It surfaces only when your own exit is the largest order in the book. The tell is simple: if unwinding your position would move the price against you, you do not really hold a position of that size, you hold a claim you cannot actually sell. Size to the exit, not the entry.",
+      "id": "burrow-0123",
+      "date": "2026-08-13"
+    },
+    {
+      "topic": "kid-development",
+      "topicLabel": "Little Humans",
+      "type": "insight",
+      "hook": "Toddlers barely learn from a screen a live person would teach them.",
+      "body": "Show a toddler under about two and a half a task on video, and show another child the identical task performed live, and the live group learns it markedly better. Researchers call the gap the **video deficit**. Same content, same demonstrator, but the screen version underperforms until roughly age three. The likely mechanism is that very young brains treat flat, non-responsive video as not-quite-real, and learning at that age is tuned to live social interaction. The practical read: 'educational' video for a one-year-old is mostly entertainment, whatever the box promises.",
+      "depth": "The rescue is contingency, not resolution. In studies, real-time video chat where the adult responds live produces close to in-person learning, while the same adult pre-recorded does not. So for the under-three set the useful frame is not screen-versus-no-screen, it is responsive-versus-broadcast. A video call with a person answering back teaches. A polished cartoon covering the same word largely does not, yet.",
+      "id": "burrow-0124",
+      "date": "2026-08-13"
+    },
+    {
+      "topic": "ai-orchestration",
+      "topicLabel": "AI Systems",
+      "type": "mechanism",
+      "hook": "Models read the start and end of your prompt. The middle blurs.",
+      "body": "Give a model a long context and ask it to use a fact buried inside, and accuracy depends heavily on where that fact sits. Performance is highest when the needed information is at the very beginning or the very end, and it sags in the middle. Researchers named the effect **'lost in the middle.'** The attention pattern is roughly U-shaped, not uniform, so a critical instruction dropped into the center of a long context can be quietly underweighted even though it is technically present and retrievable. The build implication: put the task and the load-bearing constraints at the top or the bottom, never in the soft middle.",
+      "depth": "Two practical moves. First, restate the actual task at the end of a long prompt, after the reference material, so it lands in the high-attention zone. Second, do not pad: adding marginally relevant context can shove the important part into the weak middle and lower accuracy, so retrieval that returns fewer, better chunks often beats returning more. Position is a lever you control for free.",
+      "id": "burrow-0125",
+      "date": "2026-08-13"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1164,56 +1215,6 @@
       "hook": "The trade that made 'short vol' a horror genre",
       "body": "February 5, 2018, 'Volmageddon': the VIX spiked over 100% in a day and XIV, an exchange-traded note that profited from falling volatility, lost roughly **96% of its value overnight** and was terminated by its issuer. The mechanics were the killer: XIV's own end-of-day rebalancing forced massive VIX-futures buying into a spiking market, accelerating the spike that was killing it. A product whose hedging flow amplifies the exact move that destroys it is not an investment; it is a fuse.",
       "depth": "The generalizable screen: for any yield-like product, ask 'what does its own rebalancing do in the tail?' If the answer is 'buys what is exploding or sells what is collapsing,' the historical Sharpe is an illusion priced before the fuse lit."
-    },
-    {
-      "id": "burrow-0005",
-      "date": "2026-07-17",
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "Testing yourself beats re-reading. It isn't close.",
-      "body": "Roediger and Karpicke's retrieval-practice studies: students who **tested themselves** on material retained dramatically more a week later than students who re-read it, even though re-readers felt more confident. The act of pulling a memory out strengthens it far more than pushing it in again. Fluency from re-reading is a feeling, not a fact. This is also why this feed occasionally asks you what an old card said instead of telling you: the ask is the mechanism.",
-      "depth": "Corollary for professionals: the highest-yield review of any domain is closed-book. Summarize the deal structure, the doctrine, the strategy from memory first, THEN check the source. The gap you find is the actual study list."
-    },
-    {
-      "id": "burrow-0004",
-      "date": "2026-07-17",
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "California made 'digital replica' a defined term in every talent deal",
-      "body": "AB 2602 (effective January 2025) makes a contract provision unenforceable if it allows creating or using a **digital replica** of a performer's voice or likeness in place of work the performer would otherwise have done, unless the use is specifically described and the performer had counsel or union representation in the deal. Translation for practitioners: boilerplate 'in perpetuity, in any media now known or hereafter devised' no longer quietly captures synthetic re-performance in California. The replica clause is now its own negotiation.",
-      "depth": "Paired statute AB 1836 extended postmortem publicity rights to digital replicas of deceased performers. Together they mark the pattern: California regulating synthetic performance through contract-formation rules and estates law rather than waiting for federal preemption that may never come."
-    },
-    {
-      "id": "burrow-0003",
-      "date": "2026-07-17",
-      "topic": "hollywood-history",
-      "topicLabel": "Hollywood History",
-      "type": "history",
-      "hook": "Forrest Gump grossed $678 million and 'lost money'",
-      "body": "Winston Groom, whose novel became Forrest Gump, took **3% of net profits**. The film grossed roughly $678 million worldwide; by studio accounting it was reportedly still in deficit years later, so his net points initially paid essentially nothing. Distribution fees, overhead charges, and interest, all paid to the studio's own divisions, consumed the 'profit' before it reached net. The industry knew; that is why gross points versus net points was already the dividing line between leverage and hope.",
-      "depth": "The evergreen practitioner lesson: a percentage is only as valuable as the defined pool it draws from. In any waterfall, the definitions section IS the deal. That principle transfers intact to streaming bonuses, creator rev-shares, and AI-content royalty pools being drafted right now."
-    },
-    {
-      "id": "burrow-0002",
-      "date": "2026-07-17",
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "practice",
-      "hook": "A strategy that worked for 15 years can be one regime old",
-      "body": "Long backtests feel rigorous, but markets are not a stationary process: they are a sequence of **regimes** (rate environments, vol structures, market microstructure) stitched together. A 15-year test spanning one long low-rate regime is closer to a single observation than to 15. Walk-forward testing, splitting history into rolling train/validate windows, at least forces the strategy to survive regime seams. The honest question is never 'did it work historically' but 'which regime was doing the work, and is that regime still here?'",
-      "depth": "Cheap diagnostic: plot your strategy's rolling 12-month performance against a regime marker (VIX level, rate direction, term-structure state). If all the P&L clusters in one regime state, you have not found an edge; you have found a regime bet wearing a strategy costume."
-    },
-    {
-      "id": "burrow-0001",
-      "date": "2026-07-17",
-      "topic": "brain-science",
-      "topicLabel": "Brain & Focus",
-      "type": "mechanism",
-      "hook": "Starting is a different brain function than doing",
-      "body": "Task initiation and task execution are separable executive functions, which is why you can be excellent at hard work you cannot start. The research-backed exploits all shrink the initiation step rather than motivating the execution: **implementation intentions** ('when X happens, I do Y') roughly double follow-through rates in Gollwitzer's meta-analyses, and 'do it for five minutes' works because initiation, not effort, was the bottleneck. Willpower framing treats a wiring difference as a character flaw, then wonders why shame doesn't ship work.",
-      "depth": "The strongest version pairs a trigger with a location and time: 'after daycare drop-off, in the car, I send one outreach message.' Specificity is the active ingredient; vague intentions ('do more outreach') showed almost no effect in the same studies."
     }
   ]
 }
