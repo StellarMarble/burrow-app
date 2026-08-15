@@ -1,6 +1,56 @@
 {
-  "updated": "2026-08-14",
+  "updated": "2026-08-15",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Short an option, and hedging forces you to buy high, sell low.",
+      "body": "When you sell an option and delta-hedge, you are short gamma, so your delta moves against the tape. As price rises your position gets shorter and you must buy to stay neutral; as price falls you get longer and must sell. Every rehedge is buy-high, sell-low. That realized whipsaw is exactly the cost the premium pays you to bear. **You keep theta only if realized movement stays below the volatility you sold.** A quiet tape hands you the premium; a jumpy one bleeds it back one hedge at a time.",
+      "depth": "The whipsaw cost scales with gamma times the square of each move, which is why short-gamma books sit calm for weeks and then lose badly in a single gap. The danger was never the average day. It is the day the hedge cannot keep up.",
+      "id": "burrow-0131",
+      "date": "2026-08-15"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "practice",
+      "hook": "Ask what happened to similar projects, not why yours is special.",
+      "body": "Facing a forecast, the instinct is to build it bottom-up from the specifics of your case. That inside view is where the planning fallacy lives: the details feel predictive, but mostly they manufacture optimism. The **outside view** starts elsewhere. Find the reference class of comparable efforts and take their base rate as your anchor. A remodel, a lawsuit, a product launch: the distribution of how those actually ended predicts your outcome better than your storyline does. Adjust from the base rate when hard evidence justifies it. Do not throw it away because your case feels unique.",
+      "depth": "Your project is one draw from a class, not a singular event. The uniqueness you feel is real but rarely bends the timeline much. Start at the class average, then move only as far as specific, verifiable evidence earns, not as far as your narrative wants.",
+      "id": "burrow-0132",
+      "date": "2026-08-15"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Stop using your weakest system as your to-do list.",
+      "body": "Working memory is the exact function ADHD taxes hardest, and it is also what you lean on whenever you keep a plan in your head. Holding the next three steps active burns the same buffer you need to execute the current one, so the held items crowd out the doing. The move: **offload every open loop to one external surface the instant it appears.** Not five apps, one. A thought captured stops competing for the buffer. The aim is not tidiness; it is freeing the scarce resource so it can run the task actually in front of you.",
+      "depth": "This is why 'I'll remember to' fails specifically for you. The intention itself occupies the buffer until it either fires or evaporates, and under load it evaporates. Externalizing converts a memory task, which you are bad at, into a looking task, which you are not.",
+      "id": "burrow-0133",
+      "date": "2026-08-15"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "A blanket 'AI replica' grant can be void in California.",
+      "body": "California's AB 2602, in force since 2025, makes a contract term letting a producer create and use a **digital replica** of a performer's voice or likeness unenforceable in one specific situation: the term lacks a reasonably specific description of the intended uses, and the performer had neither legal counsel nor a union representative negotiating it. The prong practitioners miss is specificity. A sweeping 'any and all AI uses in perpetuity' grant does not get safer with more boilerplate. **Vagueness is the defect the statute punishes.** Describe the uses concretely, or watch the grant collapse.",
+      "depth": "It pairs with AB 1836, which requires estate consent for replicas of deceased performers. Together they mark California's direction of travel: consent to synthesize a person is only as strong as its specificity and its process, never as strong as the breadth of language you manage to draft.",
+      "id": "burrow-0134",
+      "date": "2026-08-15"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "history",
+      "hook": "You can win a trade and still have it cancelled.",
+      "body": "In March 2022, nickel on the London Metal Exchange rocketed past $100,000 a tonne in hours, a short squeeze cascading through a giant producer's hedge. Traders on the right side were suddenly, enormously in the money. Then the LME did something rare: it **halted the market and cancelled the day's trades**, rewinding prices to the prior close. Winners' gains vanished by fiat. Underneath the chaos sits the lesson: your profit is a claim against a venue and its rulebook, not a law of nature. Exchange discretion is a risk that never shows up in a backtest.",
+      "depth": "Tsingshan, the short, dodged a catastrophic loss; the funds who were right sued and mostly lost in UK courts. It rhymes with past futures blowups on the theme of financing, but adds a newer twist: governance risk. The counterparty of last resort can change the rules while you still hold the position.",
+      "id": "burrow-0135",
+      "date": "2026-08-15"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1164,56 +1214,6 @@
       "hook": "Hollywood spent 70 years rebuilding the thing the government broke",
       "body": "In 1948 the Supreme Court's Paramount decision forced the studios to sell their theater chains: production divorced from distribution and exhibition. That consent-decree regime lasted until the DOJ terminated it in **2020**, right as streaming completed the loop the decrees had cut. Netflix, Amazon, and Apple now produce, distribute, and 'exhibit' in one pipe, vertical integration the 1948 court would have recognized instantly. The industry's structure did not evolve; it circled.",
       "depth": "The rhyme worth watching: the decrees fell partly because 'the market changed.' Every consolidation cycle in media has been justified the same way, and every one has eventually produced the same complaint: the pipe owner favors its own product."
-    },
-    {
-      "id": "burrow-0015",
-      "date": "2026-07-17",
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "The premium seller's real product is regret insurance",
-      "body": "Index implied volatility has historically averaged a few points above subsequently realized volatility. That gap, the **variance risk premium**, is the structural reason systematic premium selling has positive expectancy over long windows. But it is not free money: the premium exists because buyers rationally overpay to avoid catastrophic left-tail outcomes, and sellers periodically eat exactly those outcomes. You are running a small insurance company. Insurance companies are profitable on average and occasionally destroyed by a single storm they mispriced.",
-      "depth": "The regime question matters more than the strategy question: the VRP compresses or inverts around stress. Sizing so that the storm year is survivable is the whole game; the average year takes care of itself."
-    },
-    {
-      "id": "burrow-0014",
-      "date": "2026-07-17",
-      "topic": "brain-science",
-      "topicLabel": "Brain & Focus",
-      "type": "mechanism",
-      "hook": "The task you left keeps billing you for 20 minutes",
-      "body": "Sophie Leroy's research on **attention residue**: when you switch tasks, part of your cognitive capacity stays attached to the unfinished task, degrading performance on the new one, often for 20+ minutes. The residue is worst when the abandoned task was unfinished and time-pressured. This is why a 'quick check' of email before deep work is so expensive: you pay the interruption twice, once in time and again in residue. Closing a task with a written next-step note measurably reduces the carryover.",
-      "depth": "Practical version: before switching, write one line about exactly where you stopped and what happens next. The note gives your brain permission to release the open loop. Cheap ritual, real effect."
-    },
-    {
-      "id": "burrow-0013",
-      "date": "2026-07-17",
-      "topic": "market-history",
-      "topicLabel": "Market History",
-      "type": "history",
-      "hook": "Two Nobel Prizes, 25x leverage, one dead fund",
-      "body": "Long-Term Capital Management employed Merton and Scholes, produced ~40% annual returns, and in 1998 lost roughly **$4.6 billion in a few months** when Russia defaulted and every 'uncorrelated' convergence trade converged to panic simultaneously. The lesson is not 'smart people fail.' It is that correlations you measured in calm markets are a fiction in stressed ones, because in a crisis everyone holds the same trades and everyone must sell at once. Leverage turns that fiction fatal.",
-      "depth": "The Fed brokered a private bailout because LTCM's positions were so large that liquidation threatened the system. Every vol seller should read the LTCM story annually as a memento mori: their models were right on average. Average was not the problem."
-    },
-    {
-      "id": "burrow-0012",
-      "date": "2026-07-17",
-      "topic": "kid-development",
-      "topicLabel": "Little Humans",
-      "type": "mechanism",
-      "hook": "The rally matters more than the vocabulary",
-      "body": "Harvard's Center on the Developing Child calls it **serve and return**: a child initiates (babble, point, glance), an adult responds contingently, the child responds back. These rallies, not passive word exposure, are the strongest documented driver of early language and executive-function wiring. A toddler's endless 'why' phase is a serve. The developmental payload is in the return being contingent and prompt, not in it being correct or educational. Flashcards lose to volleys.",
-      "depth": "This reframes screen time too: the documented issue is less the screen than the missing contingency. A video cannot return a serve. Same reason video-chat with a grandparent behaves differently in studies than passive viewing: the rally survives the screen."
-    },
-    {
-      "id": "burrow-0011",
-      "date": "2026-07-17",
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "mechanism",
-      "hook": "Your data is haunted by companies that no longer exist",
-      "body": "Backtest a stock strategy on today's ticker universe and you have quietly excluded every company that went bankrupt or delisted along the way: **survivorship bias**. The dead ones were disproportionately the value traps and momentum crashes your strategy would have bought. Studies of the effect find it can inflate apparent returns materially, enough to turn a losing strategy into a 'winner.' Free data sources are the worst offenders because dead tickers are expensive to maintain.",
-      "depth": "The same ghost haunts fund performance tables (dead funds vanish from averages) and option strategies tested only through periods where the underlying survived. First question for any backtest: who is missing from this dataset, and did they die of exactly what I'm about to buy?"
     }
   ]
 }
