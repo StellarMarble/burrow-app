@@ -1,6 +1,56 @@
 {
-  "updated": "2026-08-15",
+  "updated": "2026-08-16",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "practice",
+      "hook": "Rolling a loser for a credit is a new, bigger bet.",
+      "body": "When your short option goes against you, the popular move is to roll it out in time for a net credit, and it feels like you fixed the trade. You did not. You closed one position at a loss and opened a larger, longer-dated one, and the credit only exists because you added duration, size, or moved the strike closer to the money. The market did not hand you money; you sold more risk. **A roll is not repair, it is re-entry at worse odds.** If you would not open that new position fresh today, do not roll into it.",
+      "depth": "The credit is an accounting artifact: extrinsic value from the added time, minus the intrinsic you just absorbed. Traders anchor on 'never realize a loss,' so they chain rolls until one gap move on an oversized position ends the sequence. The discipline is to price the roll as a standalone trade, blind to the entry you are anchored to.",
+      "id": "burrow-0136",
+      "date": "2026-08-16"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Using a dead actor's digital replica now needs estate consent.",
+      "body": "For years California's postmortem right of publicity (Civil Code 3344.1) covered a deceased personality's name, image, and likeness for 70 years, but it predated convincing synthetic performances. AB 1836, operative January 1, 2025, closes that gap: producing an audiovisual work with a digital replica of a deceased performer now requires consent from the estate. **The statute targets the replica specifically, not just the underlying likeness.** So a studio that licensed old footage does not automatically hold the right to generate new AI performances from it. Old grants may not reach synthetic resurrection.",
+      "depth": "The practitioner trap is treating a footage license or an old NIL grant as blanket authority. AB 1836 wants consent that references the digital replica's use with specificity, and it carves exceptions for news, satire, and documentary. For estates it is a new revenue line; for producers, a new clearance step before any generative resurrection.",
+      "id": "burrow-0137",
+      "date": "2026-08-16"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Time-based reminders fail you. Event-based ones fire on their own.",
+      "body": "Prospective memory, remembering to do a thing later, comes in two flavors. Time-based ('call the pharmacy at 3') makes you monitor the clock yourself, which is exactly the self-cueing an ADHD brain does poorly. Event-based ('call the pharmacy when I get in the car') rides a cue the environment delivers for free. The fix is not a better alarm; it is to **anchor the new action to an event that already reliably happens.** After I pour coffee, I take the meds. The trigger stops depending on you noticing time, and starts depending on a thing the world does anyway.",
+      "depth": "This is Gollwitzer's implementation-intentions research, the 'when-then' plan. It helps everyone but disproportionately those with weak self-directed cueing. Stack the new behavior onto an existing anchor tied to a fixed action or place, never a time. The anchor carries the memory load your prefrontal cortex keeps dropping.",
+      "id": "burrow-0138",
+      "date": "2026-08-16"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "mechanism",
+      "hook": "Your signal uses today's close. So does your fill. Impossible.",
+      "body": "A classic silent look-ahead: your rule says 'buy when today's close is above the 50-day average,' and your backtest fills the buy at today's close. But you cannot know the close until the session ends, and by then you can no longer trade at it. The signal and the execution share a price that exists only after trading stops. **The fix is a one-bar lag: signal on today's close, fill at tomorrow's open.** That single shift often erases most of a strategy's apparent edge, because the edge was living in a fill nobody could actually get.",
+      "depth": "This is distinct from slippage; the price is not merely optimistic, it is unobtainable in principle. The tell is a strategy whose returns collapse the moment you lag execution by one bar. Any signal built from a bar's own close, high, or low must execute on a later bar, or the backtest is quietly trading with tomorrow's newspaper.",
+      "id": "burrow-0139",
+      "date": "2026-08-16"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Which is likelier: a bank teller, or a feminist bank teller?",
+      "body": "Take a beat before you answer. The vivid version, the feminist bank teller, feels more likely because it fits the story you were told about her. But every feminist bank teller is already a bank teller, so that group can only be smaller. **Adding a specific detail can never raise a probability, only lower it.** This is the conjunction fallacy: representativeness, how well a scenario matches a stereotype, hijacks your sense of likelihood. The richer and more convincing the picture, the fewer people it actually describes.",
+      "depth": "Why it bites you again: every detailed forecast, deal scenario, or risk narrative you find persuasive is paying a probability tax for its specificity. 'The market falls because of X, then Y, then Z' feels rigorous and is strictly less likely than 'the market falls.' Strip the conjunctions before you bet on the story.",
+      "id": "burrow-0140",
+      "date": "2026-08-16"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1164,56 +1214,6 @@
       "depth": "The rule still carries her name, the De Havilland Law, and section 2855 still caps personal-service contracts at seven calendar years. It resurfaces whenever long recording or streaming deals get challenged, most visibly in fights over multi-album music contracts decades after the original decision.",
       "id": "burrow-0025",
       "date": "2026-07-18"
-    },
-    {
-      "id": "burrow-0020",
-      "date": "2026-07-17",
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "You are not paid theta. You are paid for gamma.",
-      "body": "Theta decay feels like income, but it is compensation, not yield. Every dollar of decay you collect is payment for the **gamma you are short**: the obligation to lose money at an accelerating rate when the underlying moves. Short-dated options look juicy precisely because their gamma is exploding. When a premium seller says 'I earn theta,' the market hears 'I sell crash insurance.' Both are true. The edge question is never 'how much theta' but 'is the insurance overpriced right now.'",
-      "depth": "This is why identical-delta positions at 45 DTE vs 7 DTE behave so differently: the 7 DTE position collects more theta per day but its P&L distribution is far more violent per point of underlying movement. Same premium, different insurance book."
-    },
-    {
-      "id": "burrow-0019",
-      "date": "2026-07-17",
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "insight",
-      "hook": "Your best backtest is mostly selection bias",
-      "body": "Test 100 strategy variants and pick the winner: its backtested Sharpe is inflated almost by construction, because you selected for luck along with skill. This is the **multiple-testing problem**, and it is the single biggest reason live results disappoint. Finance researchers (Bailey and Lopez de Prado) formalized it as the 'deflated Sharpe ratio': the more configurations you tried, the higher the bar your winner must clear before you believe it. Most retail backtesting never counts the trials.",
-      "depth": "Practical discipline: log every variant you test, not just winners. Decide the strategy logic BEFORE optimizing parameters. And hold out a chunk of data you only touch once, at the very end. If you peeked at it twice, it is not a holdout anymore."
-    },
-    {
-      "id": "burrow-0018",
-      "date": "2026-07-17",
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Tennessee got to AI voice rights before Congress did",
-      "body": "The ELVIS Act (Tennessee, effective July 2024) was the first state statute to explicitly add **voice** to right-of-publicity protection with AI simulation in mind, and it reaches tools 'primarily designed' to produce unauthorized voice clones, not just outputs. Meanwhile the federal NO FAKES Act remains proposed, not law. The practical map: state patchwork now governs synthetic likeness, and choice-of-law plus where the plaintiff lives quietly became the first question in every deepfake dispute.",
-      "depth": "For deal work: the interesting drafting problem is that most legacy talent agreements granted 'voice' rights before voice cloning existed. Whether an old grant covers a new synthetic use is the fight; the ELVIS Act tilts leverage toward talent in Tennessee-connected disputes."
-    },
-    {
-      "id": "burrow-0017",
-      "date": "2026-07-17",
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "Amateurs ask what happened. Pros ask what usually happens.",
-      "body": "Reference-class forecasting: before estimating your specific case, find the base rate for the **class of cases it belongs to**. Kahneman calls ignoring this the 'inside view' trap: your case always feels exceptional because you know its details. Planning a product launch? The relevant question is not 'how good is our plan' but 'what fraction of launches like this hit their date.' The outside view is usually humbling, and it is usually right. Start there, then adjust for specifics, sparingly.",
-      "depth": "Tetlock's forecasting tournaments found the same move in top performers: they anchor on base rates first, then update in small increments. The failure mode of smart people is not ignorance; it is treating their own case as exempt from the statistics."
-    },
-    {
-      "id": "burrow-0016",
-      "date": "2026-07-17",
-      "topic": "hollywood-history",
-      "topicLabel": "Hollywood History",
-      "type": "history",
-      "hook": "Hollywood spent 70 years rebuilding the thing the government broke",
-      "body": "In 1948 the Supreme Court's Paramount decision forced the studios to sell their theater chains: production divorced from distribution and exhibition. That consent-decree regime lasted until the DOJ terminated it in **2020**, right as streaming completed the loop the decrees had cut. Netflix, Amazon, and Apple now produce, distribute, and 'exhibit' in one pipe, vertical integration the 1948 court would have recognized instantly. The industry's structure did not evolve; it circled.",
-      "depth": "The rhyme worth watching: the decrees fell partly because 'the market changed.' Every consolidation cycle in media has been justified the same way, and every one has eventually produced the same complaint: the pipe owner favors its own product."
     }
   ]
 }
