@@ -1,6 +1,57 @@
 {
-  "updated": "2026-08-16",
+  "updated": "2026-08-17",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "insight",
+      "hook": "Short volatility pays you monthly, then bills you all at once.",
+      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"10\" y1=\"140\" x2=\"390\" y2=\"140\" stroke=\"#35302a\"/><rect x=\"20\" y=\"120\" width=\"16\" height=\"20\" fill=\"#7fb4a2\"/><rect x=\"44\" y=\"122\" width=\"16\" height=\"18\" fill=\"#7fb4a2\"/><rect x=\"68\" y=\"119\" width=\"16\" height=\"21\" fill=\"#7fb4a2\"/><rect x=\"92\" y=\"123\" width=\"16\" height=\"17\" fill=\"#7fb4a2\"/><rect x=\"116\" y=\"120\" width=\"16\" height=\"20\" fill=\"#7fb4a2\"/><rect x=\"140\" y=\"121\" width=\"16\" height=\"19\" fill=\"#7fb4a2\"/><rect x=\"164\" y=\"119\" width=\"16\" height=\"21\" fill=\"#7fb4a2\"/><rect x=\"188\" y=\"122\" width=\"16\" height=\"18\" fill=\"#7fb4a2\"/><rect x=\"212\" y=\"120\" width=\"16\" height=\"20\" fill=\"#7fb4a2\"/><rect x=\"236\" y=\"121\" width=\"16\" height=\"19\" fill=\"#7fb4a2\"/><rect x=\"260\" y=\"120\" width=\"16\" height=\"20\" fill=\"#7fb4a2\"/><rect x=\"302\" y=\"140\" width=\"34\" height=\"78\" fill=\"#d9a441\"/><text x=\"20\" y=\"110\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">small wins, most months</text><text x=\"282\" y=\"232\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">one month gives it back</text></svg>",
+      "body": "The variance risk premium is real, but its payoff is **negatively skewed**: a long run of small wins punctuated by rare, violent losses. Most months implied exceeds realized and you collect. Then one regime break hands back a year of premium in a week. This shape is why the Sharpe ratio flatters short-vol books. It rewards smooth upside and barely penalizes the fat left tail until the tail actually arrives. Sizing has to assume the loss month, not the median month.",
+      "depth": "The same skew defends the premium. If short vol paid smoothly, capital would flood in and compete it away. The pain of the tail is the barrier to entry, so the wage exists precisely because the ride is not smooth.",
+      "id": "burrow-0141",
+      "date": "2026-08-17"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "The first AI fair-use ruling went against the machine.",
+      "body": "In February 2025, Judge Bibas granted summary judgment to **Thomson Reuters** against Ross Intelligence, holding that copying Westlaw headnotes to train a legal-research tool was not fair use. Two things made it bite. The AI was non-generative, so it competed directly with the source instead of transforming it. And factor four, market harm, cut hard: Ross built a market substitute for Westlaw. Practitioners over-read it as a template for the generative cases. Bibas expressly noted his reasoning may not carry to systems that output new expression.",
+      "depth": "The same judge had denied summary judgment in 2023 and set the case for trial, then reversed himself on reconsideration. That reversal is the tell. Courts are still finding their footing, and an early ruling is a data point, not settled doctrine.",
+      "id": "burrow-0142",
+      "date": "2026-08-17"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "Your 90% confidence ranges are right about half the time.",
+      "body": "Ask people for a range they are 90% sure contains the answer, and the true value falls inside only **roughly 40 to 60%** of the time. The interval comes out too narrow because its width itself signals ignorance, and admitting ignorance feels like weakness. The fix is mechanical, not motivational: widen every interval until it feels slightly embarrassing, then widen once more. Calibration is a trainable skill, and the cheapest edge in any forecast is refusing to be as sure as you feel.",
+      "depth": "This is why point estimates lie. \"It'll cost 40k\" hides the range. Forcing an explicit low and high, then stretching both, surfaces the tail you were pretending away, and the tail is usually where the decision actually lives.",
+      "id": "burrow-0143",
+      "date": "2026-08-17"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Pre-decide the trigger, not just the task.",
+      "body": "A to-do names what to do but leaves the hardest part, when and where, to a moment when your executive function is already taxed. **Implementation intentions** close that gap: you write \"if situation X, then I do Y.\" When the trigger arrives, the action fires with far less deliberation, because you offloaded the decision to a rule instead of your working memory. Reported effect sizes across dozens of studies run medium to large. It works best for exactly the tasks you keep meaning to start and never do.",
+      "depth": "\"When I sit down with coffee, I open the deal doc first\" beats \"review the deal doc.\" The cue does the initiating your brain won't. Attach the new action to something you already do reliably, and the existing habit becomes the trigger.",
+      "id": "burrow-0144",
+      "date": "2026-08-17"
+    },
+    {
+      "topic": "brain-science",
+      "topicLabel": "Brain & Focus",
+      "type": "callback",
+      "hook": "A week back, how many items does working memory really hold?",
+      "body": "The famous number is seven, from Miller's 1956 paper. The **better answer is about four**, per Cowan's later work, and often fewer once the items are unfamiliar or you are tired. This is not trivia for you. It is the whole case for externalizing: a checklist, a scratchpad, one visible next step. If the plan lives only in your head, you are asking a four-slot buffer to hold six things, and it will silently drop two. Put it on paper and the buffer is free to actually think.",
+      "depth": "Chunking is the loophole. Four chunks of familiar material can each carry a lot, which is why expertise feels like extra memory. It isn't more slots, it's richer contents in each one.",
+      "id": "burrow-0145",
+      "date": "2026-08-17"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1164,56 +1215,6 @@
       "depth": "The prerequisite is information: you cannot trade across priorities you have not surfaced. Skilled negotiators ask more diagnostic questions and float multiple-issue offers rather than single-issue ultimatums, which reveals relative weights without conceding position. The failure mode is the fixed-pie assumption, the reflex belief that the other side wants exactly what you want. Usually they do not.",
       "id": "burrow-0030",
       "date": "2026-07-19"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "The variance premium hides in the strikes you fear most.",
-      "body": "Implied volatility sits above subsequent realized volatility most of the time, and that gap is your pay for underwriting other people's fear. But it is not spread evenly. The persistent bid for downside protection means **out-of-the-money puts carry the richest premium relative to what actually gets realized**. The strikes that feel most dangerous to sell are, on average, the best compensated. Selling the whole surface uniformly leaves the fattest part of the edge on the table.",
-      "depth": "The catch is path. Those same strikes deliver the deepest drawdowns when a crash finally arrives, so the premium is real but so is the tail. Size for the gap risk, not the average, and the edge survives the regime that pays for it.",
-      "id": "burrow-0021",
-      "date": "2026-07-18"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Denmark wants to copyright your own face.",
-      "body": "In 2025 Denmark's culture ministry announced a proposal to amend its copyright law so every citizen would hold rights over their own body, facial features, and voice. The target is deepfakes: a property-style claim people could use to force removal of synthetic likenesses they never consented to. This is a reported proposal, not yet enacted, but the framing matters. **Most jurisdictions treat likeness as a publicity or privacy right; Denmark is reaching for copyright's takedown machinery instead.**",
-      "depth": "Copyright brings notice-and-takedown, statutory remedies, and cross-border treaties that publicity rights lack. If it passes, platforms would face likeness claims through the same DMCA-style pipes they already run for music and film, which is a very different enforcement cost curve than tort-based right-of-publicity litigation.",
-      "id": "burrow-0022",
-      "date": "2026-07-18"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "Your 90% confident range is wrong about half the time.",
-      "body": "Ask people for a range they are 90 percent sure contains some unknown value, and across decades of studies the true value falls outside that range far more than 10 percent of the time, often closer to 40 or 50 percent. The label says 90; the calibration says coin flip. **We build intervals too narrow because we anchor on our best guess and add token padding instead of imagining how we could be wrong.** The fix is deliberate: state the interval, then widen it until it genuinely feels too wide.",
-      "depth": "This is overconfidence in its most measurable form, documented by Alpert and Raiffa and later by Russo and Schoemaker. Traders feel it as stops that keep getting hit: the price lived in the tail you had priced out. Tracking your own hit rate closes the gap surprisingly fast.",
-      "id": "burrow-0023",
-      "date": "2026-07-18"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "practice",
-      "hook": "Your backtest filled at a price the market never offered.",
-      "body": "Most backtests assume you transacted at the closing print or the midpoint of the bid-ask spread. You did not. Real fills cross the spread, move the market, and miss entirely when liquidity vanishes exactly as your signal fires. **A strategy's edge and its trading costs are usually correlated, because the same volatility that triggers your entries also widens the spreads you pay to get in.** Strip out realistic costs and many high-turnover backtests that looked brilliant collapse to break-even or worse.",
-      "depth": "Model costs as a function of spread, size, and volatility at the moment of the trade, not a flat per-share fee. Then stress it: double the assumed slippage. If the edge dies, it was never edge. It was an accounting artifact of fills you could not have gotten.",
-      "id": "burrow-0024",
-      "date": "2026-07-18"
-    },
-    {
-      "topic": "hollywood-history",
-      "topicLabel": "Hollywood History",
-      "type": "history",
-      "hook": "One actress capped every Hollywood contract at seven years.",
-      "body": "In the studio era a seven-year contract was not really seven years. When a star refused a role, the studio suspended her and tacked the lost time onto the end, so contracts stretched almost indefinitely. Olivia de Havilland sued Warner Bros., and in 1944 California's courts ruled that the seven-year limit in Labor Code section 2855 runs on the calendar, not on time actually worked. **Suspensions could no longer extend the term.** The ruling broke the studios' core mechanism of control over talent.",
-      "depth": "The rule still carries her name, the De Havilland Law, and section 2855 still caps personal-service contracts at seven calendar years. It resurfaces whenever long recording or streaming deals get challenged, most visibly in fights over multi-album music contracts decades after the original decision.",
-      "id": "burrow-0025",
-      "date": "2026-07-18"
     }
   ]
 }
