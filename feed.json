@@ -1,6 +1,56 @@
 {
-  "updated": "2026-08-17",
+  "updated": "2026-08-18",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Short-dated options are gamma bets; long-dated ones are vega bets.",
+      "body": "Gamma and vega both scale with time to expiry, but in opposite directions. Gamma runs with the inverse square root of time, so a near-dated option whips around with spot. Vega runs with the square root of time, so a far-dated option reprices hard when implied vol shifts. **A weekly short strangle and a two-year one are different animals with the same name.** The weekly's real risk is a gap in the underlying. The LEAP's real risk is a repricing of volatility you may hold for months.",
+      "depth": "This is why front-month sellers obsess over pin risk and gaps, while long-dated sellers obsess over the vol surface. Same trade name, different greek doing the damage. Size and hedge to the greek that actually dominates your expiry, not the one the strategy label implies.",
+      "id": "burrow-0146",
+      "date": "2026-08-18"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Tennessee made your voice a property right against AI.",
+      "body": "Tennessee's old publicity law, written in the Elvis era, protected name, photograph, and likeness. The 2024 ELVIS Act adds voice explicitly, and goes further: it targets the tools. **Liability reaches anyone who distributes software whose primary purpose is cloning a person's voice or likeness without consent.** Most publicity statutes only reach the party who commercially exploits the fake. This one reaches the maker of the generator itself. It took effect July 1, 2024, the first US law aimed squarely at generative voice cloning.",
+      "depth": "The practitioner miss is treating it like ordinary right-of-publicity. The toolmaker exposure is new, and it does not require the cloned person to be a celebrity or the use to be commercial in the traditional sense. Watch for other states copying the structure.",
+      "id": "burrow-0147",
+      "date": "2026-08-18"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Your ADHD med is inert until your blood cuts it apart.",
+      "body": "Lisdexamfetamine is d-amphetamine chemically bonded to the amino acid lysine. Swallowed, it is pharmacologically inert. Enzymes in your red blood cells slowly cleave off the lysine, releasing active drug at a pace the enzyme controls, not your gut. **The conversion is rate-limited, so the peak stays capped and the curve stays smooth.** Practical reads: the route cannot cheat it, crushing or snorting does nothing; food barely shifts timing; and raising the dose mostly stretches the area under the curve rather than sharpening the spike.",
+      "depth": "This is why titration feels gradual instead of a switch flipping, and why a too-low dose reads as 'barely noticeable' rather than wrong. The design trades a fast, abusable peak for a steady one. Judge a dose over weeks at steady state, not on day three.",
+      "id": "burrow-0148",
+      "date": "2026-08-18"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Perfect calibration can still make you a useless forecaster.",
+      "body": "Predict the base rate every time. Say 30 percent for every applicant when 30 percent succeed, and over enough trials you are perfectly calibrated: your 30 percent calls come true 30 percent of the time. But you have said nothing useful, because you cannot separate winners from losers. The missing quality is **resolution**, the willingness to move off the base rate when you actually know something. The Brier score splits into exactly these two parts. Superforecasters win on resolution, pushing to 5 and 95 and being right, not on calibration alone.",
+      "depth": "Calibration is table stakes and easy to fake by hugging the base rate. Resolution is the hard, valuable part, and it is where information actually lives. When you score your own trading or legal calls, track both, or you will reward timid forecasts that never risk being wrong.",
+      "id": "burrow-0149",
+      "date": "2026-08-18"
+    },
+    {
+      "topic": "ai-orchestration",
+      "topicLabel": "AI Systems",
+      "type": "callback",
+      "hook": "Where in a long prompt does a model quietly lose your instruction?",
+      "body": "Think back to the U-shaped attention card. Models attend most to the very start and the very end of a context, and sag in the middle. Take a beat before the answer: the danger zone is **the middle**. Bury a load-bearing constraint halfway through a long context and it gets underweighted, even though it is technically present and retrievable. The researchers called it 'lost in the middle.' So put the task and the constraints that must hold at the top or the bottom, never in the soft center.",
+      "depth": "It matters again every time you paste a long document and tack 'and remember to do X' at the end. That lands in a strong position by luck; move it there on purpose. As contexts grow longer, the middle sag deepens, so the habit pays more the bigger your prompts get.",
+      "id": "burrow-0150",
+      "date": "2026-08-18"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1165,56 +1215,6 @@
       "depth": "The rhyme is loud in streaming: platforms that once licensed everyone's shows now overwhelmingly want to own them, for the same back-end economics fin-syn was fighting over. Vertical integration is this industry's resting state. Regulation is the temporary interruption, not the other way around.",
       "id": "burrow-0035",
       "date": "2026-07-20"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Sell an index straddle and you are really shorting correlation.",
-      "body": "When you sell an index straddle, the price you collect is set less by how much stocks move than by how much they move together. Index variance equals the weighted sum of single-stock variances plus every pairwise covariance, so implied correlation is the real lever. Dealers charge a premium for it because correlation spikes exactly when you need diversification most, in a crash. **Index vol is expensive because correlation is expensive.** The dispersion trade, short index vol and long single-name vol, isolates that premium directly.",
-      "depth": "The catch: implied correlation mean-reverts but jumps toward 1.0 in panics, so the position is short a convex tail. September 2008 and March 2020 both saw realized correlation gap upward, punishing naive dispersion sellers. The premium is real over full cycles, but the drawdowns cluster with everything else you own.",
-      "id": "burrow-0026",
-      "date": "2026-07-19"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "practice",
-      "hook": "Try enough strategies and randomness will hand you a winner.",
-      "body": "Run twenty uncorrelated backtests on pure noise and the best one posts a Sharpe well above zero by chance alone. The problem is not any single test, it is that you only keep the survivor. Every parameter you swept, every variant you tried, every idea you quietly discarded is a hidden trial that inflates the winner you saved. **The more you search, the higher the bar a real edge must clear.** A Sharpe of 1.0 from one honest test beats a 2.0 pulled from a thousand.",
-      "depth": "Bailey and Lopez de Prado formalized this as the deflated Sharpe ratio, which discounts your best result by how many trials produced it and how skewed the returns are. The practical fix: log every variant you test, not just the keeper, and hold out a slice of data you never once looked at while building.",
-      "id": "burrow-0027",
-      "date": "2026-07-19"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "A likeness buyout does not survive the move to AI replicas.",
-      "body": "The old talent release bought a use in perpetuity for a lump sum. The SAG-AFTRA AI terms break that model. Under the 2023 and 2024 agreements, a **digital replica requires informed consent specific to each new use**, not a one-time signature covering everything downstream. A performer who consented to a replica for one film has not consented to a sequel, an ad, or a training set. The negotiating fight has quietly shifted from price-per-role to who controls the replica after the cameras stop.",
-      "depth": "The practitioner error is drafting AI-era likeness rights as a traditional buyout. California's AB 2602 voids digital-replica contract terms unless the intended use is described with reasonable specificity, and AB 1836 adds post-mortem consent. Scope the grant use by use, or expect to renegotiate later at leverage you no longer hold.",
-      "id": "burrow-0028",
-      "date": "2026-07-19"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "More data made the experts confident, not correct.",
-      "body": "In a classic study, professional handicappers predicted horse races given five, then ten, twenty, and forty variables. As the data grew, their **confidence climbed steadily while their accuracy stayed flat.** By forty variables they were far more sure and no more right. The extra information mostly fed the story they already believed. For a trader building a thesis or a lawyer building a position, this is the trap: each confirming detail feels like progress but often just inflates certainty. The useful question is not what else supports the view, but what would break it.",
-      "depth": "The mechanism is that new data rarely arrives neutral, we recruit it to defend a prior. Calibration research finds the cure is not more inputs but forced disconfirmation: name the two facts that would most change your mind before you gather more. Traders call it the exit thesis. Lawyers call it the other side's best argument.",
-      "id": "burrow-0029",
-      "date": "2026-07-19"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "mechanism",
-      "hook": "Trade issues you value differently instead of splitting each one.",
-      "body": "Most negotiations grind issue by issue, splitting the difference on each. That is how value gets destroyed. When two sides weight the same issues differently, the gains come from **trading concessions across issues, not compromising within them.** Give ground where you care little to win where you care a lot, and invite the counterparty to do the same. Research on integrative bargaining calls this logrolling, and negotiators who probe for it consistently reach larger and more durable deals than those who haggle line by line.",
-      "depth": "The prerequisite is information: you cannot trade across priorities you have not surfaced. Skilled negotiators ask more diagnostic questions and float multiple-issue offers rather than single-issue ultimatums, which reveals relative weights without conceding position. The failure mode is the fixed-pie assumption, the reflex belief that the other side wants exactly what you want. Usually they do not.",
-      "id": "burrow-0030",
-      "date": "2026-07-19"
     }
   ]
 }
