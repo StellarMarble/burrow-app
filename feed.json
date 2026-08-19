@@ -1,6 +1,57 @@
 {
-  "updated": "2026-08-18",
+  "updated": "2026-08-19",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "In contango, time alone rolls your VIX short into profit.",
+      "body": "VIX futures usually sit above spot, a shape called contango. If nothing else changes, each future must still fall toward the lower cash VIX as expiry approaches. Short the future and that convergence pays you even when volatility is flat. **The roll yield, not a vol forecast, is most of the return** in a short-vol carry trade. The exposure is dangerously one-sided: the same position that quietly harvests calm-day carry takes the full blow the moment the curve flips into backwardation and spot spikes above the futures you are short.",
+      "depth": "This is why short-vol carry looks like free money for years and then isn't. You are paid a small, steady premium for absorbing a rare, violent tail. Any strategy whose P&L is dominated by roll yield is selling insurance, and the payout you dread is precisely the event the premium was supposedly compensating you for.",
+      "id": "burrow-0151",
+      "date": "2026-08-19"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Copyright protects only the parts of AI art you authored.",
+      "body": "The US Copyright Office's 2025 guidance holds that purely AI-generated output has no human author, so it gets no protection at all. What survives is your **selectable, arrangeable human contribution**: text you wrote, the sequence you chose, edits you made by hand. In the Zarya of the Dawn comic, the Office kept the writer's story and page layout but stripped protection from the Midjourney images themselves. Prompting, however elaborate, was treated as requesting a result rather than authoring one. The generated image, on its own, belongs to no one.",
+      "depth": "The commercial fallout is real: an AI-heavy ad or piece of key art can be freely copied, because the machine-made pixels sit in the public domain the instant they exist. Protect the deal by contracting over the human-authored elements and by building in genuine editing passes that leave a documentable authorship trail.",
+      "id": "burrow-0152",
+      "date": "2026-08-19"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "You'd pay about the same to save 2,000 birds or 200,000.",
+      "svg": "<svg viewBox=\"0 0 400 240\"><line x1=\"40\" y1=\"200\" x2=\"370\" y2=\"200\" stroke=\"#35302a\"/><rect x=\"70\" y=\"90\" width=\"50\" height=\"110\" fill=\"#d9a441\"/><rect x=\"180\" y=\"92\" width=\"50\" height=\"108\" fill=\"#d9a441\"/><rect x=\"290\" y=\"84\" width=\"50\" height=\"116\" fill=\"#d9a441\"/><text x=\"95\" y=\"218\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">2,000</text><text x=\"205\" y=\"218\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">20,000</text><text x=\"315\" y=\"218\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">200,000 birds</text><text x=\"200\" y=\"38\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"15\" text-anchor=\"middle\">100x the birds, same willingness to pay</text></svg>",
+      "body": "In a classic study, people asked what they'd pay to save migrating birds from oil ponds gave roughly the same figure whether the toll was 2,000, 20,000, or 200,000. The mind does not multiply. It answers a **prototype question instead of a quantity one**: it pictures one oil-soaked bird, prices that feeling, and ignores the count entirely. This is scope insensitivity, and it quietly wrecks any valuation driven by magnitude, from charitable giving to jury damages to how you size a vivid, low-probability tail you can easily imagine.",
+      "depth": "The trading version: a story about one catastrophic scenario feels equally frightening at 2% or 0.2%, so you overpay for hedges priced off vividness rather than frequency. The correction is mechanical. Force the number back in, because expected value is count times consequence, and your gut handed you only the consequence.",
+      "id": "burrow-0153",
+      "date": "2026-08-19"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Make time take up space you can physically see.",
+      "body": "ADHD blunts the internal sense of time passing, so a deadline three hours out feels the same as three days out, right up until it is suddenly now. The move is to **externalize duration into something visual**: a countdown that shows remaining time as a shrinking colored wedge, not digits. Digits still make you compute how much is left, a working-memory step you keep skipping. A shrinking area is perceived directly, no computation required, so the passage of time registers as a physical event happening in front of you instead of an abstract fact you forget to check.",
+      "depth": "The principle scales. A wall calendar you can't avoid seeing beats a phone calendar you must decide to open. Any executive function you are weak at should be moved out of your head and into the environment, where raw perception does the monitoring your internal clock refuses to do.",
+      "id": "burrow-0154",
+      "date": "2026-08-19"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "insight",
+      "hook": "A precise first offer anchors harder than a round one.",
+      "body": "Round numbers read as placeholders. Open at $10,000 and the other side hears \"around ten, negotiable.\" Open at $9,850 and they infer you did actual math, that the figure rests on something, and they **adjust in smaller increments away from your anchor**. Research on anchor precision reports that counteroffers land closer to a precise opening and the final split tilts toward whoever set it. The precision itself signals information you may not even possess, which is why a lazy round counter so often concedes ground before a single term has actually been argued.",
+      "depth": "Use it on purpose. When you open, pick a defensible non-round number and be ready to explain it, because a precise anchor you can't justify invites the \"where did that come from\" challenge that resets the frame back to round. Precision is a claim of knowledge. Make sure the claim is real.",
+      "id": "burrow-0155",
+      "date": "2026-08-19"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1165,56 +1216,6 @@
       "depth": "Kidd's design was small but clean: before the marshmallow, the experimenter either delivered or reneged on promised art supplies, and wait times tracked that history. For a 3-year-old, your follow-through ledger, promises made versus kept, is doing more work than any patience drill would.",
       "id": "burrow-0040",
       "date": "2026-07-21"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "A covered call and a short put are the same trade.",
-      "body": "By put-call parity, a covered call at strike K has the identical payoff to a short cash-secured put at the same strike and expiry. Same max profit, same breakeven, same tail exposure. **The 'safe' covered call is a naked put wearing a costume.** Retail treats one as conservative income and the other as reckless, then sizes them completely differently. If you would not sell the put, you have no business writing the call. And if the call feels prudent, your real objection to the put was always the buying-power display, not the risk.",
-      "depth": "The equivalence holds pre-dividend and glosses over early-assignment quirks on American options, but the economic risk is the same either way. The tell is presentation: brokers show the covered call as fully collateralized stock and the put as a scary margin reduction. Same economics, different theater.",
-      "id": "burrow-0031",
-      "date": "2026-07-20"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "New York can void the AI-clone clause you signed.",
-      "body": "A 2024 New York law amended its right-of-publicity statute so that a contract granting rights to a performer's **digital replica is unenforceable** when the deal lacks a reasonably specific description of the intended uses and the individual was not represented by counsel or a union collective-bargaining agreement. It aims straight at the boilerplate 'in all media now known or hereafter devised' land-grab, as applied to synthetic performances. The drafting lesson runs against instinct: vague catch-all replica language does not become more enforceable by getting broader. Past a point, breadth is what gets it voided.",
-      "depth": "This rhymes with California's parallel move making 'digital replica' a defined, consent-gated term in talent deals. Two of the largest talent markets now police replica clauses at contract formation, not just at infringement. Overbroad synthetic-rights language has flipped from leverage into a drafting liability.",
-      "id": "burrow-0032",
-      "date": "2026-07-20"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "The flight instructors learned the wrong lesson from randomness.",
-      "body": "Kahneman watched Israeli Air Force instructors insist that praising a good maneuver made the next one worse, while chewing out a bad one made the next one better. They had the arrow of causation backwards. Extreme performances are partly luck, so they **regress toward the mean** no matter what the instructor says. A brilliant pass is usually followed by a duller one; a terrible pass by a better one. The feedback was pure noise, but it trained a generation of instructors that punishment beats reward. Any system that reacts to outliers will absorb the same false lesson.",
-      "depth": "This is why the sophomore slump, the magazine-cover jinx, and the manager fired after one bad quarter all look causal and mostly are not. Before crediting an intervention, ask what the metric would have done untouched. Reversion is the null hypothesis your intuition never bothers to run.",
-      "id": "burrow-0033",
-      "date": "2026-07-20"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "practice",
-      "hook": "Your backtest knew the earnings before the company reported them.",
-      "body": "Most fundamental datasets are stored by fiscal-period date, not by the date the number actually hit the tape. So a backtest that buys 'cheap on Q1 earnings' is often trading on data the public did not have for another six to eight weeks. Worse, the figures are frequently the **restated** versions, cleaned up after amendments the live market never saw. Both errors flatter the strategy in exactly the direction you were hoping for, which is precisely why they survive review. The only real fix is point-in-time data: strictly what was knowable on the day you claim to have traded.",
-      "depth": "Look-ahead bias is insidious because it does not look like cheating. Nothing in your code peeks at the future; the data itself is timestamped wrong. Vendors charge a premium for 'point-in-time' feeds precisely because faithfully reconstructing what was known on a past date is hard and expensive.",
-      "id": "burrow-0034",
-      "date": "2026-07-20"
-    },
-    {
-      "topic": "hollywood-history",
-      "topicLabel": "Hollywood History",
-      "type": "history",
-      "hook": "For 20 years, networks were banned from owning their hits.",
-      "body": "In 1970 the FCC adopted the Financial Interest and Syndication Rules, barring the three broadcast networks from holding a financial stake in most of the prime-time entertainment they aired, or from syndicating it themselves. The point was to loosen the networks' grip and let independent producers keep the lucrative back end. It worked, for a while. **Fin-syn built the independent studio business.** Then the rules were dismantled by 1993, and within a few years ABC merged into Disney, the rest followed, and the networks owned their pipelines again. The wall stood for about one generation.",
-      "depth": "The rhyme is loud in streaming: platforms that once licensed everyone's shows now overwhelmingly want to own them, for the same back-end economics fin-syn was fighting over. Vertical integration is this industry's resting state. Regulation is the temporary interruption, not the other way around.",
-      "id": "burrow-0035",
-      "date": "2026-07-20"
     }
   ]
 }
