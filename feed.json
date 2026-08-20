@@ -1,6 +1,56 @@
 {
-  "updated": "2026-08-19",
+  "updated": "2026-08-20",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Friday's option prices have already spent the weekend.",
+      "body": "Option models spread theta smoothly across calendar days, but market makers do not wait around for days with no trading. Into Friday's close they mark implied vol down, pre-collecting the two dead days, then mark it back up Monday morning. So a Friday short sale that looks like it harvests three days of decay is mostly buying a vol level that already reflects them. **The weekend's decay is sold in advance.** The clean way to see it: realized variance happens on trading days, and the market prices variance, not calendar time. Weekend theta is real only in the model.",
+      "depth": "The same markdown appears around holidays, and in reverse around scheduled events: earnings and CPI days carry extra implied variance while dead days carry almost none. Desks that quote in business time rather than calendar time avoid the illusion entirely. If your backtest credits full calendar theta over weekends, it is overstating short-premium returns.",
+      "id": "burrow-0156",
+      "date": "2026-08-20"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "practice",
+      "hook": "Run a hundred backtests, and the best one lies.",
+      "body": "Suppose every strategy you test is pure noise. Test one hundred, and the best in-sample Sharpe will still look excellent, because you selected it for exactly that. The maximum of many noisy estimates is biased upward, and the bias grows with the number of trials. The reported number is not the strategy's Sharpe; it is **the winner of a tournament you ran against randomness**. Honest practice: count every variant you tried, including the ones you abandoned, discount the winner for the size of the field, or validate it on data the selection never touched.",
+      "depth": "Bailey and Lopez de Prado formalized the discount as the deflated Sharpe ratio, which asks whether your best result clears the bar you would expect from N tries on noise alone. Most published backtests fail that bar, which is one reason live performance so reliably disappoints.",
+      "id": "burrow-0157",
+      "date": "2026-08-20"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "The record AI copyright settlement wasn't about training at all.",
+      "body": "In September 2025 Anthropic agreed to pay roughly 1.5 billion dollars, reported as the largest copyright settlement ever, to authors whose books sat in its training data. The part practitioners keep missing: the court had already ruled that training on lawfully purchased books was fair use. What survived was the claim over books downloaded from pirate libraries. Liability turned on **how the copies were acquired, not what the model learned**. The drafting lesson for anyone papering AI deals: point the warranties and diligence at data provenance, the acquisition chain, because that is where the money actually moved.",
+      "depth": "Reported terms ran near 3,000 dollars per work across roughly half a million titles, with the pirated copies destroyed. Compare Thomson Reuters v. Ross, where training use lost outright: the fair-use question is still unsettled circuit by circuit, but the piracy question is not, and it prices at scale.",
+      "id": "burrow-0158",
+      "date": "2026-08-20"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "callback",
+      "hook": "Recall it: why must your to-do list live outside your head?",
+      "body": "Two weeks ago this feed made a claim about which cognitive function ADHD taxes hardest, and what it costs to keep a plan in your head. Name the function and the move before reading on. The function is working memory. Holding your next three steps active burns the same buffer that executing the current step requires, so the held items crowd out the doing. The move: **offload every open loop to one external surface** the instant it appears. One surface, not five apps. Capture is not tidiness; it frees the scarce resource to run the task actually in front of you.",
+      "depth": "Retrieval strengthens memory more than rereading does, which is why this card asks before it tells. The live test two weeks on is behavioral, not conceptual: does capture happen at the moment the thought arrives? A system consulted later but not fed in the moment protects nothing.",
+      "id": "burrow-0159",
+      "date": "2026-08-20"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "practice",
+      "hook": "Negotiate every issue at once, never one at a time.",
+      "body": "Issue-by-issue bargaining quietly converts a deal into a series of zero-sum fights: each point gets contested on its own, and you spend goodwill winning things you barely value. Package bargaining changes the math. Put every open issue on the table together and you can **trade across differences in priorities**: concede what is cheap to you and expensive to them, and take the reverse. Negotiation researchers push it further with multiple equivalent simultaneous offers, presenting two or three packages you value identically. Which package the counterparty pulls toward reveals their priorities without them saying a word.",
+      "depth": "The equal-value part is the discipline. If the packages differ in value to you, you have just made three offers and invited cherry-picking. Built honestly, simultaneous packages also read as flexible, which the research links to better counterpart satisfaction at no cost to your own outcome.",
+      "id": "burrow-0160",
+      "date": "2026-08-20"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1166,56 +1216,6 @@
       "depth": "Practical read for the one-year-old: passive video is roughly inert for language, contingent interaction is the active ingredient, and background TV mostly costs by displacing parent talk. For the three-year-old the deficit fades; good content plus a co-viewing adult who talks about it beats either alone.",
       "id": "burrow-0045",
       "date": "2026-07-26"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "The dividend, not the buyer, exercises your short call.",
-      "body": "Deep in-the-money American calls rarely get exercised for the strike; they get exercised for the dividend. The holder's test is simple: if the dividend exceeds the call's remaining extrinsic value, holding the option overnight burns money versus holding the stock. So the night before ex-dividend, **any short call carrying less extrinsic value than the dividend** is a near-certain assignment, not a coin flip. Assignment risk on those strikes is a calendar event, not a probability. Check the ex-div date before you check your delta.",
-      "depth": "The clean screen: look at the same-strike put. If it trades for less than the dividend, rational holders exercise the call. Index options dodge this entirely because they are European-style and cash-settled, one of the quiet reasons professionals treat SPX and single-stock short-call risk as different animals.",
-      "id": "burrow-0036",
-      "date": "2026-07-21"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "insight",
-      "hook": "Alpha has a half-life, and it starts at publication.",
-      "body": "McLean and Pontiff tracked 97 return anomalies from academic journals and measured what happened after the papers came out. Reported result: returns ran about a quarter lower out-of-sample and **roughly 58% lower post-publication**, as arbitrage capital crowded in. The implication for your backtests: any signal built from published research inherits a decayed forward edge that no historical window will show you. The backtest sees the pre-publication regime. You trade the post-publication one.",
-      "depth": "The reported decay was strongest in liquid, low-cost names where arbitrage is easy, which is exactly the universe most retail backtests use. A workable discipline: haircut the expected return of any literature-derived signal by half before sizing, then ask whether it still clears transaction costs.",
-      "id": "burrow-0037",
-      "date": "2026-07-21"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "The training-data fight is now about provenance, not permission.",
-      "body": "Two 2025 rulings, Bartz v. Anthropic (Alsup) and Kadrey v. Meta (Chhabria), both found that training LLMs on books can be transformative fair use. The liability survived somewhere else: Alsup carved out Anthropic's retention of pirated shadow-library copies, and Anthropic's reported $1.5 billion settlement priced that exposure. So **diligence has moved from the model to the corpus**. Papering an AI deal now means interrogating chain of custody on the training data, not re-arguing whether training itself infringes.",
-      "depth": "The fair-use ground is softer than it reads: Chhabria ruled on plaintiffs' failure to prove market harm and practically invited better-argued cases, while Thomson Reuters v. Ross went against fair use on non-generative training earlier in 2025. Provenance warranties are the stable ask; fair use is still moving.",
-      "id": "burrow-0038",
-      "date": "2026-07-21"
-    },
-    {
-      "topic": "story-craft",
-      "topicLabel": "Story Craft",
-      "type": "practice",
-      "hook": "Arrive late, leave early. Every scene.",
-      "body": "The working-writer version of scene economy: enter at the last possible moment and cut before the resolution fully lands. Skip the arrival, the greeting, the settling in; open where the want is already colliding with the obstacle, and end a beat early so the next scene carries the answer. The mechanism is that **inference is engagement**: what listeners reconstruct themselves lands harder than what they are handed. Andrew Stanton's phrasing: give the audience two plus two, never four. For long-form audio, these cut points are your pacing dial.",
-      "depth": "David Mamet's leaked memo to his TV writing staff is the blunt reference text: every scene must show someone pursuing a specific goal against resistance, and a scene that exists only to convey information is dead drama. Late-in, early-out is that rule applied at the edit points.",
-      "id": "burrow-0039",
-      "date": "2026-07-21"
-    },
-    {
-      "topic": "kid-development",
-      "topicLabel": "Little Humans",
-      "type": "insight",
-      "hook": "The marshmallow test measured the household, not the kid.",
-      "body": "Mischel's marshmallow correlations became a parenting industry. The 2018 replication by Watts, Duncan, and Quan, with a larger and more diverse sample, reported the predictive power mostly evaporating once maternal education and family background were controlled. And Celeste Kidd's earlier experiment found children wait dramatically longer, roughly 12 minutes versus 3, when the adult running the study had just proven reliable. **Waiting is a bet on the environment**: a kid who grabs the first marshmallow in an unstable setting is being rational, not weak.",
-      "depth": "Kidd's design was small but clean: before the marshmallow, the experimenter either delivered or reneged on promised art supplies, and wait times tracked that history. For a 3-year-old, your follow-through ledger, promises made versus kept, is doing more work than any patience drill would.",
-      "id": "burrow-0040",
-      "date": "2026-07-21"
     }
   ]
 }
