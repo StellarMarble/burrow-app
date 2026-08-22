@@ -1,6 +1,56 @@
 {
-  "updated": "2026-08-20",
+  "updated": "2026-08-22",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "callback",
+      "hook": "Recall it: what does rolling a loser for a credit really do?",
+      "body": "Before the answer: that credit came from somewhere. The market does not pay you to fix mistakes, so what did you sell to get it? Here it is: you closed the losing trade at a loss and opened a new, larger one, and the credit exists only because you added duration, size, or a closer strike. **A roll is re-entry at worse odds, not repair.** The test survives a second telling: if you would not open the new position fresh today, with no loss attached to it, you have no business rolling into it.",
+      "depth": "Why this one recurs: your broker displays the roll as one continuing position, which quietly converts a realized loss into an unrealized one. That accounting illusion is the whole seduction. Book the loss mentally at the moment you roll, and the decision gets honest again.",
+      "id": "burrow-0161",
+      "date": "2026-08-22"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "mechanism",
+      "hook": "Backtest today's index members and you've excluded the corpses.",
+      "body": "Build your universe from current S&P 500 membership and you are testing on companies certified, in hindsight, as survivors. The index swaps out roughly 20 to 25 constituents a year, so over a 20-year backtest hundreds of delisted, acquired, and bankrupt names simply vanish from your sample. Any strategy that buys weakness looks brilliant, because the stocks that fell and never got up are not there to hurt it. **The dead are missing from your data.** The fix is point-in-time constituent lists: test each date against the membership that existed on that date, corpses included.",
+      "depth": "Survivorship bias flatters mean-reversion and value strategies most, since those deliberately hold losers. The mutual-fund literature found the same thing one level up: databases that quietly dropped dead funds overstated average returns by enough to change conclusions. If your data vendor cannot answer 'as of when,' assume the bias is in.",
+      "id": "burrow-0162",
+      "date": "2026-08-22"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "The studios finally sued an AI company, and skipped training entirely.",
+      "body": "In June 2025 Disney and Universal filed the first major-studio copyright suit against a generative AI company, targeting Midjourney. Notice what the complaint does not lead with: training data. The theory is output-side - the tool serves up recognizable Darth Vader, Minions, and Shrek on demand, a 'virtual vending machine' of infringing copies, in the complaint's phrase. That routes around the ingestion fair-use fight, where AI defendants had been landing wins, and into **character infringement, doctrine studios have been winning on for decades.** An output claim does not care how the model learned, only what it emits.",
+      "depth": "The complaint also alleges Midjourney kept generating the characters after the studios requested filters other AI firms had implemented - a willfulness record built before filing. Drafting note: AI reps and indemnities keyed only to training-data provenance miss this entire vector. Output is its own exposure and needs its own language.",
+      "id": "burrow-0163",
+      "date": "2026-08-22"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Two underwriters, same file. Their quotes differed by half.",
+      "body": "Bias is the average error; noise is the scatter. In a noise audit Kahneman and colleagues reported from a large insurer, executives guessed that two underwriters quoting the identical case would differ by about 10%. The reported median difference was roughly 55%. Nobody had noticed, because judgment noise is invisible in the wild: each case gets one judge, so the disagreement never surfaces. **You cannot see noise in a single verdict.** Settlement valuations, damages estimates, price targets - anywhere professionals produce a number from a file, assume the scatter is several times what the institution believes.",
+      "depth": "The cheap fixes are mechanical: collect independent estimates before anyone speaks, average them, and score the components of the judgment separately before the overall call. Averaging independent judgments cancels noise directly. It does nothing for shared bias, which is exactly why the two errors need different medicine.",
+      "id": "burrow-0164",
+      "date": "2026-08-22"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Your last task follows you into this one.",
+      "body": "Sophie Leroy's research on attention residue: when you switch tasks, part of your attention stays behind with the one you left, degrading performance on the task in front of you - and the residue is worst when the prior task was unfinished. That is a working-memory tax an ADHD brain can least afford, stacked on an already expensive switch. The move is a ready-to-resume note: before switching, spend 30 seconds writing exactly where you stopped and the literal next action. **Park the open loop in writing, not in your head.** Leroy's follow-up work found this brief ritual reduces residue and speeds re-engagement.",
+      "depth": "Mechanism, not vibes: unfinished goals stay active and keep intruding (the old Zeigarnik findings point the same direction). The written note externalizes the open loop - the same principle as keeping the to-do list outside your head. Working memory is for processing, not for holding state across an interruption.",
+      "id": "burrow-0165",
+      "date": "2026-08-22"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1165,57 +1215,6 @@
       "svg": "<svg viewBox='0 0 400 240' xmlns='http://www.w3.org/2000/svg'><line x1='40' y1='200' x2='380' y2='200' stroke='#35302a' stroke-width='1.5'/><line x1='40' y1='20' x2='40' y2='200' stroke='#35302a' stroke-width='1.5'/><path d='M40,30 L62.7,46.6 L96.7,68.5 L130.7,87.2 L153.3,98.2 L181.7,110.5 L210,121.2 L238.3,130.7 L266.7,139.1 L295,146.4 L323.3,152.8 L351.7,158.5 L380,163.5' fill='none' stroke='#d9a441' stroke-width='2.5'/><line x1='266.7' y1='200' x2='266.7' y2='139.1' stroke='#7fb4a2' stroke-width='1' stroke-dasharray='4 3'/><line x1='40' y1='139.1' x2='266.7' y2='139.1' stroke='#7fb4a2' stroke-width='1' stroke-dasharray='4 3'/><circle cx='266.7' cy='139.1' r='4' fill='#7fb4a2'/><text x='274' y='131' fill='#a89f8d' font-family='sans-serif' font-size='14'>20 steps: 36%</text><text x='105' y='42' fill='#a89f8d' font-family='sans-serif' font-size='13'>each step 95% reliable</text><text x='160' y='222' fill='#a89f8d' font-family='sans-serif' font-size='13'>steps in the chain</text><text x='2' y='34' fill='#a89f8d' font-family='sans-serif' font-size='13'>100%</text><text x='18' y='204' fill='#a89f8d' font-family='sans-serif' font-size='13'>0</text></svg>",
       "id": "burrow-0050",
       "date": "2026-07-27"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Interest, not panic, triggers early put assignment.",
-      "body": "Everyone watches short calls around ex-dividend dates, but American-style puts have their own early-exercise clock, and it runs on interest rates. A deep ITM put holder is sitting on cash they could collect now: exercise, sell stock at the strike, bank the proceeds at the risk-free rate. **When the put's remaining extrinsic value drops below the interest those strike proceeds would earn**, early exercise becomes the rational move. At zero rates this almost never happened, so a decade of put sellers never built the reflex. At 4-5% rates it is routine on deep ITM, longer-dated puts.",
-      "depth": "XSP and other cash-settled European-style index options cannot be assigned early at all, one more structural reason (alongside Section 1256 treatment) they beat single-name shorts for put selling. For equity puts, the tell is extrinsic value: quotes trading near parity mean assignment risk is live even months from expiry.",
-      "id": "burrow-0041",
-      "date": "2026-07-26"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "practice",
-      "hook": "Test the neighbors before you trust the winner.",
-      "body": "A robust edge is a plateau in parameter space, not a spike. If your 20-day lookback prints money but 15 and 25 both lose, you did not find a signal, you found the one setting that best fit the noise in your sample. **Perturb every parameter and demand the neighborhood survive**: nearby lookbacks, nearby entry thresholds, nearby delta targets should all stay profitable, just less so. Real market effects are smooth; overfit ones are brittle. This one check kills more false discoveries than any statistical correction, and it costs ten minutes.",
-      "depth": "The same logic extends to time and instruments: shift the start date a month, rerun on a correlated underlying. A genuine effect degrades gracefully; a fitted one collapses. The formal version is a parameter-sensitivity heatmap, and one glance tells you plateau or spike.",
-      "id": "burrow-0042",
-      "date": "2026-07-26",
-      "svg": "<svg viewBox='0 0 400 240' xmlns='http://www.w3.org/2000/svg'><line x1='40' y1='200' x2='368' y2='200' stroke='#35302a' stroke-width='2'/><line x1='40' y1='200' x2='40' y2='30' stroke='#35302a' stroke-width='2'/><text x='46' y='42' fill='#a89f8d' font-family='sans-serif' font-size='13'>backtest P&amp;L</text><text x='270' y='220' fill='#a89f8d' font-family='sans-serif' font-size='13'>parameter value</text><path d='M40,190 C100,125 160,112 210,114 C270,118 320,150 362,185' fill='none' stroke='#d9a441' stroke-width='3'/><path d='M40,186 C90,184 125,182 138,178 L150,62 L162,178 C220,183 300,185 362,187' fill='none' stroke='#7fb4a2' stroke-width='2'/><text x='150' y='95' fill='#d9a441' font-family='sans-serif' font-size='14'>robust: a plateau</text><text x='168' y='60' fill='#7fb4a2' font-family='sans-serif' font-size='14'>overfit: one lucky setting</text></svg>"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Meta won its training case and lost the doctrine.",
-      "body": "In Kadrey v. Meta (N.D. Cal., June 2025), Judge Chhabria granted Meta summary judgment on fair use for training Llama on the plaintiff authors' books, then spent much of the opinion explaining that the plaintiffs ran the wrong play. **He endorsed market dilution as the fourth-factor theory**: not 'the model copied my book,' but 'the model floods the market with substitutes for books like mine.' The plaintiffs never built that record, so Meta won. Practitioners reading this as an industry victory are misreading a roadmap written for the next plaintiff.",
-      "depth": "Contrast Bartz v. Anthropic the same month: Judge Alsup called training transformative but let claims over pirated source copies proceed, and Anthropic later settled for a reported $1.5 billion. Together the rulings relocate the exposure: acquisition of the copies and output-market harm, not training itself.",
-      "id": "burrow-0043",
-      "date": "2026-07-26"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "mechanism",
-      "hook": "Stop arguing about the forecast. Bet on it.",
-      "body": "When both sides genuinely disagree about the future, how the film performs, whether the platform renews, the standard move is to argue toward a compromise number nobody believes. The better move is a contingent contract: **let the disagreement price the deal**. Box office bonuses, backend escalators, earnouts, renewal-triggered fee bumps all work this way. Each side accepts terms that look great under its own forecast, so both sign feeling like winners, and the party with better information reveals it through what it is willing to bet on.",
-      "depth": "Bazerman and Gillespie's classic warning still applies: contingent terms move the fight from signing to measurement. Define the metric, the auditor, and the accounting rules in the contract, or you have just scheduled the dispute. Hollywood's net-profits history is the museum exhibit for that failure mode.",
-      "id": "burrow-0044",
-      "date": "2026-07-26"
-    },
-    {
-      "topic": "kid-development",
-      "topicLabel": "Little Humans",
-      "type": "insight",
-      "hook": "It's not the screen. It's the missing contingency.",
-      "body": "In Patricia Kuhl's well-known experiments, nine-month-old American infants exposed to live Mandarin speakers learned to discriminate Mandarin sounds; infants given the identical content by video or audio learned essentially nothing. Researchers call it the video deficit, and it holds broadly until roughly age two and a half. But the gating variable is not the glass, it is **social contingency**: later work found toddlers can learn new words over live video chat, where the adult responds to them in real time, while prerecorded video fails. Grandparent FaceTime is closer to a live tutor than to Bluey.",
-      "depth": "Practical read for the one-year-old: passive video is roughly inert for language, contingent interaction is the active ingredient, and background TV mostly costs by displacing parent talk. For the three-year-old the deficit fades; good content plus a co-viewing adult who talks about it beats either alone.",
-      "id": "burrow-0045",
-      "date": "2026-07-26"
     }
   ]
 }
