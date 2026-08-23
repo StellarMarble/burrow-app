@@ -1,6 +1,57 @@
 {
-  "updated": "2026-08-22",
+  "updated": "2026-08-23",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Delta is not your probability of finishing in the money.",
+      "body": "The retail shorthand treats a 16-delta short put as an 84% winner. But delta is N(d1); the probability of expiring in the money is N(d2), and d2 is always lower. For puts that cuts against you: the chance of finishing ITM is N(-d2), which is **higher than the delta you sold**. The gap between the two is vol times root-time - negligible on a weekly at 15% vol, real on 45-90 day options in elevated vol, large on LEAPS. Delta is a hedge ratio, not a forecast; it overweights the states where the option pays more.",
+      "depth": "Mechanically, delta is the ITM probability under a different measure - one that uses the stock itself as the unit of account, which tilts weight toward high-price paths. N(d2) is the risk-neutral probability. And both differ from the real-world probability, which nobody quotes you.",
+      "id": "burrow-0166",
+      "date": "2026-08-23"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "practice",
+      "hook": "Don't trade the best parameter. Trade its neighborhood.",
+      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"210\" x2=\"370\" y2=\"210\" stroke=\"#35302a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#35302a\" stroke-width=\"2\"/><path d=\"M50 200 C110 195 130 110 200 105 C270 110 300 195 360 200\" fill=\"none\" stroke=\"#7fb4a2\" stroke-width=\"3\"/><path d=\"M50 205 L130 200 L148 55 L166 200 L360 205\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"3\"/><text x=\"160\" y=\"52\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">one lucky spike</text><text x=\"210\" y=\"92\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">plateau = robust edge</text><text x=\"150\" y=\"232\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">parameter value</text><text x=\"46\" y=\"24\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">backtest P&amp;L</text></svg>",
+      "body": "If a 21-day lookback makes money while 18 and 25 lose, you have not found a signal; you have found the one setting that fit the noise. A real effect is rarely precise about its own parameters - momentum that works at 21 days should still work, degraded, at 15 and at 30. So plot P&L across the whole parameter range and **buy the plateau, not the peak**. Some quants go further and deliberately trade a slightly off-peak setting, accepting a worse backtest for a number the optimizer didn't hand-pick.",
+      "depth": "This is a cheap visual defense that complements walk-forward testing: walk-forward asks whether the edge survives time, the plateau asks whether it survives specification. A strategy that fails the plateau test usually fails out of sample for the same reason - the peak was sampling error.",
+      "id": "burrow-0167",
+      "date": "2026-08-23"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "One repealed FCC rule explains why backend died.",
+      "body": "From 1970 to the mid-90s, the fin-syn rules barred ABC, CBS and NBC from taking a financial interest in the prime-time shows they aired, or from syndicating them. Networks were forced to be renters, so studios and independent producers kept ownership - and syndication backend built the Cosby and Seinfeld fortunes. The FCC phased the rules out by 1995. Within months Disney bought ABC, and within a decade every network sat inside a studio. **Self-dealing replaced the arm's-length license fee**, and the streamer cost-plus buyout is that logic completed: the buyer owns the show, so there is nothing left to syndicate.",
+      "depth": "The rhyme runs backward too. Fin-syn answered an earlier consolidation - three networks squeezing producers much as the pre-1948 studios had squeezed exhibitors before the Paramount decrees. Regulation forced fragmentation, deregulation restored integration, and the profit-participation definitions tracked the structure each time.",
+      "id": "burrow-0168",
+      "date": "2026-08-23"
+    },
+    {
+      "topic": "story-craft",
+      "topicLabel": "Story Craft",
+      "type": "mechanism",
+      "hook": "Hitchcock: surprise buys fifteen seconds, suspense buys fifteen minutes.",
+      "body": "Hitchcock's bomb theory: two people chat, a bomb under the table explodes - the audience gets fifteen seconds of surprise. Let them see the bomb and the timer first, and the same banal conversation becomes unbearable for fifteen minutes. Suspense is not withheld information; it is **information the characters don't have**. The working move: when a scene feels flat, stop hiding things from the audience and start hiding them from the characters. Withholding builds a puzzle; disclosure builds dread. Most drafts default to the puzzle because it is easier to write.",
+      "depth": "Hitchcock's corollary: the bomb must almost never go off. The audience carried the knowledge, so they must be relieved, not punished for participating. He broke the rule once, in Sabotage (1936), letting the bomb kill a boy - and told Truffaut it was a mistake.",
+      "id": "burrow-0169",
+      "date": "2026-08-23"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Every system you build will stop working. Budget for that.",
+      "body": "The planner that worked in March and the app that worked in June did not fail because you got lazy. Novelty itself was doing load-bearing work: a new tool has salience, and salience recruits attention when top-down effort is unreliable. As novelty habituates, the tool goes invisible - same object, less signal. So stop searching for the permanent system and **rotate on purpose**: keep the data portable (plain text, one folder), treat any capture tool as a roughly 90-day appliance, and swap the container before it dies instead of after. The system is the rotation, not the app.",
+      "depth": "This reframes the graveyard of abandoned tools: decay is the expected trajectory, so a dead tool is a completed tour of duty, not evidence you cannot maintain things. What must persist is the externalized data; what can churn is the interface pointing at it.",
+      "id": "burrow-0170",
+      "date": "2026-08-23"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1164,57 +1215,6 @@
       "depth": "The structural tell is mark-to-market versus mark-to-liquidation. A position marked at the last screen price can be worth far less the instant you try to unwind size into a thin market. The bigger you are relative to daily volume, the more your own exit becomes the risk. It is the same trap that later caught JPMorgan's London Whale in 2012.",
       "id": "burrow-0055",
       "date": "2026-07-29"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "callback",
-      "hook": "What trade is a covered call secretly identical to?",
-      "body": "Two weeks back, a payoff identity that retail sizing ignores: same max profit, same breakeven, same tail risk, two very different reputations. Picture the payoff diagram of a covered call at strike K. Hold it for a second. Now: by put-call parity, that position is **identical to a short cash-secured put** at the same strike and expiry. The 'conservative income' trade and the 'reckless' one are one trade. The test that came with it still holds: if you would not sell the put, you have no business writing the call, and if the call feels prudent, your objection to the put was the margin display, not the risk.",
-      "depth": "The equivalence is exact at expiry and near-exact before it; dividends and early-exercise mechanics add only small wrinkles. The durable lesson is sizing discipline: any position you can restate as a different-looking trade should be sized as the scarier version. Parity restatements are the cheapest risk audit you own.",
-      "id": "burrow-0046",
-      "date": "2026-07-27"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "mechanism",
-      "hook": "Turnover, not alpha, decides if the anomaly survives",
-      "body": "Novy-Marx and Velikov put real cost estimates against roughly two dozen published anomalies. Reported pattern: low-turnover strategies kept most of their paper returns after costs, while high-turnover ones were largely erased. The mechanism is a ratio: costs scale linearly with turnover, alpha does not, so the number that decides survival is **alpha per dollar traded**. The trap compounds because anomaly returns concentrate in small, illiquid names where spreads are widest: the backtest's juiciest positions are precisely the costliest ones to enter. Gross Sharpe sells the paper; net Sharpe pays you.",
-      "depth": "The same literature tests mitigations: rebalance bands that trade only when a position drifts far from target, slower signal blends, and restricting the universe to liquid names. Reported result: several strategies regain significance this way, at the price of tracking the paper version less faithfully. Cost realism is a design input, not a final deduction.",
-      "id": "burrow-0047",
-      "date": "2026-07-27"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Digital resurrection now needs the estate's signature, not just nerve",
-      "body": "California's AB 1836, effective January 2025, amended the postmortem right of publicity: using a deceased personality's **digital replica** in an audiovisual work or sound recording now requires the estate's prior consent, with statutory damages starting at $10,000 or actual damages, whichever is greater. The prior regime's expressive-works exemption gave producers a colorable argument that synthetic casting in a film needed no license at all. That argument is now dead for replicas. Earlier resurrections, Peter Cushing in Rogue One among them, ran on negotiated estate deals; the statute converts that courtesy into a veto that runs the full 70-year postmortem term.",
-      "depth": "It pairs with AB 2602, the living-performer companion that polices replica clauses in contracts. Together they bracket the deal lifecycle: the living get contract-formation protections, estates get a consent right. One trap survives: the postmortem right must be registered with the California Secretary of State, and damages for uses that predate registration are barred. Check before the demand letter goes out.",
-      "id": "burrow-0048",
-      "date": "2026-07-27"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "practice",
-      "hook": "Declare the project dead. Watch the reasons surface.",
-      "body": "Gary Klein's premortem gives the instruction precisely: it is a year from now, the plan has failed completely, write down why. The mechanism is prospective hindsight. Mitchell, Russo, and Pennington reported that framing an outcome as certain rather than merely possible increased the distinct reasons people generated by roughly 30%. The second mechanism is social: in a planning meeting, doubt reads as disloyalty; in a premortem, the sharpest pessimist wins the room, so dissent becomes a competition instead of a career risk. **Certainty unlocks explanations that probability keeps hidden.** Run it before the position, not after.",
-      "depth": "The same inversion works solo. Before entering a trade: this position got stopped out, what did it? Before signing: this deal blew up eighteen months post-close, over what clause? The stipulated failure also protects the author's ego. Nobody is attacking the plan; the failure was assigned, so the criticism is homework.",
-      "id": "burrow-0049",
-      "date": "2026-07-27"
-    },
-    {
-      "topic": "ai-orchestration",
-      "topicLabel": "AI Systems",
-      "type": "mechanism",
-      "hook": "A 95% reliable step fails you by step twenty",
-      "body": "Reliability multiplies. An agent that executes each step correctly 95% of the time finishes a twenty-step chain about 36% of the time, because 0.95 raised to the twentieth power does not care how good the prompt is. Past modest depth, the leverage stops being better per-step instructions and becomes **making failures recoverable instead of steps perfect**: validators that catch bad output before it propagates, checkpoints that retry one step instead of restarting the run, decomposition that shortens the longest dependent path. It is manufacturing yield math, and it explains why mature agent systems converge on inspection gates rather than exhortation.",
-      "depth": "The eval corollary: measure per-step reliability, not just end-to-end pass rate. A 40% completion rate could be one broken tool call or uniform mediocrity, and the fixes differ. Verification also changes the exponent: independent parallel attempts plus a checker converts chained multiplication into selection, which is why fan-out with a judge beats one longer, more careful run.",
-      "svg": "<svg viewBox='0 0 400 240' xmlns='http://www.w3.org/2000/svg'><line x1='40' y1='200' x2='380' y2='200' stroke='#35302a' stroke-width='1.5'/><line x1='40' y1='20' x2='40' y2='200' stroke='#35302a' stroke-width='1.5'/><path d='M40,30 L62.7,46.6 L96.7,68.5 L130.7,87.2 L153.3,98.2 L181.7,110.5 L210,121.2 L238.3,130.7 L266.7,139.1 L295,146.4 L323.3,152.8 L351.7,158.5 L380,163.5' fill='none' stroke='#d9a441' stroke-width='2.5'/><line x1='266.7' y1='200' x2='266.7' y2='139.1' stroke='#7fb4a2' stroke-width='1' stroke-dasharray='4 3'/><line x1='40' y1='139.1' x2='266.7' y2='139.1' stroke='#7fb4a2' stroke-width='1' stroke-dasharray='4 3'/><circle cx='266.7' cy='139.1' r='4' fill='#7fb4a2'/><text x='274' y='131' fill='#a89f8d' font-family='sans-serif' font-size='14'>20 steps: 36%</text><text x='105' y='42' fill='#a89f8d' font-family='sans-serif' font-size='13'>each step 95% reliable</text><text x='160' y='222' fill='#a89f8d' font-family='sans-serif' font-size='13'>steps in the chain</text><text x='2' y='34' fill='#a89f8d' font-family='sans-serif' font-size='13'>100%</text><text x='18' y='204' fill='#a89f8d' font-family='sans-serif' font-size='13'>0</text></svg>",
-      "id": "burrow-0050",
-      "date": "2026-07-27"
     }
   ]
 }
