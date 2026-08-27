@@ -1,6 +1,57 @@
 {
-  "updated": "2026-08-26",
+  "updated": "2026-08-27",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Every index option carries a hidden correlation bet.",
+      "body": "An index can't move unless its components move together, so index variance is component variances glued by pairwise correlation. That means index implied vol embeds an implied correlation, and historically it has traded above what later gets realized - the **correlation risk premium**. The flow story: institutions buy index puts as macro hedges while call overwriting supplies single-name vol, so the index leg stays structurally rich. Dispersion desks harvest the gap - short index vol, long single-name vol, roughly vega-neutral. The catch rhymes with all vol selling: in a crash, correlations lurch toward 1 and the premium you collected goes out the door at once.",
+      "depth": "Rough magnitudes: S&P 500 implied correlation has run above realized by reported gaps of roughly 5-15 points depending on window and method. You can't run true dispersion retail - too many legs - but the concept still prices your book: selling index premium means you're short correlation whether you meant to be or not.",
+      "id": "burrow-0186",
+      "date": "2026-08-27"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "A formula with made-up weights still beats the expert.",
+      "body": "Paul Meehl showed in 1954 that simple statistical rules match or beat expert judgment in most prediction tasks, and decades of follow-up studies kept confirming it. Robyn Dawes pushed it further: models with **unit weights** - just add the standardized factors, no fitted coefficients - still beat the experts who picked the factors. The mechanism is noise, not knowledge. Experts are genuinely good at knowing which variables matter and reliably bad at combining them the same way twice; a formula combines identically every time. The move for any repeated call - hire, settle, size a position: name the handful of factors once, weight them equally, and let the tally argue with your gut.",
+      "depth": "Grove's meta-analysis of over 130 comparisons found mechanical prediction equaled or beat clinical judgment in the large majority of studies. Dawes' 1979 paper is 'The Robust Beauty of Improper Linear Models.' Same root as noise audits: two experts, same file, different answers - a formula never disagrees with itself.",
+      "id": "burrow-0187",
+      "date": "2026-08-27"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Meta won its training case; the judge wrote plaintiffs a roadmap.",
+      "body": "In June 2025 Judge Chhabria granted Meta summary judgment: training Llama on the plaintiff authors' books was fair use. Then he spent much of the opinion explaining why that outcome should comfort no AI company. These plaintiffs simply failed to build a record on the theory that could win: **market dilution** - generative models flooding the market with works that compete with the books they trained on, depressing demand without copying any single one. Lost licensing revenue, the theory plaintiffs actually ran, he found circular and weak. Read alongside Alsup's Bartz ruling the same week, the message isn't 'training is legal.' It's 'plead the fourth factor correctly.'",
+      "depth": "The fourth fair-use factor - effect on the market for the original - has historically been the heavyweight. Chhabria's dilution theory needs no showing that any output copies a specific work; the harm is category-level substitution. Expect the next wave of complaints to arrive with economists attached.",
+      "id": "burrow-0188",
+      "date": "2026-08-27"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "The late-afternoon crash is pharmacology, not relapse.",
+      "svg": "<svg viewBox='0 0 400 240' xmlns='http://www.w3.org/2000/svg'><line x1='40' y1='210' x2='380' y2='210' stroke='#35302a' stroke-width='2'/><line x1='40' y1='20' x2='40' y2='210' stroke='#35302a' stroke-width='2'/><path d='M40 205 C 80 60, 120 45, 170 55 C 220 65, 260 120, 330 200' fill='none' stroke='#d9a441' stroke-width='3'/><line x1='262' y1='34' x2='262' y2='210' stroke='#7fb4a2' stroke-dasharray='4 4'/><line x1='334' y1='34' x2='334' y2='210' stroke='#7fb4a2' stroke-dasharray='4 4'/><text x='298' y='50' fill='#7fb4a2' font-family='sans-serif' font-size='13' text-anchor='middle'>rebound</text><text x='298' y='66' fill='#7fb4a2' font-family='sans-serif' font-size='13' text-anchor='middle'>window</text><text x='52' y='38' fill='#a89f8d' font-family='sans-serif' font-size='13'>blood level</text><text x='376' y='230' fill='#a89f8d' font-family='sans-serif' font-size='13' text-anchor='end'>hours after dose</text><text x='120' y='150' fill='#a89f8d' font-family='sans-serif' font-size='13'>smooth coverage</text></svg>",
+      "body": "As a stimulant's blood level falls, symptoms don't just come back - for an hour or so they can overshoot baseline, leaving focus and irritability worse than an unmedicated afternoon. That's **rebound**, a known crash on the falling edge of the concentration curve, not evidence the medication is failing. On lisdexamfetamine the fade typically starts 10-12 hours after the dose, which parks the window in the early evening. Two moves: schedule around it - mechanical, low-friction tasks in that slot, nothing that needs patience you won't have - and log the clock time the drop hits for a week. Offset timing is precisely the data that steers titration.",
+      "depth": "Rebound is distinct from tolerance (a weeks-scale question) and from peak-hours symptoms (a dose question). If the crash is severe or arrives early, prescribers commonly shift dose or timing - a conversation to bring data to. The diagram's window is schematic; your curve's actual timing is the thing worth measuring.",
+      "id": "burrow-0189",
+      "date": "2026-08-27"
+    },
+    {
+      "topic": "kid-development",
+      "topicLabel": "Little Humans",
+      "type": "insight",
+      "hook": "Conversational turns build language. Word count mostly doesn't.",
+      "body": "The famous '30-million-word gap' study tracked 42 families, and its headline number has not held up well under replication. What has held up is turn-taking. In a 2018 MIT study, the number of back-and-forth conversational exchanges predicted children's language scores and activation in Broca's area - **independent of word count and family income**. The mechanism looks like contingency: a response tuned to what the child just said or did gives the brain feedback it can learn from; narration aimed in their direction doesn't. For a 1-year-old that means treating babble as a serve to return. Answer it, pause, let them go again - the turn, not the monologue, is what the data rewards.",
+      "depth": "Romeo et al., Psychological Science 2018, ages 4-6; the imaging sample was small, so treat the neural finding as suggestive and the behavioral one as the anchor. Hart & Risley wasn't fabricated - it was underpowered and its framing overreached. Serve-and-return holds up across both literatures.",
+      "id": "burrow-0190",
+      "date": "2026-08-27"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1161,57 +1212,6 @@
       "depth": "Why it matters again: under pressure the instinct is always to sharpen the prompt, the one lever that barely moves a long chain. Reliability compounds multiplicatively, so the wins live in architecture, not wording. Every time a run dies at step fifteen, ask whether step fifteen should have been catchable, not whether it should have been perfect.",
       "id": "burrow-0075",
       "date": "2026-08-02"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Net-zero vega can still lose on a vol twist.",
-      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"50\" y1=\"200\" x2=\"370\" y2=\"200\" stroke=\"#35302a\"/><line x1=\"50\" y1=\"30\" x2=\"50\" y2=\"200\" stroke=\"#35302a\"/><polyline points=\"60,150 160,135 260,125 360,118\" fill=\"none\" stroke=\"#7fb4a2\" stroke-width=\"2\"/><polyline points=\"60,70 160,108 260,120 360,118\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2\"/><text x=\"70\" y=\"58\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">vol twist: front-end spike</text><text x=\"238\" y=\"145\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">calm term structure</text><text x=\"55\" y=\"216\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">short</text><text x=\"335\" y=\"216\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">long</text><text x=\"30\" y=\"40\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">IV</text></svg>",
-      "body": "Vega is not one number. It is a curve across expirations, and your book can sum to zero while being long front-month vol and short the back, or the reverse. When the **term structure twists** instead of shifting in parallel, that netted-out exposure comes alive. A short-dated spike with a calm back end hammers a position that read as vega-neutral on the risk screen. Bucket your vega by expiration, not into a single line, or the number is quietly lying to you.",
-      "depth": "This is why calendars and diagonals are term-structure trades, not directional ones. VIX futures usually sit in contango, and the front reacts hardest to shocks. A parallel-shift model of vol misprices every one of them. Any greek that assumes the whole surface moves together hides the risk that actually pays or bites.",
-      "id": "burrow-0066",
-      "date": "2026-08-01"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "California voids a digital-replica clause that is too vague.",
-      "body": "AB 2602, effective January 2025, added Labor Code section 927. It makes a contract provision permitting a **digital replica** of a performer unenforceable when two conditions both hold: the clause lacks a reasonably specific description of the intended uses, and the performer was not represented by a lawyer or a union bargaining for them. The blanket 'any and all uses, in perpetuity, throughout the universe' grant that boilerplate loves does not clear that bar. Specificity is now the price of enforceability, at least in California.",
-      "depth": "The statute targets the exact move studios reached for during the 2023 strikes: acquire broad replica rights cheap, in language the signer cannot parse. Read it alongside AB 1836, which requires estate consent for digital replicas of deceased performers. Two California statutes, one theme. The replica right no longer travels on vague paper.",
-      "id": "burrow-0067",
-      "date": "2026-08-01"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "Evidence moves you by its likelihood ratio, nothing else.",
-      "body": "Bayes says your posterior odds equal your prior odds times one quantity: the **likelihood ratio**, how much more probable the evidence is if the claim is true versus if it is false. A detail can be vivid, specific, and emotionally loaded and still carry a ratio near one, because it is equally likely under both stories. That evidence feels decisive and moves nothing. The right question is never 'does this fit my theory' but 'does this fit my theory better than the rival one.'",
-      "depth": "This is the engine under base-rate neglect. People swap the diagnostic question for a resemblance question: does the evidence look like the conclusion. Resemblance is not a likelihood ratio. A witness detail consistent with guilt but equally consistent with innocence is, formally, worthless, however it plays on the stand.",
-      "id": "burrow-0068",
-      "date": "2026-08-01"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "The fix has to sit where the behavior happens.",
-      "body": "Barkley's sharpest clinical claim: in ADHD, knowledge does not transfer to the moment of action. You can fully understand what to do and still not do it, because the bottleneck is **performance, not information**. So the intervention belongs at what he calls the point of performance, the exact place and time the behavior is needed. Not a reminder earlier that morning. The pill bottle on the coffee machine. The signed check clipped to the door. Move the cue to the moment, not upstream of it.",
-      "depth": "This is why insight-heavy approaches underperform here and environmental ones win. The deficit is executive, a gap between knowing and doing, so you engineer the physical world to close it. Externalize the rule into the spot where it fires. Willpower staged upstream is precisely the thing that keeps failing.",
-      "id": "burrow-0069",
-      "date": "2026-08-01"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "insight",
-      "hook": "A range offer can out-anchor a single number.",
-      "body": "Conventional advice says never give a range, because you will get pinned to the bad end. The research complicates that. Ames and Mason found that a **bolstering-range offer**, where the low end is the number you actually want, often beats a precise point offer set at that same number. The range signals reasonableness and room while the counterpart anchors on the whole span, not just its floor. The failure mode is the opposite construction: a range whose top is your target. That one does get you pinned low.",
-      "depth": "Mechanism: the range widens the counterpart's read of your resistance point and adds a politeness signal that dampens aggressive countering, without conceding your anchor. Direction is everything. Anchor from strength, and let the span do the softening for you.",
-      "id": "burrow-0070",
-      "date": "2026-08-01"
     }
   ]
 }
