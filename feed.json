@@ -1,6 +1,56 @@
 {
-  "updated": "2026-08-29",
+  "updated": "2026-08-31",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "insight",
+      "hook": "The straddle price is the expected move, not one sigma.",
+      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"60\" y1=\"200\" x2=\"360\" y2=\"200\" stroke=\"#35302a\"/><rect x=\"120\" y=\"72\" width=\"60\" height=\"128\" fill=\"none\" stroke=\"#d9a441\"/><rect x=\"250\" y=\"40\" width=\"60\" height=\"160\" fill=\"none\" stroke=\"#7fb4a2\"/><text x=\"150\" y=\"220\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\" text-anchor=\"middle\">straddle =</text><text x=\"150\" y=\"236\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\" text-anchor=\"middle\">expected move</text><text x=\"280\" y=\"220\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\" text-anchor=\"middle\">1 sigma</text><text x=\"280\" y=\"30\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">~25% higher</text></svg>",
+      "body": "The at-the-money straddle costs roughly 0.8 x S x sigma x sqrt(T). That number also equals the expected absolute move of a normal variable, sigma x sqrt(T) x sqrt(2/pi), which is about 0.8 sigma. So buying the straddle pays the **mean absolute move**, not the 68% one-sigma band. The common error is to read the straddle as a one-sigma range and size trades off it, which overstates how often you land inside. The true one-sigma level sits roughly 25% above the straddle price.",
+      "depth": "Rule of thumb: the expected move is about the straddle price, while the one-sigma move is the straddle divided by 0.8. Traders who quote a single 'expected move' number are usually citing the first and treating it as the second.",
+      "id": "burrow-0201",
+      "date": "2026-08-31"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "mechanism",
+      "hook": "Trials inflate your Sharpe. Deflate it before you believe it.",
+      "body": "Run enough strategy variants and the best Sharpe is partly luck dressed as signal. The **deflated Sharpe ratio** (Bailey and Lopez de Prado) discounts the observed number for how many trials you ran, how long the track record is, and the skew and fat tails of the returns. The more configurations you tried, the higher a Sharpe must clear to stay real. A 1.5 from one honest test can outrank a 2.5 mined from five hundred. If you cannot state the trial count, the number is theater.",
+      "depth": "The correction rises with the spread of your trial Sharpes and with the count of trials. It also punishes short samples and negative skew, since a smooth-looking equity curve can hide a rare blowup that a raw Sharpe quietly ignores.",
+      "id": "burrow-0202",
+      "date": "2026-08-31"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Denmark wants to give you copyright in your own face.",
+      "body": "In 2025 Denmark's culture ministry proposed amending copyright law to give every person **rights over their own body, facial features, and voice**, so a realistic deepfake could be treated as infringement a platform must take down. That is a different engine from the US route, which pushes deepfakes through right-of-publicity and a patchwork of state statutes. Copyright carries built-in takedown machinery and cross-border treaties that publicity rights lack. Whether courts accept that your face is a protectable work is the open question, but the framing is the move to watch.",
+      "depth": "Reported as a proposal, not yet enacted. The interesting wrinkle for a practitioner: a copyright theory travels through the DMCA-style notice regimes and the Berne treaty network, so a Danish right could reach content hosted abroad in ways a purely state publicity claim never could.",
+      "id": "burrow-0203",
+      "date": "2026-08-31"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Stop mid-sentence so tomorrow's start is already loaded.",
+      "body": "The costly part of a task is not the doing, it is the **activation threshold** to begin. A blank page hands the job to your weakest function, initiation, and asks it to make the first move from nothing. So do not finish clean. Stop with the next action half-done and obvious: a sentence trailing off, a test written but not yet run, the file open at the exact line. Re-entry then costs almost nothing, because the first move is already decided and visible. You spend good-state minutes to buy your bad-state self a running start.",
+      "depth": "This is why 'write the next step down before you quit' beats a tidy stopping point. You are not saving the work, you are lowering the energy needed to reopen it, which is the exact barrier initiation struggles with.",
+      "id": "burrow-0204",
+      "date": "2026-08-31"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Recall it: your bet lost. Was the decision wrong?",
+      "body": "From a card a week or so back: **decision quality and outcome quality are separate** axes. You can take the positive-EV side and still lose, because variance gets a vote. Grading the decision by the result is resulting, and it quietly trains you to drop good process after an unlucky streak and to repeat reckless bets that happened to pay. Judge the call on what you knew and the odds you faced, not on where the ball landed. Log the reasoning at the time, so a bad result cannot rewrite the decision after the fact.",
+      "id": "burrow-0205",
+      "date": "2026-08-31"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1163,57 +1213,6 @@
       "depth": "Why it matters again: your own trade checklist and your own redline standards are the expert. Written once and followed mechanically, they beat the discretionary you who overrides them on a Tuesday. Most overrides are not insight. They are noise wearing the costume of judgment.",
       "id": "burrow-0090",
       "date": "2026-08-06"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "At implied vol, your theta exactly pays for your gamma.",
-      "body": "Sell a delta-hedged option and two forces fight. Theta pays you daily for time decay. Gamma bleeds you every time the underlying moves, because re-hedging locks in losses at the highs and lows. Priced at the option's implied vol, those two are engineered to cancel in expectation: the market sets theta to exactly compensate the gamma you will pay if the stock realizes its implied vol. So a hedged short option carries **zero expected edge at implied vol**. Your entire profit is the gap between implied and what actually gets realized. You are not short options. You are short realized variance.",
-      "depth": "This is why selling 'expensive' options is not automatically edge. Expensive means high implied vol; if realized comes in just as high, theta and gamma wash and you netted transaction costs against yourself. The variance risk premium, implied minus realized running a few vol points on average, is the only durable reason the short side pays.",
-      "id": "burrow-0081",
-      "date": "2026-08-05"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Turn time into a shrinking wedge you can see.",
-      "body": "ADHD blunts the internal sense of time passing, what Barkley calls **time blindness**: the future does not feel like it is approaching, so urgency stays flat until a deadline is nearly on top of you. A digital clock does not fix this. It shows a number, not a rate. An analog countdown timer that drains a colored wedge converts the invisible interval into a physical quantity that visibly disappears. You are not motivating yourself harder. You are giving a time-blind brain an external sense organ for duration.",
-      "depth": "The move generalizes: any deadline you cannot feel, make continuous and visible. A progress bar, a burning candle, a timer sitting on the desk. The point is not the countdown itself but converting a discounted future event into present sensory input, which is the one channel a time-blind system reliably registers.",
-      "id": "burrow-0082",
-      "date": "2026-08-05"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Tennessee protects your voice, and targets the cloning tool itself.",
-      "body": "Most right-of-publicity statutes grew up around image and name. Tennessee's ELVIS Act, effective July 1, 2024, was the first US law to add **voice as its own protected right** and, more importantly, to reach upstream. It creates liability not just for whoever publishes an unauthorized vocal clone but for distributing any tool or service whose primary function is producing one. That is the frontier move practitioners keep missing: the exposure attaches to the model and platform makers, not only the end user who hit generate.",
-      "depth": "Compare California's AB 1836 and AB 2602, which regulate the use of a digital replica of a performer; Tennessee instead went after the supply chain. For anyone building or licensing voice AI, the diligence question is no longer only 'did we get consent for this voice' but 'could our product be characterized as a tool whose main purpose is unauthorized replication.'",
-      "id": "burrow-0083",
-      "date": "2026-08-05"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "Positive expected value can still ruin almost every player.",
-      "body": "Offer a bet that adds 50% to your stake on heads and cuts it 40% on tails, fifty-fifty. The arithmetic mean is +5% per flip, so a room full of gamblers, taken together, gets richer. But you are not the room. You are one person compounding one sequence, and the **time-average growth rate is negative**: heads then tails multiplies your money by 1.5 times 0.6, which is 0.9. Repeat and almost every individual path decays toward zero. The mean describes parallel worlds. You live one. This gap is non-ergodicity, and it is why bet sizing, not edge, decides survival.",
-      "depth": "The ensemble average and the time average agree for additive processes and diverge for multiplicative ones, which is nearly everything involving wealth. Kelly sizing is the operational fix: it maximizes the time-average growth rate, not the expected value, which is exactly why a positive-EV bet can still be too big to survive.",
-      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"45\" y1=\"205\" x2=\"378\" y2=\"205\" stroke=\"#35302a\" stroke-width=\"1.5\"/><line x1=\"45\" y1=\"22\" x2=\"45\" y2=\"205\" stroke=\"#35302a\" stroke-width=\"1.5\"/><polyline points=\"45,196 378,52\" fill=\"none\" stroke=\"#7fb4a2\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/><polyline points=\"45,196 100,150 150,124 215,150 300,184 378,199\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2.5\"/><text x=\"232\" y=\"56\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">ensemble mean</text><text x=\"228\" y=\"176\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">your one path</text><text x=\"50\" y=\"18\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">wealth</text><text x=\"345\" y=\"223\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">flips</text></svg>",
-      "id": "burrow-0084",
-      "date": "2026-08-05"
-    },
-    {
-      "topic": "brain-science",
-      "topicLabel": "Brain & Focus",
-      "type": "insight",
-      "hook": "Working memory holds about four items, not the famous seven.",
-      "body": "Miller's 1956 'magical number seven plus or minus two' became the most-cited number in psychology and is mostly wrong for raw capacity. When later researchers, notably Nelson Cowan, blocked the tricks people use to inflate the count, rehearsal and chunking, the real limit of pure working memory landed closer to **four chunks**. The practical consequence is not trivia. Any instruction, checklist, or interface that expects someone to juggle more than about four novel elements at once is exceeding the hardware. Design past four by chunking, or by putting the rest on paper.",
-      "depth": "Chunking is how experts fake a bigger buffer: a grandmaster sees one meaningful pattern where a novice sees six pieces, spending one slot instead of six. The capacity did not grow, the units did. This is also why externalizing, writing the other items down, is not a crutch but the correct response to a fixed limit.",
-      "id": "burrow-0085",
-      "date": "2026-08-05"
     }
   ]
 }
