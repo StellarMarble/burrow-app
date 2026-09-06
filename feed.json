@@ -1,6 +1,57 @@
 {
-  "updated": "2026-09-05",
+  "updated": "2026-09-06",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Half-Kelly isn't caution. It's paying for uncertainty.",
+      "body": "Full Kelly maximizes long-run growth only if you know your edge exactly. You never do. You estimate it from noisy history, and the estimate sits above the truth as often as below. Betting full Kelly on an inflated estimate is betting well past full Kelly on reality, where growth falls off a cliff. **Halving the fraction buys a wide margin against that estimation error** for only a small give-up in growth. Half-Kelly is not timidity. It is the honest price of not knowing your true edge.",
+      "depth": "The growth curve is nearly flat just under its peak and steep just past it, so overbetting hurts far more than underbetting the same distance. With fat-tailed short-vol returns, historical edge is especially overstated, which pushes the prudent fraction below even half.",
+      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"60\" y1=\"190\" x2=\"372\" y2=\"190\" stroke=\"#35302a\"/><line x1=\"60\" y1=\"38\" x2=\"60\" y2=\"200\" stroke=\"#35302a\"/><polyline points=\"60,190 97,129 135,85 172,59 210,50 247,59 285,85 322,129 360,190\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2\"/><circle cx=\"210\" cy=\"50\" r=\"4\" fill=\"#d9a441\"/><text x=\"210\" y=\"38\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\" text-anchor=\"middle\">full Kelly = max growth</text><circle cx=\"135\" cy=\"85\" r=\"4\" fill=\"#7fb4a2\"/><text x=\"122\" y=\"78\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">half Kelly</text><text x=\"210\" y=\"212\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">bet fraction</text><text x=\"66\" y=\"50\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">growth</text></svg>",
+      "id": "burrow-0221",
+      "date": "2026-09-06"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Body doubling works by borrowing someone else's brakes.",
+      "body": "ADHD is an under-supply of inhibition: the internal brake that keeps a dull task from losing to a more interesting impulse is weak. Another person in the room supplies the brake from outside. Task-switching now carries a social cost, and 'I'll just check my phone' carries a witness. **The mechanism is borrowed inhibition, not motivation or shame.** That is why a silent, uninterested co-worker helps as much as an expert one, and why a scheduled call to just sit and work often out-performs any productivity app you could install instead.",
+      "depth": "Concrete move: book a standing 30-minute video call with anyone, cameras on, no agenda beyond each of you doing your own work. The presence does the work. Solo fallback: a livestream or a busy cafe supplies a weaker version of the same external brake.",
+      "id": "burrow-0222",
+      "date": "2026-09-06"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Anthropic won on fair use and still paid $1.5 billion.",
+      "body": "In June 2025 a federal judge ruled that training a model on books was transformative fair use. Anthropic still faced a reported $1.5 billion settlement. The reason is the split the court drew: **learning from a work is fair use, but how you got the copy is a separate act.** Anthropic had downloaded pirated libraries to assemble its corpus, and piracy is infringement no matter what you later do with the files. The lesson for any AI builder is that clean acquisition, not the training step, is where the liability now lives.",
+      "depth": "Contrast the Meta ruling weeks later, where training also cleared fair use but the plaintiffs lost mainly on a thin market-harm record. Two wins for AI on the training question, and the surviving exposure in both is sourcing and market-dilution proof, not the model itself.",
+      "id": "burrow-0223",
+      "date": "2026-09-06"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Your best estimate ignores every time you ran late before.",
+      "body": "Asked how long something will take, you build a story: the steps, the good days, the clean run. That inside view is why nearly every plan runs late. The fix is not more detail. It is to set your own case aside and ask what actually happened to similar projects, then use that spread of outcomes as your starting number. **Reference-class forecasting beats introspection because your imagined steps are optimistic and the base rate already prices in the surprises.** Kahneman found that even experts, handed the base rate, still trusted their own narrative and blew the estimate.",
+      "depth": "Practical version: before estimating a build, pull three past builds of the same shape and take their real elapsed time, not the version you remember. Anchor on that, then adjust for genuine differences. Keep the adjustment small; if it grows large, you have slid back into the inside view.",
+      "id": "burrow-0224",
+      "date": "2026-09-06"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "callback",
+      "hook": "Recall it: whose 1944 suit freed actors after seven years?",
+      "body": "About ten days back: one 1944 lawsuit set a hard ceiling on how long a studio could bind a performer. Which star, and what was the ceiling? Take a second before the reveal. **It was Olivia de Havilland, and the ceiling was seven calendar years.** She sued Warner Bros. over the trick of tacking suspensions onto the end of a contract to stretch it indefinitely, and won. California's seven-year statute has been the De Havilland Law ever since, and it still shapes how long talent can be locked up.",
+      "depth": "The rule runs seven years from the start of actual service, not seven years of work performed, which is exactly why suspension-stacking was the whole fight. Recording artists later won a controversial carve-out, but the baseline ceiling still traces to her case.",
+      "id": "burrow-0225",
+      "date": "2026-09-06"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1159,57 +1210,6 @@
       "depth": "There is a deeper mechanism worth keeping. Delay of gratification is not a fixed trait a child either has or lacks; it is partly a rational read of the environment. Kids who have learned that promises get broken grab the sure thing, correctly. Change the reliability of the world around them and their patience changes with it.",
       "id": "burrow-0110",
       "date": "2026-08-10"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "An at-the-money call's delta is above 0.50, not at it.",
-      "body": "Struck at the forward, a call's d1 term equals half sigma-root-T, which is positive. So its delta, N(d1), sits just above 0.50, and it climbs with more time or higher vol. The reason is structural: a lognormal price has its median below its mean, so the strike that gives a true coin-flip finish lies slightly out of the money relative to the forward. **A 'symmetric' at-the-money straddle is quietly long delta.** Retail treats 50-delta as the ATM anchor, but the forward, not spot, is the real center of mass.",
-      "depth": "How much? At 20% vol and one month, half-sigma-root-T is about 0.03, nudging delta to roughly 0.51. Stretch to a year and it is near 0.54. Small, yes. But your 'delta-neutral' short straddle then needs a few shares of hedge you probably never put on.",
-      "id": "burrow-0101",
-      "date": "2026-08-09"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "The Warhol ruling quietly reloaded every AI fair-use defense.",
-      "body": "In 2023 the Supreme Court, in Warhol v Goldsmith, narrowed transformative use: a new meaning or message no longer saves a copy if the use serves the **same commercial purpose** as the original. AI training defenses had leaned hard on transformativeness. Now a plaintiff can argue that a model trained on their work to make competing work shares that work's purpose, weakening factor one before factor four is even reached. Practitioners still cite pre-Warhol wins like Google v Oracle as if the ground has not shifted. It has.",
-      "depth": "The nuance the headlines missed: Warhol touched only factor one, and the Court called it a narrow holding. But 'same purpose' is exactly the wedge in AI suits, since a model that outputs marketable images arguably competes with the images it trained on. Whether courts stretch it from one Prince photo to a billion-image corpus is the open question.",
-      "id": "burrow-0102",
-      "date": "2026-08-09"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Your reminder system stops working the day it stops being new.",
-      "body": "The mechanism is salience. An ADHD brain allocates attention by how much a cue stands out, not by how much it matters. A new checklist, a fresh sticky note, a just-built app all grab you because novelty spikes the signal. Two weeks later the cue is furniture and your eye slides past it. This is **tool decay**, and it is why every system you build works for a while and then quietly dies. The fix is not a better system. It is changing the cue's form on a schedule: move it, recolor it, reword it, so novelty keeps the signal alive.",
-      "depth": "Practical version: stop chasing the perfect permanent system, because it will decay no matter how good it is. Build one that is cheap to refresh instead. A whiteboard you rewrite every Sunday beats an elegant app you stop seeing by Wednesday. The refresh is the feature, not a sign the tool failed.",
-      "id": "burrow-0103",
-      "date": "2026-08-09"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "insight",
-      "hook": "Fifteen years of daily data is not 3,750 independent tests.",
-      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><text x=\"200\" y=\"26\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"15\" text-anchor=\"middle\">Two ways to size the same 11 years</text><line x1=\"40\" y1=\"70\" x2=\"360\" y2=\"70\" stroke=\"#7fb4a2\" stroke-width=\"10\"/><text x=\"200\" y=\"98\" fill=\"#7fb4a2\" font-family=\"sans-serif\" font-size=\"14\" text-anchor=\"middle\">3,750 daily rows</text><rect x=\"40\" y=\"140\" width=\"120\" height=\"40\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2\"/><rect x=\"170\" y=\"140\" width=\"70\" height=\"40\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2\"/><rect x=\"250\" y=\"140\" width=\"110\" height=\"40\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2\"/><text x=\"100\" y=\"165\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">bull</text><text x=\"205\" y=\"165\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">crash</text><text x=\"305\" y=\"165\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">recovery</text><text x=\"200\" y=\"206\" fill=\"#d9a441\" font-family=\"sans-serif\" font-size=\"14\" text-anchor=\"middle\">3 independent regimes</text><text x=\"200\" y=\"230\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">your t-stat trusts the top row</text></svg>",
-      "body": "A backtest brags about sample size in observations, but statistics only reward **independent** observations. Daily returns clump into regimes: a low-vol bull, a crash, a recovery. A strategy fit on 2010 to 2021 mostly saw one macro environment, falling rates and rising multiples, dressed up as thousands of data points. Its real out-of-sample count might be two or three. That is why models 'validated on 15 years' die in year sixteen. They were tuned against a handful of regimes while reading the calendar as if it were the sample.",
-      "depth": "The discipline: count regimes, not rows. Ask how many genuinely different environments the data spans, rate cycles, vol regimes, liquidity states, and treat that as your degrees of freedom. A Sharpe earned across four regimes outranks one earned across four thousand correlated days inside a single regime.",
-      "id": "burrow-0104",
-      "date": "2026-08-09"
-    },
-    {
-      "topic": "hollywood-history",
-      "topicLabel": "Hollywood History",
-      "type": "callback",
-      "hook": "You met the seven-year rule. What made it bite?",
-      "body": "The cap comes from **California Labor Code section 2855**, which holds any personal-service contract to seven years. Studios used to gut it by tolling the clock every time an actor refused a role and drew a suspension, stretching a seven-year deal across a decade. In 1944 Olivia de Havilland won the reading that seven years means seven calendar years of the contract's life, not seven years of service actually rendered. That is the whole mechanism: suspensions stopped pausing the clock. It is why the statute still governs long artist and recording deals today.",
-      "depth": "Modern echo: recording artists have invoked 2855 to break out of multi-album deals, running the same calendar-years logic. Labels push back with claims for undelivered albums. The tension De Havilland pried open, service rendered versus term elapsed, has never fully closed.",
-      "id": "burrow-0105",
-      "date": "2026-08-09"
     }
   ]
 }
