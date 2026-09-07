@@ -1,6 +1,57 @@
 {
-  "updated": "2026-09-06",
+  "updated": "2026-09-07",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "insight",
+      "hook": "The variance premium is a risk fee, not a mistake.",
+      "body": "You collect it because your short-vol position loses **in exactly the states that hurt most**: crashes, when every other asset is falling and a dollar is worth more to you. A rational buyer pays above fair value for that protection, and you earn the spread for bearing crash risk nobody else wants. This reframes the whole strategy. You are not exploiting an inefficiency that should arbitrage itself away, you are being paid a genuine risk premium for a real service. It also warns you: the premium is thinnest, and the danger largest, right after a calm stretch when insurance feels pointless.",
+      "depth": "The corollary is that no amount of edge sharpening removes the risk, because the return IS the risk compensation. Sizing, not cleverness, is the lever. A short-vol book that never has a bad quarter is almost certainly underpriced risk waiting to be repriced.",
+      "id": "burrow-0226",
+      "date": "2026-09-07"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Pure AI images get no copyright. Your arrangement of them can.",
+      "body": "The Copyright Office refused protection for the Midjourney images in **Zarya of the Dawn** (2023), then registered the comic's human-written text and the selection, coordination, and arrangement of those images. Thaler v. Perlmutter confirmed the baseline in 2025: a work needs human authorship to register at all. The practical error is treating 'AI-generated' as one uncopyrightable blob. It is layered. The prompting, editing, sequencing, and compositing a human actually contributes can carry thin protection even when each raw output cannot, which changes how you paper ownership and chain-of-title in any AI-assisted production.",
+      "depth": "For clearance work this means two questions, not one: what did the model output, and what did a human do to it? The second answer is where any registrable interest lives, and it is worth documenting the human contribution contemporaneously rather than reconstructing it later.",
+      "id": "burrow-0227",
+      "date": "2026-09-07"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "A positive result on a rare-condition test is usually a false alarm.",
+      "svg": "<svg viewBox=\"0 0 400 240\"><line x1=\"40\" y1=\"200\" x2=\"380\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1\"/><rect x=\"80\" y=\"186\" width=\"70\" height=\"14\" fill=\"#7fb4a2\"/><rect x=\"240\" y=\"50\" width=\"70\" height=\"150\" fill=\"#d9a441\"/><text x=\"115\" y=\"218\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">9 true</text><text x=\"115\" y=\"234\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">positives</text><text x=\"275\" y=\"218\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">99 false</text><text x=\"275\" y=\"234\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">positives</text><text x=\"200\" y=\"30\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"15\" text-anchor=\"middle\">Out of 108 positives, most are false</text></svg>",
+      "body": "Take a condition 1% of people have and a test that is 90% accurate both ways. Screen 1,000 people: 10 are sick and 9 test positive; 990 are healthy and 99 test positive anyway. A positive result therefore carries only about a **9% chance of actually being sick**, even though the test is 90% accurate. Intuition screams 90%. The gap is base-rate neglect: you anchor on the test's accuracy and ignore how rare the thing is. Every rare-signal detector inherits this, from fraud flags to insider-trading alerts to security screens.",
+      "depth": "The operational lesson is that a low base rate makes most alarms false no matter how good the detector, so the fix is never a better test alone. Either raise the prior before testing, or require a second independent signal before you act on the first.",
+      "id": "burrow-0228",
+      "date": "2026-09-07"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Recall it: why does moving your backtest's start date kill the edge?",
+      "body": "Give yourself a beat before the answer lands. You picked the sample boundaries after glancing at the data, so the default window quietly flatters the strategy. That is **start-date data snooping**. A real edge stays roughly stable when you slide the start and end dates or run rolling windows; a fragile one swings wildly or vanishes. The reported number was always just one draw from many possible histories. The fix is cheap: report the metric across dozens of overlapping windows and read the distribution, not the point estimate.",
+      "depth": "Why it matters again: any parameter or rule you chose while staring at the same data inherits this bias, not just the dates. An edge that survives only its own birthday was never an edge.",
+      "id": "burrow-0229",
+      "date": "2026-09-07"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "An unwritten to-do keeps evicting the task you're on.",
+      "body": "Working memory has a small, shared workspace, and ADHD shrinks it further. Every 'don't forget to call the CPA' you hold in your head **occupies the same register that's running your current task**. The intrusive thought does not wait politely; it competes, and often wins, which is why you lose the thread mid-draft. The move is to externalize on contact: one always-open capture note where the stray item goes the second it appears. You are not being organized. You are clearing the workspace so the single task in front of you keeps the whole register.",
+      "depth": "This is why 'I'll just remember it' fails specifically for you: the remembering itself consumes the exact resource the work needs. Offload the moment it surfaces, review the list on a fixed schedule, and stop paying rent on things a note could hold for free.",
+      "id": "burrow-0230",
+      "date": "2026-09-07"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1159,57 +1210,6 @@
       "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"a\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6 Z\" fill=\"#7fb4a2\"/></marker></defs><rect x=\"150\" y=\"18\" width=\"100\" height=\"40\" rx=\"6\" fill=\"none\" stroke=\"#d9a441\"/><text x=\"200\" y=\"43\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\" text-anchor=\"middle\">Vol spikes</text><rect x=\"268\" y=\"168\" width=\"112\" height=\"48\" rx=\"6\" fill=\"none\" stroke=\"#d9a441\"/><text x=\"324\" y=\"188\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">Funds must</text><text x=\"324\" y=\"205\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">buy futures</text><rect x=\"20\" y=\"168\" width=\"112\" height=\"48\" rx=\"6\" fill=\"none\" stroke=\"#d9a441\"/><text x=\"76\" y=\"196\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">Futures rise</text><path d=\"M232,58 L312,166\" stroke=\"#7fb4a2\" fill=\"none\" marker-end=\"url(#a)\"/><path d=\"M266,196 L136,196\" stroke=\"#7fb4a2\" fill=\"none\" marker-end=\"url(#a)\"/><path d=\"M74,166 L168,60\" stroke=\"#7fb4a2\" fill=\"none\" marker-end=\"url(#a)\"/><text x=\"200\" y=\"122\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\" font-style=\"italic\">self-fueling</text></svg>",
       "id": "burrow-0115",
       "date": "2026-08-11"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "A dividend is the only reason to exercise a call early.",
-      "body": "Textbooks say never exercise an American call early, because you throw away the remaining time value. The exception is the day before a stock goes ex-dividend. Holding the call, you do not collect the dividend; exercising converts it to stock in time to capture the payout. It is only worth it when the dividend exceeds the call's remaining extrinsic value, which happens on deep in-the-money calls with little time value left. **Miss that window and your short call gets assigned when you least expect it.** The assignment is not random. It is a rational dividend grab.",
-      "depth": "This is why brokers flag early-assignment risk around ex-dividend dates on short in-the-money calls. If you are short a call carrying less extrinsic value than the upcoming dividend, assume you will be assigned. The defensive move is to close or roll before the ex-dividend date, not gamble on the counterparty's inattention.",
-      "id": "burrow-0106",
-      "date": "2026-08-10"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "The 2023 guild deal splits digital replicas into two kinds.",
-      "body": "The 2023 SAG-AFTRA contract does not treat all AI likenesses the same. An **employment-based digital replica** is built from work the performer actually did on that production; an independently created digital replica is one the studio makes from other sources or from scratch. The distinction drives the money. For the employment-based kind, the performer must consent and generally be paid for the days the replica is used, as if they had worked them. Practitioners who lump both together miss that consent and compensation hinge on how the replica was created, not just on whether it resembles the actor.",
-      "depth": "The taxonomy matters for drafting. A blanket 'digital replica' consent clause can be under-inclusive or overreaching, because the guild floor attaches different rights to each category, plus a separate bucket for fully synthetic performers with no underlying human. Get it wrong and you either shortchange a payment or claim a consent the performer never actually gave.",
-      "id": "burrow-0107",
-      "date": "2026-08-10"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "Adding a detail can only lower a probability, never raise it.",
-      "svg": "<svg viewBox=\"0 0 400 240\"><ellipse cx=\"180\" cy=\"118\" rx=\"150\" ry=\"92\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2\"/><text x=\"180\" y=\"44\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"15\" text-anchor=\"middle\">bank tellers</text><ellipse cx=\"160\" cy=\"138\" rx=\"70\" ry=\"48\" fill=\"none\" stroke=\"#7fb4a2\" stroke-width=\"2\"/><text x=\"160\" y=\"135\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">feminist</text><text x=\"160\" y=\"151\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">bank tellers</text><text x=\"200\" y=\"228\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">the subset can't be likelier than the whole</text></svg>",
-      "body": "Kahneman and Tversky described Linda: a philosophy major, outspoken on social justice. Asked which is more likely, that she is a bank teller, or a bank teller and a feminist, most people pick the second. It cannot be. Feminist bank tellers sit inside the set of bank tellers, so that group is **always at least as improbable as the larger category alone**. Detail makes a story feel representative, and representativeness gets mistaken for probability. The more vivid and specific a scenario, the more plausible it feels and the less likely it actually is.",
-      "depth": "The trap shows up wherever you build a case. A detailed trial narrative, a market thesis with five confirming reasons, a granular forecast: each added clause feels like evidence but multiplies the ways the whole can be wrong. Strip a prediction to its load-bearing claim and score that, not the story wrapped around it.",
-      "id": "burrow-0108",
-      "date": "2026-08-10"
-    },
-    {
-      "topic": "brain-science",
-      "topicLabel": "Brain & Focus",
-      "type": "callback",
-      "hook": "How many items does working memory really hold? Not seven.",
-      "body": "You saw that Miller's famous 'seven plus or minus two' is mostly a myth for raw capacity. Take a beat before the number lands. Once researchers like Nelson Cowan stripped out the rehearsal and chunking that inflate the count, the honest limit came in near **four chunks**. So the checklist you are about to hand someone, the interface you are designing, the spoken instruction to your kid: if it asks them to juggle more than about four fresh things at once, it exceeds the hardware. Chunk it, or put the overflow on paper.",
-      "depth": "Retrieval is the point of this card, not the fact. Every time you pull 'four, not seven' back out of memory instead of rereading it, you deepen the trace. The applied version is a rule you will use this week: assume four, and anything past four needs external scaffolding, whether a written list, a template, or a visible countdown.",
-      "id": "burrow-0109",
-      "date": "2026-08-10"
-    },
-    {
-      "topic": "kid-development",
-      "topicLabel": "Little Humans",
-      "type": "insight",
-      "hook": "The marshmallow test mostly measured the household, not willpower.",
-      "body": "The 1970s Stanford studies claimed a preschooler who waited for a second treat did better in life decades later. A 2018 replication with a far larger, more representative sample told a quieter story. Once researchers controlled for family income and home environment, **much of the predictive power faded**. Waiting was largely a proxy for a stable, resourced household, where a child has good reason to trust that a promised reward will actually arrive. The lesson is not to drill your toddler on delay. It is that trust and stability teach patience better than a stopwatch.",
-      "depth": "There is a deeper mechanism worth keeping. Delay of gratification is not a fixed trait a child either has or lacks; it is partly a rational read of the environment. Kids who have learned that promises get broken grab the sure thing, correctly. Change the reliability of the world around them and their patience changes with it.",
-      "id": "burrow-0110",
-      "date": "2026-08-10"
     }
   ]
 }
