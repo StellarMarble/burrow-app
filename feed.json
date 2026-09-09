@@ -1,6 +1,56 @@
 {
-  "updated": "2026-09-08",
+  "updated": "2026-09-09",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Your delta hedge drifts overnight even when nothing moves.",
+      "body": "Charm is the rate at which delta changes as time passes, holding spot fixed. As expiration nears, an in-the-money option's delta drifts toward 1 and an out-of-the-money option's toward 0. So a book that was delta-neutral at Friday's close can open Monday off-neutral purely from the weekend passing, before a single tick. **Charm is largest for near-the-money options close to expiry**, which is exactly where most premium-sellers live. Rehedging at Monday's open isn't reacting to news; it's paying down drift that time already baked in.",
+      "depth": "The effect concentrates around weekends and holidays, because three or more calendar days of decay accrue against only two trading sessions of hedging opportunity. Desks that mark charm explicitly pre-position on Friday rather than chase their own delta into the Monday auction.",
+      "id": "burrow-0236",
+      "date": "2026-09-09"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Copying an artist's style isn't infringement. Copying their expression is.",
+      "body": "Copyright protects specific expression, not style, technique, or genre. An image model trained to paint 'in the style of' a living artist generally does not infringe on that basis alone, because style is an unprotectable idea. Liability turns on whether an **output is substantially similar to a specific protected work**, or whether the training copies themselves were unlawful. That's why the strongest plaintiff theories in the art cases attack the ingestion step and near-duplicate outputs, not the vibe. A lawyer promising a client 'style protection' is selling something the Copyright Act does not grant.",
+      "depth": "Right of publicity can sometimes reach where copyright can't, when mimicry evokes a specific identifiable person for commercial gain. But that's an identity claim, not a copyright one, and it varies sharply by state. Conflating the two is the common practitioner error.",
+      "id": "burrow-0237",
+      "date": "2026-09-09"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Switching tasks leaves part of your attention stuck behind.",
+      "body": "Attention residue, from Sophie Leroy's 2009 research, is the finding that when you switch from one task to another, part of your attention stays snagged on the first. Performance on the new task suffers until the residue clears. Everyone has this, but weaker inhibition means you snag more easily and clear more slowly. So the real cost of a 'quick' email check mid-deal isn't the two minutes; it's the **degraded focus you carry into the next hour**. The fix is structural, not disciplinary: batch similar tasks and finish a sub-unit before switching, so the loop closes instead of lingering.",
+      "depth": "This is also why an interrupt-heavy environment punishes ADHD disproportionately. Each interruption plants fresh residue, and the recovery tax is paid by the executive-function system that's already the bottleneck. Killing notifications isn't hygiene theater; it removes the residue source at the point of entry.",
+      "id": "burrow-0238",
+      "date": "2026-09-09"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "history",
+      "hook": "One trader's gas bet erased $6 billion in a week.",
+      "body": "In September 2006, Amaranth Advisors, a multistrategy fund, lost roughly $6.6 billion, most of it on natural-gas calendar spreads run by one trader, Brian Hunter. He was long winter and short shoulder-season contracts in size so large he had effectively become the market in those spreads. When the spread turned against him, there was **no one to sell to but himself**, and his own exit pressure drove the loss deeper. The lesson isn't that the bet was insane; parts of it were defensible. It's that a position you can't exit without moving the price isn't a position, it's a trap.",
+      "depth": "Concentration risk and liquidity risk are the same risk wearing two names. Position size relative to daily volume is the number that predicts whether you control the trade or it controls you. Amaranth's book was a multiple of the open interest that could realistically clear.",
+      "id": "burrow-0239",
+      "date": "2026-09-09"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Recall it: how often is your 90% range actually right?",
+      "body": "Give yourself a beat before the answer. You set a range you're 90% sure contains the true value. The calibration studies put the real hit rate closer to **40 to 50%**, not 90. The interval comes out too narrow because you anchor on your best guess and adjust too little. The tell is surprise: if reality keeps landing outside your bounds, the bounds are lying to you.",
+      "depth": "Why it matters again: every position size and every deal forecast rides on an implied confidence interval. If yours run half as wide as they should, you're systematically underpricing the odds you're wrong, which is the exact error that blows up a book. Widen until it feels slightly ridiculous.",
+      "id": "burrow-0240",
+      "date": "2026-09-09"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1159,56 +1209,6 @@
       "depth": "Two practical moves. First, restate the actual task at the end of a long prompt, after the reference material, so it lands in the high-attention zone. Second, do not pad: adding marginally relevant context can shove the important part into the weak middle and lower accuracy, so retrieval that returns fewer, better chunks often beats returning more. Position is a lever you control for free.",
       "id": "burrow-0125",
       "date": "2026-08-13"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "insight",
-      "hook": "Implied vol beats realized most months. That spread is the wage.",
-      "body": "Over long samples of index options, option-implied volatility sits a few points above the volatility that later shows up in the underlying. Sellers of that insurance collect the difference, the **variance risk premium**, and it is one of the most persistent edges in markets. But it is not a mispricing to arbitrage away. It is payment for holding a position that loses badly in crashes, exactly when your other assets fall too. The premium is the fee for absorbing that correlated tail. It pays steadily, then hands some back all at once.",
-      "depth": "The premium concentrates in downside strikes, which is why put skew is steep and why naive 'sell the wings' books look brilliant right up until a Volmageddon. The honest read: this is risk transfer, not alpha. Size it like insurance underwriting, where one bad year can erase several good ones, and the edge only compounds if you survive the payout.",
-      "id": "burrow-0116",
-      "date": "2026-08-12"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "Praise seems to hurt performance, criticism seems to help. Both illusions.",
-      "body": "Israeli flight instructors told Kahneman that praising a cadet after a great maneuver was followed by a worse one, while chewing out a bad maneuver was followed by improvement. So praise hurt and punishment worked. Both conclusions were **regression to the mean** wearing a causal mask. Exceptional results are part skill, part luck, and the luck does not repeat, so the next attempt drifts back toward average no matter what you said. Intervene right after any extreme outcome and the expected bounce-back will flatter or frame whatever you did.",
-      "depth": "This quietly corrupts trading journals and management alike. Cut a strategy after its worst month and it 'recovers' once you are out. Reward a trader after a hot streak and they cool. The fix is a control: compare against the base rate of what follows extremes anyway, not against your memory of what you changed. Mean reversion is the null hypothesis your intervention has to beat.",
-      "id": "burrow-0117",
-      "date": "2026-08-12"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "A second person in the room does your regulating for you.",
-      "body": "Body doubling means working next to someone, in person or on a video call, while you each do your own separate task. It works because ADHD is a deficit of **self-directed regulation**, not of ability, and another person's presence supplies from outside the structure your prefrontal system supplies unreliably from inside. Their attention raises the task's salience and adds a thin thread of accountability, so starting and staying both cost less. Nothing is delegated and no one touches your work. You are borrowing an external regulator to run an internal function.",
-      "depth": "This is why the same task is impossible alone and easy in a cafe or on a coworking call. Choose a partner you would rather not look idle in front of, and keep the task visible between you. The mechanism is identical to the one behind deadlines and public commitments: outsource the executive function you cannot summon on command.",
-      "id": "burrow-0118",
-      "date": "2026-08-12"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Your fully AI-generated ad may belong to no one, including you.",
-      "body": "US copyright protects works of human authorship, and courts have held that output generated autonomously by a machine has no author to protect. The D.C. Circuit and the Copyright Office have both landed there: an image a model produces from your prompt is, standing alone, **uncopyrightable**. Prompts are treated as instructions, not authorship, because you do not control the output the way an author controls a sentence. The trap is assuming that elaborate prompting earns you a copyright. It does not. What you can protect is the human selection, arrangement, and editing you layer on top.",
-      "depth": "This inverts the usual worry. The risk is not only that a model copied someone else. It is that your own generated asset falls straight into the public domain, where a competitor can lawfully lift it. Register what a human meaningfully authored, document that contribution, and treat raw model output as unowned until a person shapes it into something.",
-      "id": "burrow-0119",
-      "date": "2026-08-12"
-    },
-    {
-      "topic": "story-craft",
-      "topicLabel": "Story Craft",
-      "type": "callback",
-      "hook": "Two words turn adjacent scenes into a story. Which two?",
-      "body": "You already met this one, from Trey Parker and Matt Stone. Read your outline and listen to the word joining each beat to the next. One connector is fatal; two are alive. Take a second before the reveal. The fatal link is 'and then,' which only sets events side by side. The living ones are **'but' and 'therefore.'** Reversal and consequence, the two shapes of causation that make an audience lean forward. If the only honest word between two scenes is 'and then,' they are adjacent, not connected, and the engine is off.",
-      "depth": "It bites hardest in the audio fiction you produce, where a listener has no picture to coast on and drifts the instant causation drops. Run the connective test on every episode outline before you record, and where a stretch only earns 'and then,' collapse it or find the 'but' that turns it. Recalling the rule cold, not just recognizing it, is what makes it fire while you are actually drafting.",
-      "id": "burrow-0120",
-      "date": "2026-08-12"
     }
   ]
 }
