@@ -1,6 +1,57 @@
 {
-  "updated": "2026-09-09",
+  "updated": "2026-09-10",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A fat dividend can get your short call assigned early.",
+      "body": "American-style short calls face early exercise risk when a call's extrinsic value drops below the dividend the stock is about to pay. A holder who exercises the night before ex-date captures the dividend and forfeits only the now-cheap time value. It's not random: it clusters right before ex-dividend dates on deep ITM, low-IV calls. Assignment lands you short stock at the open, **owing the dividend to whoever exercised**. Check ex-div calendars before holding short calls into dividend-heavy names.",
+      "depth": "Deep ITM covered calls on dividend aristocrats are the classic trap: sell a call worth $0.50 of extrinsic value against a $0.60 dividend and assignment is nearly certain. Brokers don't warn you; you find out via an overnight position change. It's also why call open interest on dividend stocks drops sharply right before ex-date, as short sellers who understand the math close out first.",
+      "id": "burrow-0241",
+      "date": "2026-09-10"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Only two levers reliably open your starting gate.",
+      "body": "ADHD task initiation runs on an interest-based nervous system, not an importance-based one. Deadlines and stakes don't reliably trigger the dopamine needed to start; **novelty and urgency do**. That's why a task due in three weeks sits untouched, then gets finished in the last two hours. The three-week version has no urgency signal yet. Manufacture one: fake deadlines, timers, public commitments, or breaking work into a five-minute first step reframes 'important' into something your brain will act on now.",
+      "depth": "This isn't a willpower gap, it's a difference in what counts as a starting signal. Importance gets evaluated consciously; urgency and novelty trigger dopamine more directly and involuntarily. Body doubling and hard deadlines work for the same reason: they import urgency from outside instead of waiting for it to build on its own.",
+      "id": "burrow-0242",
+      "date": "2026-09-10"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "Outside view beats inside view for time estimates.",
+      "body": "The inside view estimates a task by reasoning through its specific steps: what has to happen, in what order, how long each piece takes. It reliably underestimates, because it can't account for what you haven't anticipated yet. The **outside view** asks a different question: how long did similar projects actually take, ignoring this one's details. Kahneman calls this reference-class forecasting. It's uncomfortable because it throws away information that feels relevant, and accurate because that's exactly what makes every planner overconfident.",
+      "depth": "Flyvbjerg's research on infrastructure megaprojects found this pattern at scale: planners reasoning from their own project's specifics were consistently more wrong than planners who simply asked what similar projects historically took. The fix isn't sharper inside reasoning, it's finding your reference class first and anchoring there before you build the detailed estimate.",
+      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"200\" x2=\"380\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"92\" x2=\"380\" y2=\"92\" stroke=\"#d9a441\" stroke-width=\"1.5\" stroke-dasharray=\"4,4\"/><text x=\"330\" y=\"84\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">actual</text><rect x=\"90\" y=\"150\" width=\"70\" height=\"50\" fill=\"#7fb4a2\"/><rect x=\"240\" y=\"90\" width=\"70\" height=\"110\" fill=\"#d9a441\"/><text x=\"78\" y=\"220\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">inside view</text><text x=\"228\" y=\"220\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">outside view</text></svg>",
+      "id": "burrow-0243",
+      "date": "2026-09-10"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Fair training and legal copies are different questions.",
+      "body": "Courts are increasingly splitting AI training cases into two separate questions: whether training on copyrighted text is fair use, and whether the copies used to train were obtained legally. In the major recent rulings, judges found the training itself transformative and likely fair, while treating **downloading from pirate shadow libraries** as a separate, unprotected act carrying its own liability. Practitioners keep arguing the fair-use question and forgetting the acquisition question, but a client can lose entirely on the second even after winning the first.",
+      "depth": "This split matters for deal drafting: a warranty promising only 'lawfully trained data' isn't enough anymore. The stronger clause requires the vendor to warrant its training corpus was lawfully acquired, not just fairly used, since courts now treat those as separate exposures they analyze one at a time.",
+      "id": "burrow-0244",
+      "date": "2026-09-10"
+    },
+    {
+      "topic": "brain-science",
+      "topicLabel": "Brain & Focus",
+      "type": "callback",
+      "hook": "Recall it: why does a warm bath before bed help sleep?",
+      "body": "Your body temperature has to drop to initiate sleep, and a hot bath triggers a **bigger rebound cooling** than sitting still would. Blood vessels near your skin dilate to dump heat, so when you get out, your core temperature falls faster and further than it would have on its own. That drop is one of the signals your circadian system reads as 'sleep window open.' Timing matters: the effect needs roughly an hour to unfold, so a bath right at lights-out is too late to catch the cooling curve.",
+      "depth": "This is why a cold plunge right before bed can backfire: it triggers a stress-hormone spike that can override the cooling benefit. The bath needs to be hot enough to dilate vessels, not so cold it activates a fight-or-flight response instead.",
+      "id": "burrow-0245",
+      "date": "2026-09-10"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1158,57 +1209,6 @@
       "depth": "Same trap hides in cross-validation on time series: shuffle the days and adjacent-regime leakage inflates every score. The honest count is regimes survived, not observations logged - which is why walk-forward across distinct environments tells you more than another decade inside the same one.",
       "id": "burrow-0130",
       "date": "2026-08-14"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Your covered call is a short put in disguise.",
-      "body": "Put-call parity forces it. Long stock plus a short call equals a short put plus a bond, so a **covered call and a cash-secured put** at the same strike and expiry carry the same payoff shape, the same max profit, and the same downside. The 'conservative income' label on covered calls and the 'risky' label on naked puts describe one identical risk. If you would not sell the put, you have no business writing the call. The only real differences are financing, dividends, and early-assignment path, not the exposure you are actually taking on.",
-      "depth": "Parity says C minus P equals S minus the discounted strike. Rearranged, long-stock-short-call equals a short put plus lending the strike. The bond piece is a constant vertical shift, so it moves the breakeven but not the shape. Assignment timing and dividend capture differ, which is why the two are not literally interchangeable in a taxable, dividend-paying account.",
-      "svg": "<svg viewBox=\"0 0 400 240\"><line x1=\"50\" y1=\"120\" x2=\"380\" y2=\"120\" stroke=\"#35302a\" stroke-width=\"1\"/><line x1=\"50\" y1=\"20\" x2=\"50\" y2=\"210\" stroke=\"#35302a\" stroke-width=\"1\"/><line x1=\"230\" y1=\"95\" x2=\"230\" y2=\"210\" stroke=\"#35302a\" stroke-width=\"1\" stroke-dasharray=\"4 3\"/><polyline points=\"55,205 230,95 380,95\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2.5\"/><text x=\"244\" y=\"88\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">capped profit = premium</text><text x=\"205\" y=\"226\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">strike</text><text x=\"60\" y=\"35\" fill=\"#7fb4a2\" font-family=\"sans-serif\" font-size=\"14\">same shape as a short put</text></svg>",
-      "id": "burrow-0121",
-      "date": "2026-08-13"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "insight",
-      "hook": "The MFN you grant is a free option on your future deals.",
-      "body": "A most-favored-nations clause promises party A your best terms. Its real cost is not felt today. It is that every future negotiation now carries a hidden liability: any concession you make to party B ratchets back to A automatically. You have **written a free option** on your own future flexibility, and the counterparty holds it at zero premium. Seasoned drafters price this by narrowing scope hard: same category of licensee, same territory, same term length, economic terms only. The unscoped MFN across all future deals is the one that quietly detonates years later.",
-      "depth": "Scope levers that actually contain it: comparability baskets, so only genuinely like deals trigger the clause; economic-only, excluding creative or approval rights; a sunset date; and a carve-out for affiliate or bundled transactions. The broadest version, all terms and all future deals, silently turns every later negotiation into a three-party negotiation you never invited the first party to attend.",
-      "id": "burrow-0122",
-      "date": "2026-08-13"
-    },
-    {
-      "topic": "market-history",
-      "topicLabel": "Market History",
-      "type": "history",
-      "hook": "In 2006, one fund lost $6.6 billion on a gas spread.",
-      "body": "Amaranth Advisors bet on natural gas calendar spreads through trader Brian Hunter. The thesis itself was not crazy. The problem was scale: the fund's positions were a reported outsized fraction of open interest in the contracts it traded, so Amaranth was no longer betting on the market, it had **become the market**. When the spread turned against it in September 2006, there was no one to sell to at a sane price, and every attempt to exit pushed the spread further away. Roughly $6.6 billion evaporated in about a week. The lesson is not that spreads are dangerous. It is that size relative to liquidity is its own greek.",
-      "depth": "Liquidity risk is invisible in a backtest that assumes you trade at the mid. It surfaces only when your own exit is the largest order in the book. The tell is simple: if unwinding your position would move the price against you, you do not really hold a position of that size, you hold a claim you cannot actually sell. Size to the exit, not the entry.",
-      "id": "burrow-0123",
-      "date": "2026-08-13"
-    },
-    {
-      "topic": "kid-development",
-      "topicLabel": "Little Humans",
-      "type": "insight",
-      "hook": "Toddlers barely learn from a screen a live person would teach them.",
-      "body": "Show a toddler under about two and a half a task on video, and show another child the identical task performed live, and the live group learns it markedly better. Researchers call the gap the **video deficit**. Same content, same demonstrator, but the screen version underperforms until roughly age three. The likely mechanism is that very young brains treat flat, non-responsive video as not-quite-real, and learning at that age is tuned to live social interaction. The practical read: 'educational' video for a one-year-old is mostly entertainment, whatever the box promises.",
-      "depth": "The rescue is contingency, not resolution. In studies, real-time video chat where the adult responds live produces close to in-person learning, while the same adult pre-recorded does not. So for the under-three set the useful frame is not screen-versus-no-screen, it is responsive-versus-broadcast. A video call with a person answering back teaches. A polished cartoon covering the same word largely does not, yet.",
-      "id": "burrow-0124",
-      "date": "2026-08-13"
-    },
-    {
-      "topic": "ai-orchestration",
-      "topicLabel": "AI Systems",
-      "type": "mechanism",
-      "hook": "Models read the start and end of your prompt. The middle blurs.",
-      "body": "Give a model a long context and ask it to use a fact buried inside, and accuracy depends heavily on where that fact sits. Performance is highest when the needed information is at the very beginning or the very end, and it sags in the middle. Researchers named the effect **'lost in the middle.'** The attention pattern is roughly U-shaped, not uniform, so a critical instruction dropped into the center of a long context can be quietly underweighted even though it is technically present and retrievable. The build implication: put the task and the load-bearing constraints at the top or the bottom, never in the soft middle.",
-      "depth": "Two practical moves. First, restate the actual task at the end of a long prompt, after the reference material, so it lands in the high-attention zone. Second, do not pad: adding marginally relevant context can shove the important part into the weak middle and lower accuracy, so retrieval that returns fewer, better chunks often beats returning more. Position is a lever you control for free.",
-      "id": "burrow-0125",
-      "date": "2026-08-13"
     }
   ]
 }
