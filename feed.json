@@ -1,6 +1,56 @@
 {
-  "updated": "2026-09-10",
+  "updated": "2026-09-11",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "insight",
+      "hook": "The option smile leans because crashes cluster and rallies don't.",
+      "body": "Equity index puts trade at higher implied vol than equidistant calls. Retail calls it fear pricing, and fear is part of it. The deeper reason is that index returns are genuinely negatively skewed. Big down days arrive with volatility spikes and correlations racing toward one, while rallies grind slowly. So downside strikes really do sit on more variance, and sellers price that asymmetry in. **The skew is a forecast of the return distribution's shape, not just a sentiment tax.** Treat a flattening skew as the market repricing crash odds, not as free premium.",
+      "depth": "Mechanically, the leverage effect and forced deleveraging make volatility itself rise when prices fall, so a put hedges two things at once, direction and the vol spike that rides along with it. That double duty is what a call the same distance away cannot offer, and it is why the smirk rarely vanishes in a healthy equity index.",
+      "id": "burrow-0246",
+      "date": "2026-09-11"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "SAG-AFTRA splits digital replicas in two, and consent must be specific.",
+      "body": "The 2023 TV and theatrical contract drew a line practitioners still blur. An employment-based digital replica is built from a performer's work during their engagement. An independently created one is made outside it, from other material. Both require the performer's clear consent and separate pay, and that consent has to carry a **reasonably specific description of the intended use**. A buried, all-purpose grant does not cut it. So the drafting question is no longer whether you can make a replica, but whether your consent language survives that specificity test.",
+      "depth": "This is why studio AI riders now read like scope-of-license clauses. They enumerate mediums, projects, and duration rather than granting replica rights at large. The parallel for any deal lawyer is right-of-publicity licensing, where a vague grant has always been construed against the drafter. Specificity is not caution here, it is the enforceability requirement.",
+      "id": "burrow-0247",
+      "date": "2026-09-11"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "The fix worked because you tried it at rock bottom.",
+      "body": "Any extreme reading is part signal and part luck. When you act at the worst moment, the next measurement drifts back toward your true average on its own, and your intervention takes the credit. This is **regression to the mean**, and it fakes cause and effect everywhere. Kahneman watched flight instructors conclude that scolding a bad landing helped and praising a great one backfired. Both were just regression. A terrible landing was likely to be followed by a better one regardless, and a superb one by a worse one. Distrust any before-and-after that started at an extreme.",
+      "depth": "The trading version is obvious once you see it. A system tweaked right after its worst drawdown usually rebounds, and the tweak looks brilliant. Run the counterfactual. Would the untouched system have recovered anyway? Often yes. The only clean test is a control, a comparison to what the same starting point does when you change nothing at all.",
+      "id": "burrow-0248",
+      "date": "2026-09-11"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "history",
+      "hook": "A perfect oil hedge went bankrupt on its own margin calls.",
+      "body": "In the early 1990s a Metallgesellschaft unit sold long-dated fixed-price contracts to deliver oil for years, then hedged by holding a stack of near-month futures it kept rolling forward. On paper the price risk was covered. Then oil fell. The futures threw off immediate margin calls in cash, while the offsetting gains on the delivery contracts would not arrive until far in the future. The hedge was directionally sound and still nearly sank the company, reportedly around a $1.3 billion loss. **A hedge that is right on price can still kill you on timing.**",
+      "depth": "The second wound was the term structure. The stack-and-roll earned money while the market stayed in backwardation, but the curve flipped to contango and every roll began to bleed. A cash-flow mismatch plus an adverse roll is the same pair that shows up in levered ETFs and futures carry today. Being right about the destination does not pay the calls you owe along the way.",
+      "id": "burrow-0249",
+      "date": "2026-09-11"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "callback",
+      "hook": "Recall it: what does an ADHD brain fail to feel, not fight?",
+      "body": "Take a beat before the answer lands. The deficit is not laziness or thin discipline. It is **interval timing**, the internal sense of how much time has actually gone by. Duration does not register, so a five-minute email eats an hour and a deadline three days out feels unreal. That is why trying harder does nothing. You cannot muscle a sense you do not have. The move is a prosthetic that puts time into your visual field, an analog timer with a shrinking wedge, a countdown on a second screen, a clock you actually glance at.",
+      "depth": "Retrieving this again matters because the failure keeps returning in fresh disguises. A build that runs long, a bedtime that slips, a call that overruns. Same missing gauge each time. Adding a timer does not train you to track time, it converts an invisible quantity into something the eyes can see and the broken internal clock cannot quietly hide.",
+      "id": "burrow-0250",
+      "date": "2026-09-11"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1159,56 +1209,6 @@
       "depth": "Tsingshan, the short, dodged a catastrophic loss; the funds who were right sued and mostly lost in UK courts. It rhymes with past futures blowups on the theme of financing, but adds a newer twist: governance risk. The counterparty of last resort can change the rules while you still hold the position.",
       "id": "burrow-0135",
       "date": "2026-08-15"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Put skew is a hedging tax, not a crash forecast.",
-      "body": "Index put skew - the premium of downside implied vol over upside - is far steeper than the actual asymmetry of returns justifies. The driver isn't a better crash forecast. It's **structural demand for downside insurance**: pensions, funds with drawdown mandates, and overwriters all lean the same way, bidding puts and pressing calls. That persistent imbalance is a risk premium, harvestable through risk reversals or put ratios. The catch is what you inherit. Selling skew leaves you short the exact tail everyone else is paying to avoid, so the premium is rent for standing under the thing that falls.",
-      "depth": "Equity index skew steepened structurally after 1987, when the crash taught dealers that downside gaps are real and put demand became permanent. Pre-1987 index options showed little skew at all. The premium you collect selling it is compensation for absorbing that lesson on everyone else's behalf.",
-      "id": "burrow-0126",
-      "date": "2026-08-14"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Denmark wants to give you copyright in your own face.",
-      "body": "In mid-2025 Denmark's government proposed something no copyright regime has done: granting each citizen an intellectual-property right in their own **face, body, and voice**. The theory reframes deepfakes as infringement rather than defamation or privacy harm, so a person could demand takedown of a synthetic likeness the way a studio pulls a pirated film. It reportedly covers realistic digital imitations and carves out parody and satire. The mechanism matters because IP rights transfer, license, and survive. A privacy claim dies with you, but a copyright-style likeness right could be assigned, inherited, and enforced platform-side.",
-      "depth": "Contrast the US patchwork: right of publicity is state law, varies wildly, and in most states is a commercial-appropriation tort, not property a platform must proactively honor. A copyright-style frame flips the default from opt-out enforcement to opt-in licensing, and hands the takedown machinery of copyright to individuals.",
-      "id": "burrow-0127",
-      "date": "2026-08-14"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "The hot hand was real. The famous study had a bug.",
-      "body": "For thirty years the hot hand in basketball was the textbook case of humans seeing patterns in randomness. Then in 2018 Miller and Sanjurjo found a subtle flaw in the original analysis. If you take a finite sequence of coin flips and measure how often a head follows a head, the answer is **below 50 percent, not equal to it** - a selection effect baked into how streaks get counted. Correcting for it, the original data actually showed a real hot-hand effect. The lesson isn't about basketball. It's that a bias correction you never thought to check can flip a conclusion outright.",
-      "depth": "The bias: conditioning on 'the previous flip was heads' shortens the pool of eligible next-flips in a way that favors tails. In a length-100 sequence the expected conditional rate runs a few points under half. Small sample, invisible skew, thirty years of confident citation.",
-      "id": "burrow-0128",
-      "date": "2026-08-14"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "A reward next month barely exists to your brain today.",
-      "body": "Delay discounting is the rate at which a future reward loses value as it moves further away. Everyone discounts; the ADHD curve just drops **steeper and faster**, so a payoff two weeks out carries almost no motivational pull in the present. This is why 'it matters for my career' fails to start a task while 'it's due in an hour' works instantly - the deadline drags the reward into the now. The move isn't more willpower. It's engineering the payoff closer: stake money you lose today, tell someone you'll report back tonight, or split the goal so a real win lands within the hour.",
-      "depth": "Same mechanism sits under why body-doubling and deadlines work. They don't add discipline, they compress the distance to a consequence. Anything that converts a distant abstract reward into a near concrete one is working the curve instead of fighting it.",
-      "id": "burrow-0129",
-      "date": "2026-08-14"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "callback",
-      "hook": "Why isn't fifteen years of daily returns fifteen years of evidence?",
-      "body": "You've got thousands of daily observations and a clean equity curve. Statistics only pay you for one thing, though, and it isn't row count. Give it a beat before you read on. The answer: **independence**. Daily returns clump into regimes - one bull, one crash, one recovery - so a model fit across 2010 to 2021 mostly saw a single macro environment wearing thousands of costumes. Its effective sample might be two or three. That's why strategies 'validated on fifteen years' die in year sixteen: they were tuned against a handful of regimes and read the calendar as the sample.",
-      "depth": "Same trap hides in cross-validation on time series: shuffle the days and adjacent-regime leakage inflates every score. The honest count is regimes survived, not observations logged - which is why walk-forward across distinct environments tells you more than another decade inside the same one.",
-      "id": "burrow-0130",
-      "date": "2026-08-14"
     }
   ]
 }
