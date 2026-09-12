@@ -1,6 +1,57 @@
 {
-  "updated": "2026-09-11",
+  "updated": "2026-09-12",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "VIX futures usually cost more the longer you wait.",
+      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"50\" y1=\"200\" x2=\"370\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1.5\"/><line x1=\"50\" y1=\"200\" x2=\"50\" y2=\"30\" stroke=\"#35302a\" stroke-width=\"1.5\"/><text x=\"210\" y=\"228\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">time to expiry</text><text x=\"20\" y=\"120\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" transform=\"rotate(-90 20 120)\" text-anchor=\"middle\">price</text><polyline points=\"62,168 140,128 220,104 300,90 360,82\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2.5\"/><line x1=\"50\" y1=\"168\" x2=\"360\" y2=\"168\" stroke=\"#7fb4a2\" stroke-width=\"1\" stroke-dasharray=\"4 4\"/><text x=\"356\" y=\"162\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"end\">spot</text><text x=\"120\" y=\"64\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">contango: later = pricier</text><text x=\"150\" y=\"150\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">held future rolls down, bleeds</text></svg>",
+      "body": "In calm regimes the VIX term structure sits in **contango**: each further-out future prices above spot. A long-vol position holding those futures loses a little every day as each one rolls down toward a lower spot, whether or not volatility ever rises. Reported figures put VIX futures in contango roughly 75 to 85% of trading days. That roll cost is why buy-and-hold VIX products decay toward zero, and why long vol is a timing trade, not a hold.",
+      "depth": "The mirror image is backwardation in a panic, when near-term fear prices above the curve and the roll pays you instead. So the same structure that bleeds in calm markets pays in a crash. Sizing long vol means budgeting the daily roll as an insurance premium you are paying, not treating a flat tape as a free hold.",
+      "id": "burrow-0251",
+      "date": "2026-09-12"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "The next AI-training fight is about dilution, not copying.",
+      "body": "In the 2025 training cases, courts leaned toward calling the copying itself transformative. What tripped plaintiffs up was the fourth fair-use factor, market harm. A federal judge in a 2025 Meta case suggested the strongest theory is **market dilution**: not that the model copied your book, but that its cheap synthetic substitutes flood and depress the market you sell into. The copying got waved through; the live question is whether a model trained on you can then compete you out of existence.",
+      "depth": "This flips litigation strategy. Plaintiffs need evidence of a real substitution market, foreclosed licensing, or measurable price erosion, not just proof their work sat in the training set. Defendants win by showing outputs do not compete in the same market. Discovery shifts from what did you ingest to what does your output displace.",
+      "id": "burrow-0252",
+      "date": "2026-09-12"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "After the fact, you'll swear you saw it coming.",
+      "body": "Once you know the outcome, memory quietly rewrites your earlier estimate to look smarter, an effect called **hindsight bias**. A 40% call becomes 'I basically knew it.' The damage is not vanity. It is that you can never learn calibration from a memory that edits itself, because every past forecast now feels well-judged. The only defense is a timestamped record of what you actually predicted, made before the result existed to contaminate it.",
+      "depth": "This is why a written prediction log beats honest reflection. It also explains why post-mortems blame people: once the failure is known, the warning signs look obvious and someone should have caught them. They were not obvious inside the decision. Judge the process against what was knowable then, not against what you know now.",
+      "id": "burrow-0253",
+      "date": "2026-09-12"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Your ADHD med is inert until your blood cuts it apart.",
+      "body": "Lisdexamfetamine is dexamphetamine bolted to the amino acid lysine, and it does nothing until enzymes in your red blood cells cleave that lysine off. The conversion is **rate-limited by your blood, not a pill coating**, which is why onset is gradual and the tail is even. Two consequences follow: dose it early, because it ramps slowly and you want it working by morning, and do not bother splitting or crushing it, because the bottleneck is enzymatic, not the capsule.",
+      "depth": "The same enzymatic gate is why the dose-response is steadier from person to person and why the drug is harder to misuse. It also means a 'barely noticeable' read in the first days is expected, not failure. Judge titration over weeks, at a fixed daily time, never by the verdict of one morning.",
+      "id": "burrow-0254",
+      "date": "2026-09-12"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Recall it: which shorts in your backtest could never be borrowed?",
+      "body": "The winners a long-short backtest loves are often the hardest-to-borrow names: small, distressed, heavily shorted, exactly the stocks a broker will not lend you or will lend only at punishing fees. Your backtest assumes free, unlimited borrow. **The edge lived in trades you could never actually place.** The fix is to filter your short universe to liquid, borrowable names, or subtract realistic borrow costs, then see how much alpha was a lending fantasy.",
+      "depth": "The same illusion appears on the long side as capacity: a signal that prints on micro-caps evaporates once your size moves the price. Both are execution ceilings the backtest silently ignores. A returns curve is only as real as the trades beneath it were fillable at the prices it assumed.",
+      "id": "burrow-0255",
+      "date": "2026-09-12"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1159,56 +1210,6 @@
       "depth": "Why it bites you again: every detailed forecast, deal scenario, or risk narrative you find persuasive is paying a probability tax for its specificity. 'The market falls because of X, then Y, then Z' feels rigorous and is strictly less likely than 'the market falls.' Strip the conjunctions before you bet on the story.",
       "id": "burrow-0140",
       "date": "2026-08-16"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Short an option, and hedging forces you to buy high, sell low.",
-      "body": "When you sell an option and delta-hedge, you are short gamma, so your delta moves against the tape. As price rises your position gets shorter and you must buy to stay neutral; as price falls you get longer and must sell. Every rehedge is buy-high, sell-low. That realized whipsaw is exactly the cost the premium pays you to bear. **You keep theta only if realized movement stays below the volatility you sold.** A quiet tape hands you the premium; a jumpy one bleeds it back one hedge at a time.",
-      "depth": "The whipsaw cost scales with gamma times the square of each move, which is why short-gamma books sit calm for weeks and then lose badly in a single gap. The danger was never the average day. It is the day the hedge cannot keep up.",
-      "id": "burrow-0131",
-      "date": "2026-08-15"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "practice",
-      "hook": "Ask what happened to similar projects, not why yours is special.",
-      "body": "Facing a forecast, the instinct is to build it bottom-up from the specifics of your case. That inside view is where the planning fallacy lives: the details feel predictive, but mostly they manufacture optimism. The **outside view** starts elsewhere. Find the reference class of comparable efforts and take their base rate as your anchor. A remodel, a lawsuit, a product launch: the distribution of how those actually ended predicts your outcome better than your storyline does. Adjust from the base rate when hard evidence justifies it. Do not throw it away because your case feels unique.",
-      "depth": "Your project is one draw from a class, not a singular event. The uniqueness you feel is real but rarely bends the timeline much. Start at the class average, then move only as far as specific, verifiable evidence earns, not as far as your narrative wants.",
-      "id": "burrow-0132",
-      "date": "2026-08-15"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Stop using your weakest system as your to-do list.",
-      "body": "Working memory is the exact function ADHD taxes hardest, and it is also what you lean on whenever you keep a plan in your head. Holding the next three steps active burns the same buffer you need to execute the current one, so the held items crowd out the doing. The move: **offload every open loop to one external surface the instant it appears.** Not five apps, one. A thought captured stops competing for the buffer. The aim is not tidiness; it is freeing the scarce resource so it can run the task actually in front of you.",
-      "depth": "This is why 'I'll remember to' fails specifically for you. The intention itself occupies the buffer until it either fires or evaporates, and under load it evaporates. Externalizing converts a memory task, which you are bad at, into a looking task, which you are not.",
-      "id": "burrow-0133",
-      "date": "2026-08-15"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "A blanket 'AI replica' grant can be void in California.",
-      "body": "California's AB 2602, in force since 2025, makes a contract term letting a producer create and use a **digital replica** of a performer's voice or likeness unenforceable in one specific situation: the term lacks a reasonably specific description of the intended uses, and the performer had neither legal counsel nor a union representative negotiating it. The prong practitioners miss is specificity. A sweeping 'any and all AI uses in perpetuity' grant does not get safer with more boilerplate. **Vagueness is the defect the statute punishes.** Describe the uses concretely, or watch the grant collapse.",
-      "depth": "It pairs with AB 1836, which requires estate consent for replicas of deceased performers. Together they mark California's direction of travel: consent to synthesize a person is only as strong as its specificity and its process, never as strong as the breadth of language you manage to draft.",
-      "id": "burrow-0134",
-      "date": "2026-08-15"
-    },
-    {
-      "topic": "market-history",
-      "topicLabel": "Market History",
-      "type": "history",
-      "hook": "You can win a trade and still have it cancelled.",
-      "body": "In March 2022, nickel on the London Metal Exchange rocketed past $100,000 a tonne in hours, a short squeeze cascading through a giant producer's hedge. Traders on the right side were suddenly, enormously in the money. Then the LME did something rare: it **halted the market and cancelled the day's trades**, rewinding prices to the prior close. Winners' gains vanished by fiat. Underneath the chaos sits the lesson: your profit is a claim against a venue and its rulebook, not a law of nature. Exchange discretion is a risk that never shows up in a backtest.",
-      "depth": "Tsingshan, the short, dodged a catastrophic loss; the funds who were right sued and mostly lost in UK courts. It rhymes with past futures blowups on the theme of financing, but adds a newer twist: governance risk. The counterparty of last resort can change the rules while you still hold the position.",
-      "id": "burrow-0135",
-      "date": "2026-08-15"
     }
   ]
 }
