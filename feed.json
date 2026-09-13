@@ -1,6 +1,56 @@
 {
-  "updated": "2026-09-12",
+  "updated": "2026-09-13",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "You're not selling volatility on the index. You're selling correlation.",
+      "body": "Index variance decomposes into single-name variance plus the correlations between the names. When you sell index options, most of the premium above the weighted single-name vol is a **correlation risk premium**: the market pays up for index puts because in a crash everything moves together and diversification vanishes exactly when you need it. That is why index implied vol usually trades richer than the implied vol of its components, and why dispersion traders sell index vol and buy single-name vol. You are short the thing that spikes toward one in a panic.",
+      "depth": "The catch: implied correlation is bounded near one, so you are short a variable with a hard ceiling and a soft floor. It pays steadily while names stay differentiated and loses violently when correlation jumps toward one in a selloff. Same shape as every short-vol trade, one layer down.",
+      "id": "burrow-0256",
+      "date": "2026-09-13"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Training liability and output liability are two different lawsuits.",
+      "body": "Most AI-rights confusion collapses two separate questions. The **input question** is whether ingesting copyrighted works to train a model infringes, which is where fair use gets fought. The output question is whether a specific generation copies protected expression, which is ordinary substantial-similarity analysis with no training defense attached. A model can be trained lawfully and still produce an infringing frame, or trained unlawfully and produce something wholly original. When you paper an AI-assisted production, you need reps and indemnities covering both, because a clean training pedigree does not immunize a single infringing output.",
+      "depth": "This is why chain-of-title diligence on generative tools is two-layered: what was the model trained on, and what safeguards catch infringing outputs. The Anthropic and Meta rulings largely addressed inputs; output liability is still litigated case by case under classic copying rules.",
+      "id": "burrow-0257",
+      "date": "2026-09-13"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Your best productivity system will quietly stop working in weeks.",
+      "body": "ADHD attention is captured by novelty, so a new tool or routine delivers a burst of dopamine that carries you through the friction of using it. When the novelty fades, so does the pull, and the system goes invisible: still on your desk, no longer seen. This is **tool decay**, and treating it as a personal failure is the error. The move is to expect it. Build a small rotation of two or three equivalent systems and swap when one goes dead, rather than hunting for the one permanent tool that does not exist.",
+      "depth": "Corollary: judge a system by how it fails, not how it starts. Everything works in week one on novelty alone. The ones worth keeping are the ones you can restart cheaply after you inevitably drop them, because you will drop them.",
+      "id": "burrow-0258",
+      "date": "2026-09-13"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "practice",
+      "hook": "Your winning strategy was tested only on the companies that survived.",
+      "body": "Standard price databases quietly drop companies that went bankrupt, delisted, or were acquired at a loss. Backtest on today's index membership and you have unknowingly filtered your universe to **the winners that made it**, which inflates returns and hides exactly the tail risk the strategy would have eaten. The effect is largest for anything that buys beaten-down or distressed names, because those are the ones most likely to have vanished from the data. Fix it with a point-in-time universe that includes every ticker as it existed then, dead ones included.",
+      "depth": "Reported magnitudes vary, but survivorship-clean studies routinely knock a meaningful chunk off long-only equity backtests, and more off small-cap and deep-value tilts. If your data vendor cannot tell you when a ticker died, assume it silently deleted it.",
+      "id": "burrow-0259",
+      "date": "2026-09-13"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "callback",
+      "hook": "Recall it: what makes splitting each issue 50/50 the worst outcome?",
+      "body": "When two sides rank the open issues differently, meeting in the middle on every one leaves joint value unclaimed. The better move is to trade across issues instead: give the cheap-to-you point to win the expensive-to-them one. That is **logrolling**, and bundling is how you find it. 'You take the credit and the announce date; I take the audit right and the reversion.' Single-issue haggling can never surface those trades, because it never lets either side reveal what it actually cares about.",
+      "depth": "Every deal with more than one term is a chance to logroll, but only if you keep issues open at once instead of closing them one by one. Sequential haggling locks in 50/50 splits before either side learns the other's ranking. Keep a live issues list and settle it as a package.",
+      "id": "burrow-0260",
+      "date": "2026-09-13"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1160,56 +1210,6 @@
       "depth": "Chunking is the loophole. Four chunks of familiar material can each carry a lot, which is why expertise feels like extra memory. It isn't more slots, it's richer contents in each one.",
       "id": "burrow-0145",
       "date": "2026-08-17"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "practice",
-      "hook": "Rolling a loser for a credit is a new, bigger bet.",
-      "body": "When your short option goes against you, the popular move is to roll it out in time for a net credit, and it feels like you fixed the trade. You did not. You closed one position at a loss and opened a larger, longer-dated one, and the credit only exists because you added duration, size, or moved the strike closer to the money. The market did not hand you money; you sold more risk. **A roll is not repair, it is re-entry at worse odds.** If you would not open that new position fresh today, do not roll into it.",
-      "depth": "The credit is an accounting artifact: extrinsic value from the added time, minus the intrinsic you just absorbed. Traders anchor on 'never realize a loss,' so they chain rolls until one gap move on an oversized position ends the sequence. The discipline is to price the roll as a standalone trade, blind to the entry you are anchored to.",
-      "id": "burrow-0136",
-      "date": "2026-08-16"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Using a dead actor's digital replica now needs estate consent.",
-      "body": "For years California's postmortem right of publicity (Civil Code 3344.1) covered a deceased personality's name, image, and likeness for 70 years, but it predated convincing synthetic performances. AB 1836, operative January 1, 2025, closes that gap: producing an audiovisual work with a digital replica of a deceased performer now requires consent from the estate. **The statute targets the replica specifically, not just the underlying likeness.** So a studio that licensed old footage does not automatically hold the right to generate new AI performances from it. Old grants may not reach synthetic resurrection.",
-      "depth": "The practitioner trap is treating a footage license or an old NIL grant as blanket authority. AB 1836 wants consent that references the digital replica's use with specificity, and it carves exceptions for news, satire, and documentary. For estates it is a new revenue line; for producers, a new clearance step before any generative resurrection.",
-      "id": "burrow-0137",
-      "date": "2026-08-16"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Time-based reminders fail you. Event-based ones fire on their own.",
-      "body": "Prospective memory, remembering to do a thing later, comes in two flavors. Time-based ('call the pharmacy at 3') makes you monitor the clock yourself, which is exactly the self-cueing an ADHD brain does poorly. Event-based ('call the pharmacy when I get in the car') rides a cue the environment delivers for free. The fix is not a better alarm; it is to **anchor the new action to an event that already reliably happens.** After I pour coffee, I take the meds. The trigger stops depending on you noticing time, and starts depending on a thing the world does anyway.",
-      "depth": "This is Gollwitzer's implementation-intentions research, the 'when-then' plan. It helps everyone but disproportionately those with weak self-directed cueing. Stack the new behavior onto an existing anchor tied to a fixed action or place, never a time. The anchor carries the memory load your prefrontal cortex keeps dropping.",
-      "id": "burrow-0138",
-      "date": "2026-08-16"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "mechanism",
-      "hook": "Your signal uses today's close. So does your fill. Impossible.",
-      "body": "A classic silent look-ahead: your rule says 'buy when today's close is above the 50-day average,' and your backtest fills the buy at today's close. But you cannot know the close until the session ends, and by then you can no longer trade at it. The signal and the execution share a price that exists only after trading stops. **The fix is a one-bar lag: signal on today's close, fill at tomorrow's open.** That single shift often erases most of a strategy's apparent edge, because the edge was living in a fill nobody could actually get.",
-      "depth": "This is distinct from slippage; the price is not merely optimistic, it is unobtainable in principle. The tell is a strategy whose returns collapse the moment you lag execution by one bar. Any signal built from a bar's own close, high, or low must execute on a later bar, or the backtest is quietly trading with tomorrow's newspaper.",
-      "id": "burrow-0139",
-      "date": "2026-08-16"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "callback",
-      "hook": "Which is likelier: a bank teller, or a feminist bank teller?",
-      "body": "Take a beat before you answer. The vivid version, the feminist bank teller, feels more likely because it fits the story you were told about her. But every feminist bank teller is already a bank teller, so that group can only be smaller. **Adding a specific detail can never raise a probability, only lower it.** This is the conjunction fallacy: representativeness, how well a scenario matches a stereotype, hijacks your sense of likelihood. The richer and more convincing the picture, the fewer people it actually describes.",
-      "depth": "Why it bites you again: every detailed forecast, deal scenario, or risk narrative you find persuasive is paying a probability tax for its specificity. 'The market falls because of X, then Y, then Z' feels rigorous and is strictly less likely than 'the market falls.' Strip the conjunctions before you bet on the story.",
-      "id": "burrow-0140",
-      "date": "2026-08-16"
     }
   ]
 }
