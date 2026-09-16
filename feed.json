@@ -1,6 +1,57 @@
 {
-  "updated": "2026-09-14",
+  "updated": "2026-09-16",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "You can't own positive theta and positive gamma at once.",
+      "svg": "<svg viewBox=\"0 0 400 240\"><line x1=\"40\" y1=\"120\" x2=\"360\" y2=\"120\" stroke=\"#35302a\"/><text x=\"200\" y=\"20\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\" text-anchor=\"middle\">Theta and gamma always oppose</text><rect x=\"80\" y=\"70\" width=\"28\" height=\"50\" fill=\"#d9a441\"/><rect x=\"118\" y=\"120\" width=\"28\" height=\"45\" fill=\"#7fb4a2\"/><text x=\"113\" y=\"185\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">Long gamma</text><rect x=\"250\" y=\"120\" width=\"28\" height=\"50\" fill=\"#d9a441\"/><rect x=\"288\" y=\"75\" width=\"28\" height=\"45\" fill=\"#7fb4a2\"/><text x=\"283\" y=\"200\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">Short gamma</text><text x=\"360\" y=\"80\" fill=\"#d9a441\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"end\">gamma</text><text x=\"360\" y=\"160\" fill=\"#7fb4a2\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"end\">theta</text></svg>",
+      "body": "For a delta-hedged option, theta and gamma carry **opposite signs by construction**: theta is roughly minus one-half times gamma times price-squared times variance. So owning convexity (long gamma) means paying time decay every day, and being short gamma means collecting theta as your fee for the risk. There is no configuration where both help you. The whole options trade reduces to one question: is the premium you collect for negative gamma larger than the realized moves that gamma will cost you? That gap is the variance premium wearing a different hat.",
+      "depth": "Practical read: theta is the price tag on gamma, not a separate income stream. A short strangle that shows fat daily theta is not a yield machine. It is you being paid, correctly or not, to absorb the gamma losses of the next big move.",
+      "id": "burrow-0266",
+      "date": "2026-09-16"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Denmark wants to give you copyright in your own face.",
+      "body": "Instead of a standalone publicity right, Denmark's government proposed (reported 2025) amending copyright law so every person **owns the copyright in their own facial features, voice, and body**. The point is leverage: publicity rights vary by jurisdiction and often die with the person, but copyright ships with fast notice-and-takedown machinery and statutory damages. Graft identity onto copyright and a deepfake becomes infringement you can pull down like a pirated film. The odd part is conceptual, since copyright protects authored works and not who you happen to be, and other EU states are watching whether it holds up.",
+      "depth": "Why a practitioner should care: this borrows a takedown regime that already scales globally through platform copyright tooling, rather than building deepfake enforcement from scratch. If it survives drafting, expect it cited as a template well outside Denmark.",
+      "id": "burrow-0267",
+      "date": "2026-09-16"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Background noise can raise focus in an under-aroused brain.",
+      "body": "The moderate-brain-arousal model holds that ADHD prefrontal circuits often **run under-aroused**, so a dull low-stimulation task drops arousal below the level attention needs to lock on. Adding one controlled stimulation channel, such as instrumental music, white noise, gum, or pacing, nudges arousal back toward the useful range, which is why fidgeting frequently sharpens concentration instead of breaking it. The move: for a boring task, deliberately add a stimulation source rather than chasing a silent room, and reserve silence for work that is already engaging on its own. Treat it as a lever to pull, not a quirk to apologize for.",
+      "depth": "Related idea, stochastic resonance: a small amount of noise can help a weak signal cross a detection threshold. Reported findings suggest noise aids attention more for inattentive profiles than for controls, which fits the under-arousal account rather than a one-size rule.",
+      "id": "burrow-0268",
+      "date": "2026-09-16"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Overconfidence has three different faces, and they conflict.",
+      "body": "Moore and Healy showed overconfidence is not one trait but **three that often move in opposite directions**. Overestimation is thinking you scored better than you actually did. Overplacement is thinking you beat other people, the better-than-average effect. Overprecision is your confidence intervals being too narrow. On genuinely hard tasks people tend to underestimate their absolute performance yet still believe they outrank everyone, so two of the three fire at once pointing opposite ways. Lumping it all as overconfidence hides which one is biting you. For a trader, overprecision is the quiet killer: not being wrong, but sizing as if your range were certain.",
+      "depth": "Diagnostic value: ask which failure a given decision risks. A forecast bet is overprecision. A hiring-yourself-for-the-job call is overplacement. Different faces need different corrections, and the generic advice to be humble targets none of them.",
+      "id": "burrow-0269",
+      "date": "2026-09-16"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Recall it: how does tomorrow's data leak into today's signal?",
+      "body": "Answer before reading on. Look-ahead bias is any input your backtest used that would not have been knowable at the moment of the trade: restated earnings shown at their final value, index membership assigned retroactively, or trading at a closing price you only learned at that close. The tell is an equity curve that looks too clean and falls apart the instant you lag every input by one bar. The fix is **point-in-time data**: stamp each value by when it was actually available, not the date it describes, and act only on what a live system could have seen.",
+      "depth": "It is the most seductive bug because it flatters you. Survivorship and multiple-testing bias inflate results; look-ahead often makes them look nearly perfect, which is exactly when you should get suspicious rather than excited.",
+      "id": "burrow-0270",
+      "date": "2026-09-16"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1160,56 +1211,6 @@
       "depth": "Use it on purpose. When you open, pick a defensible non-round number and be ready to explain it, because a precise anchor you can't justify invites the \"where did that come from\" challenge that resets the frame back to round. Precision is a claim of knowledge. Make sure the claim is real.",
       "id": "burrow-0155",
       "date": "2026-08-19"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Short-dated options are gamma bets; long-dated ones are vega bets.",
-      "body": "Gamma and vega both scale with time to expiry, but in opposite directions. Gamma runs with the inverse square root of time, so a near-dated option whips around with spot. Vega runs with the square root of time, so a far-dated option reprices hard when implied vol shifts. **A weekly short strangle and a two-year one are different animals with the same name.** The weekly's real risk is a gap in the underlying. The LEAP's real risk is a repricing of volatility you may hold for months.",
-      "depth": "This is why front-month sellers obsess over pin risk and gaps, while long-dated sellers obsess over the vol surface. Same trade name, different greek doing the damage. Size and hedge to the greek that actually dominates your expiry, not the one the strategy label implies.",
-      "id": "burrow-0146",
-      "date": "2026-08-18"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Tennessee made your voice a property right against AI.",
-      "body": "Tennessee's old publicity law, written in the Elvis era, protected name, photograph, and likeness. The 2024 ELVIS Act adds voice explicitly, and goes further: it targets the tools. **Liability reaches anyone who distributes software whose primary purpose is cloning a person's voice or likeness without consent.** Most publicity statutes only reach the party who commercially exploits the fake. This one reaches the maker of the generator itself. It took effect July 1, 2024, the first US law aimed squarely at generative voice cloning.",
-      "depth": "The practitioner miss is treating it like ordinary right-of-publicity. The toolmaker exposure is new, and it does not require the cloned person to be a celebrity or the use to be commercial in the traditional sense. Watch for other states copying the structure.",
-      "id": "burrow-0147",
-      "date": "2026-08-18"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Your ADHD med is inert until your blood cuts it apart.",
-      "body": "Lisdexamfetamine is d-amphetamine chemically bonded to the amino acid lysine. Swallowed, it is pharmacologically inert. Enzymes in your red blood cells slowly cleave off the lysine, releasing active drug at a pace the enzyme controls, not your gut. **The conversion is rate-limited, so the peak stays capped and the curve stays smooth.** Practical reads: the route cannot cheat it, crushing or snorting does nothing; food barely shifts timing; and raising the dose mostly stretches the area under the curve rather than sharpening the spike.",
-      "depth": "This is why titration feels gradual instead of a switch flipping, and why a too-low dose reads as 'barely noticeable' rather than wrong. The design trades a fast, abusable peak for a steady one. Judge a dose over weeks at steady state, not on day three.",
-      "id": "burrow-0148",
-      "date": "2026-08-18"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "Perfect calibration can still make you a useless forecaster.",
-      "body": "Predict the base rate every time. Say 30 percent for every applicant when 30 percent succeed, and over enough trials you are perfectly calibrated: your 30 percent calls come true 30 percent of the time. But you have said nothing useful, because you cannot separate winners from losers. The missing quality is **resolution**, the willingness to move off the base rate when you actually know something. The Brier score splits into exactly these two parts. Superforecasters win on resolution, pushing to 5 and 95 and being right, not on calibration alone.",
-      "depth": "Calibration is table stakes and easy to fake by hugging the base rate. Resolution is the hard, valuable part, and it is where information actually lives. When you score your own trading or legal calls, track both, or you will reward timid forecasts that never risk being wrong.",
-      "id": "burrow-0149",
-      "date": "2026-08-18"
-    },
-    {
-      "topic": "ai-orchestration",
-      "topicLabel": "AI Systems",
-      "type": "callback",
-      "hook": "Where in a long prompt does a model quietly lose your instruction?",
-      "body": "Think back to the U-shaped attention card. Models attend most to the very start and the very end of a context, and sag in the middle. Take a beat before the answer: the danger zone is **the middle**. Bury a load-bearing constraint halfway through a long context and it gets underweighted, even though it is technically present and retrievable. The researchers called it 'lost in the middle.' So put the task and the constraints that must hold at the top or the bottom, never in the soft center.",
-      "depth": "It matters again every time you paste a long document and tack 'and remember to do X' at the end. That lands in a strong position by luck; move it there on purpose. As contexts grow longer, the middle sag deepens, so the habit pays more the bigger your prompts get.",
-      "id": "burrow-0150",
-      "date": "2026-08-18"
     }
   ]
 }
