@@ -1,6 +1,56 @@
 {
-  "updated": "2026-09-16",
+  "updated": "2026-09-17",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "At-the-money time value shrinks with the square root of time left.",
+      "body": "An at-the-money option's extrinsic value scales roughly with sigma times the square root of time, not time itself. So cutting the calendar from 30 days to 15 does not halve the premium; it removes only about 29% of it. The other side of that curve is brutal: because value tracks the square root of time, **theta accelerates as expiry approaches**, and the daily bleed goes near-vertical in the last few sessions. Front-week premium looks cheap in dollars precisely because most of its decay is still ahead of it.",
+      "depth": "This is why selling the final week harvests decay fastest but hands you the ugliest gamma, and why a calendar spread earns its keep from the back month decaying slowly while the front collapses. The convexity is the trade, both directions.",
+      "id": "burrow-0271",
+      "date": "2026-09-17"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "A vague AI-replica clause is unenforceable unless the performer had counsel.",
+      "body": "California AB 2602, effective January 1 2025, added a consent test with teeth. A contract provision letting a producer create or use a digital replica of a performer is unenforceable if two things are both true: it lacks a **reasonably specific description of the intended uses**, and the performer was not represented by legal counsel or a union rep who negotiated on their behalf. The old all-purpose likeness grant, drafted broad on purpose, now fails on its own vagueness. Specificity plus representation is the enforceability gate, not the length of the release.",
+      "depth": "It rhymes with the SAG-AFTRA specificity standard but reaches non-union deals too, which is where the exposure concentrates. For a producer the practical move is to describe uses narrowly and document representation, because a blanket grant you cannot enforce is worse than a tailored one you can.",
+      "id": "burrow-0272",
+      "date": "2026-09-17"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Pre-decide the trigger, not the goal, and the task starts itself.",
+      "body": "Initiation off a general intention (\"I'll do the deal memo today\") leans on executive function, which is the weak link. An if-then plan, \"when I sit down with coffee, I open the memo,\" binds the action to a specific perceptual cue instead. Now starting runs off **perception, not willpower**: the environment triggers the behavior the way a smell triggers a memory, with the effortful decision already spent in advance. Gollwitzer's implementation-intentions research shows the effect is largest exactly where self-regulation is hardest, which is the ADHD case.",
+      "depth": "The craft detail: the cue must be concrete and already in your day (a time, a place, a preceding action you always do), not a vague state like \"when I feel ready.\" A cue you never actually encounter fires never. Wire the trigger to something that already happens.",
+      "id": "burrow-0273",
+      "date": "2026-09-17"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Adding a detail makes a story likelier to believe and likelier wrong.",
+      "body": "Every extra condition you attach to a forecast can only lower its true joint probability, since a conjunction is at most as likely as its least likely part. Yet added specifics make the scenario feel more plausible, because the mind scores it on how representative it seems, not on the math. That is the **conjunction fallacy**, the Linda problem in Kahneman and Tversky's work. A rich, detailed narrative forecast reads as more convincing and is statistically the weaker bet.",
+      "depth": "It matters at work directly: a vivid pitch (\"rates cut, then a rotation into small caps, then a Q3 melt-up\") sells better and is less likely than any single leg of it. When a story gains persuasiveness by gaining specifics, treat that as a warning, not a confirmation.",
+      "id": "burrow-0274",
+      "date": "2026-09-17"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "callback",
+      "hook": "Recall it: how did a correct oil hedge still cause bankruptcy?",
+      "body": "Metallgesellschaft, early 1990s, had sold long-dated fixed-price oil delivery contracts and hedged with a rolling stack of near-month futures. Price risk: covered. Take a beat before the answer. Then oil fell, and the trap sprang on timing, not direction. The futures threw off **immediate cash margin calls**, while the offsetting gains on the delivery contracts would not be realized for years. Right on price, fatal on cash flow. Reported loss around $1.3 billion, from a hedge that was directionally sound the whole way down.",
+      "depth": "Why it matters again: any hedge that marks one leg to market in cash while the other accrues over time carries funding risk that is fully separate from price risk. The position can be correct and still die because you run out of cash to hold it. Match the cash-flow timing, not just the direction.",
+      "id": "burrow-0275",
+      "date": "2026-09-17"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1160,57 +1210,6 @@
       "depth": "The equal-value part is the discipline. If the packages differ in value to you, you have just made three offers and invited cherry-picking. Built honestly, simultaneous packages also read as flexible, which the research links to better counterpart satisfaction at no cost to your own outcome.",
       "id": "burrow-0160",
       "date": "2026-08-20"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "In contango, time alone rolls your VIX short into profit.",
-      "body": "VIX futures usually sit above spot, a shape called contango. If nothing else changes, each future must still fall toward the lower cash VIX as expiry approaches. Short the future and that convergence pays you even when volatility is flat. **The roll yield, not a vol forecast, is most of the return** in a short-vol carry trade. The exposure is dangerously one-sided: the same position that quietly harvests calm-day carry takes the full blow the moment the curve flips into backwardation and spot spikes above the futures you are short.",
-      "depth": "This is why short-vol carry looks like free money for years and then isn't. You are paid a small, steady premium for absorbing a rare, violent tail. Any strategy whose P&L is dominated by roll yield is selling insurance, and the payout you dread is precisely the event the premium was supposedly compensating you for.",
-      "id": "burrow-0151",
-      "date": "2026-08-19"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Copyright protects only the parts of AI art you authored.",
-      "body": "The US Copyright Office's 2025 guidance holds that purely AI-generated output has no human author, so it gets no protection at all. What survives is your **selectable, arrangeable human contribution**: text you wrote, the sequence you chose, edits you made by hand. In the Zarya of the Dawn comic, the Office kept the writer's story and page layout but stripped protection from the Midjourney images themselves. Prompting, however elaborate, was treated as requesting a result rather than authoring one. The generated image, on its own, belongs to no one.",
-      "depth": "The commercial fallout is real: an AI-heavy ad or piece of key art can be freely copied, because the machine-made pixels sit in the public domain the instant they exist. Protect the deal by contracting over the human-authored elements and by building in genuine editing passes that leave a documentable authorship trail.",
-      "id": "burrow-0152",
-      "date": "2026-08-19"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "You'd pay about the same to save 2,000 birds or 200,000.",
-      "svg": "<svg viewBox=\"0 0 400 240\"><line x1=\"40\" y1=\"200\" x2=\"370\" y2=\"200\" stroke=\"#35302a\"/><rect x=\"70\" y=\"90\" width=\"50\" height=\"110\" fill=\"#d9a441\"/><rect x=\"180\" y=\"92\" width=\"50\" height=\"108\" fill=\"#d9a441\"/><rect x=\"290\" y=\"84\" width=\"50\" height=\"116\" fill=\"#d9a441\"/><text x=\"95\" y=\"218\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">2,000</text><text x=\"205\" y=\"218\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">20,000</text><text x=\"315\" y=\"218\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">200,000 birds</text><text x=\"200\" y=\"38\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"15\" text-anchor=\"middle\">100x the birds, same willingness to pay</text></svg>",
-      "body": "In a classic study, people asked what they'd pay to save migrating birds from oil ponds gave roughly the same figure whether the toll was 2,000, 20,000, or 200,000. The mind does not multiply. It answers a **prototype question instead of a quantity one**: it pictures one oil-soaked bird, prices that feeling, and ignores the count entirely. This is scope insensitivity, and it quietly wrecks any valuation driven by magnitude, from charitable giving to jury damages to how you size a vivid, low-probability tail you can easily imagine.",
-      "depth": "The trading version: a story about one catastrophic scenario feels equally frightening at 2% or 0.2%, so you overpay for hedges priced off vividness rather than frequency. The correction is mechanical. Force the number back in, because expected value is count times consequence, and your gut handed you only the consequence.",
-      "id": "burrow-0153",
-      "date": "2026-08-19"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Make time take up space you can physically see.",
-      "body": "ADHD blunts the internal sense of time passing, so a deadline three hours out feels the same as three days out, right up until it is suddenly now. The move is to **externalize duration into something visual**: a countdown that shows remaining time as a shrinking colored wedge, not digits. Digits still make you compute how much is left, a working-memory step you keep skipping. A shrinking area is perceived directly, no computation required, so the passage of time registers as a physical event happening in front of you instead of an abstract fact you forget to check.",
-      "depth": "The principle scales. A wall calendar you can't avoid seeing beats a phone calendar you must decide to open. Any executive function you are weak at should be moved out of your head and into the environment, where raw perception does the monitoring your internal clock refuses to do.",
-      "id": "burrow-0154",
-      "date": "2026-08-19"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "insight",
-      "hook": "A precise first offer anchors harder than a round one.",
-      "body": "Round numbers read as placeholders. Open at $10,000 and the other side hears \"around ten, negotiable.\" Open at $9,850 and they infer you did actual math, that the figure rests on something, and they **adjust in smaller increments away from your anchor**. Research on anchor precision reports that counteroffers land closer to a precise opening and the final split tilts toward whoever set it. The precision itself signals information you may not even possess, which is why a lazy round counter so often concedes ground before a single term has actually been argued.",
-      "depth": "Use it on purpose. When you open, pick a defensible non-round number and be ready to explain it, because a precise anchor you can't justify invites the \"where did that come from\" challenge that resets the frame back to round. Precision is a claim of knowledge. Make sure the claim is real.",
-      "id": "burrow-0155",
-      "date": "2026-08-19"
     }
   ]
 }
