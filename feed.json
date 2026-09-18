@@ -1,6 +1,56 @@
 {
-  "updated": "2026-09-17",
+  "updated": "2026-09-18",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A box spread is a loan wearing an options costume.",
+      "body": "Sell a bull call spread and a bear put spread at the same two strikes, and the payoff is fixed at the strike difference, guaranteed regardless of where the underlying lands. That fixed payoff makes the whole position a **synthetic zero-coupon bond**. Sell the box and you have borrowed cash today against a fixed repayment at expiry. Buy it and you have lent. On European, cash-settled index options like SPX there is no early assignment to wreck it, so the implied rate often lands within a few basis points of Treasury bill yields, and it clears as Section 1256.",
+      "depth": "The rate is only clean if the options are genuinely European and cash-settled. Run the same trade on American-style single-stock options and early exercise can convert your neat loan into an assignment you never wanted. That is why practitioners build boxes on SPX, not on Apple.",
+      "id": "burrow-0276",
+      "date": "2026-09-18"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Interest is the fuel, so bolt boring tasks to it.",
+      "body": "An ADHD brain responds weakly to rewards that are small, distant, or abstract, which describes most admin work. Willpower does not fix a fuel problem. The concrete move is **temptation bundling**: only let yourself have a strong immediate reward while the dull task is running. The podcast you love plays only while you clear the inbox. The good coffee gets made only at the desk where the filing waits. You are not disciplining the boring task, you are lending it the salience it lacks by chaining it to something your brain already wants right now.",
+      "depth": "Wharton's Katherine Milkman tested this by letting subjects hear addictive audiobooks only at the gym, and attendance rose. The ADHD version bites harder because the reward gap it fills is bigger. One rule keeps it working: the treat is exclusive to the task, or the bundle quietly unravels.",
+      "id": "burrow-0277",
+      "date": "2026-09-18"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "When a measure becomes a target, it stops measuring.",
+      "body": "This is **Goodhart's Law**, and it explains why your cleanest metric rots the moment you optimize it. The mechanism: any proxy captures the real goal imperfectly, leaving slack between the two. Push hard on the proxy and effort pours into that slack, tightening the link between your action and the metric while loosening the link between the metric and the goal. A strategy tuned to maximize backtest Sharpe learns the noise. A billable-hours target grows hours, not value. The number keeps climbing and tells you less each time.",
+      "depth": "Marilyn Strathern coined the modern wording. Charles Goodhart's original was about monetary aggregates that misbehaved the instant central banks targeted them. Same shape everywhere: the map you steer by is the first map your steering redraws.",
+      "id": "burrow-0278",
+      "date": "2026-09-18"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "California now protects dead performers from AI resurrection.",
+      "body": "**AB 1836**, effective January 2025, bars using a digital replica of a deceased performer in films, shows, or sound recordings without consent from the estate. It amended the existing postmortem right of publicity, so the newsworthy part is not that the dead have rights, they already did, but that \"digital replica\" is now named explicitly and the default flips to consent. Where practitioners overread it: the exemptions track classic publicity defenses. News, public affairs, documentary, satire, comment, and a fleeting or incidental use are all carved out.",
+      "depth": "Its sibling, AB 2602, governs the living: a contract letting a studio make a digital replica is unenforceable if the use is not specifically described and the performer lacked union or legal representation. Two statutes, one theme, consent must be particular, not buried in boilerplate.",
+      "id": "burrow-0279",
+      "date": "2026-09-18"
+    },
+    {
+      "topic": "story-craft",
+      "topicLabel": "Story Craft",
+      "type": "practice",
+      "hook": "Replace 'and then' with 'but' or 'therefore'.",
+      "body": "Trey Parker's test for whether a story has an engine: read your beats aloud and listen to the connective word between them. If scenes link with **\"and then,\" you have a list, not a story**. The events are merely adjacent. When each beat instead follows from the last by \"but\" (a reversal) or \"therefore\" (a consequence), you have causation, and causation is what a listener feels as momentum. For audio fiction especially, where a bored ear just wanders off, this is a fast diagnostic: map the connectors, and every \"and then\" is a seam to cut or rebuild.",
+      "depth": "The rule scales up. The same but/therefore chain that binds two beats should bind two acts. A midpoint that merely happens after the setup is an \"and then\" at structural scale, and it sags in exactly the same way a limp scene does.",
+      "id": "burrow-0280",
+      "date": "2026-09-18"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1160,56 +1210,6 @@
       "depth": "Mechanism, not vibes: unfinished goals stay active and keep intruding (the old Zeigarnik findings point the same direction). The written note externalizes the open loop - the same principle as keeping the to-do list outside your head. Working memory is for processing, not for holding state across an interruption.",
       "id": "burrow-0165",
       "date": "2026-08-22"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Friday's option prices have already spent the weekend.",
-      "body": "Option models spread theta smoothly across calendar days, but market makers do not wait around for days with no trading. Into Friday's close they mark implied vol down, pre-collecting the two dead days, then mark it back up Monday morning. So a Friday short sale that looks like it harvests three days of decay is mostly buying a vol level that already reflects them. **The weekend's decay is sold in advance.** The clean way to see it: realized variance happens on trading days, and the market prices variance, not calendar time. Weekend theta is real only in the model.",
-      "depth": "The same markdown appears around holidays, and in reverse around scheduled events: earnings and CPI days carry extra implied variance while dead days carry almost none. Desks that quote in business time rather than calendar time avoid the illusion entirely. If your backtest credits full calendar theta over weekends, it is overstating short-premium returns.",
-      "id": "burrow-0156",
-      "date": "2026-08-20"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "practice",
-      "hook": "Run a hundred backtests, and the best one lies.",
-      "body": "Suppose every strategy you test is pure noise. Test one hundred, and the best in-sample Sharpe will still look excellent, because you selected it for exactly that. The maximum of many noisy estimates is biased upward, and the bias grows with the number of trials. The reported number is not the strategy's Sharpe; it is **the winner of a tournament you ran against randomness**. Honest practice: count every variant you tried, including the ones you abandoned, discount the winner for the size of the field, or validate it on data the selection never touched.",
-      "depth": "Bailey and Lopez de Prado formalized the discount as the deflated Sharpe ratio, which asks whether your best result clears the bar you would expect from N tries on noise alone. Most published backtests fail that bar, which is one reason live performance so reliably disappoints.",
-      "id": "burrow-0157",
-      "date": "2026-08-20"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "The record AI copyright settlement wasn't about training at all.",
-      "body": "In September 2025 Anthropic agreed to pay roughly 1.5 billion dollars, reported as the largest copyright settlement ever, to authors whose books sat in its training data. The part practitioners keep missing: the court had already ruled that training on lawfully purchased books was fair use. What survived was the claim over books downloaded from pirate libraries. Liability turned on **how the copies were acquired, not what the model learned**. The drafting lesson for anyone papering AI deals: point the warranties and diligence at data provenance, the acquisition chain, because that is where the money actually moved.",
-      "depth": "Reported terms ran near 3,000 dollars per work across roughly half a million titles, with the pirated copies destroyed. Compare Thomson Reuters v. Ross, where training use lost outright: the fair-use question is still unsettled circuit by circuit, but the piracy question is not, and it prices at scale.",
-      "id": "burrow-0158",
-      "date": "2026-08-20"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "callback",
-      "hook": "Recall it: why must your to-do list live outside your head?",
-      "body": "Two weeks ago this feed made a claim about which cognitive function ADHD taxes hardest, and what it costs to keep a plan in your head. Name the function and the move before reading on. The function is working memory. Holding your next three steps active burns the same buffer that executing the current step requires, so the held items crowd out the doing. The move: **offload every open loop to one external surface** the instant it appears. One surface, not five apps. Capture is not tidiness; it frees the scarce resource to run the task actually in front of you.",
-      "depth": "Retrieval strengthens memory more than rereading does, which is why this card asks before it tells. The live test two weeks on is behavioral, not conceptual: does capture happen at the moment the thought arrives? A system consulted later but not fed in the moment protects nothing.",
-      "id": "burrow-0159",
-      "date": "2026-08-20"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "practice",
-      "hook": "Negotiate every issue at once, never one at a time.",
-      "body": "Issue-by-issue bargaining quietly converts a deal into a series of zero-sum fights: each point gets contested on its own, and you spend goodwill winning things you barely value. Package bargaining changes the math. Put every open issue on the table together and you can **trade across differences in priorities**: concede what is cheap to you and expensive to them, and take the reverse. Negotiation researchers push it further with multiple equivalent simultaneous offers, presenting two or three packages you value identically. Which package the counterparty pulls toward reveals their priorities without them saying a word.",
-      "depth": "The equal-value part is the discipline. If the packages differ in value to you, you have just made three offers and invited cherry-picking. Built honestly, simultaneous packages also read as flexible, which the research links to better counterpart satisfaction at no cost to your own outcome.",
-      "id": "burrow-0160",
-      "date": "2026-08-20"
     }
   ]
 }
