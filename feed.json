@@ -1,6 +1,56 @@
 {
-  "updated": "2026-09-18",
+  "updated": "2026-09-19",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "insight",
+      "hook": "A covered call is a short put in disguise.",
+      "body": "Put-call parity is not abstract. Long stock plus a short call at strike K equals, in payoff and risk, a short put at K. Your 'conservative' buy-write is **synthetically a short put**: same capped upside, same downside all the way to zero, same short-volatility exposure. The income-strategy branding hides that you are running the identical position a cash-secured put seller runs, just with more capital tied up and worse assignment and tax mechanics. If you would flinch at naked-putting the name, you should flinch at buy-writing it.",
+      "depth": "Practical tell: the two have the same delta, gamma, vega and theta at every point. Choose between them on capital efficiency, borrow, dividends and tax treatment, not on how safe the label happens to sound.",
+      "id": "burrow-0281",
+      "date": "2026-09-19"
+    },
+    {
+      "topic": "ai-orchestration",
+      "topicLabel": "AI Systems",
+      "type": "mechanism",
+      "hook": "Make the checker a different call than the writer.",
+      "body": "Generation and verification are asymmetric: spotting a flaw in a finished answer is cheaper and more reliable than producing that answer was. A model grading its own output in the same context inherits its own blind spots, so it rubber-stamps. Spin up a **separate verifier call** with a narrow, adversarial instruction, find the error, assume one exists, and it catches mistakes the author structurally cannot see. This is why fresh-eyes review works for humans, and why single-agent self-critique so often just confirms the first draft instead of breaking it.",
+      "depth": "Design move: give the verifier a different job than 'is this good?' Ask it to locate the specific wrong line or produce the failing case. Judging invites agreement; locating forces it to actually go look.",
+      "id": "burrow-0282",
+      "date": "2026-09-19"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "In 1948 the studios were ordered to sell their theaters.",
+      "body": "The Paramount antitrust decrees forced the major studios to divest their theater chains and banned **block booking**, the practice of making exhibitors buy films in bundles, sight unseen, to get the ones they actually wanted. This broke the vertical integration that had powered the studio system since the 1920s, made room for independents and television, and shaped how films were sold for decades. A court terminated the decrees in 2020, right as streaming was rebuilding the same vertical control the ruling had spent 72 years dismantling.",
+      "depth": "The rhyme worth noting: bundling never died, it moved. Block booking sold theaters a slate they couldn't unbundle. A streaming subscription sells viewers a catalog they can't unbundle either. Same economics, new pipe.",
+      "id": "burrow-0283",
+      "date": "2026-09-19"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "mechanism",
+      "hook": "Disagree on the forecast? Don't split it. Bet it.",
+      "body": "Two sides stuck on what a business will earn usually compromise on one number, which guarantees both are wrong and someone feels robbed. The sharper move is a **contingent structure**: an earnout, a contingent value right, a backend tied to the actual result. Each side is effectively paid if its own forecast proves right, so the fight over one number becomes a bet each is happy to take. It also flushes out bluffing, because whoever refuses to tie price to results was quietly inflating the projection.",
+      "depth": "Caveat: contingent terms move the fight to measurement. Define the metric, the audit right, and anti-manipulation covenants up front, because whoever controls the books after close controls the payout. A clean earnout is mostly good definitions.",
+      "id": "burrow-0284",
+      "date": "2026-09-19"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Recall it: is your bias or your scatter the bigger error?",
+      "body": "Take a beat before the answer lands. Measure a set of judges, forecasters, or underwriters on identical cases and you find two errors, not one. Bias is the shared tilt off target. The other is how much they disagree with each other, and Kahneman's work found it contributes **as much total error as bias**, often more. That's noise, and you cannot feel it from inside a single judgment. So the underrated fix is not debiasing yourself. It's averaging several independent estimates of the same thing.",
+      "depth": "Why it matters again: your own repeated calls are a noisy panel of one. Estimating the same trade or case twice, days apart, and averaging beats trusting today's single read, because today's read carries scatter you cannot detect.",
+      "id": "burrow-0285",
+      "date": "2026-09-19"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1160,56 +1210,6 @@
       "depth": "This reframes the graveyard of abandoned tools: decay is the expected trajectory, so a dead tool is a completed tour of duty, not evidence you cannot maintain things. What must persist is the externalized data; what can churn is the interface pointing at it.",
       "id": "burrow-0170",
       "date": "2026-08-23"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "callback",
-      "hook": "Recall it: what does rolling a loser for a credit really do?",
-      "body": "Before the answer: that credit came from somewhere. The market does not pay you to fix mistakes, so what did you sell to get it? Here it is: you closed the losing trade at a loss and opened a new, larger one, and the credit exists only because you added duration, size, or a closer strike. **A roll is re-entry at worse odds, not repair.** The test survives a second telling: if you would not open the new position fresh today, with no loss attached to it, you have no business rolling into it.",
-      "depth": "Why this one recurs: your broker displays the roll as one continuing position, which quietly converts a realized loss into an unrealized one. That accounting illusion is the whole seduction. Book the loss mentally at the moment you roll, and the decision gets honest again.",
-      "id": "burrow-0161",
-      "date": "2026-08-22"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "mechanism",
-      "hook": "Backtest today's index members and you've excluded the corpses.",
-      "body": "Build your universe from current S&P 500 membership and you are testing on companies certified, in hindsight, as survivors. The index swaps out roughly 20 to 25 constituents a year, so over a 20-year backtest hundreds of delisted, acquired, and bankrupt names simply vanish from your sample. Any strategy that buys weakness looks brilliant, because the stocks that fell and never got up are not there to hurt it. **The dead are missing from your data.** The fix is point-in-time constituent lists: test each date against the membership that existed on that date, corpses included.",
-      "depth": "Survivorship bias flatters mean-reversion and value strategies most, since those deliberately hold losers. The mutual-fund literature found the same thing one level up: databases that quietly dropped dead funds overstated average returns by enough to change conclusions. If your data vendor cannot answer 'as of when,' assume the bias is in.",
-      "id": "burrow-0162",
-      "date": "2026-08-22"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "The studios finally sued an AI company, and skipped training entirely.",
-      "body": "In June 2025 Disney and Universal filed the first major-studio copyright suit against a generative AI company, targeting Midjourney. Notice what the complaint does not lead with: training data. The theory is output-side - the tool serves up recognizable Darth Vader, Minions, and Shrek on demand, a 'virtual vending machine' of infringing copies, in the complaint's phrase. That routes around the ingestion fair-use fight, where AI defendants had been landing wins, and into **character infringement, doctrine studios have been winning on for decades.** An output claim does not care how the model learned, only what it emits.",
-      "depth": "The complaint also alleges Midjourney kept generating the characters after the studios requested filters other AI firms had implemented - a willfulness record built before filing. Drafting note: AI reps and indemnities keyed only to training-data provenance miss this entire vector. Output is its own exposure and needs its own language.",
-      "id": "burrow-0163",
-      "date": "2026-08-22"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "Two underwriters, same file. Their quotes differed by half.",
-      "body": "Bias is the average error; noise is the scatter. In a noise audit Kahneman and colleagues reported from a large insurer, executives guessed that two underwriters quoting the identical case would differ by about 10%. The reported median difference was roughly 55%. Nobody had noticed, because judgment noise is invisible in the wild: each case gets one judge, so the disagreement never surfaces. **You cannot see noise in a single verdict.** Settlement valuations, damages estimates, price targets - anywhere professionals produce a number from a file, assume the scatter is several times what the institution believes.",
-      "depth": "The cheap fixes are mechanical: collect independent estimates before anyone speaks, average them, and score the components of the judgment separately before the overall call. Averaging independent judgments cancels noise directly. It does nothing for shared bias, which is exactly why the two errors need different medicine.",
-      "id": "burrow-0164",
-      "date": "2026-08-22"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Your last task follows you into this one.",
-      "body": "Sophie Leroy's research on attention residue: when you switch tasks, part of your attention stays behind with the one you left, degrading performance on the task in front of you - and the residue is worst when the prior task was unfinished. That is a working-memory tax an ADHD brain can least afford, stacked on an already expensive switch. The move is a ready-to-resume note: before switching, spend 30 seconds writing exactly where you stopped and the literal next action. **Park the open loop in writing, not in your head.** Leroy's follow-up work found this brief ritual reduces residue and speeds re-engagement.",
-      "depth": "Mechanism, not vibes: unfinished goals stay active and keep intruding (the old Zeigarnik findings point the same direction). The written note externalizes the open loop - the same principle as keeping the to-do list outside your head. Working memory is for processing, not for holding state across an interruption.",
-      "id": "burrow-0165",
-      "date": "2026-08-22"
     }
   ]
 }
