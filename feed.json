@@ -1,6 +1,56 @@
 {
-  "updated": "2026-09-19",
+  "updated": "2026-09-20",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "insight",
+      "hook": "Dealers short gamma make the market move more.",
+      "body": "When market makers are net short gamma, staying hedged forces them to **sell as prices fall and buy as prices rise**, feeding the move they are chasing. When they are net long gamma the reverse holds: they buy dips and sell rips, and realized volatility gets pinned down. Around large option expiries the sign of that positioning can flip, which is why a quiet, mean-reverting tape turns into an air pocket with no headline behind it. The flows are mechanical, not discretionary, so they persist until the exposure rolls off.",
+      "depth": "The effect scales with how much open interest sits near spot and how close expiration is, since gamma concentrates there. Dealer positioning is inferred, never published, so treat any single 'gamma flip level' as a reported estimate rather than a fact you can lean on.",
+      "id": "burrow-0286",
+      "date": "2026-09-20"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "The first AI training ruling rejected fair use.",
+      "body": "In early 2025 a federal court in Thomson Reuters v. Ross Intelligence granted summary judgment against a fair-use defense for copying Westlaw headnotes to train a legal-research tool. Practitioners citing it as the answer to the generative cases are **overreading a narrow holding**: Ross built a non-generative search product, and the court expressly said its reasoning might come out differently for generative models. The output competed head-on with the source, which drove the market-harm analysis. It is a signal about direction, not a precedent that binds the Stability or OpenAI fights.",
+      "depth": "The fourth fair-use factor, effect on the market, did the work here because Ross was building a Westlaw substitute. Generative defendants argue their output does not replace any single training input, which is exactly the question the Ross court declined to reach.",
+      "id": "burrow-0287",
+      "date": "2026-09-20"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "Positive expected value can still ruin everyone who takes it.",
+      "body": "The trap is averaging across people instead of across time. Flip a coin: heads grows your stake 50%, tails shrinks it 40%. The **ensemble average is +5% per flip** measured across many gamblers, so it looks like free money. But follow one gambler through repeated flips and the path grinds toward zero, because 1.5 times 0.6 equals 0.9, a loss on every pair. What enriches a crowd measured at one instant bankrupts an individual measured over time. That gap is why position sizing, not edge, decides survival.",
+      "depth": "The ensemble average imagines many parallel gamblers and sums their outcomes; the time average follows one gambler down one road. They only agree when a process is 'ergodic,' and multiplicative bets are not. That is the mathematical spine underneath the Kelly criterion.",
+      "id": "burrow-0288",
+      "date": "2026-09-20"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Don't make the reward bigger. Make it sooner.",
+      "body": "An ADHD brain discounts delayed rewards far more steeply than a neurotypical one, so a payoff months out barely moves the needle no matter how large it is. Trying to self-motivate by inflating the stakes ('this deal is worth six figures') fails, because the size lives in the future and the future is nearly invisible. The move is to **manufacture an immediate consequence**: a deadline today, a visible tally, money on the line this week. You are not weak-willed about the big goal. You are correctly responding to a reward your neurology cannot feel yet.",
+      "depth": "This is temporal discounting, one of the more replicated behavioral findings in ADHD. It is also why body doubling and hard deadlines work when willpower does not: both drag the consequence into the present, where your reward system can actually register it.",
+      "id": "burrow-0289",
+      "date": "2026-09-20"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "practice",
+      "hook": "Your backtest filled at the midpoint. You won't.",
+      "body": "Most backtests price every entry and exit at the quoted mid, but you cross the spread each time you trade, and on options that spread is brutal. A strategy netting four cents of theoretical edge per contract can be entirely eaten by a five-cent-wide market before you count commissions or slippage into a moving book. **Half the round-trip spread times the number of trades** is the tax the backtest silently omits. The more a strategy trades, the more of its paper edge is imaginary, which is where high-turnover systems quietly die.",
+      "depth": "A fast sanity check: rerun the backtest filling at the bid on buys and the ask on sells, then again at mid, and compare. If the edge survives the pessimistic fill it is real. If it only exists at the mid, you found a market-maker's profit, not yours.",
+      "id": "burrow-0290",
+      "date": "2026-09-20"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1159,57 +1209,6 @@
       "depth": "The reuse test: any time a valuation should scale with magnitude, damages, charitable impact, the size of a tail you can vividly picture, check whether you priced the image or the quantity. If your number would survive a tenfold change in scope, you priced the image. Multiply on paper, deliberately.",
       "id": "burrow-0175",
       "date": "2026-08-24"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Delta is not your probability of finishing in the money.",
-      "body": "The retail shorthand treats a 16-delta short put as an 84% winner. But delta is N(d1); the probability of expiring in the money is N(d2), and d2 is always lower. For puts that cuts against you: the chance of finishing ITM is N(-d2), which is **higher than the delta you sold**. The gap between the two is vol times root-time - negligible on a weekly at 15% vol, real on 45-90 day options in elevated vol, large on LEAPS. Delta is a hedge ratio, not a forecast; it overweights the states where the option pays more.",
-      "depth": "Mechanically, delta is the ITM probability under a different measure - one that uses the stock itself as the unit of account, which tilts weight toward high-price paths. N(d2) is the risk-neutral probability. And both differ from the real-world probability, which nobody quotes you.",
-      "id": "burrow-0166",
-      "date": "2026-08-23"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "practice",
-      "hook": "Don't trade the best parameter. Trade its neighborhood.",
-      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"210\" x2=\"370\" y2=\"210\" stroke=\"#35302a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\" stroke=\"#35302a\" stroke-width=\"2\"/><path d=\"M50 200 C110 195 130 110 200 105 C270 110 300 195 360 200\" fill=\"none\" stroke=\"#7fb4a2\" stroke-width=\"3\"/><path d=\"M50 205 L130 200 L148 55 L166 200 L360 205\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"3\"/><text x=\"160\" y=\"52\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">one lucky spike</text><text x=\"210\" y=\"92\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">plateau = robust edge</text><text x=\"150\" y=\"232\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">parameter value</text><text x=\"46\" y=\"24\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">backtest P&amp;L</text></svg>",
-      "body": "If a 21-day lookback makes money while 18 and 25 lose, you have not found a signal; you have found the one setting that fit the noise. A real effect is rarely precise about its own parameters - momentum that works at 21 days should still work, degraded, at 15 and at 30. So plot P&L across the whole parameter range and **buy the plateau, not the peak**. Some quants go further and deliberately trade a slightly off-peak setting, accepting a worse backtest for a number the optimizer didn't hand-pick.",
-      "depth": "This is a cheap visual defense that complements walk-forward testing: walk-forward asks whether the edge survives time, the plateau asks whether it survives specification. A strategy that fails the plateau test usually fails out of sample for the same reason - the peak was sampling error.",
-      "id": "burrow-0167",
-      "date": "2026-08-23"
-    },
-    {
-      "topic": "hollywood-history",
-      "topicLabel": "Hollywood History",
-      "type": "history",
-      "hook": "One repealed FCC rule explains why backend died.",
-      "body": "From 1970 to the mid-90s, the fin-syn rules barred ABC, CBS and NBC from taking a financial interest in the prime-time shows they aired, or from syndicating them. Networks were forced to be renters, so studios and independent producers kept ownership - and syndication backend built the Cosby and Seinfeld fortunes. The FCC phased the rules out by 1995. Within months Disney bought ABC, and within a decade every network sat inside a studio. **Self-dealing replaced the arm's-length license fee**, and the streamer cost-plus buyout is that logic completed: the buyer owns the show, so there is nothing left to syndicate.",
-      "depth": "The rhyme runs backward too. Fin-syn answered an earlier consolidation - three networks squeezing producers much as the pre-1948 studios had squeezed exhibitors before the Paramount decrees. Regulation forced fragmentation, deregulation restored integration, and the profit-participation definitions tracked the structure each time.",
-      "id": "burrow-0168",
-      "date": "2026-08-23"
-    },
-    {
-      "topic": "story-craft",
-      "topicLabel": "Story Craft",
-      "type": "mechanism",
-      "hook": "Hitchcock: surprise buys fifteen seconds, suspense buys fifteen minutes.",
-      "body": "Hitchcock's bomb theory: two people chat, a bomb under the table explodes - the audience gets fifteen seconds of surprise. Let them see the bomb and the timer first, and the same banal conversation becomes unbearable for fifteen minutes. Suspense is not withheld information; it is **information the characters don't have**. The working move: when a scene feels flat, stop hiding things from the audience and start hiding them from the characters. Withholding builds a puzzle; disclosure builds dread. Most drafts default to the puzzle because it is easier to write.",
-      "depth": "Hitchcock's corollary: the bomb must almost never go off. The audience carried the knowledge, so they must be relieved, not punished for participating. He broke the rule once, in Sabotage (1936), letting the bomb kill a boy - and told Truffaut it was a mistake.",
-      "id": "burrow-0169",
-      "date": "2026-08-23"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Every system you build will stop working. Budget for that.",
-      "body": "The planner that worked in March and the app that worked in June did not fail because you got lazy. Novelty itself was doing load-bearing work: a new tool has salience, and salience recruits attention when top-down effort is unreliable. As novelty habituates, the tool goes invisible - same object, less signal. So stop searching for the permanent system and **rotate on purpose**: keep the data portable (plain text, one folder), treat any capture tool as a roughly 90-day appliance, and swap the container before it dies instead of after. The system is the rotation, not the app.",
-      "depth": "This reframes the graveyard of abandoned tools: decay is the expected trajectory, so a dead tool is a completed tour of duty, not evidence you cannot maintain things. What must persist is the externalized data; what can churn is the interface pointing at it.",
-      "id": "burrow-0170",
-      "date": "2026-08-23"
     }
   ]
 }
