@@ -1,6 +1,56 @@
 {
-  "updated": "2026-09-20",
+  "updated": "2026-09-21",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "insight",
+      "hook": "Implied volatility isn't a forecast. It's a price.",
+      "body": "Traders talk about implied vol as the crowd's prediction of future movement, but it is a risk-neutral quantity, not a real-world one. It is the number that makes an option's hedging cost break even under no-arbitrage pricing, and it bakes in a premium for whoever bears variance risk. That is why implied sits above realized on average, roughly 3-4 vol points on the index over long samples. You are not paid because the crowd forecasts badly. You are paid **to carry a risk the buyer wants off their book**, the same reason insurers earn a margin.",
+      "depth": "The gap is not free money. The same premium compensates for the fact that short-vol losses cluster in crashes, exactly when your other assets are falling too. Priced honestly, the edge is fair pay for correlated tail risk, not a mispricing waiting to be harvested.",
+      "id": "burrow-0291",
+      "date": "2026-09-21"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Tennessee's voice law targets the tool, not just the use.",
+      "body": "The Midler line protects your voice from commercial misappropriation, so a non-commercial clone often slips through it. Tennessee's ELVIS Act (Ensuring Likeness Voice and Image Security Act, 2024) breaks that pattern. It makes a person's voice a property right and, unusually, creates liability for **distributing a tool whose primary function is unauthorized voice cloning**, whether or not any specific ad ever runs. That pushes the target upstream from the infringing output to the infringing instrument. Most publicity statutes never reach the toolmaker. Watch whether other states copy the tool-liability hook, because that is the part with real teeth.",
+      "depth": "The live risk is overbreadth. A general-purpose voice model has lawful uses, so 'primary purpose' litigation will decide whether the statute hits bad actors or sweeps in neutral technology, the same First Amendment fight playing out around nearly every AI-content law now.",
+      "id": "burrow-0292",
+      "date": "2026-09-21"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Working memory fails, so put the next step where your eyes are.",
+      "body": "ADHD degrades working memory, the mental scratchpad that holds 'what I'm doing next' while you act. When it drops the thread, the task doesn't feel hard, it simply **vanishes from awareness** and something else fills the gap. The fix is not more willpower, it is moving the scratchpad outside your head: the next single action on a sticky at eye level, the file left open on screen, the tab you refuse to close. You are not organizing, you are compensating for a specific deficit. Externalize the one next step, not the whole plan, so re-entry costs nothing.",
+      "depth": "Whole to-do lists fail here because they store the plan, not the resumption point. What restores a dropped task is a cue for the very next physical move, sitting in the visual field you will actually return to. Cue the re-entry, not the intention.",
+      "id": "burrow-0293",
+      "date": "2026-09-21"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "mechanism",
+      "hook": "Your backtest assumed your own orders don't move the price.",
+      "body": "Most backtests fill at the quoted price and stop there, but real orders eat liquidity and push the market against you, an effect that grows with size and shrinks with the stock's daily volume. A signal that looks great on $500k can be worthless at $50M because **your own trading becomes the cost**. Impact roughly scales with the square root of your order as a fraction of daily volume, so ten times the size is not ten times the cost, it is more. Capacity, not raw edge, decides whether a strategy survives contact with real money.",
+      "depth": "This is why published anomalies fade after publication and why funds cap AUM per strategy. Test it by re-running with a size-dependent slippage model and asking at what dollar size the edge goes to zero. That number is the strategy's real ceiling, and it is usually lower than you hope.",
+      "id": "burrow-0294",
+      "date": "2026-09-21"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Overconfidence has three faces. Which one quietly kills a trader?",
+      "body": "A few days back: Moore and Healy split overconfidence into three things that don't move together. Take a beat before the answer. Overestimation is thinking you did better than you did. Overplacement is thinking you beat other people. And the third, the one that wrecks position sizing, is **overprecision**, believing your range of outcomes is narrower than it really is. It is the quiet killer because you can be perfectly unbiased about direction and still bet as if the future were certain. Not wrong about the call, wrong about the width of the call.",
+      "depth": "Worth re-filing because the other two feel like ego and get caught in the mirror. Overprecision hides inside your risk model as confidence intervals that are simply too tight, so it surfaces as oversized positions and blown stops, never as an obvious mistake you can point to.",
+      "id": "burrow-0295",
+      "date": "2026-09-21"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1159,56 +1209,6 @@
       "depth": "The rule still bites. Section 2855 is why recording artists and other personal-service talent can walk after seven years, and why long-term deals get restructured to survive it. A 1944 fight over film roles quietly governs contract length across California entertainment today.",
       "id": "burrow-0180",
       "date": "2026-08-25"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Exercising a call early burns money, except the night before ex-div.",
-      "body": "An American call is almost always worth more alive than dead: selling it captures extrinsic value that exercising burns. The one exception comes the night before an ex-dividend date. Exercise then and you own the stock for the dividend; hold, and the shares open lower by roughly the dividend while your call just eats the drop. The test is mechanical: **exercise only when the dividend exceeds the call's remaining extrinsic value**. Deep in-the-money calls on big-dividend names get swept this way every quarter, so if you are short them, expect assignment the night before ex-div, not at expiration.",
-      "depth": "The mirror trade exists on the put side: with no dividend to chase, early put exercise is about collecting interest on the strike, which is why deep puts started disappearing early again once rates left zero. Either way the driver is carry, never sentiment.",
-      "id": "burrow-0171",
-      "date": "2026-08-24"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "The WGA never banned AI. It made AI output creditless.",
-      "body": "The 2023 WGA agreement's core move was definitional. AI-generated material is neither 'literary material' nor 'source material' under the contract. That sounds technical until you remember the credit system runs on those two terms: a writer rewriting AI text is not adapting source material, so they keep full writing credit and full compensation, with no 'based on' discount. **AI output cannot be used to erode credit or pay.** Studios must also disclose when material they hand a writer is AI-generated, and cannot require a writer to use AI. No ban, just a contract that strips AI text of its leverage.",
-      "depth": "Compare SAG-AFTRA's 2023 deal, which took the opposite architecture: consent plus compensation for digital replicas rather than definitional exclusion. Two guilds, two templates, and private AI riders now borrow from both, exclusion language for authorship questions, consent-and-pay language for likeness.",
-      "id": "burrow-0172",
-      "date": "2026-08-24"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "A gram of vitamin C can shorten your medication's day.",
-      "body": "Once lisdexamfetamine converts, getting rid of d-amphetamine is your kidneys' job, and amphetamine is a weak base. In acidic urine it ionizes, cannot be reabsorbed, and washes out quickly; in alkaline urine the kidney keeps reclaiming it into the blood. Reported elimination half-lives swing several-fold across that pH range. **The same dose can run short or long depending on urine chemistry.** The prescribing labels warn in both directions: urinary acidifiers, including gram-dose vitamin C, cut drug levels, while alkalinizers like sodium bicarbonate raise them. If afternoon coverage reliably dies early, raise the pH question with your prescriber before concluding the dose failed.",
-      "depth": "This is excretion, not absorption. The rate-limited enzymatic conversion still caps the peak, so pH mostly stretches or trims the tail of the day. And never self-alkalinize to extend duration: bicarbonate loading spikes amphetamine levels unpredictably, which is exactly why the interaction sits on the label.",
-      "id": "burrow-0173",
-      "date": "2026-08-24"
-    },
-    {
-      "topic": "market-history",
-      "topicLabel": "Market History",
-      "type": "history",
-      "hook": "The trades were right. Everyone knowing them was fatal.",
-      "body": "LTCM's trades were mostly sound convergence bets, off-the-run versus on-the-run Treasuries, merger spreads, short long-dated equity vol, levered roughly 25-to-1. When Russia defaulted in August 1998 the spreads blew out, but what killed the fund was that its book was an open secret. Counterparties could infer the positions, mark them down, and trade ahead of the forced unwind, so every attempt to cut risk moved prices further away. About $4.6 billion evaporated in under four months before the Fed corralled fourteen banks into a $3.6 billion takeover. **A position everyone can see becomes its own risk factor.** Most of the spreads later converged, profitably, for the banks.",
-      "depth": "The structural lesson beats the math lesson: the models priced the trades, never the holders. Crowding and financing terms set your survival horizon, and convergence that arrives after the margin call belongs to someone else. Niederhoffer, Amaranth, and the 2018 short-vol funds all rhyme: plausible thesis, wrong balance sheet.",
-      "id": "burrow-0174",
-      "date": "2026-08-24"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "callback",
-      "hook": "Recall it: why did 200,000 birds cost the same as 2,000?",
-      "body": "Before scrolling: what is the mind actually pricing when it answers a save-the-birds question? Hold your answer for a beat. The study found people paid roughly the same to save 2,000, 20,000, or 200,000 birds, because the mind never multiplies. It answers a **prototype question instead of a quantity one**: it summons one oil-soaked bird, prices the feeling, and returns that figure whatever the count. Scope insensitivity.",
-      "depth": "The reuse test: any time a valuation should scale with magnitude, damages, charitable impact, the size of a tail you can vividly picture, check whether you priced the image or the quantity. If your number would survive a tenfold change in scope, you priced the image. Multiply on paper, deliberately.",
-      "id": "burrow-0175",
-      "date": "2026-08-24"
     }
   ]
 }
