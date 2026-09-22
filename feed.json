@@ -1,6 +1,57 @@
 {
-  "updated": "2026-09-21",
+  "updated": "2026-09-22",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "insight",
+      "hook": "You get paid because fear costs more than it should.",
+      "svg": "<svg viewBox=\"0 0 400 240\"><line x1=\"60\" y1=\"200\" x2=\"360\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1\"/><rect x=\"100\" y=\"75\" width=\"70\" height=\"125\" fill=\"#d9a441\"/><rect x=\"230\" y=\"110\" width=\"70\" height=\"90\" fill=\"#7fb4a2\"/><line x1=\"185\" y1=\"75\" x2=\"185\" y2=\"110\" stroke=\"#a89f8d\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><text x=\"192\" y=\"96\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">the premium</text><text x=\"112\" y=\"218\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">Implied</text><text x=\"240\" y=\"218\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">Realized</text><text x=\"60\" y=\"55\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">Volatility, on average</text></svg>",
+      "body": "Options implied volatility sits **above the volatility that actually shows up**, on average, most of the time. That persistent gap is the variance risk premium: buyers overpay for protection and lottery upside, and sellers collect the difference as compensation for holding crash risk. It is not a mispricing you arbitrage away. It is a risk premium, so it pays steadily and then hands back a chunk in one violent stretch. Your job is sizing to survive the handback, not pretending the premium is free money.",
+      "depth": "The premium is largest in index options and richest when realized vol is calm, because that is exactly when the next gap-down is least priced in. Sell it graded to how stretched implied sits over trailing realized, not blindly.",
+      "id": "burrow-0296",
+      "date": "2026-09-22"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Training on the books was fair use. Pirating them wasn't.",
+      "body": "In the 2025 Anthropic authors case, Judge Alsup drew a line most coverage blurred. Using lawfully obtained books to train a model was, in his words, **\"exceedingly transformative\"** and fair use. But downloading pirated copies to build a permanent internal library was a separate act of infringement, and that piece headed toward trial. The lesson for anyone building with data: how you train may be defensible while how you acquired the corpus is a distinct, un-transformed liability. Provenance of the inputs is its own lawsuit.",
+      "depth": "Anthropic reportedly settled the piracy exposure for around $1.5 billion in late 2025, before the library claim was tried. Fair-use training did not save it, because the settled claim was about sourcing, not learning. Two questions, two verdicts, two price tags.",
+      "id": "burrow-0297",
+      "date": "2026-09-22"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Recall it: why did the fix for your worst month do nothing?",
+      "body": "You changed something right after a terrible stretch, and the next month was better. Feels causal. Usually it is **regression to the mean**: extreme outcomes are part luck, and luck does not repeat, so the next reading drifts back toward average whether you intervened or not. This is why bottom-tick tinkering with a trading system, a routine, or a diet keeps looking like genius. You test your changes at the exact moment the world was going to snap back on its own. Change things from a normal baseline, not a low.",
+      "depth": "The clean test is a control: would an unchanged version have recovered too? Without one, you are crediting the intervention for the mean doing its ordinary work. Trading systems and personal habits both fail this test constantly, and both punish you for over-fitting to a single bad patch.",
+      "id": "burrow-0298",
+      "date": "2026-09-22"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Your brain runs on two tenses: now and not-now.",
+      "body": "A core ADHD mechanism is **time blindness**: the felt distance to a future event does not scale with the real clock. A deadline two weeks out and one two months out generate nearly the same non-urgency, until both collapse into now at the last moment. Willpower does not fix a perception gap. The move is to make time physical: an analog timer you can watch draining, a countdown on the wall, the task placed on a dated calendar block rather than held as \"soon.\" You are not lazy about the future. You cannot feel it, so put it in front of your eyes.",
+      "depth": "This is why \"I'll do it later\" is honest, not evasive: later has no emotional weight to pull against now. Convert every \"later\" into a specific visible when, and the missing urgency gets borrowed from the clock instead of manufactured from guilt.",
+      "id": "burrow-0299",
+      "date": "2026-09-22"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "practice",
+      "hook": "Your backtest didn't learn a strategy. It learned a decade.",
+      "body": "A rule that crushed 2010 to 2020 may have only learned **one macro regime**: zero rates, low vol, buy-the-dip reflexively rewarded. The edge was real inside that world and can vanish the moment the world changes, which is exactly when you have finally sized up into it. A backtest that spans a single regime is not evidence of a strategy. It is a photograph of one climate. Test across rate cycles, vol regimes, and at least one genuine crisis, and watch whether the edge survives the transitions or only the calm.",
+      "depth": "Walk-forward across regimes beats one long in-sample run: fit on one regime, test on the next, and demand the edge persist through the handoff. If performance clusters entirely in one macro backdrop, you have a regime bet wearing a strategy's clothes, and its worst drawdown is unsampled.",
+      "id": "burrow-0300",
+      "date": "2026-09-22"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1159,56 +1210,6 @@
       "depth": "The screen: before crediting any intervention applied after an outlier, ask what the next observation would have looked like with no intervention at all. If selection into treatment was triggered by the extreme itself, regression guarantees improvement-shaped noise either way.",
       "id": "burrow-0185",
       "date": "2026-08-26"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "A calendar spread bets on the vol curve, not the stock.",
-      "body": "Sell the near-dated option, buy the far-dated one at the same strike, and your P&L barely cares where the underlying lands near expiration. What you actually own is a position in the **term structure of implied volatility**. The near leg decays faster and carries lower vega than the far leg. So you profit when the front rolls down and the curve stays upward-sloping, and you bleed when a vol spike lifts the front more than the back, flattening or inverting the curve. Direction is the noise; the shape of the curve is the trade.",
-      "depth": "The tell is earnings. A calendar placed across an earnings date looks cheap because front-month IV is inflated, but that elevated front vega is exactly what collapses at the print. You end up short the event you appear to be waiting for.",
-      "id": "burrow-0176",
-      "date": "2026-08-25"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "SAG-AFTRA splits your digital double into two legal animals.",
-      "body": "The 2023 SAG-AFTRA contract does not treat 'AI replica' as one thing. It separates an **Employment-Based Digital Replica**, built from what a performer shoots on the job, from an Independently Created Digital Replica, a synthetic performer assembled from other material. Each carries its own consent rules, and the throughline is that a vague grant fails. Consent must be clear, conspicuous, and tied to a reasonably specific description of how the replica gets used. A studio cannot bury 'we may create and exploit your digital replica' in boilerplate and call it settled.",
-      "depth": "Practitioners keep drafting one broad replica clause for every situation. That is the error. The consent clearing an on-set body scan does not automatically cover a fully synthetic version used in a project the performer never worked on. Match the clause to the animal.",
-      "id": "burrow-0177",
-      "date": "2026-08-25"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "A good decision can still hand you a bad outcome.",
-      "body": "Judging a choice by how it turned out is called **resulting**, and it quietly wrecks how you learn. A sound bet with positive expected value can lose; a reckless one can win. Grade the decision by the result and you will punish good process after unlucky losses and reward bad process after lucky wins. Over enough repetitions the luck averages out, but your conclusions do not, because each time you updated on the wrong signal. The fix is to score the decision against what you knew when you made it, not against the card that flipped.",
-      "depth": "This is why a single blown trade or lost motion tells you almost nothing. To separate skill from variance you need the reasoning written down before the outcome, so you cannot quietly rewrite it to fit the result. Memory is a resulting machine.",
-      "id": "burrow-0178",
-      "date": "2026-08-25"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "insight",
-      "hook": "Your backtest knows earnings the company hadn't reported yet.",
-      "body": "Fundamental data gets restated. The revenue or earnings figure you pull for 2015 today is often not the number the market actually saw in 2015, because companies revise and databases overwrite the original with the corrected value. Backtest a signal on those current figures and you are trading on **information that did not exist at the time**. This is look-ahead bias wearing a respectable suit, and it flatters value and quality signals especially, since restatements tend to move in predictable directions. The defense is a point-in-time database that stores what was known on each date, not just the latest truth.",
-      "depth": "The same trap hits index membership, credit ratings, and analyst estimates. Anything that can be revised after the fact will be, and most vendors keep only the final version. If you cannot get point-in-time data, lag your fundamentals by a quarter or two as a crude guard.",
-      "id": "burrow-0179",
-      "date": "2026-08-25"
-    },
-    {
-      "topic": "hollywood-history",
-      "topicLabel": "Hollywood History",
-      "type": "history",
-      "hook": "One 1944 lawsuit capped every studio contract at seven years.",
-      "body": "Studios used to own actors. A standard contract ran seven years, but every time a star refused a role the studio suspended her and tacked the suspension onto the end, so seven years could stretch toward indefinite servitude. Olivia de Havilland sued Warner Bros. and won: a California court ruled that the seven-year limit in Labor Code section 2855 means **seven calendar years, not seven years of actual work**. Suspensions could no longer extend the term. Overnight the studios' most powerful leash on talent went slack, and the star system began shifting toward the people on screen.",
-      "depth": "The rule still bites. Section 2855 is why recording artists and other personal-service talent can walk after seven years, and why long-term deals get restructured to survive it. A 1944 fight over film roles quietly governs contract length across California entertainment today.",
-      "id": "burrow-0180",
-      "date": "2026-08-25"
     }
   ]
 }
