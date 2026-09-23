@@ -1,6 +1,56 @@
 {
-  "updated": "2026-09-22",
+  "updated": "2026-09-23",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Full Kelly maximizes growth and still feels like ruin.",
+      "body": "Kelly sizing maximizes long-run geometric growth, but the growth-optimal bet endures gut-wrenching drawdowns. At full Kelly, a 50% peak-to-trough fall is routine, and you have roughly even odds of halving your stake before you double it. That is why survivors run **fractional Kelly**, typically a quarter to a half of the formula's output. They accept slightly slower compounding to make the ride survivable, because a strategy you abandon at the bottom of a drawdown has an effective growth rate of zero.",
+      "depth": "The math is why it works: at half-Kelly you keep about 75% of the maximum growth rate for half the volatility. Growth is quadratic near the optimum while risk is linear, so cutting size is cheap in return and expensive-saving in variance.",
+      "id": "burrow-0301",
+      "date": "2026-09-23"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Music's AI suits attack the training set, not the songs.",
+      "body": "In June 2024 the major labels sued Suno and Udio, and the striking feature is how little the complaints argue that the outputs infringe. The theory is that copying millions of sound recordings to train the model is **itself the infringement**, whatever the model later produces. Both companies effectively conceded they trained on copyrighted recordings and leaned on fair use. That flips the usual music playbook, which fixates on output similarity in the 'Blurred Lines' mold, and puts the ingestion step on trial instead.",
+      "depth": "Why the stakes are existential: if training on recordings is not fair use, exposure is per-work statutory damages across a corpus of millions of tracks. That arithmetic, not any single output, is what reportedly pushed the posture toward licensing talks.",
+      "id": "burrow-0302",
+      "date": "2026-09-23"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Praise seemed to hurt and scolding seemed to help. Neither did.",
+      "body": "Kahneman watched flight instructors conclude that praising a good landing produced a worse next one, and berating a bad landing produced a better one. Both patterns were **regression to the mean** and nothing else. An unusually good landing is partly luck, so the next is likely closer to average, meaning worse, no matter what you say. An unusually bad one is likely followed by better. The instructors were reading a statistical artifact as causation, and it taught them exactly the wrong lesson about how to treat people.",
+      "depth": "The same illusion runs through trading and management: a hot month regresses, a cold one regresses, and whatever you did in between gets the credit or the blame. Before crediting an intervention, ask what the extreme value would have done on its own.",
+      "id": "burrow-0303",
+      "date": "2026-09-23"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Time blindness is a broken internal clock. Buy an external one.",
+      "body": "The deficit is not caring about deadlines, it is **feeling time pass**. Duration and elapsed time are estimated poorly, so a quick task silently eats an hour and a deadline stays abstract until it is on top of you. Willpower cannot fix a missing sense. The move is to externalize the clock: a visible analog countdown, a shrinking colored wedge rather than digits, turns elapsed time into something your eyes register continuously, the way a fuel gauge shows a tank draining. The urgency then comes from perception instead of a calculation your brain does not reliably run.",
+      "depth": "Why analog beats digital here: reading '1:47:00' requires you to compute what is left, an abstract step an under-aroused brain skips. A shrinking wedge is read pre-attentively, no arithmetic, which is the entire point.",
+      "id": "burrow-0304",
+      "date": "2026-09-23"
+    },
+    {
+      "topic": "story-craft",
+      "topicLabel": "Story Craft",
+      "type": "callback",
+      "hook": "Recall it: which connector between beats means a list, not a story?",
+      "body": "Read your beats aloud and listen to the seams between them. Give yourself a moment before the answer lands. It is **'and then.'** When scenes link with 'and then' they are merely adjacent, a pile of events with no engine. Trey Parker's fix: each beat should follow the last by 'but' (a reversal) or 'therefore' (a consequence). Those two words carry causation, and causation is what an ear feels as momentum. Every 'and then' in your outline is a seam to cut or rebuild.",
+      "depth": "Why it stays useful for you: audio fiction has no visuals to carry a slack scene, so a bored ear just wanders off. Mapping the connectors is a structural diagnostic you can run on a whole draft in minutes.",
+      "id": "burrow-0305",
+      "date": "2026-09-23"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1160,56 +1210,6 @@
       "depth": "Romeo et al., Psychological Science 2018, ages 4-6; the imaging sample was small, so treat the neural finding as suggestive and the behavioral one as the anchor. Hart & Risley wasn't fabricated - it was underpowered and its framing overreached. Serve-and-return holds up across both literatures.",
       "id": "burrow-0190",
       "date": "2026-08-27"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "callback",
-      "hook": "Recall it: who already got paid for the weekend's theta?",
-      "body": "It's Friday afternoon and you short premium to harvest three days of decay while the market sleeps. Before the reveal: who already ate that lunch, and when? Hold the question a beat. The answer: market makers, into Friday's close. They mark implied vol down ahead of the weekend, pre-collecting the two dead days, then mark it back up Monday morning. **The weekend's decay was sold to you in advance** - your entry price already reflects it. Realized variance happens on trading days, and the market prices variance, not calendar time.",
-      "depth": "The transferable rule: a decay everyone can see on a calendar is a decay already in the price. Same reason the ex-div drop hands put holders nothing - a scheduled, universally visible move gets built into the quote before you arrive. Weekend theta is real only in the model.",
-      "id": "burrow-0181",
-      "date": "2026-08-26"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "mechanism",
-      "hook": "Daily bars can't tell you if your stop fired first.",
-      "body": "A daily bar records open, high, low, and close - not the order prices happened in. If your backtest holds a position with a stop below and a target above, and one bar's range touches both, the code must guess which was hit first. Most frameworks quietly assume the favorable order, **crediting wins that were actually stops**. Over hundreds of trades that one assumption compounds into a strategy that never existed. Two fixes: rerun the logic on intraday data, or force the pessimistic order - stop always fires first - and see whether the edge survives.",
-      "depth": "The same path-blindness poisons anything intrabar: trailing stops, limit entries with same-day exits, short-option strategies with defensive triggers. Rule of thumb: if two of your order levels can sit inside a single bar's range, your bar interval is too coarse for the logic you're testing.",
-      "id": "burrow-0182",
-      "date": "2026-08-26"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "history",
-      "hook": "The strongest voice-clone precedent is a 1988 car commercial.",
-      "body": "When Bette Midler refused Ford's ad campaign, the agency hired her former backup singer and told her to sound exactly like Midler. The Ninth Circuit held that deliberately imitating a distinctive, widely known voice for commercial gain violates California's right of publicity. The doctrinal key still doing the work in AI disputes: **a voice is not copyrightable**, so copyright preemption never blocks the claim - vocal identity is not copyright subject matter. Tom Waits won on the same theory against Frito-Lay in 1992. Today's voice-clone demand letters stand on those two sound-alike cases.",
-      "depth": "The practitioner error is drafting around the recording. A license to the master covers the copyrighted fixation; it says nothing about synthesizing the performer's vocal identity into new speech. Paper the identity grant separately - which is exactly what the recent digital-replica statutes now force onto the page.",
-      "id": "burrow-0183",
-      "date": "2026-08-26"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Pre-task motivation is broken. In-task motivation mostly works.",
-      "body": "Imaging studies of ADHD repeatedly report blunted anticipatory reward signaling: the dopamine response that fires while looking forward to a task runs weak, while reward on contact with the task is closer to intact. That asymmetry means \"I'll start when I feel like it\" is a plan that structurally never triggers - **the feeling is scheduled to arrive after initiation, not before**. So engineer the start as a mechanical act: open the file, set a five-minute floor, body-double. Treat pre-start dread as noise from a miscalibrated gauge, not as information about the task.",
-      "depth": "This is why finished tasks so often feel fine in retrospect - \"that took twenty minutes, why did I circle it for three days?\" The circling was the anticipatory system underselling the reward; the twenty minutes was the intact in-task system doing its job. That recorded gap is the argument for ignoring the forecast.",
-      "id": "burrow-0184",
-      "date": "2026-08-26"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "Praise seemed to backfire. It was just regression.",
-      "body": "Kahneman's flight instructors were certain: praise a cadet's excellent landing and the next one is worse; scream after a terrible one and the next improves. They concluded criticism works and praise harms. The real driver was arithmetic. An extreme performance is partly luck, so the next attempt drifts back toward the pilot's average **regardless of anything the instructor said**. Because we intervene precisely at the extremes, regression to the mean systematically manufactures evidence that punishment works and reward fails - in coaching, in doubling down after a losing streak, in judging a new associate off one bad memo.",
-      "depth": "The screen: before crediting any intervention applied after an outlier, ask what the next observation would have looked like with no intervention at all. If selection into treatment was triggered by the extreme itself, regression guarantees improvement-shaped noise either way.",
-      "id": "burrow-0185",
-      "date": "2026-08-26"
     }
   ]
 }
