@@ -1,6 +1,57 @@
 {
-  "updated": "2026-09-23",
+  "updated": "2026-09-25",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Your call's delta isn't its odds of finishing in the money.",
+      "body": "Traders read a 0.30 delta as 'about a 30% chance this expires in the money.' It isn't. Delta approximates N(d1), while the risk-neutral probability of expiring in the money is N(d2), and **d2 sits a full sigma-root-t below d1**. That wedge widens with volatility and time, so on a long-dated or high-vol option the true odds of finishing ITM can run several points under the delta. Delta is a hedge ratio and a dollar sensitivity, not a likelihood. Size positions off delta-as-probability and you quietly overstate your own win rate.",
+      "depth": "The two even carry different drifts. Under the risk-neutral measure the underlying grows at r, and N(d2) prices that in, while N(d1) is an expectation weighted by the payoff itself. For puts the sign flips. It is the same reason the 'probability of profit' on a broker screen and the delta rarely agree.",
+      "id": "burrow-0306",
+      "date": "2026-09-25"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Copyright won't protect a style. Trademark law might.",
+      "body": "Artists suing over models trained to mimic them keep losing the copyright argument, because **US copyright never protected artistic style**, only fixed expression. The live exposure is elsewhere. If a tool is marketed as making art 'in the style of [named living artist],' or outputs get passed off as that artist's, that can support Lanham Act false-endorsement and right-of-publicity claims. The recognized wrong is consumer confusion about source and endorsement, not imitation itself. Practitioners fixated on the copyright headline are watching the wrong courtroom.",
+      "depth": "This is why a prompt box that lets users type a living artist's name is riskier than the training run behind it. The training may be fair use; the name-as-a-feature is a false-association claim the provider chose to manufacture. The defense you build for one theory does nothing for the other.",
+      "id": "burrow-0307",
+      "date": "2026-09-25"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Hyperfocus isn't extra focus. It's a failure to disengage.",
+      "body": "The same weak inhibition that makes a boring task hard to start makes an engaging one hard to stop. Hyperfocus feels like a superpower and is really **the brake failing in the other direction**: attention locks onto something rewarding and the switch that should pull you off it never fires. That is why you surface from a build at 1 a.m. having skipped dinner. The move is not willpower to quit. It is an external interrupt you cannot argue with, an alarm across the room, a hard-stop meeting, a person expecting you. You cannot self-interrupt, so outsource the interrupt.",
+      "depth": "It is the mirror image of the activation problem, same root: inhibition and executive control gate both starting and stopping. Calling it a disengagement failure instead of a gift is what makes you set the stop in advance, rather than trusting yourself to notice the clock mid-lock.",
+      "id": "burrow-0308",
+      "date": "2026-09-25"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "practice",
+      "hook": "A single backtest tests your hindsight, not your strategy.",
+      "body": "Fitting parameters once over the whole history and admiring the equity curve measures how well you explained a past you already knew happened. **Walk-forward analysis** refits the model on a rolling in-sample window, then trades the next unseen slice, again and again, so the only P&L you keep is out-of-sample by construction. The gap between the in-sample Sharpe and the walk-forward Sharpe is the honest size of your overfit. Large gap means curve-fit. If the walk-forward holds across many refits, you have something closer to real structure.",
+      "depth": "It surfaces regime fragility for free. If the model has to be re-tuned drastically every window to keep working, the parameters are noise dressed as signal. A strategy worth trading should stay roughly stable as the window rolls forward across different markets.",
+      "id": "burrow-0309",
+      "date": "2026-09-25"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Recall it: +5% a flip, yet the path goes broke. Why?",
+      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"200\" x2=\"380\" y2=\"200\" stroke=\"#35302a\"/><line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"200\" stroke=\"#35302a\"/><path d=\"M40 150 C 150 120, 260 95, 380 70\" fill=\"none\" stroke=\"#7fb4a2\" stroke-width=\"2\"/><path d=\"M40 150 C 150 165, 260 182, 380 193\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2\"/><text x=\"210\" y=\"58\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">ensemble average (the crowd)</text><text x=\"165\" y=\"215\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">your single path over time</text><text x=\"46\" y=\"26\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">wealth</text></svg>",
+      "body": "Take the bet again: heads grows you 50%, tails shrinks you 40%. Across a crowd of gamblers measured at one instant the average is a tidy +5% a flip, so it looks free. Follow one gambler through time and the stake grinds to zero. The answer: **multiplicative gains and losses don't average, they compound**. A +50% then a -40% is 1.5 times 0.6, which is 0.9, a loss on every pair. The ensemble average and the time average are different numbers, and you only ever live one path, the time one.",
+      "depth": "This is ergodicity, and it is why sizing beats edge for survival. Every real trade is multiplicative on your capital, so the number that governs you is the time-average growth rate, not the expected value the crowd would collect standing side by side.",
+      "id": "burrow-0310",
+      "date": "2026-09-25"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1159,57 +1210,6 @@
       "depth": "Why it matters again: every streamer term you've negotiated - premium-over-cost, vanishing participations - is downstream of one FCC docket. When you argue backend today, you are arguing against ownership structure, not accounting. Structure beats formula every time.",
       "id": "burrow-0195",
       "date": "2026-08-28"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Every index option carries a hidden correlation bet.",
-      "body": "An index can't move unless its components move together, so index variance is component variances glued by pairwise correlation. That means index implied vol embeds an implied correlation, and historically it has traded above what later gets realized - the **correlation risk premium**. The flow story: institutions buy index puts as macro hedges while call overwriting supplies single-name vol, so the index leg stays structurally rich. Dispersion desks harvest the gap - short index vol, long single-name vol, roughly vega-neutral. The catch rhymes with all vol selling: in a crash, correlations lurch toward 1 and the premium you collected goes out the door at once.",
-      "depth": "Rough magnitudes: S&P 500 implied correlation has run above realized by reported gaps of roughly 5-15 points depending on window and method. You can't run true dispersion retail - too many legs - but the concept still prices your book: selling index premium means you're short correlation whether you meant to be or not.",
-      "id": "burrow-0186",
-      "date": "2026-08-27"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "A formula with made-up weights still beats the expert.",
-      "body": "Paul Meehl showed in 1954 that simple statistical rules match or beat expert judgment in most prediction tasks, and decades of follow-up studies kept confirming it. Robyn Dawes pushed it further: models with **unit weights** - just add the standardized factors, no fitted coefficients - still beat the experts who picked the factors. The mechanism is noise, not knowledge. Experts are genuinely good at knowing which variables matter and reliably bad at combining them the same way twice; a formula combines identically every time. The move for any repeated call - hire, settle, size a position: name the handful of factors once, weight them equally, and let the tally argue with your gut.",
-      "depth": "Grove's meta-analysis of over 130 comparisons found mechanical prediction equaled or beat clinical judgment in the large majority of studies. Dawes' 1979 paper is 'The Robust Beauty of Improper Linear Models.' Same root as noise audits: two experts, same file, different answers - a formula never disagrees with itself.",
-      "id": "burrow-0187",
-      "date": "2026-08-27"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Meta won its training case; the judge wrote plaintiffs a roadmap.",
-      "body": "In June 2025 Judge Chhabria granted Meta summary judgment: training Llama on the plaintiff authors' books was fair use. Then he spent much of the opinion explaining why that outcome should comfort no AI company. These plaintiffs simply failed to build a record on the theory that could win: **market dilution** - generative models flooding the market with works that compete with the books they trained on, depressing demand without copying any single one. Lost licensing revenue, the theory plaintiffs actually ran, he found circular and weak. Read alongside Alsup's Bartz ruling the same week, the message isn't 'training is legal.' It's 'plead the fourth factor correctly.'",
-      "depth": "The fourth fair-use factor - effect on the market for the original - has historically been the heavyweight. Chhabria's dilution theory needs no showing that any output copies a specific work; the harm is category-level substitution. Expect the next wave of complaints to arrive with economists attached.",
-      "id": "burrow-0188",
-      "date": "2026-08-27"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "The late-afternoon crash is pharmacology, not relapse.",
-      "svg": "<svg viewBox='0 0 400 240' xmlns='http://www.w3.org/2000/svg'><line x1='40' y1='210' x2='380' y2='210' stroke='#35302a' stroke-width='2'/><line x1='40' y1='20' x2='40' y2='210' stroke='#35302a' stroke-width='2'/><path d='M40 205 C 80 60, 120 45, 170 55 C 220 65, 260 120, 330 200' fill='none' stroke='#d9a441' stroke-width='3'/><line x1='262' y1='34' x2='262' y2='210' stroke='#7fb4a2' stroke-dasharray='4 4'/><line x1='334' y1='34' x2='334' y2='210' stroke='#7fb4a2' stroke-dasharray='4 4'/><text x='298' y='50' fill='#7fb4a2' font-family='sans-serif' font-size='13' text-anchor='middle'>rebound</text><text x='298' y='66' fill='#7fb4a2' font-family='sans-serif' font-size='13' text-anchor='middle'>window</text><text x='52' y='38' fill='#a89f8d' font-family='sans-serif' font-size='13'>blood level</text><text x='376' y='230' fill='#a89f8d' font-family='sans-serif' font-size='13' text-anchor='end'>hours after dose</text><text x='120' y='150' fill='#a89f8d' font-family='sans-serif' font-size='13'>smooth coverage</text></svg>",
-      "body": "As a stimulant's blood level falls, symptoms don't just come back - for an hour or so they can overshoot baseline, leaving focus and irritability worse than an unmedicated afternoon. That's **rebound**, a known crash on the falling edge of the concentration curve, not evidence the medication is failing. On lisdexamfetamine the fade typically starts 10-12 hours after the dose, which parks the window in the early evening. Two moves: schedule around it - mechanical, low-friction tasks in that slot, nothing that needs patience you won't have - and log the clock time the drop hits for a week. Offset timing is precisely the data that steers titration.",
-      "depth": "Rebound is distinct from tolerance (a weeks-scale question) and from peak-hours symptoms (a dose question). If the crash is severe or arrives early, prescribers commonly shift dose or timing - a conversation to bring data to. The diagram's window is schematic; your curve's actual timing is the thing worth measuring.",
-      "id": "burrow-0189",
-      "date": "2026-08-27"
-    },
-    {
-      "topic": "kid-development",
-      "topicLabel": "Little Humans",
-      "type": "insight",
-      "hook": "Conversational turns build language. Word count mostly doesn't.",
-      "body": "The famous '30-million-word gap' study tracked 42 families, and its headline number has not held up well under replication. What has held up is turn-taking. In a 2018 MIT study, the number of back-and-forth conversational exchanges predicted children's language scores and activation in Broca's area - **independent of word count and family income**. The mechanism looks like contingency: a response tuned to what the child just said or did gives the brain feedback it can learn from; narration aimed in their direction doesn't. For a 1-year-old that means treating babble as a serve to return. Answer it, pause, let them go again - the turn, not the monologue, is what the data rewards.",
-      "depth": "Romeo et al., Psychological Science 2018, ages 4-6; the imaging sample was small, so treat the neural finding as suggestive and the behavioral one as the anchor. Hart & Risley wasn't fabricated - it was underpowered and its framing overreached. Serve-and-return holds up across both literatures.",
-      "id": "burrow-0190",
-      "date": "2026-08-27"
     }
   ]
 }
