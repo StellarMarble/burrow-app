@@ -1,6 +1,56 @@
 {
-  "updated": "2026-09-25",
+  "updated": "2026-09-26",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "The only reason to exercise a call early is the dividend.",
+      "body": "An American call on a non-dividend stock is never worth exercising early. Selling it always beats exercising, because you keep the remaining time value and defer paying the strike. The one exception is a dividend. When the payout exceeds the interest earned on the strike plus the call's remaining time value, exercising the day before the ex-date to capture the dividend can win. **Early exercise trades your time value for the dividend**, so it only pays when the dividend is bigger than what you surrender.",
+      "depth": "This is why deep-in-the-money calls on high-yield names get assigned early, and why short-call holders face assignment risk right before ex-date. Puts flip the logic: the interest saved by receiving the strike now makes early exercise of a deep put rational even with no dividend at all.",
+      "id": "burrow-0311",
+      "date": "2026-09-26"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Pure AI output has no copyright. Your edits around it might.",
+      "body": "The US Copyright Office has held that material generated entirely from a prompt is not protectable, because a prompt does not give the human enough control over the expressive result. But a person who selects, arranges, and edits AI outputs can claim copyright in **those human-authored contributions**, not the raw generations. The registration has to disclaim the machine-made parts. So the protectable layer is the arrangement and the edits sitting on top, and that layer can be very thin.",
+      "depth": "Reported in the Office's 2025 copyrightability guidance and the earlier Zarya of the Dawn decision, where a comic's text and panel layout were protected but the Midjourney images were not. Practitioners overclaim here: telling a client they 'own the output' because they wrote a clever prompt is simply wrong.",
+      "id": "burrow-0312",
+      "date": "2026-09-26"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Stop mid-sentence so restarting needs no decision.",
+      "body": "The hardest part of a task is the activation threshold: the cold start where you have to decide what to do and force yourself to begin. You can pre-load tomorrow's start by quitting today in the middle of something easy and concrete, a half-finished sentence or a test that is written but not run. Re-entry then asks for no decision, just finishing a line already in front of you. **Leave the task mid-motion, not at a clean stopping point.**",
+      "depth": "Two mechanisms stack. The unfinished action stays mentally active and slightly nags, which lowers the pull to walk away, and the concrete next move removes the executive-function cost of choosing what to do. Hemingway used it on purpose: stop when you still know exactly what happens next.",
+      "id": "burrow-0313",
+      "date": "2026-09-26"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "mechanism",
+      "hook": "Look at your holdout twice and it becomes training data.",
+      "body": "A hold-out set gives an honest out-of-sample estimate exactly once. The moment you check it, see a bad result, and go back to tweak the strategy, that data has leaked into your design decisions. Every look after the first is contaminated, and your 'out-of-sample' Sharpe is now an in-sample number wearing a disguise. **The test set is a one-shot resource, not a dial you tune against.** Iterate on training data or a validation split, and touch the true hold-out last, only to report.",
+      "depth": "This is why published strategies decay after release: the whole community kept iterating against the same historical window. Walk-forward design helps by advancing the test period, but even that erodes if you re-run it repeatedly and keep only the parameter sets that happened to survive.",
+      "id": "burrow-0314",
+      "date": "2026-09-26"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Recall it: why does a metric rot the moment you target it?",
+      "body": "You saw this a few days back. When a measure becomes a target, people optimize the proxy instead of the goal it stood for, so the correlation that made it useful quietly breaks. **The number keeps climbing while the thing you actually cared about stops moving.** In trading it shows up when you optimize a backtest statistic, Sharpe or win-rate, until you have maximized the number and hollowed out the edge it was supposed to represent. Its name: Goodhart's law.",
+      "depth": "The defense is to keep the real objective separate from the proxy you steer by, and to rotate or add proxies before they get gamed. A metric nobody is allowed to optimize against stays informative the longest, which is why some firms guard their true evaluation set.",
+      "id": "burrow-0315",
+      "date": "2026-09-26"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1159,57 +1209,6 @@
       "depth": "This is temptation bundling with a mechanism attached. It fails when the reward is available with or without the task, so the pairing has to be exclusive: the near-term thing you want is gated behind the thing you're avoiding, or the bridge doesn't hold.",
       "id": "burrow-0200",
       "date": "2026-08-29"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Your SPX monthly settles on prints you never get to trade.",
-      "svg": "<svg viewBox=\"0 0 400 240\"><line x1=\"30\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"#35302a\" stroke-width=\"2\"/><line x1=\"90\" y1=\"143\" x2=\"90\" y2=\"157\" stroke=\"#7fb4a2\" stroke-width=\"2\"/><line x1=\"310\" y1=\"143\" x2=\"310\" y2=\"157\" stroke=\"#d9a441\" stroke-width=\"2\"/><path d=\"M90 118 v-8 h220 v8\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"1.5\"/><text x=\"200\" y=\"95\" text-anchor=\"middle\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">16+ hours: gap risk you cannot hedge</text><text x=\"90\" y=\"176\" text-anchor=\"middle\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">Thu 4:00 ET</text><text x=\"90\" y=\"193\" text-anchor=\"middle\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">last trade</text><text x=\"310\" y=\"176\" text-anchor=\"middle\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">Fri open</text><text x=\"310\" y=\"193\" text-anchor=\"middle\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">SET prints</text></svg>",
-      "body": "The traditional third-Friday SPX contract stops trading Thursday afternoon, but its settlement value, SET, is computed from Friday's opening print of each constituent stock. For sixteen-plus hours you hold a position whose final value is not yet set and cannot be traded. Overnight news gaps it, and because the 500 stocks open at staggered times, SET routinely lands away from the index's quoted Friday open - it is a synthetic price no ticker ever displayed. **You carry gap risk you can no longer hedge.** PM-settled Weeklys and end-of-month series exist precisely to remove this window; know which series you sold.",
-      "depth": "The window is not hypothetical: major economic releases land Friday mornings, inside it. Wings that looked safely OTM at Thursday's close can settle in the money on the open. Cash settlement means no assignment machinery softens it - just a debit at a price you watched happen, flat-footed.",
-      "id": "burrow-0191",
-      "date": "2026-08-28"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "practice",
-      "hook": "Your backtest fills at mid. The market never will.",
-      "body": "Most options backtests mark every entry and exit at the bid-ask midpoint. Live, you surrender part of the spread on every leg, every side, every roll - and in far OTM wings the spread can be a double-digit percentage of the premium itself. A strategy collecting small credits across four legs pays that toll eight times per round trip, more with adjustments. So re-run the test assuming fills a fixed fraction of the way toward the far side, and watch what survives. **An edge thinner than the spread give-up never existed** - the backtest was measuring a price nobody offers.",
-      "depth": "The second-order problem: spreads widen exactly when volatility spikes, so execution costs correlate with your strategy's worst moments. A constant slippage haircut still understates crisis-period costs. If the strategy's P&L concentrates in high-vol regimes, model slippage as a function of vol, not a constant.",
-      "id": "burrow-0192",
-      "date": "2026-08-28"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "history",
-      "hook": "Apple's e-book MFN did the price-fixing by itself.",
-      "body": "In 2010 Apple entered e-books with agency contracts carrying a retail-price MFN: if any retailer sold a title cheaper, Apple could match. Apple never told publishers to move Amazon off $9.99. It didn't have to. Under agency-plus-MFN, any publisher that left Amazon at $9.99 would watch Apple match it and eat the margin on every iBooks sale - so the five majors forced Amazon onto agency within months, and prices jumped to $12.99 and $14.99. The court treated the MFN as the engine of the conspiracy. **The clause outsourced enforcement to the counterparties' own incentives.** Draft MFNs knowing they act at a distance.",
-      "depth": "United States v. Apple (S.D.N.Y. 2013, affirmed 2d Cir. 2015). The general lesson for any deal: an MFN is not passive protection. It changes what your counterparty must do in negotiations you are not part of - which is sometimes the point, and sometimes the liability.",
-      "id": "burrow-0193",
-      "date": "2026-08-28"
-    },
-    {
-      "topic": "ai-orchestration",
-      "topicLabel": "AI Systems",
-      "type": "insight",
-      "hook": "Automate where checking is cheap, not where doing is hard.",
-      "body": "The question that decides whether an agent helps isn't 'can the model do this?' It's 'what does verifying the output cost me?' Code with a test suite verifies mechanically, so generation can be mediocre and retry until green. A one-shot client email verifies only through the same judgment that could have written it, so delegation saves nothing and adds a review pass. The working rule: **build the verifier before the generator** - a schema, a test, an artifact you can measure. Where a cheap verifier exists, models scale. Where it doesn't, every output lands back in your attention, which was the scarce resource all along.",
-      "depth": "This is why structured-output schemas and self-check scripts buy more than prompt wording: they convert an open-ended judgment call into a pass/fail gate. It is also why 'human in the loop' plans quietly stall - the loop is unbudgeted verification, and it accumulates.",
-      "id": "burrow-0194",
-      "date": "2026-08-28"
-    },
-    {
-      "topic": "hollywood-history",
-      "topicLabel": "Hollywood History",
-      "type": "callback",
-      "hook": "Recall it: why could Seinfeld money never happen again?",
-      "body": "Before you look: it was a regulation, it lasted a quarter century, and its repeal remade the industry within a decade. Got it? The fin-syn rules (1970 to 1995) barred ABC, CBS and NBC from owning or syndicating their prime-time shows, forcing them to rent from studios and independents - which left producers holding the backend that built the Cosby and Seinfeld fortunes. Repeal let the buyer own the show: Disney bought ABC within months, every network moved inside a studio, and **the cost-plus buyout is fin-syn's repeal completed** - the buyer owns everything, so nothing is left to syndicate.",
-      "depth": "Why it matters again: every streamer term you've negotiated - premium-over-cost, vanishing participations - is downstream of one FCC docket. When you argue backend today, you are arguing against ownership structure, not accounting. Structure beats formula every time.",
-      "id": "burrow-0195",
-      "date": "2026-08-28"
     }
   ]
 }
