@@ -1,6 +1,56 @@
 {
-  "updated": "2026-09-26",
+  "updated": "2026-09-27",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "insight",
+      "hook": "Short options aren't one bet. Near-term risks moves, long-term risks repricing.",
+      "body": "Selling a weekly and selling a LEAPS both collect premium, but the risk you're actually short is different. **Short-dated options carry most of their risk in gamma**: a sharp move over the next few days can gut you before implied vol even twitches. Long-dated options carry it in vega: the position bleeds when the market simply reprices volatility higher, even with the underlying flat. A front-month seller loses to realized moves. A LEAPS seller loses to a vol-regime shift. Match the tenor to whichever risk you can actually stomach and hedge.",
+      "depth": "The rule of thumb: gamma scales inversely with time to expiry while vega scales with roughly its square root. So the near-dated book whipsaws on price and the long-dated book whipsaws on the vol surface. Two different Greeks, two different hedges, one premium check.",
+      "id": "burrow-0316",
+      "date": "2026-09-27"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "SAG-AFTRA split digital replicas into two kinds. Consent differs.",
+      "body": "The 2023 SAG-AFTRA TV/theatrical contract created two categories most coverage flattens into one. An **Employment-Based Digital Replica** is a scan made during a job you were hired for. An Independently Created Digital Replica is built from pre-existing footage outside that employment. Both require consent, but the consent and payment terms differ, and the replica can't be dropped into other productions without a fresh deal. The practitioner error is treating any signed AI clause as blanket permission. Which replica, made when, for what use, is the whole negotiation.",
+      "depth": "The consent also has to be specific: it must describe the replica's intended use with enough particularity that a general 'we may use your likeness with AI' grant sits closer to unenforceable than airtight. Specificity is the load-bearing term here, same as in every likeness license.",
+      "id": "burrow-0317",
+      "date": "2026-09-27"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "A 90%-accurate test, a positive result, and your odds are 8%.",
+      "body": "Take a condition that affects 1 in 100 people and a test that's 90% accurate both ways. You test positive. Most people, including doctors in the classic 1978 studies, guess the odds near 90%. The real answer is **about 8%**. Out of 1,000 people, 10 are sick and about 9 test positive. But 990 are healthy, and roughly 99 of them test positive falsely. Ninety-nine false alarms swamp nine true ones. The base rate, not the test's accuracy, drives the answer. Same trap in every 'strong signal' that fires against a rare event.",
+      "depth": "For a trader or a lawyer this is the alarm-fatigue math: a rare event plus an imperfect detector produces mostly false positives, no matter how sharp the detector sounds. To move the posterior you need a rarer false-positive rate or independent confirming evidence, not one louder signal.",
+      "id": "burrow-0318",
+      "date": "2026-09-27"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "A silent witness lowers the cost of starting.",
+      "body": "Body doubling means doing your task while another person is simply present, in the room or on a video call, not helping, just there. It reliably lowers activation cost for ADHD brains, and the mechanism isn't willpower. **A present observer adds external accountability and a small arousal bump**, two things an under-stimulated brain can't manufacture alone for a boring task. The task hasn't changed. The context around it has. The concrete move: schedule the dull thing with a witness. A coworking call, a friend on mute, a parent in the kitchen. Presence is the intervention.",
+      "depth": "It's why the same person who can't start a form alone finishes it in a cafe. Not the caffeine: the ambient social presence supplies the salience and mild self-monitoring the task itself fails to trigger. You're externalizing accountability, the same way you'd externalize the next step onto a sticky note.",
+      "id": "burrow-0319",
+      "date": "2026-09-27"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Recall it: a great backtest, worthless at scale. What broke?",
+      "body": "Think back before the answer lands. A signal that printed beautiful returns on a small book can be worthless on a large one, and the culprit isn't the edge. It's **market impact**: your own orders eat liquidity and push the price against you, and the cost grows roughly with the square root of your order as a fraction of daily volume. So ten times the size is more than ten times the cost. The backtest filled at the quote and never charged you for moving it. Capacity, not raw edge, decides whether it survives real money.",
+      "depth": "Why it matters again: every impressive small-account result carries an invisible capacity ceiling. Before sizing up, ask what fraction of daily volume your fills represent, then re-run the numbers with a square-root cost term added. The edge that dies on contact with real money usually dies right here.",
+      "id": "burrow-0320",
+      "date": "2026-09-27"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1158,57 +1208,6 @@
       "body": "From a card a week or so back: **decision quality and outcome quality are separate** axes. You can take the positive-EV side and still lose, because variance gets a vote. Grading the decision by the result is resulting, and it quietly trains you to drop good process after an unlucky streak and to repeat reckless bets that happened to pay. Judge the call on what you knew and the odds you faced, not on where the ball landed. Log the reasoning at the time, so a bad result cannot rewrite the decision after the fact.",
       "id": "burrow-0205",
       "date": "2026-08-31"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Near the strike at the close, you can't know your position.",
-      "body": "A short option sitting right at its strike into the close creates **pin risk**: you cannot tell whether it finishes a penny in or out, so you don't know if you'll be assigned. You find out after the bell, sometimes hours later, by which point the underlying has moved in after-hours or gapped over the weekend. What looked like a flat, expiring position hands you unhedged stock Monday morning. The fix is to close anything hovering near the strike before expiration rather than gamble on where it prints.",
-      "depth": "Clearing firms auto-exercise anything ITM by $0.01 under exercise-by-exception, but a counterparty can file contrary instructions, or decline. So even a clearly ITM short can go unassigned, and a near-money one is a coin flip whose result you learn too late to hedge.",
-      "id": "burrow-0196",
-      "date": "2026-08-29"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "practice",
-      "hook": "Your backtest shorted stocks nobody would actually lend you.",
-      "body": "Backtests silently assume every short is available, free, and infinite. Reality: hard-to-borrow names carry **borrow fees** that can run from a few percent to well over 50% annualized, and sometimes the shares simply aren't there to lend. The cruel part is selection. The fattest short-side signals (overpriced meme names, fresh IPOs, distressed tickers) cluster in exactly the stocks that are expensive or impossible to short. A strategy that looks brilliant long-short can be uninvestable on the short leg once real borrow costs and availability hit.",
-      "depth": "The tell is a long-short backtest whose entire edge lives in the short book. Re-run it long-only, or charge a punitive borrow to the hardest names, and watch how much Sharpe was really just an assumption about lending.",
-      "id": "burrow-0197",
-      "date": "2026-08-29"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "A vague digital-replica clause is now void in California.",
-      "body": "California's AB 2602, effective January 1, 2025, makes a contract term allowing use of a performer's **digital replica** unenforceable when the replica would substitute for work they'd otherwise do in person, unless the intended use is described with reasonable specificity or the performer was represented by a lawyer or union. The old catch-all grant, replica rights across 'all media now known or hereafter devised,' no longer binds an unrepresented actor. Specificity, not breadth, is what now makes the clause hold.",
-      "depth": "It pairs with AB 1836, which requires estate consent to use a deceased performer's digital replica in expressive works. Together they push replica rights from a boilerplate land-grab toward use-by-use consent, and they reward having counsel or a guild in the room.",
-      "id": "burrow-0198",
-      "date": "2026-08-29"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "In the red, you quietly turn into a gambler.",
-      "svg": "<svg viewBox=\"0 0 400 240\"><line x1=\"40\" y1=\"120\" x2=\"380\" y2=\"120\" stroke=\"#35302a\"/><line x1=\"200\" y1=\"30\" x2=\"200\" y2=\"215\" stroke=\"#35302a\"/><path d=\"M200,120 Q280,62 375,55\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2.5\"/><path d=\"M200,120 Q128,178 45,214\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2.5\"/><text x=\"288\" y=\"46\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">gains: flatter</text><text x=\"58\" y=\"206\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">losses: steeper</text><text x=\"206\" y=\"26\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">reference point</text></svg>",
-      "body": "Prospect theory found a clean asymmetry: people are **risk-averse over gains but risk-seeking over losses**. Offered a sure $100 versus a coin flip for $200 or nothing, most take the sure thing. Flip the signs, a sure $100 loss versus a coin flip to lose $200 or nothing, and most gamble, even though the expected value is identical or worse. It's why a trader banks winners early and holds losers hoping to get back to flat. The distortion lives around your reference point, the price you got in, not the actual odds.",
-      "depth": "The reference point is the lever. Reframe the loser as a fresh position you'd have to actively buy today at the current price, and the urge to gamble your way back to even usually dies. You wouldn't open it now; you're only holding because of where you started.",
-      "id": "burrow-0199",
-      "date": "2026-08-29"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Distant payoffs feel worthless. Bolt on a near one.",
-      "body": "ADHD steepens **delay discounting**: a reward a week out is marked down so hard it barely pulls you, while the same reward now works fine. So the move isn't willpower, it's manufacturing a near-term payoff for a task whose real payoff is too distant to motivate. The coffee only gets made while the filing goes out. The podcast only plays during the admin block. You're not treating yourself. You're bolting an immediate consequence onto work whose actual consequence sits too far away to reach you.",
-      "depth": "This is temptation bundling with a mechanism attached. It fails when the reward is available with or without the task, so the pairing has to be exclusive: the near-term thing you want is gated behind the thing you're avoiding, or the bridge doesn't hold.",
-      "id": "burrow-0200",
-      "date": "2026-08-29"
     }
   ]
 }
