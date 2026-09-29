@@ -1,6 +1,56 @@
 {
-  "updated": "2026-09-28",
+  "updated": "2026-09-29",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A hedged option's daily P&L is a bet on one gap.",
+      "body": "When you delta-hedge a short option, the day's profit collapses to the gap between the volatility you sold and the volatility that shows up, scaled by gamma. Sell at 20 and the stock realizes 15, you keep the difference; it realizes 28 and you bleed. Once hedged, the position stops caring about direction and starts caring only about **how much the stock actually moves versus what you sold**. That is why selling options is called trading realized against implied: the strike and the drift wash out, and one variance comparison, repeated daily, is the entire game.",
+      "depth": "The scaling term is dollar gamma, so the same volatility miss hurts far more near the strike and near expiry, where gamma spikes. A position that looks calm for weeks can take its whole loss in the last few pinning days. Hedge too rarely and your realized-vol capture itself turns noisy.",
+      "id": "burrow-0326",
+      "date": "2026-09-29"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "The authors lost to Meta by arguing the wrong harm.",
+      "body": "In June 2025 Judge Chhabria ruled for Meta in the authors' training-data suit, but the opinion read like a warning shot. He said the plaintiffs lost mainly because they leaned on the copying itself and barely argued **market dilution**: that a model can flood the market with cheap, similar books and gut demand for the originals. On that theory, he suggested, many AI companies could lose. The fight practitioners now see coming has migrated from 'did you copy the inputs' to 'does the output destroy the market those inputs served.'",
+      "depth": "This splits from Judge Alsup's Anthropic ruling issued days earlier in the same district, which treated training as strongly transformative and downplayed dilution. Two judges, opposite emphasis, means the fourth fair-use factor, market effect, is now the contested ground, and future plaintiffs will plead dilution from the first filing.",
+      "id": "burrow-0327",
+      "date": "2026-09-29"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "insight",
+      "hook": "A precise first offer anchors harder than a round one.",
+      "body": "Anchoring research keeps finding that first offers drag the final price toward them, but the subtler result is about precision. Open at $9,800 and you tend to hold more ground than opening at $10,000. The precise number signals you have **specific information behind it**, so the other side assumes your true number is close and makes smaller counter-adjustments. Round figures read as placeholders and invite round-number haggling in big jumps. The move in a deal you know cold: anchor first, anchor precisely, and let the specificity imply diligence you never have to fully spell out.",
+      "depth": "The effect has limits. Wildly precise anchors on a genuinely fuzzy asset read as false precision and cost credibility. And precision only pays if you actually open first. Ceding the first number to seem reasonable usually just hands the anchor, and the whole adjustment advantage, to the other side.",
+      "id": "burrow-0328",
+      "date": "2026-09-29"
+    },
+    {
+      "topic": "brain-science",
+      "topicLabel": "Brain & Focus",
+      "type": "mechanism",
+      "hook": "Caffeine hides sleep pressure. It doesn't drain it.",
+      "body": "Adenosine builds in the brain every waking hour and is the molecule that makes you feel tired: your **sleep pressure gauge**. Caffeine works by plugging adenosine's receptors so the signal can't land, which is why you feel alert, not because the pressure is gone. Adenosine keeps piling up behind the block. When the caffeine clears, all of it binds at once, and that is the crash. Caffeine's half-life runs roughly five to six hours, so a 3 p.m. coffee still has about a quarter of its dose working near 1 a.m.",
+      "depth": "This is why afternoon caffeine wrecks sleep quality even when you fall asleep fine: it suppresses slow-wave sleep, so you clear less adenosine overnight and wake with residual pressure, reaching for more. The loop feeds itself. Front-loading caffeine before noon is what breaks it.",
+      "id": "burrow-0329",
+      "date": "2026-09-29"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Recall it: why did praising pilots seem to backfire?",
+      "body": "Think back to the flight instructors who swore that praising a good landing ruined the next one and chewing out a bad one improved it. What single statistical force produced both illusions, with no causal effect from anything they said? Give it a beat. **Regression to the mean.** An exceptional landing is partly luck, so the next drifts back toward average, meaning worse; a terrible one drifts back toward better. They read a mechanical bounce as a response to their feedback and learned exactly the wrong lesson about people.",
+      "depth": "It matters again at your P&L. Your best month and worst month both partly regress next month, so 'what did I change after the bad stretch' quietly collects false credit for a rebound that was coming anyway. Judge the process, not the swing that was always going to fade.",
+      "id": "burrow-0330",
+      "date": "2026-09-29"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1158,56 +1208,6 @@
       "depth": "The effect shows up in home-price and salary studies, where precise asks correlate with final prices nearer the ask. The caveat: precision must stay plausible. A number that looks arbitrarily exact reads as gamesmanship and burns the credibility that made precision work.",
       "id": "burrow-0215",
       "date": "2026-09-02"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Dealers long gamma quietly trade against every move you make.",
-      "body": "When market makers are net long gamma, staying delta-neutral forces them to sell into rallies and buy into dips. That mechanical flow **dampens realized volatility** and pins price toward large open-interest strikes, especially into a monthly expiration. Flip the sign, dealers net short gamma, and the same hedging runs with the move: they buy higher and sell lower, feeding trend and expansion. The regime isn't cosmetic. It decides whether mean-reversion or momentum is the better short-horizon bet, and it's estimable from options open interest and spot's distance from the peak-gamma strike.",
-      "depth": "The caveat: gamma-exposure estimates depend on guessing who is long versus short each strike, and public GEX figures infer that split from open interest alone. Treat the sign and rough magnitude as signal. Treat any precise flip level as a fitted number that can be wrong on the day you most want it.",
-      "id": "burrow-0206",
-      "date": "2026-09-01"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "California now needs a dead performer's estate to say yes.",
-      "body": "AB 1836, effective January 2025, bars producing or distributing a **digital replica of a deceased performer** in new work without the estate's consent. It sits beside California's older postmortem right of publicity in Civil Code 3344.1, but it's narrower and sharper: it targets AI-generated performances specifically, reaches expressive works the older statute often exempted, and runs 70 years past death. The practical shift for anyone clearing archival or synthetic-revival projects is that a public-domain film clip and a newly generated performance of the same late actor now sit under genuinely different rules.",
-      "depth": "The consent requirement carries carve-outs for news, documentary, satire, commentary, and some biographical or historical uses, mirroring First Amendment limits already litigated under the right of publicity. Expect the real fights there, at the seam between a licensed synthetic performance and a protected expressive one. That seam is where the statute's edges get drawn.",
-      "id": "burrow-0207",
-      "date": "2026-09-01"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Pre-decide the trigger, and starting stops needing willpower.",
-      "body": "Implementation intentions are if-then plans: 'if it's 9am and I've sat down, then I open the brief.' In Gollwitzer's research they reliably beat plain goal intentions, and the gap is **largest for people with weak self-regulation**, which is the ADHD case exactly. The mechanism is delegation: you hand the start decision to a specific environmental cue, so initiation fires on the cue instead of demanding executive control you can't summon on command. A vague goal ('work on the deal today') leaves the trigger unspecified, so the brain never gets a signal. Name the cue and the first physical action, once, in advance.",
-      "depth": "Keep the 'then' a single concrete act, not a project: 'open the file,' not 'write the memo.' The cue should be something that happens whether or not you intend it, a clock time, finishing coffee, sitting at the desk. The plan works precisely because it rides a moment that was going to arrive anyway.",
-      "id": "burrow-0208",
-      "date": "2026-09-01"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "mechanism",
-      "hook": "Slide the start date six months and watch the edge die.",
-      "body": "A backtest reports one number, but it's one draw from many possible histories. Shift the start and end dates by a few months, or run rolling windows, and a genuine edge stays roughly stable while a fragile one swings wildly or vanishes. The trap: you almost always pick the boundaries after glancing at the data, so the default sample quietly flatters the strategy, a form of **start-date data snooping**. The fix is cheap. Report the metric across dozens of overlapping windows and read the distribution, not the point estimate. An edge that survives only its own birthday was never an edge.",
-      "depth": "This is the walk-forward instinct applied to sample boundaries instead of parameters. Same principle: never let one arbitrary choice, a start date, a parameter, a universe, carry the whole result. If the conclusion flips when you nudge any single one of them, the conclusion was the noise, not the signal you were hunting.",
-      "id": "burrow-0209",
-      "date": "2026-09-01"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "callback",
-      "hook": "Recall it: a formula beat the experts using what weights?",
-      "body": "Think back to Meehl and Dawes. The experts were good at one half of the job and reliably bad at the other half. Which half, and what beat them? The answer: models with **unit weights**, just standardize the factors and add them, no fitted coefficients, matched or beat the experts who chose those very factors. Experts know which variables matter; they simply can't combine them the same way twice. A formula combines identically every time, stripping out the noise in the human head. The move for any repeated call: pick the factors once, weight them equally, tally.",
-      "depth": "Where it bites for you: sizing a position, ranking a hire, deciding whether to settle. The pull is always to 'weigh it all holistically,' and that holistic step is exactly the noisy one. Name three or four factors in advance, score each, add them, and let the sum argue with your gut before you override it.",
-      "id": "burrow-0210",
-      "date": "2026-09-01"
     }
   ]
 }
