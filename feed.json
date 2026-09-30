@@ -1,6 +1,56 @@
 {
-  "updated": "2026-09-29",
+  "updated": "2026-09-30",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Long gamma always costs theta. Convexity is never free.",
+      "body": "Buy an option and you own positive gamma: the position improves as the underlying moves either way. But you pay for that curvature every day in theta. The link is mechanical. For a given implied volatility, the gamma you hold fixes the decay you bleed, dollar for dollar. So being long options is never a free bet on a big move. **You win only if realized movement outruns the implied vol you paid.** Direction barely matters; the whole trade is realized versus implied.",
+      "depth": "This is why gamma scalping is a volatility trade, not a directional one. You delta-hedge to strip out direction and harvest the gap between how much the underlying actually moves and how much its options priced in. Positive when realized beats implied, negative when it lags.",
+      "id": "burrow-0331",
+      "date": "2026-09-30"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "A voice can't be copyrighted. Bette Midler still won.",
+      "body": "In 1988 Midler sued Ford for hiring a sound-alike to imitate her recording. Copyright didn't help, since she didn't own the song and they used a different singer. She won anyway, on California's right of publicity: a distinctive voice is part of identity, and imitating it to sell a product is misappropriation. Tom Waits later beat Frito-Lay the same way. **AI voice clones inherit this framework, not copyright.** The winning theory against a cloned voice is publicity and unfair competition, because the voice itself was never copyrightable subject matter.",
+      "depth": "That is why the recent statutes, Tennessee's ELVIS Act and California's replica laws, extend publicity rights rather than copyright. They target the unauthorized use of identity. A practitioner drafting AI clauses should protect the voice as identity, not as a work, and lean on state publicity law where copyright has nothing to grab.",
+      "id": "burrow-0332",
+      "date": "2026-09-30"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Superforecasters don't predict better. They update more often.",
+      "body": "Tetlock's forecasting tournaments found the top performers weren't smarter or better informed. Their edge was process: they broke questions into pieces, started from base rates, then adjusted in small, frequent increments as news arrived. Ordinary forecasters anchor on a first guess and move in rare, dramatic leaps. **The skill is granular updating, not the initial call.** A forecaster who nudges from 60% to 63% on real evidence beats one who jumps 50% to 90% on a hunch and then freezes for a month.",
+      "depth": "The trading parallel is exact. A thesis is a starting probability, not a commitment. Each earnings print, each tape reaction is an update, and the discipline is sizing the move to the evidence. Big convictions that never revise are how good analysts blow up.",
+      "id": "burrow-0333",
+      "date": "2026-09-30"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Stuck on a task? Change the room, not the plan.",
+      "body": "Novelty spikes dopamine, and an under-stimulated reward system disengages fastest from the stale and familiar. That's why a task you've stared at for an hour feels impossible, while the same task at a different desk suddenly moves. You're not fixing motivation; you're handing a novelty-hungry system a fresh context to latch onto. **Rotate the environment to reset engagement, not the workload.** A cafe, another room, even facing a different wall can restart a stalled task without changing one thing about the work itself.",
+      "depth": "Same reason changing the task's surface helps: a new font, reading it aloud, switching from screen to paper. The novelty is doing the work, not the medium. Reach for it deliberately and cheaply before you reach for willpower or a second dose.",
+      "id": "burrow-0334",
+      "date": "2026-09-30"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Recall it: 20 strategies tested, best kept. Why distrust its Sharpe?",
+      "body": "Answer: multiple-testing bias. Search enough variations and one will look brilliant by luck alone. Test 20 strategies and, even if none has real edge, the best backtest posts a Sharpe that looks significant, because you selected on noise. The more you tried, the higher that lucky peak climbs. **The number of things you tested is part of the result, and it usually gets hidden.** The fix is the deflated Sharpe ratio, which discounts the winner by how many candidates you searched to find it.",
+      "depth": "It is different from overfitting one model. Here each strategy might be honestly built, yet choosing the best of many inflates the result on its own. Report how many you tried, or hold out data you never touched during the search.",
+      "id": "burrow-0335",
+      "date": "2026-09-30"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1158,56 +1208,6 @@
       "depth": "Your reference point is arbitrary, usually just the price you paid, and the market has no idea it exists. Every 'let me get back to flat' is that arbitrary anchor quietly overriding expected value.",
       "id": "burrow-0220",
       "date": "2026-09-05"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "In a selloff your delta moves faster than gamma predicts.",
-      "body": "Gamma tells you how delta changes as spot moves. But delta also shifts as implied vol moves, and vol usually spikes when spot drops. That cross-sensitivity is **vanna**. For a short put, falling spot plus rising vol drives delta more negative than gamma alone predicts, so a hedge sized on gamma comes up short exactly when the move is violent. Dealers hedging their own vanna sell more futures into the drop, which feeds the slide you were trying to hedge against.",
-      "depth": "Vanna is largest for out-of-the-money options with time left. It is why a book that looks delta-neutral at Friday's vol can be quietly long risk if Monday gaps down. Rehedge to realized conditions, not the vol you booked.",
-      "id": "burrow-0211",
-      "date": "2026-09-02"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Tennessee made distributing a voice-clone tool itself illegal.",
-      "body": "The ELVIS Act, effective July 2024, added voice to Tennessee's right of publicity and did something unusual: it reaches the **toolmakers**. Liability is not limited to the person who deepfakes a singer. It extends to anyone who makes available a product or service whose primary purpose is producing an unauthorized clone of a real voice. Most publicity statutes target the end use. Tennessee moved the target upstream to the software itself, which is why platform lawyers now read it more closely than the flashier California statutes.",
-      "depth": "The right is descendible, so it survives the performer's death. The open question practitioners flag is how primary purpose applies to a general-purpose model that can clone a voice among a thousand other tasks.",
-      "id": "burrow-0212",
-      "date": "2026-09-02"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "Your 90% confidence range is right about half the time.",
-      "body": "Ask people for a range they are 90% sure contains an answer, and the true value lands outside it far more than 10% of the time. Classic calibration studies put actual hit rates near 40 to 50%. The interval is too narrow because you anchor on your best guess and adjust too little. **Surprise is the tell:** if reality keeps landing outside your ranges, the ranges are lying. Two fixes that work: set the bounds by assuming you are already wrong and asking why, then widen until it feels slightly ridiculous.",
-      "depth": "This is why position sizing and litigation-outcome estimates both drift optimistic. The disciplined move is a range wide enough that being wrong would genuinely shock you, treated as your real uncertainty rather than the tight number you first felt.",
-      "id": "burrow-0213",
-      "date": "2026-09-02"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Hyperfocus is a broken brake, not a strong engine.",
-      "body": "The same weak inhibition that makes starting hard also makes stopping hard. Hyperfocus is not extra focus; it is a **failure to disengage**, driven by the same executive-function gap. That is why you can surface from a build at 6 PM with no sense of the hours passing. Willpower will not generate the stop signal, because the machinery that produces stop signals is the part that is impaired. The fix has to be external: a loud alarm set before you enter, not a mental note to check the time.",
-      "depth": "Stack it so the interrupt forces a physical action, standing up or leaving the room, because an alarm you can silence from your chair gets silenced and ignored. For a 5:00 pickup, the alarm goes at 4:30 and lives across the room.",
-      "id": "burrow-0214",
-      "date": "2026-09-02"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "callback",
-      "hook": "Recall it: does a precise or round opening offer anchor harder?",
-      "body": "A few days back: two opening offers, one round at $500,000 and one precise at $512,000. Which pulls the final number further toward it? **The precise one.** Round figures signal a rough guess and invite large counter-swings. A specific figure signals you ran the math, so counterparties adjust in smaller increments and settle closer to your anchor. The move: open precise rather than round, and open first when you actually know the range.",
-      "depth": "The effect shows up in home-price and salary studies, where precise asks correlate with final prices nearer the ask. The caveat: precision must stay plausible. A number that looks arbitrarily exact reads as gamesmanship and burns the credibility that made precision work.",
-      "id": "burrow-0215",
-      "date": "2026-09-02"
     }
   ]
 }
