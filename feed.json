@@ -1,6 +1,56 @@
 {
-  "updated": "2026-09-30",
+  "updated": "2026-10-01",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A 25-delta put costs more than its mirror call.",
+      "body": "Equity index options show a persistent skew: out-of-the-money puts trade at higher implied vol than equidistant out-of-the-money calls. Two forces drive it. The leverage effect, where a falling stock's debt-to-equity rises and its volatility mechanically climbs, so down moves really are more volatile. And crash-o-phobia, the structural demand from hedgers who will overpay for downside protection. The result is that **skew is a risk premium you either harvest or pay**, depending on your side. Selling that rich put vol works right up until the crash it was priced for actually shows up.",
+      "depth": "Skew also makes your hedges asymmetric. The same move down changes your option's vol, not just its price, so a put seller is short both spot and the vol that spikes exactly when spot drops. That correlation is why short-put books unwind faster than their Greeks suggest on a calm day.",
+      "id": "burrow-0336",
+      "date": "2026-10-01"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "California voids a digital-replica clause if it's too vague.",
+      "body": "AB 2602, effective 2025, makes a performer's consent to an AI digital replica **unenforceable when the clause is too vague about how the replica will be used** and the performer signed without a lawyer or a union representative. A blanket grant covering all uses, all media, forever, the studio default, is exactly what fails. It bites where the replica would replace work the person would otherwise have done live. So the statute attacks the contract's specificity, not the technology. Breadth, usually the drafter's shield, becomes the weakness here.",
+      "depth": "This inverts normal drafting instinct. Ordinarily the broadest grant protects the buyer. Here breadth is the exposure: a court can strike the clause for vagueness and leave a producer holding footage with no license behind it. The defensive move is narrow, enumerated, use-by-use consent, which is the opposite of how rights usually get papered.",
+      "id": "burrow-0337",
+      "date": "2026-10-01"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Every added detail makes a forecast feel likelier and be less likely.",
+      "body": "The conjunction rule is just arithmetic: the probability of A and B can never exceed the probability of A alone. Yet add a vivid, coherent detail to a prediction and people rate the fuller story as more probable, not less. Kahneman and Tversky's Linda problem found most respondents judged 'bank teller and feminist' more likely than 'bank teller,' which is impossible. For a forecaster the lesson is sharp: **specificity buys plausibility at the cost of probability**. The rich, convincing scenario is usually the one to bet against, because every clause you add is one more condition that has to come true.",
+      "depth": "This bites hardest in deal and trade theses. The compelling narrative, clean mechanism, named catalyst, feels like the strong call. But it has stacked conjunctions, and each one multiplies the others downward. The vaguer, uglier 'something breaks' thesis often carries the higher true probability.",
+      "id": "burrow-0338",
+      "date": "2026-10-01"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Your new system didn't fail. Its novelty did.",
+      "body": "Every productivity system you adopt works beautifully for about two weeks, then quietly dies. The usual read is a discipline failure. The mechanism is narrower: the system ran on **novelty-driven interest, not on habit**, and ADHD attention is powered by interest, not importance. When the newness wears off, the dopamine that was carrying adherence stops, and the system has no fuel left. Willpower was never holding it up. The move is to expect the decay and design around it: rotate tools before they go stale, or build the system so it runs without needing your attention to stay alive.",
+      "depth": "This is why 'just use a planner' advice fails on repeat. The planner is not the problem, the expectation of permanence is. A tool that survives is usually one that got automated, handed to someone else, or rebuilt often enough that each version is briefly novel again. Plan the replacement before you need it.",
+      "id": "burrow-0339",
+      "date": "2026-10-01"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Recall it: what does the in-sample minus walk-forward Sharpe gap measure?",
+      "body": "Think back to the method that trades only unseen slices. One backtest fit over all of history just measures how well you explained a past you already knew happened. Walk-forward refits on a rolling window and trades the next slice it has never seen, again and again, so the P&L you keep is out-of-sample by construction. The answer: **the gap between the in-sample Sharpe and the walk-forward Sharpe is the honest size of your overfit**. A small gap points to real structure. A large gap means you curve-fit a story onto noise.",
+      "depth": "Why it matters again: a single flattering equity curve gives you no gap to look at, so nothing ever warns you. Walk-forward forces the comparison into existence. Run only one backtest and you have thrown away the one diagnostic that tells you whether the edge is real or imagined.",
+      "id": "burrow-0340",
+      "date": "2026-10-01"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1158,56 +1208,6 @@
       "depth": "The rule runs seven years from the start of actual service, not seven years of work performed, which is exactly why suspension-stacking was the whole fight. Recording artists later won a controversial carve-out, but the baseline ceiling still traces to her case.",
       "id": "burrow-0225",
       "date": "2026-09-06"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "insight",
-      "hook": "Implied vol beats realized vol most months. That's your paycheck.",
-      "body": "On the S&P index, option-implied volatility has historically run a few points above the volatility that later shows up, on average, reported around 3 to 4 vol points. That gap is the **variance risk premium**, the compensation sellers earn for warehousing crash risk. It is not a mispricing you outsmart; it is insurance buyers knowingly overpay for because they hate the tail. The premium is fattest and steadiest in the index, thinner in single names, and it inverts violently in a crisis when realized vol blows past implied.",
-      "depth": "The carry is real but the payoff profile is short a lottery ticket. Selling index vol is also short correlation and short the tail, so the losing days cluster together instead of arriving one at a time.",
-      "id": "burrow-0216",
-      "date": "2026-09-05"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "The first 'training isn't fair use' win involved no generative AI.",
-      "body": "In Thomson Reuters v. Ross Intelligence (Delaware, February 2025), the court held that using Westlaw's headnotes to train a competing legal-research tool was not fair use. The twist practitioners miss: **Ross's AI was not generative.** It did not write anything; it retrieved relevant case law. The judge leaned hard on the fourth factor, market harm, because Ross built a direct substitute for Westlaw. Generative defendants keep citing transformative-use wins, but this ruling says substitution can swamp transformation once the output competes commercially with its source.",
-      "depth": "The generative fair-use wins turned partly on outputs being non-substitutive for the originals. Ross shows the fourth factor doing the heavy lifting: a model that competes with the thing it trained on is exposed no matter how transformative the ingestion looks.",
-      "id": "burrow-0217",
-      "date": "2026-09-05"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "You can't feel time passing, so make it visible.",
-      "body": "ADHD carries a measurable deficit in **interval timing**, the internal sense of how long something has taken. Duration does not register, so a 'quick email' eats an hour and a deadline three days out feels like it does not exist yet. The fix is not discipline, it is a prosthetic: put elapsed and remaining time into your visual field where a broken internal clock cannot hide it. An analog timer showing a shrinking wedge, a countdown on a second screen, a clock you actually glance at. You are not tracking time better, you are turning it into a thing the eyes can see.",
-      "depth": "This is the same move as writing your to-do list down instead of holding it in your head. The intervention pattern for ADHD is consistent: take a weak internal function and offload it onto an external surface the environment maintains for you.",
-      "id": "burrow-0218",
-      "date": "2026-09-05"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "insight",
-      "hook": "When you disagree about the future, bet on it in the contract.",
-      "body": "Deals often stall because the two sides forecast differently: seller swears the numbers will hit, buyer doubts it. Splitting the difference leaves both feeling robbed. The cleaner move is a **contingent contract**, a term that pays out based on which forecast comes true, an earnout, a milestone bonus, a clawback. Each side gets to bet on its own optimism instead of arguing it. It doubles as a lie detector: the party that refuses to tie money to its own confident prediction is telling you the prediction was cheap talk.",
-      "depth": "The trigger has to be clean, measurable, and hard to game, with a defined window, or you have just moved the fight from price to accounting. Earnouts breed litigation exactly when the metric is squishy or the buyer controls the levers that drive it.",
-      "id": "burrow-0219",
-      "date": "2026-09-05"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "callback",
-      "hook": "Recall it: which side of your reference point makes you a gambler?",
-      "body": "A hint: it is the same asymmetry that makes you bank a winner too early and ride a loser too long. Take a beat before it lands. Prospect theory found people are **risk-averse over gains but risk-seeking over losses.** A sure $100 gain beats a coin flip for $200, but a sure $100 loss loses to that same flip, even though the odds are identical. The distortion lives around your entry price, not the real probabilities. Below the reference point, a certain loss feels unbearable and the gamble feels like rescue.",
-      "depth": "Your reference point is arbitrary, usually just the price you paid, and the market has no idea it exists. Every 'let me get back to flat' is that arbitrary anchor quietly overriding expected value.",
-      "id": "burrow-0220",
-      "date": "2026-09-05"
     }
   ]
 }
