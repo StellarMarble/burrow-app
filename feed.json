@@ -1,6 +1,56 @@
 {
-  "updated": "2026-10-02",
+  "updated": "2026-10-03",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A deep in-the-money put gets exercised early for interest.",
+      "body": "Everyone learns that an American call is exercised early only to capture a dividend. The mirror case for puts gets skipped. A holder of a deep in-the-money put can exercise to collect the strike in cash now and earn interest on it. The remaining time value that far in the money is tiny, so the interest on the strike can exceed it. **The driver is the time value of money, not volatility.** If you are short that put, early assignment is the risk you never priced.",
+      "depth": "The symmetry is clean. Calls pay you to wait unless a dividend makes holding the stock worth more now. Puts pay you to wait unless interest on the strike makes cash-in-hand worth more now. Higher rates widen the window where early put exercise is rational, which is why it was routine in high-rate decades and nearly vanished near zero.",
+      "id": "burrow-0346",
+      "date": "2026-10-03"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Regurgitation is the plaintiff's best exhibit in an AI suit.",
+      "body": "Training on copyrighted text may be fair use. Producing a near-verbatim copy of that text is a different problem, and plaintiffs know it. **The strongest evidence in the training-data cases is memorization**: a prompt that makes the model spit back long passages close to the original. The New York Times complaint against OpenAI leaned on exactly this, showing article text the model reproduced. It bridges the gap between 'trained on my work' and 'copied my work,' which is the gap defendants most want to keep open. Expect every complaint to go hunting for it.",
+      "depth": "Why it matters: fair use turns partly on market harm and the amount taken. Verbatim output is hard to sell as transformative and reads as a substitute for the original. It also reframes the case from an abstract training theory, which courts treat skeptically, into ordinary copying, which they understand. The engineering fix, output filters that block regurgitation, is itself a quiet admission the risk is real.",
+      "id": "burrow-0347",
+      "date": "2026-10-03"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Every task switch reloads working memory, your weakest part.",
+      "body": "Switching tasks is not free. Each switch forces your brain to drop the current context and reload the next one, and that reload lives in working memory. For an ADHD brain, working memory is the constrained resource, so the switch tax lands harder and the dropped context is harder to recover. **The move is to batch by mode, not by project.** Answer every email in one block, make every call in another. You are not saving time on the tasks themselves. You are paying the reload tax once instead of fifteen times.",
+      "depth": "The hidden version is the 'quick check' of a phone or inbox mid-task. It feels like seconds, but it evicts the context you were holding and forces a full reload when you come back. The cost is not the thirty seconds on the phone. It is the two minutes rebuilding where you were, every single time.",
+      "id": "burrow-0348",
+      "date": "2026-10-03"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "insight",
+      "hook": "Your backtest only trades the companies that survived.",
+      "body": "Pull a universe of stocks as it exists today, backtest a strategy over the last twenty years, and you have already cheated. The names on that list are the ones that did not go bankrupt, get delisted, or get bought at a loss. **The losers were deleted from the data, not from history.** Your strategy never had to hold the ones that went to zero, because they are not in the file. A long-biased system looks brilliant against a universe scrubbed of its own failures. The fix is a point-in-time database that still includes the dead.",
+      "depth": "This is why index backtests overstate returns, and why mean-reversion looks especially strong: buying the dip works beautifully until you buy a dip that keeps falling to zero, and survivorship bias has quietly removed every one of those. The same flaw hides in fund-performance studies, where closed and merged funds vanish and the survivors alone define the average.",
+      "id": "burrow-0349",
+      "date": "2026-10-03"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "You're estimating how long a project takes. What beats your gut?",
+      "body": "Think back a few days before the answer lands. The unreliable path reasons from your own plan and your reasons this time is special, and it runs optimistic because it cannot picture the failures it has not imagined yet. The better move is the **outside view**: ignore your specifics and ask how the reference class of similar efforts actually turned out. Define the class, get its distribution, then adjust only slightly for what is genuinely unique to you. Kahneman and Lovallo showed the base rate beats the confident inside story almost every time.",
+      "depth": "Why it matters again: it is the same engine behind a trading edge. Your setup feels special, but the honest prior is what that setup has paid across hundreds of past instances, not the story you are telling about this one. Inside view for the narrative, outside view for the number.",
+      "id": "burrow-0350",
+      "date": "2026-10-03"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1156,57 +1206,6 @@
       "depth": "It falls out of how attention and training distribute weight, not a bug you can prompt away. Practical test: if an answer keeps ignoring a detail, move that detail to the edge of the prompt before you rewrite anything else.",
       "id": "burrow-0235",
       "date": "2026-09-08"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "insight",
-      "hook": "The variance premium is a risk fee, not a mistake.",
-      "body": "You collect it because your short-vol position loses **in exactly the states that hurt most**: crashes, when every other asset is falling and a dollar is worth more to you. A rational buyer pays above fair value for that protection, and you earn the spread for bearing crash risk nobody else wants. This reframes the whole strategy. You are not exploiting an inefficiency that should arbitrage itself away, you are being paid a genuine risk premium for a real service. It also warns you: the premium is thinnest, and the danger largest, right after a calm stretch when insurance feels pointless.",
-      "depth": "The corollary is that no amount of edge sharpening removes the risk, because the return IS the risk compensation. Sizing, not cleverness, is the lever. A short-vol book that never has a bad quarter is almost certainly underpriced risk waiting to be repriced.",
-      "id": "burrow-0226",
-      "date": "2026-09-07"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Pure AI images get no copyright. Your arrangement of them can.",
-      "body": "The Copyright Office refused protection for the Midjourney images in **Zarya of the Dawn** (2023), then registered the comic's human-written text and the selection, coordination, and arrangement of those images. Thaler v. Perlmutter confirmed the baseline in 2025: a work needs human authorship to register at all. The practical error is treating 'AI-generated' as one uncopyrightable blob. It is layered. The prompting, editing, sequencing, and compositing a human actually contributes can carry thin protection even when each raw output cannot, which changes how you paper ownership and chain-of-title in any AI-assisted production.",
-      "depth": "For clearance work this means two questions, not one: what did the model output, and what did a human do to it? The second answer is where any registrable interest lives, and it is worth documenting the human contribution contemporaneously rather than reconstructing it later.",
-      "id": "burrow-0227",
-      "date": "2026-09-07"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "A positive result on a rare-condition test is usually a false alarm.",
-      "svg": "<svg viewBox=\"0 0 400 240\"><line x1=\"40\" y1=\"200\" x2=\"380\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1\"/><rect x=\"80\" y=\"186\" width=\"70\" height=\"14\" fill=\"#7fb4a2\"/><rect x=\"240\" y=\"50\" width=\"70\" height=\"150\" fill=\"#d9a441\"/><text x=\"115\" y=\"218\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">9 true</text><text x=\"115\" y=\"234\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">positives</text><text x=\"275\" y=\"218\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">99 false</text><text x=\"275\" y=\"234\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">positives</text><text x=\"200\" y=\"30\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"15\" text-anchor=\"middle\">Out of 108 positives, most are false</text></svg>",
-      "body": "Take a condition 1% of people have and a test that is 90% accurate both ways. Screen 1,000 people: 10 are sick and 9 test positive; 990 are healthy and 99 test positive anyway. A positive result therefore carries only about a **9% chance of actually being sick**, even though the test is 90% accurate. Intuition screams 90%. The gap is base-rate neglect: you anchor on the test's accuracy and ignore how rare the thing is. Every rare-signal detector inherits this, from fraud flags to insider-trading alerts to security screens.",
-      "depth": "The operational lesson is that a low base rate makes most alarms false no matter how good the detector, so the fix is never a better test alone. Either raise the prior before testing, or require a second independent signal before you act on the first.",
-      "id": "burrow-0228",
-      "date": "2026-09-07"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "callback",
-      "hook": "Recall it: why does moving your backtest's start date kill the edge?",
-      "body": "Give yourself a beat before the answer lands. You picked the sample boundaries after glancing at the data, so the default window quietly flatters the strategy. That is **start-date data snooping**. A real edge stays roughly stable when you slide the start and end dates or run rolling windows; a fragile one swings wildly or vanishes. The reported number was always just one draw from many possible histories. The fix is cheap: report the metric across dozens of overlapping windows and read the distribution, not the point estimate.",
-      "depth": "Why it matters again: any parameter or rule you chose while staring at the same data inherits this bias, not just the dates. An edge that survives only its own birthday was never an edge.",
-      "id": "burrow-0229",
-      "date": "2026-09-07"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "An unwritten to-do keeps evicting the task you're on.",
-      "body": "Working memory has a small, shared workspace, and ADHD shrinks it further. Every 'don't forget to call the CPA' you hold in your head **occupies the same register that's running your current task**. The intrusive thought does not wait politely; it competes, and often wins, which is why you lose the thread mid-draft. The move is to externalize on contact: one always-open capture note where the stray item goes the second it appears. You are not being organized. You are clearing the workspace so the single task in front of you keeps the whole register.",
-      "depth": "This is why 'I'll just remember it' fails specifically for you: the remembering itself consumes the exact resource the work needs. Offload the moment it surfaces, review the list on a fixed schedule, and stop paying rent on things a note could hold for free.",
-      "id": "burrow-0230",
-      "date": "2026-09-07"
     }
   ]
 }
