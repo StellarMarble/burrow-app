@@ -1,6 +1,56 @@
 {
-  "updated": "2026-10-03",
+  "updated": "2026-10-05",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "insight",
+      "hook": "A covered call is a short put wearing a disguise.",
+      "body": "Put-call parity forces it. Long stock plus a short call at strike K has the exact same payoff as a short put at K, same expiry: identical P&L curve, identical downside, identical breakeven. The covered call feels conservative because you own the shares, but all the risk lives in the stock you hold, and the call caps upside the way a short put does. **The only real differences are margin treatment and assignment mechanics, not risk.** If you would never naked-short the put, the covered call is that same bet with better optics.",
+      "depth": "This is why 'safe income' covered-call funds are selling puts in all but name. The premium you collect is the same variance risk premium a put seller earns, and your worst case, stock to zero minus premium, matches the put seller's exactly.",
+      "id": "burrow-0351",
+      "date": "2026-10-05"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "A reward next week barely exists to your brain today.",
+      "body": "The mechanism is steep delay discounting. A reward's motivational pull decays with time-to-payoff far faster in an ADHD reward system, so a deadline that is seven days out generates almost no signal now, no matter how much it will matter then. Willpower does not fix this; it is a valuation problem, not a character one. The move is to **manufacture a near-term stake the task can actually compete with**: a same-day checkpoint, a visible checkmark, a text you owe someone by 5p, money on the line tonight. Pull the payoff into today or nothing fires.",
+      "depth": "This is also why external deadlines beat internal ones for you. An internal 'I should finish this week' sits on the flat, discounted part of the curve; a real consequence due today sits on the steep part where motivation actually lives.",
+      "id": "burrow-0352",
+      "date": "2026-10-05"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "The first training case lost fair use, and it wasn't generative.",
+      "body": "In February 2025, Judge Bibas handed Thomson Reuters the first real win against AI training. Ross Intelligence had copied Westlaw's editorial headnotes to build a competing legal-research tool. Bibas, reversing his own earlier view, held the use was not fair. Two factors decided it: the purpose was **not transformative because Ross wasn't generative**, it was assembling a direct market substitute, and the fourth factor, market harm, pointed hard at Thomson Reuters because Ross aimed at its customers. The takeaway practitioners drew: non-generative copying plus direct competition is the losing combination.",
+      "depth": "Most generative-AI defendants will argue precisely what Ross couldn't, that their output is transformative and serves a different market. Bibas drew that line explicitly, which is why the ruling cut against Ross while handing the OpenAIs and Metas a distinction to stand on.",
+      "id": "burrow-0353",
+      "date": "2026-10-05"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "insight",
+      "hook": "Your fundamentals backtest knows numbers that didn't exist yet.",
+      "body": "Companies restate earnings, and most databases overwrite the original figure with the corrected one. So a strategy that screens on last quarter's EPS is often reading the number as republished months later, not the number the market actually saw on the reporting date. Add filing lag, the data existed in the database before it was legally public, and your backtest is quietly trading on information from the future. **Use point-in-time data: the value as it was known that day, not as the database shows it now.** Otherwise you are grading hindsight.",
+      "depth": "It is a sneakier cousin of survivorship bias. There the row is missing entirely; here the row is present but holds the wrong value, so the backtest looks complete and clean while being contaminated in every cell you restated.",
+      "id": "burrow-0354",
+      "date": "2026-10-05"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Superforecasters beat the experts. What was their actual edge?",
+      "body": "Not raw intelligence, not better sources, not access. Think about what they did differently every time a new fact landed... They broke questions into parts, started from base rates, then **updated in small, frequent increments** as evidence arrived. The ordinary forecaster anchors on a first guess and lurches in rare, dramatic jumps. The winner nudges 60 to 63 on real news and beats the one who leaps 50 to 90 on a hunch and then freezes for a month. The skill is granular updating, not the opening call.",
+      "depth": "Worth re-filing because your trading version is identical: the loss is refusing to move a thesis one notch when a single piece of evidence lands, then overcorrecting hard later. Update often, update small, and the first number matters less than you think.",
+      "id": "burrow-0355",
+      "date": "2026-10-05"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1156,56 +1206,6 @@
       "depth": "Why it matters again: every position size and every deal forecast rides on an implied confidence interval. If yours run half as wide as they should, you're systematically underpricing the odds you're wrong, which is the exact error that blows up a book. Widen until it feels slightly ridiculous.",
       "id": "burrow-0240",
       "date": "2026-09-09"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "A strike gets touched twice as often as it finishes there.",
-      "body": "For a roughly driftless underlying, the chance price *ever* trades through a strike before expiry is about **twice the chance it expires beyond that strike**. So a short put with a 20% chance of finishing in the money carries roughly a 40% chance of being tested intraday. That is the reflection principle: every path that ends back on the safe side had to cross the strike once to get there. It is why 'it'll probably expire fine' and 'I'll probably get a scary touch' are both true at the same time.",
-      "depth": "The 2x rule assumes no drift and continuous paths. Positive drift lowers put touches and raises call touches, and a fat-tailed real tape touches even more than the Gaussian says. Use it to budget how often you'll be tempted to roll, not as a fill probability.",
-      "id": "burrow-0231",
-      "date": "2026-09-08"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "insight",
-      "hook": "Give on what you value least to win what you value most.",
-      "body": "When two sides rank the open issues differently, you can trade cheap-to-you concessions for expensive-to-them ones and both walk away better off. Researchers call it **logrolling**, and it is why splitting every issue down the middle is usually the worst available outcome: it leaves joint value on the table. The move is to bundle. 'I'll give you the credit and the announce date if you give me the audit right and the reversion.' Single-issue haggling can never find those trades, because it never lets either side reveal what it actually cares about.",
-      "depth": "It only works if you know your own ranking cold before the room. Walk in with issues sorted into give, trade, and hold. The counterparty's fight over a low-rank item is a gift: it tells you their currency, which is exactly what you buy the high-rank item with.",
-      "id": "burrow-0232",
-      "date": "2026-09-08"
-    },
-    {
-      "topic": "hollywood-history",
-      "topicLabel": "Hollywood History",
-      "type": "history",
-      "hook": "A 1970 rule made reruns a goldmine, then its repeal killed it.",
-      "body": "The FCC's **Financial Interest and Syndication Rules** barred the three networks from owning a stake in, or the reruns of, the shows they aired. Networks had to license programming from studios and hand back the syndication rights. That handed studios the back-end fortune when a hit went into reruns, and it kept content ownership separate from distribution. Repealed in 1993, it let networks own their shows again. The direct result was vertical re-integration and the wave of studio-network mergers that followed. A rule built to stop concentration, whose death enabled it.",
-      "depth": "The repeal is why a Disney can own ABC and the studio feeding it, or a network can greenlight only shows it will own forever. The old separation, whatever its flaws, was the last structural check on one company owning both the pipe and the water.",
-      "id": "burrow-0233",
-      "date": "2026-09-08"
-    },
-    {
-      "topic": "brain-science",
-      "topicLabel": "Brain & Focus",
-      "type": "mechanism",
-      "hook": "A hot bath before bed works by cooling you down.",
-      "body": "Sleep onset is triggered by a **fall in core body temperature**, roughly 1 degree C as you drift off. Warming your skin, especially hands and feet, opens the blood vessels there and dumps heat from the core, so warming the outside actually cools the inside. A pooled analysis of passive body-heating studies reported that a warm bath or shower one to two hours before bed sped up sleep onset by roughly ten minutes on average. The timing matters. Too close to bed and you are still shedding heat when you want to already be asleep.",
-      "depth": "This is also why a cool bedroom near 65 F helps, and why socks cut both ways: warm feet early aid the heat dump, but overheating under blankets stalls the core-temp drop the whole system depends on.",
-      "id": "burrow-0234",
-      "date": "2026-09-08"
-    },
-    {
-      "topic": "ai-orchestration",
-      "topicLabel": "AI Systems",
-      "type": "insight",
-      "hook": "Models read the middle of a long prompt worst.",
-      "body": "Give a model a long context and its recall is U-shaped: it uses what sits at the **very start and the very end** far better than anything buried in the middle. Researchers named it 'lost in the middle,' and it holds even for models whose context window officially fits the whole document. So the fix is not a bigger window. Put the instruction and the single most important fact at the top or the bottom, never at 50% depth. When you paste ten files, the one that matters goes first or last, not fifth.",
-      "depth": "It falls out of how attention and training distribute weight, not a bug you can prompt away. Practical test: if an answer keeps ignoring a detail, move that detail to the edge of the prompt before you rewrite anything else.",
-      "id": "burrow-0235",
-      "date": "2026-09-08"
     }
   ]
 }
