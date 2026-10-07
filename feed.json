@@ -1,6 +1,56 @@
 {
-  "updated": "2026-10-05",
+  "updated": "2026-10-07",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A stock pinned to your strike is a Monday-morning mystery.",
+      "body": "Expiration lands with the underlying sitting almost exactly on your short strike. Now you have a problem: whether you get assigned depends on whether the long holder chooses to exercise, and at a penny in or out of the money that choice is unpredictable. So you can go home Friday thinking you're flat and wake up Monday unexpectedly long or short 100 shares per contract, carrying a full weekend of unhedged gap risk. **Pin risk is uncertainty about your position, not your price.** Market makers hedge hard into the close precisely to avoid being caught naked by it.",
+      "depth": "It bites worst in low-priced, heavily-optioned names where huge open interest clusters at round strikes, and dealer hedging can actually drag the price toward that strike into the bell. The fix is boring: close or roll a near-the-money short before expiration rather than hoping it settles clean.",
+      "id": "burrow-0356",
+      "date": "2026-10-07"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "The Warhol ruling quietly reshaped every AI fair-use defense.",
+      "body": "Practitioners still reach for the Google Books era, when 'the machine learned something new' made a use transformative and factor one fell their way. Warhol v. Goldsmith (2023) narrowed that. The Supreme Court held the first factor weighs a use's purpose against its commercial character and whether it serves the **same market** as the original. Applied to AI, learning from a work is not automatically transformative if the output competes with that work. The question shifted from 'is it new?' to 'does it substitute?'",
+      "depth": "That is why factor four, market harm, is now the real battleground in the training-data suits, and why the Meta authors' loss turned largely on failing to prove the market they were denied. A defense built on pre-2023 transformativeness language is quietly out of date.",
+      "id": "burrow-0357",
+      "date": "2026-10-07"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "More detail made it feel likelier. Which rule does that break?",
+      "body": "Picture Linda: thoughtful, outspoken, once a philosophy major. Is she more likely a bank teller, or a bank teller who is also a feminist? Most people pick the second, which is impossible, since every feminist bank teller is already a bank teller. The answer is the **conjunction rule**: P(A and B) can never exceed P(A). Adding a vivid, fitting detail raises a scenario's plausibility while it can only lower its probability. The richer story is the weaker bet.",
+      "depth": "This is the one to keep live at the screen. When a forecast or a thesis arrives fully furnished with reasons, treat each added clause as another condition that must independently come true. The clean, under-specified version is usually the better odds.",
+      "id": "burrow-0358",
+      "date": "2026-10-07"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Make the first step too small to refuse.",
+      "body": "Starting carries a fixed activation cost, and the ADHD brain overweights it, so a task labeled 'write the report' triggers avoidance long before any writing would happen. The size of the step you picture is what your brain prices, not the size of the job. **Shrink the entry point below the threshold:** not 'write the report' but 'open the file and type one bad sentence.' Once you are moving, continuation is cheap, because the expensive part was always the standing start, not the run.",
+      "depth": "This is why 'just do five minutes' works and 'buckle down' doesn't. Five minutes is a step small enough to clear the threshold; buckling down is a mountain your brain refuses to price. Size the first move, not the willpower.",
+      "id": "burrow-0359",
+      "date": "2026-10-07"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "mechanism",
+      "hook": "An MFN you grant can handcuff every future deal.",
+      "body": "A most-favored-nations clause promises your counterparty they will automatically get any better term you later hand someone else. Granting it feels free, because on signing day it costs nothing. The mechanism that bites shows up later: it **strips your ability to price-discriminate.** You can no longer give a bigger, more valuable partner a sweeter deal without retroactively upgrading the MFN holder too, so the clause quietly caps the upside of every negotiation that follows it.",
+      "depth": "The real fights are over scope. Is it compared term-by-term or whole-deal? Which terms count as 'comparable'? Does it reach deals struck by affiliates, or only you? A narrow, term-matched MFN with affiliate carve-outs is survivable; a broad whole-deal one gives away your future leverage.",
+      "id": "burrow-0360",
+      "date": "2026-10-07"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1156,56 +1206,6 @@
       "depth": "This is why a cold plunge right before bed can backfire: it triggers a stress-hormone spike that can override the cooling benefit. The bath needs to be hot enough to dilate vessels, not so cold it activates a fight-or-flight response instead.",
       "id": "burrow-0245",
       "date": "2026-09-10"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Your delta hedge drifts overnight even when nothing moves.",
-      "body": "Charm is the rate at which delta changes as time passes, holding spot fixed. As expiration nears, an in-the-money option's delta drifts toward 1 and an out-of-the-money option's toward 0. So a book that was delta-neutral at Friday's close can open Monday off-neutral purely from the weekend passing, before a single tick. **Charm is largest for near-the-money options close to expiry**, which is exactly where most premium-sellers live. Rehedging at Monday's open isn't reacting to news; it's paying down drift that time already baked in.",
-      "depth": "The effect concentrates around weekends and holidays, because three or more calendar days of decay accrue against only two trading sessions of hedging opportunity. Desks that mark charm explicitly pre-position on Friday rather than chase their own delta into the Monday auction.",
-      "id": "burrow-0236",
-      "date": "2026-09-09"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Copying an artist's style isn't infringement. Copying their expression is.",
-      "body": "Copyright protects specific expression, not style, technique, or genre. An image model trained to paint 'in the style of' a living artist generally does not infringe on that basis alone, because style is an unprotectable idea. Liability turns on whether an **output is substantially similar to a specific protected work**, or whether the training copies themselves were unlawful. That's why the strongest plaintiff theories in the art cases attack the ingestion step and near-duplicate outputs, not the vibe. A lawyer promising a client 'style protection' is selling something the Copyright Act does not grant.",
-      "depth": "Right of publicity can sometimes reach where copyright can't, when mimicry evokes a specific identifiable person for commercial gain. But that's an identity claim, not a copyright one, and it varies sharply by state. Conflating the two is the common practitioner error.",
-      "id": "burrow-0237",
-      "date": "2026-09-09"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Switching tasks leaves part of your attention stuck behind.",
-      "body": "Attention residue, from Sophie Leroy's 2009 research, is the finding that when you switch from one task to another, part of your attention stays snagged on the first. Performance on the new task suffers until the residue clears. Everyone has this, but weaker inhibition means you snag more easily and clear more slowly. So the real cost of a 'quick' email check mid-deal isn't the two minutes; it's the **degraded focus you carry into the next hour**. The fix is structural, not disciplinary: batch similar tasks and finish a sub-unit before switching, so the loop closes instead of lingering.",
-      "depth": "This is also why an interrupt-heavy environment punishes ADHD disproportionately. Each interruption plants fresh residue, and the recovery tax is paid by the executive-function system that's already the bottleneck. Killing notifications isn't hygiene theater; it removes the residue source at the point of entry.",
-      "id": "burrow-0238",
-      "date": "2026-09-09"
-    },
-    {
-      "topic": "market-history",
-      "topicLabel": "Market History",
-      "type": "history",
-      "hook": "One trader's gas bet erased $6 billion in a week.",
-      "body": "In September 2006, Amaranth Advisors, a multistrategy fund, lost roughly $6.6 billion, most of it on natural-gas calendar spreads run by one trader, Brian Hunter. He was long winter and short shoulder-season contracts in size so large he had effectively become the market in those spreads. When the spread turned against him, there was **no one to sell to but himself**, and his own exit pressure drove the loss deeper. The lesson isn't that the bet was insane; parts of it were defensible. It's that a position you can't exit without moving the price isn't a position, it's a trap.",
-      "depth": "Concentration risk and liquidity risk are the same risk wearing two names. Position size relative to daily volume is the number that predicts whether you control the trade or it controls you. Amaranth's book was a multiple of the open interest that could realistically clear.",
-      "id": "burrow-0239",
-      "date": "2026-09-09"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "callback",
-      "hook": "Recall it: how often is your 90% range actually right?",
-      "body": "Give yourself a beat before the answer. You set a range you're 90% sure contains the true value. The calibration studies put the real hit rate closer to **40 to 50%**, not 90. The interval comes out too narrow because you anchor on your best guess and adjust too little. The tell is surprise: if reality keeps landing outside your bounds, the bounds are lying to you.",
-      "depth": "Why it matters again: every position size and every deal forecast rides on an implied confidence interval. If yours run half as wide as they should, you're systematically underpricing the odds you're wrong, which is the exact error that blows up a book. Widen until it feels slightly ridiculous.",
-      "id": "burrow-0240",
-      "date": "2026-09-09"
     }
   ]
 }
