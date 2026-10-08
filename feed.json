@@ -1,6 +1,56 @@
 {
-  "updated": "2026-10-07",
+  "updated": "2026-10-08",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Long gamma pays you to rebalance. That's the edge.",
+      "body": "A delta-hedged long option is **long gamma**: when the stock rises your delta climbs, so you sell shares into the move; when it falls your delta drops, so you buy. Every oscillation forces you to sell high and buy low, and you book the difference. The position harvests the stock's realized movement one re-hedge at a time. You pay theta each day for the right to keep scalping. It wins only when realized volatility, summed across all those hedges, beats the implied volatility you paid at entry.",
+      "depth": "This is why a long straddle can bleed to zero in a quiet market even if the stock eventually gaps. The path between your hedges, not the final price, is what pays. Set the re-hedge band too wide and you miss the scalp; too narrow and transaction costs eat it alive.",
+      "id": "burrow-0361",
+      "date": "2026-10-08"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Training on the books was fair use. Getting them wasn't.",
+      "body": "In **Bartz v. Anthropic**, a federal judge ruled that using copyrighted books to train a model was transformative fair use. But the same opinion held that downloading pirated copies to build the training library was ordinary infringement, fair use or not. The lesson practitioners keep missing: how you acquired the data is a separate claim from how you used it. A clean fair-use defense on the output does nothing for a tainted-provenance claim on the inputs. The case reportedly settled for roughly $1.5 billion on the acquisition side.",
+      "depth": "It splits the AI-copyright question in two. 'Was the use transformative?' is the headline fight, but 'did you have the right to possess the copy you learned from?' is the quieter and often stronger claim. Scraped-from-the-open-web and bought-then-pirated sit very differently on that second axis.",
+      "id": "burrow-0362",
+      "date": "2026-10-08"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Rebound fools you into chasing a higher dose.",
+      "body": "As a long-acting stimulant like **lisdexamfetamine** clears, blood levels can dip below baseline for a stretch before settling. That rebound window feels like inattention roaring back, which tempts a dose increase when the real fix is timing. The mechanism: the medication effect tracks the blood-level curve, and the tail of that curve is predictable. The move is to schedule your highest-activation work, the thing you most dread starting, inside the peak window, and leave the fading tail for low-stakes or already-running tasks. Do not start the hard thing at 4 p.m.",
+      "depth": "Titration is partly about finding the dose, but just as much about mapping your own curve: note when focus arrives, when it peaks, when it fades. That map, not the milligram number alone, tells you where to put the work that needs the most push to begin.",
+      "id": "burrow-0363",
+      "date": "2026-10-08"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Your 90% confident range is wrong about half the time.",
+      "body": "Ask people for a range they are **90% sure** contains the true answer, and the right answer falls outside it far more than 10 percent of the time. Reported hit rates in calibration studies cluster around 40 to 50 percent. The mechanism is anchoring: you fix on a best guess, then nudge the edges out too timidly, so your 'wide' range is still built around your point estimate. The fix is mechanical. Set your interval, then widen it until it feels absurd, because absurd is usually where calibrated actually lives.",
+      "depth": "This is why a trader sizing to a 'worst case' still gets wrecked, and why a lawyer's 'range of outcomes' misses the tail. The failure is not ignorance of the number; it is false precision about how well you know it. Track your own intervals for a month and you can measure your true hit rate.",
+      "id": "burrow-0364",
+      "date": "2026-10-08"
+    },
+    {
+      "topic": "brain-science",
+      "topicLabel": "Brain & Focus",
+      "type": "callback",
+      "hook": "Recall it: caffeine blocks the alarm. What keeps piling up?",
+      "body": "**Adenosine.** Across waking hours it accumulates in the brain and binds the receptors that signal sleep pressure. Caffeine works by blocking those receptors, so you stop feeling the pressure, but the adenosine keeps building the entire time. When the caffeine clears, all of it is still there and binds at once. That is the crash. The debt was never paid down, only hidden, and the only thing that truly clears adenosine is sleep.",
+      "depth": "Practical read: caffeine late in the day blocks receptors for hours, since its half-life runs several hours, so it can blunt the very pressure you need to fall asleep and deepen tomorrow's deficit. Timing beats dose.",
+      "id": "burrow-0365",
+      "date": "2026-10-08"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1155,57 +1205,6 @@
       "depth": "Retrieving this again matters because the failure keeps returning in fresh disguises. A build that runs long, a bedtime that slips, a call that overruns. Same missing gauge each time. Adding a timer does not train you to track time, it converts an invisible quantity into something the eyes can see and the broken internal clock cannot quietly hide.",
       "id": "burrow-0250",
       "date": "2026-09-11"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "A fat dividend can get your short call assigned early.",
-      "body": "American-style short calls face early exercise risk when a call's extrinsic value drops below the dividend the stock is about to pay. A holder who exercises the night before ex-date captures the dividend and forfeits only the now-cheap time value. It's not random: it clusters right before ex-dividend dates on deep ITM, low-IV calls. Assignment lands you short stock at the open, **owing the dividend to whoever exercised**. Check ex-div calendars before holding short calls into dividend-heavy names.",
-      "depth": "Deep ITM covered calls on dividend aristocrats are the classic trap: sell a call worth $0.50 of extrinsic value against a $0.60 dividend and assignment is nearly certain. Brokers don't warn you; you find out via an overnight position change. It's also why call open interest on dividend stocks drops sharply right before ex-date, as short sellers who understand the math close out first.",
-      "id": "burrow-0241",
-      "date": "2026-09-10"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Only two levers reliably open your starting gate.",
-      "body": "ADHD task initiation runs on an interest-based nervous system, not an importance-based one. Deadlines and stakes don't reliably trigger the dopamine needed to start; **novelty and urgency do**. That's why a task due in three weeks sits untouched, then gets finished in the last two hours. The three-week version has no urgency signal yet. Manufacture one: fake deadlines, timers, public commitments, or breaking work into a five-minute first step reframes 'important' into something your brain will act on now.",
-      "depth": "This isn't a willpower gap, it's a difference in what counts as a starting signal. Importance gets evaluated consciously; urgency and novelty trigger dopamine more directly and involuntarily. Body doubling and hard deadlines work for the same reason: they import urgency from outside instead of waiting for it to build on its own.",
-      "id": "burrow-0242",
-      "date": "2026-09-10"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "Outside view beats inside view for time estimates.",
-      "body": "The inside view estimates a task by reasoning through its specific steps: what has to happen, in what order, how long each piece takes. It reliably underestimates, because it can't account for what you haven't anticipated yet. The **outside view** asks a different question: how long did similar projects actually take, ignoring this one's details. Kahneman calls this reference-class forecasting. It's uncomfortable because it throws away information that feels relevant, and accurate because that's exactly what makes every planner overconfident.",
-      "depth": "Flyvbjerg's research on infrastructure megaprojects found this pattern at scale: planners reasoning from their own project's specifics were consistently more wrong than planners who simply asked what similar projects historically took. The fix isn't sharper inside reasoning, it's finding your reference class first and anchoring there before you build the detailed estimate.",
-      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"200\" x2=\"380\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"92\" x2=\"380\" y2=\"92\" stroke=\"#d9a441\" stroke-width=\"1.5\" stroke-dasharray=\"4,4\"/><text x=\"330\" y=\"84\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">actual</text><rect x=\"90\" y=\"150\" width=\"70\" height=\"50\" fill=\"#7fb4a2\"/><rect x=\"240\" y=\"90\" width=\"70\" height=\"110\" fill=\"#d9a441\"/><text x=\"78\" y=\"220\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">inside view</text><text x=\"228\" y=\"220\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">outside view</text></svg>",
-      "id": "burrow-0243",
-      "date": "2026-09-10"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Fair training and legal copies are different questions.",
-      "body": "Courts are increasingly splitting AI training cases into two separate questions: whether training on copyrighted text is fair use, and whether the copies used to train were obtained legally. In the major recent rulings, judges found the training itself transformative and likely fair, while treating **downloading from pirate shadow libraries** as a separate, unprotected act carrying its own liability. Practitioners keep arguing the fair-use question and forgetting the acquisition question, but a client can lose entirely on the second even after winning the first.",
-      "depth": "This split matters for deal drafting: a warranty promising only 'lawfully trained data' isn't enough anymore. The stronger clause requires the vendor to warrant its training corpus was lawfully acquired, not just fairly used, since courts now treat those as separate exposures they analyze one at a time.",
-      "id": "burrow-0244",
-      "date": "2026-09-10"
-    },
-    {
-      "topic": "brain-science",
-      "topicLabel": "Brain & Focus",
-      "type": "callback",
-      "hook": "Recall it: why does a warm bath before bed help sleep?",
-      "body": "Your body temperature has to drop to initiate sleep, and a hot bath triggers a **bigger rebound cooling** than sitting still would. Blood vessels near your skin dilate to dump heat, so when you get out, your core temperature falls faster and further than it would have on its own. That drop is one of the signals your circadian system reads as 'sleep window open.' Timing matters: the effect needs roughly an hour to unfold, so a bath right at lights-out is too late to catch the cooling curve.",
-      "depth": "This is why a cold plunge right before bed can backfire: it triggers a stress-hormone spike that can override the cooling benefit. The bath needs to be hot enough to dilate vessels, not so cold it activates a fight-or-flight response instead.",
-      "id": "burrow-0245",
-      "date": "2026-09-10"
     }
   ]
 }
