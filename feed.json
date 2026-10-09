@@ -1,6 +1,56 @@
 {
-  "updated": "2026-10-08",
+  "updated": "2026-10-09",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Implied volatility is a biased forecast. That bias is your premium.",
+      "body": "Everyone treats implied volatility as the market's forecast of future movement. It isn't a clean one. Across S&P index options, implied vol has historically run above the volatility that actually prints, roughly three to four vol points on average over long samples. That persistent gap is the variance risk premium, and it is why systematically selling options carries an edge independent of direction. **You are paid to insure other people against moves that, on average, are smaller than priced.** The premium is the bias itself, not a mispricing you have to predict.",
+      "depth": "The caveat: the premium is compensation for real tail risk, not free money. It is largest exactly when it should scare you, and it goes negative in the crashes that wipe out naive sellers. Harvesting it is a bet on surviving the fat left tail, sized accordingly.",
+      "id": "burrow-0366",
+      "date": "2026-10-09"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Tennessee made distributing a voice-clone tool its own offense.",
+      "body": "Tennessee's ELVIS Act (Ensuring Likeness, Voice, and Image Security Act) took effect July 1, 2024, and it did something federal copyright can't: it made voice an explicit, protectable property right. The part practitioners skip is the liability hook. The statute reaches anyone who makes available a tool or service whose primary purpose is producing an unauthorized replica of a specific artist's voice. **You can be liable without ever publishing a single fake.** Distributing the cloning tool is itself the actionable act. For a client building voice-AI, that shifts the exposure from the output to the product.",
+      "depth": "Why it matters now: most AI-liability analysis still fixates on the generated clip and asks whether a given output infringes. The ELVIS Act moves the risk upstream to the tool, which is a different diligence question and a different insurance conversation than output review.",
+      "id": "burrow-0367",
+      "date": "2026-10-09"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "Assume the plan already failed. You'll find more reasons why.",
+      "body": "A premortem, from Gary Klein, flips the question before you commit. Instead of asking 'what could go wrong,' you assume the plan has already failed a year from now and work backward to explain why. The change is grammatical, and that is the whole trick. **Stating the failure as a fact unlocks concrete causes that a hypothetical never surfaces.** The research, reported in late-1980s work on prospective hindsight, found roughly a 30% increase in the number of reasons people could generate. Certainty of failure is a sharper search prompt than mere possibility.",
+      "depth": "It pairs with resulting, the habit of grading a decision by how it happened to turn out. A premortem forces you to price the failure paths while the odds are still in front of you, so a later bad draw doesn't look like a surprise you should have seen.",
+      "id": "burrow-0368",
+      "date": "2026-10-09"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Your internal clock is broken. Make time take up space.",
+      "body": "Time blindness is a measurable deficit, not a character flaw: the ADHD brain poorly represents how much time has elapsed or how much remains. You cannot will the internal clock into working, so the move is to stop relying on it. **Externalize time into something spatial you can see.** A depleting visual timer, like the shrinking colored disc of a Time Timer, turns an invisible quantity into a shape that visibly contracts in your field of view. The point is passive glanceability: you read remaining time without stopping to query it, because that query is the one that never happens.",
+      "depth": "This is why a number on a phone fails for this brain: it requires an act of checking, and checking is the executive step that drops out. A shape simply sitting in view removes the decision. Put it up before you start the task, not when you notice you've already lost the thread.",
+      "id": "burrow-0369",
+      "date": "2026-10-09"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Recall it: your backtest looks brilliant. Which names are missing?",
+      "body": "You pulled today's stock universe and ran the strategy back twenty years. Give it a beat before the answer. Every name on that list is one that didn't go bankrupt, get delisted, or get bought at a loss. The losers were deleted from the data, not from history. That is **survivorship bias**, and it is why a long-biased system looks like genius against a universe scrubbed of its own failures. Your strategy never had to hold the ones that went to zero. The fix is a point-in-time database that still carries the dead.",
+      "depth": "Worth re-flagging because it stacks with the other sins. Survivorship inflates the return curve first, then you overfit to that inflated curve, so two biases compound. Any backtest built on a universe you sourced today is suspect before you even look at the Sharpe.",
+      "id": "burrow-0370",
+      "date": "2026-10-09"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1155,56 +1205,6 @@
       "depth": "The same illusion appears on the long side as capacity: a signal that prints on micro-caps evaporates once your size moves the price. Both are execution ceilings the backtest silently ignores. A returns curve is only as real as the trades beneath it were fillable at the prices it assumed.",
       "id": "burrow-0255",
       "date": "2026-09-12"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "insight",
-      "hook": "The option smile leans because crashes cluster and rallies don't.",
-      "body": "Equity index puts trade at higher implied vol than equidistant calls. Retail calls it fear pricing, and fear is part of it. The deeper reason is that index returns are genuinely negatively skewed. Big down days arrive with volatility spikes and correlations racing toward one, while rallies grind slowly. So downside strikes really do sit on more variance, and sellers price that asymmetry in. **The skew is a forecast of the return distribution's shape, not just a sentiment tax.** Treat a flattening skew as the market repricing crash odds, not as free premium.",
-      "depth": "Mechanically, the leverage effect and forced deleveraging make volatility itself rise when prices fall, so a put hedges two things at once, direction and the vol spike that rides along with it. That double duty is what a call the same distance away cannot offer, and it is why the smirk rarely vanishes in a healthy equity index.",
-      "id": "burrow-0246",
-      "date": "2026-09-11"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "SAG-AFTRA splits digital replicas in two, and consent must be specific.",
-      "body": "The 2023 TV and theatrical contract drew a line practitioners still blur. An employment-based digital replica is built from a performer's work during their engagement. An independently created one is made outside it, from other material. Both require the performer's clear consent and separate pay, and that consent has to carry a **reasonably specific description of the intended use**. A buried, all-purpose grant does not cut it. So the drafting question is no longer whether you can make a replica, but whether your consent language survives that specificity test.",
-      "depth": "This is why studio AI riders now read like scope-of-license clauses. They enumerate mediums, projects, and duration rather than granting replica rights at large. The parallel for any deal lawyer is right-of-publicity licensing, where a vague grant has always been construed against the drafter. Specificity is not caution here, it is the enforceability requirement.",
-      "id": "burrow-0247",
-      "date": "2026-09-11"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "The fix worked because you tried it at rock bottom.",
-      "body": "Any extreme reading is part signal and part luck. When you act at the worst moment, the next measurement drifts back toward your true average on its own, and your intervention takes the credit. This is **regression to the mean**, and it fakes cause and effect everywhere. Kahneman watched flight instructors conclude that scolding a bad landing helped and praising a great one backfired. Both were just regression. A terrible landing was likely to be followed by a better one regardless, and a superb one by a worse one. Distrust any before-and-after that started at an extreme.",
-      "depth": "The trading version is obvious once you see it. A system tweaked right after its worst drawdown usually rebounds, and the tweak looks brilliant. Run the counterfactual. Would the untouched system have recovered anyway? Often yes. The only clean test is a control, a comparison to what the same starting point does when you change nothing at all.",
-      "id": "burrow-0248",
-      "date": "2026-09-11"
-    },
-    {
-      "topic": "market-history",
-      "topicLabel": "Market History",
-      "type": "history",
-      "hook": "A perfect oil hedge went bankrupt on its own margin calls.",
-      "body": "In the early 1990s a Metallgesellschaft unit sold long-dated fixed-price contracts to deliver oil for years, then hedged by holding a stack of near-month futures it kept rolling forward. On paper the price risk was covered. Then oil fell. The futures threw off immediate margin calls in cash, while the offsetting gains on the delivery contracts would not arrive until far in the future. The hedge was directionally sound and still nearly sank the company, reportedly around a $1.3 billion loss. **A hedge that is right on price can still kill you on timing.**",
-      "depth": "The second wound was the term structure. The stack-and-roll earned money while the market stayed in backwardation, but the curve flipped to contango and every roll began to bleed. A cash-flow mismatch plus an adverse roll is the same pair that shows up in levered ETFs and futures carry today. Being right about the destination does not pay the calls you owe along the way.",
-      "id": "burrow-0249",
-      "date": "2026-09-11"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "callback",
-      "hook": "Recall it: what does an ADHD brain fail to feel, not fight?",
-      "body": "Take a beat before the answer lands. The deficit is not laziness or thin discipline. It is **interval timing**, the internal sense of how much time has actually gone by. Duration does not register, so a five-minute email eats an hour and a deadline three days out feels unreal. That is why trying harder does nothing. You cannot muscle a sense you do not have. The move is a prosthetic that puts time into your visual field, an analog timer with a shrinking wedge, a countdown on a second screen, a clock you actually glance at.",
-      "depth": "Retrieving this again matters because the failure keeps returning in fresh disguises. A build that runs long, a bedtime that slips, a call that overruns. Same missing gauge each time. Adding a timer does not train you to track time, it converts an invisible quantity into something the eyes can see and the broken internal clock cannot quietly hide.",
-      "id": "burrow-0250",
-      "date": "2026-09-11"
     }
   ]
 }
