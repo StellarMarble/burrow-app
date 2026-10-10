@@ -1,6 +1,56 @@
 {
-  "updated": "2026-10-09",
+  "updated": "2026-10-10",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Delta flatters you. It overstates your odds twice.",
+      "body": "Traders read a 0.30 delta as a 30% chance the option finishes in the money. It isn't. Delta equals N(d1) in Black-Scholes, but the risk-neutral probability of expiring in the money is N(d2), which is always smaller. So **delta overstates even the risk-neutral odds**. Then a second gap opens: implied vol usually runs above realized, so the contract prices in a bigger move than the stock tends to make. The real-world probability sits below the risk-neutral one. Both errors push the same way, making your short strike feel safer than it reads.",
+      "depth": "The practical read: when you sell a 16-delta strangle, your actual odds of expiring outside the strikes are a touch better than 84%, because the variance risk premium is on your side. When you buy delta hoping it pays off, that same premium quietly works against you. Same number, opposite sign, depending on which side you take.",
+      "id": "burrow-0371",
+      "date": "2026-10-10"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "insight",
+      "hook": "In a waterfall, recoupment order beats the headline split.",
+      "body": "Negotiators burn their energy on the percentage split of net proceeds. The bigger lever is **who recoups first, and how fast**. Money flows top down through the waterfall: senior recoupment, then fees, then the splits. A party sitting in a junior tier only sees dollars if the pool survives everything stacked above it, which on most projects it never does. A 50% split of a tier that stays dry is worth zero. A 20% split that sits above a guaranteed recoupment is worth real cash. Position in the stack is the term. The split is the decoration.",
+      "depth": "This is why sharp counsel trade split points for a better recoupment position or a first-dollar corridor. A corridor carves a slice off the top before senior recoupment, so you get paid even on a project that technically loses money. Winning the percentage while ceding the position is the classic rookie giveaway.",
+      "id": "burrow-0372",
+      "date": "2026-10-10"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "The rule that built indie TV, then streaming undid it.",
+      "body": "In 1970 the FCC adopted the **Financial Interest and Syndication Rules**, called fin-syn. They barred the three broadcast networks from owning financial stakes in, or syndicating, most of the primetime shows they aired. The networks could rent airtime but not own the library or the lucrative rerun rights. That forced a split between distribution and ownership, and it seeded a thriving independent studio economy that produced and owned the hits. By the mid-1990s the rules were gone. Ownership and distribution fused back together, and the studio-network mergers of the next decade followed directly from that opening.",
+      "depth": "The rhyme is loud. Streamers now own the pipe and the library at once, the exact concentration fin-syn was built to prevent. The difference is that no rule stops them, so leverage has swung back to whoever controls distribution. Creators pushing for backend ownership today are fighting the same vertical-integration fight, minus the referee.",
+      "id": "burrow-0373",
+      "date": "2026-10-10"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "You won't remember to remember. Bolt it to a habit.",
+      "body": "The failure is rarely forgetting what to do. It is **prospective memory**, the job of spontaneously retrieving an intention at the right future moment with no prompt. ADHD hits this hard, because self-initiated retrieval leans on exactly the executive function that runs weak. A mental note and a dose of willpower both lose to it. The move is to stop asking your brain to generate the cue. Anchor the new action to an existing, unavoidable one: take the pill when the coffee starts brewing, send the invoice the moment you sit down Monday. The habit you already have becomes the alarm.",
+      "depth": "This is why a reminder app often fails while a sticky note on the steering wheel works. The app fires on a schedule you have already tuned out. The anchor fires on an action you cannot skip, so the cue lives out in the world, not in the part of your head that keeps dropping it.",
+      "id": "burrow-0374",
+      "date": "2026-10-10"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Recall it: your gut says two weeks. What question beats it?",
+      "body": "Your inside view builds the estimate from the specifics of this project, step by step, and it comes out too optimistic almost every time. The fix is the outside view: **ask how long similar projects actually took**, then start from that base rate. This is reference-class forecasting. You find the class of comparable efforts, take their real distribution of outcomes, and anchor on it before adjusting for anything genuinely unusual about yours. The reference class already knows about the delays you cannot yet see.",
+      "depth": "The planning fallacy is not a motivation problem, it is a sampling problem. Your own plan carries no record of the interruptions, scope creep, and plain bad luck that hit every project before it. Their finished timelines do. Trust the record over the story you are telling yourself.",
+      "id": "burrow-0375",
+      "date": "2026-10-10"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1154,57 +1204,6 @@
       "depth": "Every deal with more than one term is a chance to logroll, but only if you keep issues open at once instead of closing them one by one. Sequential haggling locks in 50/50 splits before either side learns the other's ranking. Keep a live issues list and settle it as a package.",
       "id": "burrow-0260",
       "date": "2026-09-13"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "VIX futures usually cost more the longer you wait.",
-      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"50\" y1=\"200\" x2=\"370\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1.5\"/><line x1=\"50\" y1=\"200\" x2=\"50\" y2=\"30\" stroke=\"#35302a\" stroke-width=\"1.5\"/><text x=\"210\" y=\"228\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\">time to expiry</text><text x=\"20\" y=\"120\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" transform=\"rotate(-90 20 120)\" text-anchor=\"middle\">price</text><polyline points=\"62,168 140,128 220,104 300,90 360,82\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2.5\"/><line x1=\"50\" y1=\"168\" x2=\"360\" y2=\"168\" stroke=\"#7fb4a2\" stroke-width=\"1\" stroke-dasharray=\"4 4\"/><text x=\"356\" y=\"162\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"end\">spot</text><text x=\"120\" y=\"64\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">contango: later = pricier</text><text x=\"150\" y=\"150\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">held future rolls down, bleeds</text></svg>",
-      "body": "In calm regimes the VIX term structure sits in **contango**: each further-out future prices above spot. A long-vol position holding those futures loses a little every day as each one rolls down toward a lower spot, whether or not volatility ever rises. Reported figures put VIX futures in contango roughly 75 to 85% of trading days. That roll cost is why buy-and-hold VIX products decay toward zero, and why long vol is a timing trade, not a hold.",
-      "depth": "The mirror image is backwardation in a panic, when near-term fear prices above the curve and the roll pays you instead. So the same structure that bleeds in calm markets pays in a crash. Sizing long vol means budgeting the daily roll as an insurance premium you are paying, not treating a flat tape as a free hold.",
-      "id": "burrow-0251",
-      "date": "2026-09-12"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "The next AI-training fight is about dilution, not copying.",
-      "body": "In the 2025 training cases, courts leaned toward calling the copying itself transformative. What tripped plaintiffs up was the fourth fair-use factor, market harm. A federal judge in a 2025 Meta case suggested the strongest theory is **market dilution**: not that the model copied your book, but that its cheap synthetic substitutes flood and depress the market you sell into. The copying got waved through; the live question is whether a model trained on you can then compete you out of existence.",
-      "depth": "This flips litigation strategy. Plaintiffs need evidence of a real substitution market, foreclosed licensing, or measurable price erosion, not just proof their work sat in the training set. Defendants win by showing outputs do not compete in the same market. Discovery shifts from what did you ingest to what does your output displace.",
-      "id": "burrow-0252",
-      "date": "2026-09-12"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "After the fact, you'll swear you saw it coming.",
-      "body": "Once you know the outcome, memory quietly rewrites your earlier estimate to look smarter, an effect called **hindsight bias**. A 40% call becomes 'I basically knew it.' The damage is not vanity. It is that you can never learn calibration from a memory that edits itself, because every past forecast now feels well-judged. The only defense is a timestamped record of what you actually predicted, made before the result existed to contaminate it.",
-      "depth": "This is why a written prediction log beats honest reflection. It also explains why post-mortems blame people: once the failure is known, the warning signs look obvious and someone should have caught them. They were not obvious inside the decision. Judge the process against what was knowable then, not against what you know now.",
-      "id": "burrow-0253",
-      "date": "2026-09-12"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Your ADHD med is inert until your blood cuts it apart.",
-      "body": "Lisdexamfetamine is dexamphetamine bolted to the amino acid lysine, and it does nothing until enzymes in your red blood cells cleave that lysine off. The conversion is **rate-limited by your blood, not a pill coating**, which is why onset is gradual and the tail is even. Two consequences follow: dose it early, because it ramps slowly and you want it working by morning, and do not bother splitting or crushing it, because the bottleneck is enzymatic, not the capsule.",
-      "depth": "The same enzymatic gate is why the dose-response is steadier from person to person and why the drug is harder to misuse. It also means a 'barely noticeable' read in the first days is expected, not failure. Judge titration over weeks, at a fixed daily time, never by the verdict of one morning.",
-      "id": "burrow-0254",
-      "date": "2026-09-12"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "callback",
-      "hook": "Recall it: which shorts in your backtest could never be borrowed?",
-      "body": "The winners a long-short backtest loves are often the hardest-to-borrow names: small, distressed, heavily shorted, exactly the stocks a broker will not lend you or will lend only at punishing fees. Your backtest assumes free, unlimited borrow. **The edge lived in trades you could never actually place.** The fix is to filter your short universe to liquid, borrowable names, or subtract realistic borrow costs, then see how much alpha was a lending fantasy.",
-      "depth": "The same illusion appears on the long side as capacity: a signal that prints on micro-caps evaporates once your size moves the price. Both are execution ceilings the backtest silently ignores. A returns curve is only as real as the trades beneath it were fillable at the prices it assumed.",
-      "id": "burrow-0255",
-      "date": "2026-09-12"
     }
   ]
 }
