@@ -1,6 +1,56 @@
 {
-  "updated": "2026-10-10",
+  "updated": "2026-10-11",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A calendar spread wants stillness now and higher vol later.",
+      "body": "Sell the near-dated option, buy the far-dated one at the same strike, and you hold a position with split personalities. The near leg carries more gamma and decays faster, so net you are short gamma and long theta: you profit when the stock sits still and bleed if it jumps. The far leg carries more vega, so you are also long volatility. **The spread pays you to be right about calm now and nervous later.** It is the rare structure that is at once a bet on realized quiet and on implied vol rising into the back month.",
+      "depth": "Watch the trap: the position is long vega but short gamma, so a sharp move can lose even as the vol you wanted finally shows up. The move hurts through gamma before the vol rise helps through vega. Size it as a view on the term structure of volatility, not on direction.",
+      "id": "burrow-0376",
+      "date": "2026-10-11"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "The Copyright Office split your AI comic in two.",
+      "body": "In 2023 the US Copyright Office ruled on Zarya of the Dawn, a comic whose images came from Midjourney. It did not reject the work wholesale. It canceled the original registration and reissued a narrower one: the human-written text and the selection, coordination, and arrangement of the images were protected, but **the individual AI-generated images were not authored by a human**, so they got nothing. Practitioners keep saying AI work is flatly uncopyrightable. The real rule is more surgical: the human's creative choices around the output can be protected while the output itself stays unprotected.",
+      "depth": "The line is human authorship, applied element by element, not work by work. A prompt is treated more like a commission than like drawing. So the protectable layer is whatever a person actually selected, edited, or arranged. Register those choices explicitly and disclaim the generated pixels.",
+      "id": "burrow-0377",
+      "date": "2026-10-11"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "When a measure becomes a target, it stops measuring.",
+      "body": "This is Goodhart's law, and it is the quiet killer in both your worlds. A number works as a signal only while nobody is optimizing it directly. The moment it becomes the goal, people and systems route around its intent while hitting its letter. **Optimizing the metric and achieving the thing it stood for are not the same act.** A backtest tuned to maximize Sharpe stops predicting live Sharpe. Billable-hour targets grow hours, not value. Teaching to the test raises scores, not learning. The cure is to keep the true objective and the measured proxy visibly separate.",
+      "depth": "The sharper version is Campbell's law: the more a quantitative measure drives decisions, the more it corrupts the process it was meant to monitor. The defense is to hold several proxies that are hard to game at once, and to re-check whether the proxy still tracks the thing you actually want.",
+      "id": "burrow-0378",
+      "date": "2026-10-11"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Starting is half of it. You also can't stop.",
+      "body": "The executive-function cost that blocks starting a task also blocks ending one. Disengaging requires shifting set, pulling attention off a loaded context, and that switch is exactly the weak link. So hyperfocus is not a power you summoned; it is a brake that failed. The concrete move is to **build the exit ramp before you enter**: set a hard external stop tied to a real obligation, not a vague intention. An alarm across the room you must stand up to silence, a meeting at the hour, a person expecting you. Pre-commit the stop while you still have the judgment to.",
+      "depth": "Why the external cue: once you are in, the same system that cannot switch also cannot notice it should. An internal reminder loses to the task every time. A stop that forces a physical action or involves another human borrows the salience your attention cannot generate from inside the tunnel.",
+      "id": "burrow-0379",
+      "date": "2026-10-11"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Recall it: your screen reads last quarter's EPS. The trap?",
+      "body": "Give it a beat before the answer. The earnings number sitting in your database today is often not the number the market saw on the reporting date. Companies restate, and most databases overwrite the original with the correction. Add filing lag, where the figure lived in the data before it was legally public. Put together: **your backtest is quietly trading on information from the future.** A screen on last quarter's EPS reads the republished value, not the one known that day. The fix is point-in-time data: the value as it was knowable that morning, not as the database shows it now.",
+      "depth": "Why it bites again: look-ahead bias does not announce itself. The strategy looks clean and the Sharpe looks real, because the leak is baked into the inputs, not the logic. Every fundamental backtest you run inherits it unless the data vendor stamps each value with the date it was actually knowable.",
+      "id": "burrow-0380",
+      "date": "2026-10-11"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1154,56 +1204,6 @@
       "depth": "A quick gut check before you trust any backtest: ask how many variants were tried and quietly discarded to reach this one. That hidden count, far more than the equity curve, sets how much you should trust the Sharpe. A curve found on the first try means something a curve found on the two-hundredth does not.",
       "id": "burrow-0265",
       "date": "2026-09-14"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "You're not selling volatility on the index. You're selling correlation.",
-      "body": "Index variance decomposes into single-name variance plus the correlations between the names. When you sell index options, most of the premium above the weighted single-name vol is a **correlation risk premium**: the market pays up for index puts because in a crash everything moves together and diversification vanishes exactly when you need it. That is why index implied vol usually trades richer than the implied vol of its components, and why dispersion traders sell index vol and buy single-name vol. You are short the thing that spikes toward one in a panic.",
-      "depth": "The catch: implied correlation is bounded near one, so you are short a variable with a hard ceiling and a soft floor. It pays steadily while names stay differentiated and loses violently when correlation jumps toward one in a selloff. Same shape as every short-vol trade, one layer down.",
-      "id": "burrow-0256",
-      "date": "2026-09-13"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Training liability and output liability are two different lawsuits.",
-      "body": "Most AI-rights confusion collapses two separate questions. The **input question** is whether ingesting copyrighted works to train a model infringes, which is where fair use gets fought. The output question is whether a specific generation copies protected expression, which is ordinary substantial-similarity analysis with no training defense attached. A model can be trained lawfully and still produce an infringing frame, or trained unlawfully and produce something wholly original. When you paper an AI-assisted production, you need reps and indemnities covering both, because a clean training pedigree does not immunize a single infringing output.",
-      "depth": "This is why chain-of-title diligence on generative tools is two-layered: what was the model trained on, and what safeguards catch infringing outputs. The Anthropic and Meta rulings largely addressed inputs; output liability is still litigated case by case under classic copying rules.",
-      "id": "burrow-0257",
-      "date": "2026-09-13"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Your best productivity system will quietly stop working in weeks.",
-      "body": "ADHD attention is captured by novelty, so a new tool or routine delivers a burst of dopamine that carries you through the friction of using it. When the novelty fades, so does the pull, and the system goes invisible: still on your desk, no longer seen. This is **tool decay**, and treating it as a personal failure is the error. The move is to expect it. Build a small rotation of two or three equivalent systems and swap when one goes dead, rather than hunting for the one permanent tool that does not exist.",
-      "depth": "Corollary: judge a system by how it fails, not how it starts. Everything works in week one on novelty alone. The ones worth keeping are the ones you can restart cheaply after you inevitably drop them, because you will drop them.",
-      "id": "burrow-0258",
-      "date": "2026-09-13"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "practice",
-      "hook": "Your winning strategy was tested only on the companies that survived.",
-      "body": "Standard price databases quietly drop companies that went bankrupt, delisted, or were acquired at a loss. Backtest on today's index membership and you have unknowingly filtered your universe to **the winners that made it**, which inflates returns and hides exactly the tail risk the strategy would have eaten. The effect is largest for anything that buys beaten-down or distressed names, because those are the ones most likely to have vanished from the data. Fix it with a point-in-time universe that includes every ticker as it existed then, dead ones included.",
-      "depth": "Reported magnitudes vary, but survivorship-clean studies routinely knock a meaningful chunk off long-only equity backtests, and more off small-cap and deep-value tilts. If your data vendor cannot tell you when a ticker died, assume it silently deleted it.",
-      "id": "burrow-0259",
-      "date": "2026-09-13"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "callback",
-      "hook": "Recall it: what makes splitting each issue 50/50 the worst outcome?",
-      "body": "When two sides rank the open issues differently, meeting in the middle on every one leaves joint value unclaimed. The better move is to trade across issues instead: give the cheap-to-you point to win the expensive-to-them one. That is **logrolling**, and bundling is how you find it. 'You take the credit and the announce date; I take the audit right and the reversion.' Single-issue haggling can never surface those trades, because it never lets either side reveal what it actually cares about.",
-      "depth": "Every deal with more than one term is a chance to logroll, but only if you keep issues open at once instead of closing them one by one. Sequential haggling locks in 50/50 splits before either side learns the other's ranking. Keep a live issues list and settle it as a package.",
-      "id": "burrow-0260",
-      "date": "2026-09-13"
     }
   ]
 }
