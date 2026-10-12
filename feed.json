@@ -1,6 +1,57 @@
 {
-  "updated": "2026-10-11",
+  "updated": "2026-10-12",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "insight",
+      "hook": "Full Kelly maximizes growth. Half-Kelly keeps most of it.",
+      "body": "Bet the full Kelly fraction and you maximize long-run geometric growth. The catch: the growth curve is flat on top. Because growth falls off quadratically around the optimum, betting **half of Kelly surrenders only about a quarter of your growth rate while cutting volatility roughly in half.** Overbet instead and the penalty is not symmetric: at twice Kelly your expected growth drops to zero. Since you never know your true edge, and overestimating it pushes you past the peak, sizing below the estimate is cheap insurance. Most pros who invoke Kelly actually run a fraction of it.",
+      "depth": "The asymmetry is the whole point. A measurement error that makes you overbet costs far more growth than the same error underbetting, because the right half of the curve falls to zero while the left half stays gentle. When your edge is uncertain, shrink the fraction. The uncertainty itself is a reason to bet smaller, not a detail to ignore.",
+      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"50\" y1=\"200\" x2=\"370\" y2=\"200\" stroke=\"#35302a\"/><line x1=\"50\" y1=\"200\" x2=\"50\" y2=\"20\" stroke=\"#35302a\"/><path d=\"M50 200 Q210 -140 370 200\" stroke=\"#d9a441\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"210\" cy=\"30\" r=\"4\" fill=\"#7fb4a2\"/><circle cx=\"130\" cy=\"72\" r=\"4\" fill=\"#7fb4a2\"/><line x1=\"210\" y1=\"30\" x2=\"210\" y2=\"200\" stroke=\"#35302a\" stroke-dasharray=\"3 3\"/><line x1=\"130\" y1=\"72\" x2=\"130\" y2=\"200\" stroke=\"#35302a\" stroke-dasharray=\"3 3\"/><line x1=\"134\" y1=\"74\" x2=\"214\" y2=\"114\" stroke=\"#7fb4a2\" stroke-dasharray=\"2 2\"/><text x=\"196\" y=\"217\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">full</text><text x=\"112\" y=\"217\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">half</text><text x=\"218\" y=\"120\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">Half-Kelly keeps</text><text x=\"218\" y=\"138\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">~75% of growth</text><text x=\"218\" y=\"156\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">at half the swings</text><text x=\"46\" y=\"30\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"end\">growth</text><text x=\"330\" y=\"217\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">bet size</text></svg>",
+      "id": "burrow-0381",
+      "date": "2026-10-12"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "Punishment seems to work, praise seems to fail. Neither is true.",
+      "body": "Performance has a skill component and a luck component. Extreme results lean on luck, and luck does not repeat, so the next attempt drifts back toward the average no matter what you did in between. **The intervention gets credit that belongs to regression to the mean.** Scream at a pilot after a terrible landing and the next one improves; praise one after a brilliant landing and the next is worse. The feedback felt causal. It was arithmetic. Any time you act only on an extreme reading, expect the follow-up to look like your action worked, or backfired, when it did neither.",
+      "depth": "The rule of thumb: whenever a correlation is imperfect, there will be regression, and the weaker the true signal the more any outlier is just noise that reverses. It is why the rookie of the year slumps, why the fund on the magazine cover lags next year, and why you judge an intervention against a control group, never against the before-reading that triggered it.",
+      "id": "burrow-0382",
+      "date": "2026-10-12"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "A silent witness lowers the cost of starting.",
+      "body": "Activation, not motivation, is the bottleneck: the task sits because the brain cannot generate enough arousal to cross the starting threshold. A second person present, even one doing unrelated work and saying nothing, supplies that arousal from outside. Mild social presence raises alertness and adds light accountability, and together they push you over a line you could not cross alone. **This is body doubling, and the mechanism is external activation, not willpower borrowed from someone else.** The move: schedule a standing silent co-working call for the task you keep deferring. The partner's only job is to exist on the screen.",
+      "depth": "Why it beats a reminder: a reminder re-states the task you already know. Body doubling changes your physiological state instead. It works best on activation-gated chores, admin, email, filing, and worst on tasks needing deep private thought, where another presence becomes noise. Match the tool to the failure. Use it when starting is the problem, not when sustained focus is.",
+      "id": "burrow-0383",
+      "date": "2026-10-12"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Your AI consent was for one job, not all of them.",
+      "body": "The 2023 SAG-AFTRA film and television contract did not ban digital replicas. It made **consent specific and non-transferable the default.** A studio that scans a performer to build a digital replica needs a clear, separate consent describing how the replica will be used, and use outside that description requires fresh consent and additional pay. Consent on one production does not travel to the next, and in most cases use after death still requires consent from the performer's estate. The practitioner error is treating an AI-replica clause like a standard work-for-hire grant. It behaves more like a license with a scope you must police.",
+      "depth": "The deeper shift is drafting posture. A digital-replica right now reads like a scoped license: who, which production, what uses, what duration, renewable only by new consent. Broad or vague grants are exactly what the newer California and New York replica statutes also target. Paper it as a blanket assignment and you are both out of step with the guild floor and likely unenforceable under state law.",
+      "id": "burrow-0384",
+      "date": "2026-10-12"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "history",
+      "hook": "The short-vol trade that had to buy exactly what was killing it.",
+      "body": "On February 5, 2018, the VIX nearly doubled in a day. That alone was survivable. The structural killer was mechanical: inverse-volatility products like the XIV note had to rebalance daily, and a spike forced them to **buy VIX futures into the close, in a size larger than the market could absorb.** Their own required buying pushed futures higher, which forced still more buying, a reflexive loop. XIV fell roughly 96% and was terminated within days. The lesson is not 'volatility is dangerous.' It is that a product with forced, size-insensitive rebalancing becomes its own worst counterparty in a crisis.",
+      "depth": "The tell was visible beforehand. Assets in short-vol products had ballooned, so the end-of-day rebalance buy was always going to be huge relative to VIX futures liquidity. Anyone sizing that hedge against daily volume saw the trap. The same feature shows up in any strategy that must trade a fixed rule regardless of price, with portfolio insurance in 1987 as the ancestor.",
+      "id": "burrow-0385",
+      "date": "2026-10-12"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1153,57 +1204,6 @@
       "depth": "It is the most seductive bug because it flatters you. Survivorship and multiple-testing bias inflate results; look-ahead often makes them look nearly perfect, which is exactly when you should get suspicious rather than excited.",
       "id": "burrow-0270",
       "date": "2026-09-16"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Gamma decides where your implied-versus-realized edge actually lands.",
-      "body": "A delta-hedged short option earns, each day, roughly half its gamma times the square of the underlying, multiplied by the gap between implied and realized variance. So you never collect the volatility premium evenly. You collect it **weighted by gamma**, which is largest at-the-money and in the final days. Almost all of your realized edge accrues when price sits near your strike late in the trade. You can be right on vol over the whole life and still lose, because the big moves arrived exactly where your gamma was highest.",
-      "depth": "This is why 'implied looks rich, so sell it' is not enough. Two paths with identical total realized volatility can hand you opposite results depending on when the moves came relative to your gamma. Entry vol edge sets the odds; the path decides the payout.",
-      "id": "burrow-0261",
-      "date": "2026-09-14"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Voice-rights law only bites when the clone sells something.",
-      "body": "The right of publicity, the line running from Bette Midler's 1988 win against Ford, protects your voice from commercial misappropriation: an ad, a fake endorsement. But a synthetic song, a deepfaked interview, or a non-commercial parody often slips that frame. And there is **no federal right of publicity**, so a clone that is legal in one state can be actionable in another. That patchwork, not anything technically new about AI, is the real hole. It is why states keep passing voice statutes and why a national floor keeps getting proposed.",
-      "depth": "Practitioner error: assuming Midler-style claims cover AI voice broadly. They are limited to commercial-use contexts and vary wildly by state, from robust post-mortem rights in California to none elsewhere. The AI-specific statutes exist to fill exactly that commercial-use-plus-no-national-standard gap, not because old doctrine failed on the technology.",
-      "id": "burrow-0262",
-      "date": "2026-09-14"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "Bias is your aim. Noise is your scatter, and it's bigger.",
-      "body": "Measure a group of judges, underwriters, or forecasters on the same cases and you find two errors, not one. Bias is the shared tilt off target. Noise is how much they disagree with each other. Kahneman's work found that noise contributes as much total error as bias, sometimes more, and you cannot feel it from inside a single judgment. Debiasing gets all the attention. The cheaper fix is often to cut the scatter: use structure, checklists, or **average several independent estimates** of the same thing.",
-      "depth": "Averaging independent judgments works because their random errors partly cancel, shrinking variance without anyone becoming less biased. It is the same math as wisdom of crowds. One caveat: the estimates must be genuinely independent. Let people talk first and they converge on a shared error, which trades noise for more bias.",
-      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><text x=\"200\" y=\"24\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"15\" text-anchor=\"middle\">Two different ways to be wrong</text><circle cx=\"110\" cy=\"120\" r=\"50\" fill=\"none\" stroke=\"#35302a\"/><circle cx=\"110\" cy=\"120\" r=\"32\" fill=\"none\" stroke=\"#35302a\"/><circle cx=\"110\" cy=\"120\" r=\"14\" fill=\"none\" stroke=\"#35302a\"/><circle cx=\"86\" cy=\"96\" r=\"4\" fill=\"#d9a441\"/><circle cx=\"92\" cy=\"92\" r=\"4\" fill=\"#d9a441\"/><circle cx=\"88\" cy=\"102\" r=\"4\" fill=\"#d9a441\"/><circle cx=\"96\" cy=\"98\" r=\"4\" fill=\"#d9a441\"/><circle cx=\"90\" cy=\"90\" r=\"4\" fill=\"#d9a441\"/><text x=\"110\" y=\"200\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\" text-anchor=\"middle\">Bias: tight, off-center</text><circle cx=\"290\" cy=\"120\" r=\"50\" fill=\"none\" stroke=\"#35302a\"/><circle cx=\"290\" cy=\"120\" r=\"32\" fill=\"none\" stroke=\"#35302a\"/><circle cx=\"290\" cy=\"120\" r=\"14\" fill=\"none\" stroke=\"#35302a\"/><circle cx=\"266\" cy=\"96\" r=\"4\" fill=\"#7fb4a2\"/><circle cx=\"312\" cy=\"104\" r=\"4\" fill=\"#7fb4a2\"/><circle cx=\"284\" cy=\"146\" r=\"4\" fill=\"#7fb4a2\"/><circle cx=\"308\" cy=\"138\" r=\"4\" fill=\"#7fb4a2\"/><circle cx=\"292\" cy=\"114\" r=\"4\" fill=\"#7fb4a2\"/><circle cx=\"270\" cy=\"128\" r=\"4\" fill=\"#7fb4a2\"/><text x=\"290\" y=\"200\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\" text-anchor=\"middle\">Noise: scattered</text></svg>",
-      "id": "burrow-0263",
-      "date": "2026-09-14"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "More medication stops helping long before its side effects stop.",
-      "body": "Stimulant benefit follows a dose-response curve that flattens out. Past a moderate dose, extra symptom relief gets small fast. The physical costs, higher heart rate, killed appetite, wrecked sleep, keep rising in a roughly straight line. So the target is not the highest dose you can tolerate. It is the **minimum effective dose**, the lowest amount that clearly works. Chasing 'more focus' upward tends to buy a flatter, more wired version of the same result you already had, at a worse price.",
-      "depth": "Concrete move for a titration: change one variable at a time and give each level one to two weeks, judged on real output and side effects, not on how it feels day three. The felt novelty of a new dose fades; the steady-state effect is what you are actually buying.",
-      "id": "burrow-0264",
-      "date": "2026-09-14"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "callback",
-      "hook": "Recall it: why does testing 200 strategies fake a winner?",
-      "body": "Because chance alone produces impressive backtests when you run enough of them. Test 200 unrelated strategies and several will post a high Sharpe on luck. Then you pick the best one, which means you **selected for being lucky, not for being good**. That is multiple-testing bias. The defense is to haircut the result by how hard you searched, using an out-of-sample check or a deflated Sharpe that discounts for the number of trials. The more variants you tried, the bigger the discount your winner deserves.",
-      "depth": "A quick gut check before you trust any backtest: ask how many variants were tried and quietly discarded to reach this one. That hidden count, far more than the equity curve, sets how much you should trust the Sharpe. A curve found on the first try means something a curve found on the two-hundredth does not.",
-      "id": "burrow-0265",
-      "date": "2026-09-14"
     }
   ]
 }
