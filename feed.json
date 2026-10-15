@@ -1,6 +1,56 @@
 {
-  "updated": "2026-10-14",
+  "updated": "2026-10-15",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "insight",
+      "hook": "An index is less volatile than the stocks inside it.",
+      "body": "Index variance isn't the average of its members' variances. It's that average scaled down by how loosely the names move together. When correlation sits below one, the diversification nets out idiosyncratic moves, so **index implied vol trades below the average vol of its components**. That gap is itself a tradeable quantity: implied correlation. Dispersion desks sell the richer index volatility and buy the cheaper single-name volatility, harvesting the spread. The position is really a short bet on correlation. It pays in calm, stock-picking regimes and gets run over when everything crashes together and correlation snaps toward one.",
+      "depth": "The crash risk is the whole story. In a selloff correlations converge toward one, the diversification benefit vanishes, and the short-correlation book loses on both legs at once. That is why implied correlation sits above realized, much the way index vol sits above realized vol. You are paid to hold a tail, not to be clever.",
+      "id": "burrow-0396",
+      "date": "2026-10-15"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "A test's accuracy tells you almost nothing on its own.",
+      "body": "Bayes runs on odds, not percentages, and that reframing kills most intuition errors. Posterior odds equal prior odds times a single number, the **likelihood ratio**: how much more often you'd see this evidence if the claim were true than if it were false. A '95% accurate' test with a matching false-positive rate carries a likelihood ratio around 19. Against a 1-in-1,000 prior, that leaves you under 2% even after a positive result. The accuracy figure is a distraction; the ratio and the base rate are the whole calculation. Weighing any evidence, a deposition, a signal, a screen, asks the same two questions.",
+      "depth": "The trap is updating on how strong the evidence sounds while ignoring how rare the thing was to begin with. A damning-sounding fact with a likelihood ratio of 3 moves a one-in-a-thousand prior to roughly one in 333. Still almost certainly innocent. Strong-sounding is not the same as diagnostic.",
+      "id": "burrow-0397",
+      "date": "2026-10-15"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "callback",
+      "hook": "You can't feel time passing. So what do you do instead?",
+      "body": "Willpower won't fix a measurement deficit, so don't aim there. The move from before: stop querying the clock and **make time occupy space you can see**. A depleting visual timer, the shrinking colored disc of a Time Timer, converts an invisible quantity into a shape that visibly contracts in your field of view. The whole point is passive glanceability, because the act of stopping to check the time is exactly the act that never happens. You read what's left at a glance, with no self-initiated query required.",
+      "depth": "This is the same logic as anchoring a pill to your coffee: don't ask the weak executive function to do the work, offload the job to the environment. Any invisible variable you keep losing to, time, money burn, open task count, gets more reliable the moment you give it a physical, glanceable form.",
+      "id": "burrow-0398",
+      "date": "2026-10-15"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "One actress's lawsuit capped every Hollywood contract at seven years.",
+      "body": "Studios in the 1930s held actors to seven-year contracts, then stretched them. Refuse a role, you got suspended, and the suspension time was tacked onto the end, so a seven-year deal could run indefinitely. In 1944 Olivia de Havilland sued Warner Bros. and won: California's limit on personal-service contracts means **seven calendar years, not seven years of actual work**. Section 2855 of the Labor Code still carries that cap. Decades later recording artists have invoked the same statute against labels that tried to measure a contract in albums delivered rather than years elapsed.",
+      "depth": "The rhyme is control dressed as a term of art. Then it was suspension clauses; now it's options, exclusivity windows, and delivery-based terms that count a deal in output, not time. The de Havilland principle keeps resurfacing because the incentive to lock talent up never left, only the drafting did.",
+      "id": "burrow-0399",
+      "date": "2026-10-15"
+    },
+    {
+      "topic": "ai-orchestration",
+      "topicLabel": "AI Systems",
+      "type": "mechanism",
+      "hook": "Checking an answer is easier than producing one. Build on that.",
+      "body": "The most useful asymmetry in LLM system design is the gap between generating and verifying. A model that struggles to produce a correct answer can often reliably judge whether a candidate answer is correct, because judging needs less of the open-ended search that generation does. **Architect the generator and the verifier as separate roles.** Sample several candidates cheaply, then spend your reliability budget on a verifier that kills the bad ones. It's why best-of-N sampling, LLM-as-judge, and adversarial checking work at all. One confident pass is the weakest design; a mediocre generator plus a strict verifier beats it.",
+      "depth": "The failure mode is letting the same model, same prompt, grade itself, which just re-confirms its first mistake. The verifier has to differ: a new lens, a demand to locate the evidence rather than opine on it, or an adversary told to refute. Diversity in the checker is what makes the asymmetry pay.",
+      "id": "burrow-0400",
+      "date": "2026-10-15"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1153,56 +1203,6 @@
       "depth": "Why it matters again: your own repeated calls are a noisy panel of one. Estimating the same trade or case twice, days apart, and averaging beats trusting today's single read, because today's read carries scatter you cannot detect.",
       "id": "burrow-0285",
       "date": "2026-09-19"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "A box spread is a loan wearing an options costume.",
-      "body": "Sell a bull call spread and a bear put spread at the same two strikes, and the payoff is fixed at the strike difference, guaranteed regardless of where the underlying lands. That fixed payoff makes the whole position a **synthetic zero-coupon bond**. Sell the box and you have borrowed cash today against a fixed repayment at expiry. Buy it and you have lent. On European, cash-settled index options like SPX there is no early assignment to wreck it, so the implied rate often lands within a few basis points of Treasury bill yields, and it clears as Section 1256.",
-      "depth": "The rate is only clean if the options are genuinely European and cash-settled. Run the same trade on American-style single-stock options and early exercise can convert your neat loan into an assignment you never wanted. That is why practitioners build boxes on SPX, not on Apple.",
-      "id": "burrow-0276",
-      "date": "2026-09-18"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Interest is the fuel, so bolt boring tasks to it.",
-      "body": "An ADHD brain responds weakly to rewards that are small, distant, or abstract, which describes most admin work. Willpower does not fix a fuel problem. The concrete move is **temptation bundling**: only let yourself have a strong immediate reward while the dull task is running. The podcast you love plays only while you clear the inbox. The good coffee gets made only at the desk where the filing waits. You are not disciplining the boring task, you are lending it the salience it lacks by chaining it to something your brain already wants right now.",
-      "depth": "Wharton's Katherine Milkman tested this by letting subjects hear addictive audiobooks only at the gym, and attendance rose. The ADHD version bites harder because the reward gap it fills is bigger. One rule keeps it working: the treat is exclusive to the task, or the bundle quietly unravels.",
-      "id": "burrow-0277",
-      "date": "2026-09-18"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "When a measure becomes a target, it stops measuring.",
-      "body": "This is **Goodhart's Law**, and it explains why your cleanest metric rots the moment you optimize it. The mechanism: any proxy captures the real goal imperfectly, leaving slack between the two. Push hard on the proxy and effort pours into that slack, tightening the link between your action and the metric while loosening the link between the metric and the goal. A strategy tuned to maximize backtest Sharpe learns the noise. A billable-hours target grows hours, not value. The number keeps climbing and tells you less each time.",
-      "depth": "Marilyn Strathern coined the modern wording. Charles Goodhart's original was about monetary aggregates that misbehaved the instant central banks targeted them. Same shape everywhere: the map you steer by is the first map your steering redraws.",
-      "id": "burrow-0278",
-      "date": "2026-09-18"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "California now protects dead performers from AI resurrection.",
-      "body": "**AB 1836**, effective January 2025, bars using a digital replica of a deceased performer in films, shows, or sound recordings without consent from the estate. It amended the existing postmortem right of publicity, so the newsworthy part is not that the dead have rights, they already did, but that \"digital replica\" is now named explicitly and the default flips to consent. Where practitioners overread it: the exemptions track classic publicity defenses. News, public affairs, documentary, satire, comment, and a fleeting or incidental use are all carved out.",
-      "depth": "Its sibling, AB 2602, governs the living: a contract letting a studio make a digital replica is unenforceable if the use is not specifically described and the performer lacked union or legal representation. Two statutes, one theme, consent must be particular, not buried in boilerplate.",
-      "id": "burrow-0279",
-      "date": "2026-09-18"
-    },
-    {
-      "topic": "story-craft",
-      "topicLabel": "Story Craft",
-      "type": "practice",
-      "hook": "Replace 'and then' with 'but' or 'therefore'.",
-      "body": "Trey Parker's test for whether a story has an engine: read your beats aloud and listen to the connective word between them. If scenes link with **\"and then,\" you have a list, not a story**. The events are merely adjacent. When each beat instead follows from the last by \"but\" (a reversal) or \"therefore\" (a consequence), you have causation, and causation is what a listener feels as momentum. For audio fiction especially, where a bored ear just wanders off, this is a fast diagnostic: map the connectors, and every \"and then\" is a seam to cut or rebuild.",
-      "depth": "The rule scales up. The same but/therefore chain that binds two beats should bind two acts. A midpoint that merely happens after the setup is an \"and then\" at structural scale, and it sags in exactly the same way a limp scene does.",
-      "id": "burrow-0280",
-      "date": "2026-09-18"
     }
   ]
 }
