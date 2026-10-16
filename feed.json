@@ -1,6 +1,57 @@
 {
-  "updated": "2026-10-15",
+  "updated": "2026-10-16",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Puts cost more than equally far-out calls. Always.",
+      "body": "Equity index options carry a persistent skew: out-of-the-money puts trade at higher implied vol than out-of-the-money calls the same distance away. Two forces drive it. Crash risk is one-sided, so hedgers and funds constantly bid up downside protection. And volatility rises when markets fall, so a lower strike genuinely deserves a higher vol. The result is **the volatility smirk**, and it means your short put is selling expensive insurance while your short call is selling cheap. Skew is not a glitch. It is the market pricing fear asymmetrically.",
+      "depth": "The second force is the leverage effect: as a stock falls, its debt-to-equity ratio rises, making the equity riskier and more volatile, so lower strikes earn higher vol honestly. Buyers of crash protection also pay a variance risk premium on top. That is why selling downside skew pays on average, and why it hurts most exactly when everyone needs the hedge at once.",
+      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"60\" y1=\"40\" x2=\"60\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1.5\"/><line x1=\"60\" y1=\"200\" x2=\"380\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1.5\"/><path d=\"M70 62 C130 96 175 140 240 158 S330 166 375 140\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2.5\"/><circle cx=\"70\" cy=\"62\" r=\"4\" fill=\"#7fb4a2\"/><text x=\"80\" y=\"58\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">OTM puts: highest vol</text><text x=\"300\" y=\"186\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">OTM calls</text><text x=\"20\" y=\"118\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\" transform=\"rotate(-90 20 118)\">implied vol</text><text x=\"140\" y=\"224\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">lower strike to higher strike</text></svg>",
+      "id": "burrow-0401",
+      "date": "2026-10-16"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "A positive expected value can still ruin you.",
+      "body": "Flip a coin each round. Heads, your stake grows 50 percent. Tails, it shrinks 40 percent. The expected value per round is plus 5 percent, so the naive read says bet everything, forever. Do it and you go broke with near certainty. The average across many parallel gamblers rises, but **almost every individual path trends to zero**, because gains and losses compound multiplicatively, not additively. The number that actually governs your fate is the geometric mean, about 0.95 per round, a 5 percent loss every time. Expected value answered the wrong question.",
+      "depth": "This is the ergodicity problem. The ensemble average (many people, one round) and the time average (one person, many rounds) diverge whenever outcomes multiply. Trading is multiplicative. It is also the deep reason Kelly sizing exists: bet to maximize the geometric growth rate, not the arithmetic expectation, or the math that looks like edge quietly bankrupts you over time.",
+      "id": "burrow-0402",
+      "date": "2026-10-16"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "A court made OpenAI keep chats users had deleted.",
+      "body": "In the New York Times copyright suit, a federal magistrate ordered OpenAI to preserve and segregate ChatGPT output logs it would normally delete, including conversations users had chosen to erase. The Times wanted the trove to hunt for regurgitation of its articles. The order collided head-on with OpenAI's own deletion promises and with privacy regimes like the GDPR. **A litigation hold beat the delete button.** For anyone building a product on generative models, the lesson is blunt: your retention policy is only as real as the next discovery request that overrides it.",
+      "depth": "Preservation duties attach once litigation is reasonably anticipated, and they reach data the business would otherwise purge. Synthetic-output products make that scope enormous, because every prompt and completion becomes potentially discoverable evidence. Practitioners are now drafting around it: narrower logging by default, clearer legal-hold carve-outs in privacy notices, and segregation plans built before the first subpoena lands, not after.",
+      "id": "burrow-0403",
+      "date": "2026-10-16"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "ADHD doesn't ignore bedtime. Its body clock runs late.",
+      "body": "A large share of ADHD adults carry a delayed circadian rhythm: the brain releases melatonin one to two hours later than typical, so 'go to bed earlier' fails because the biology is not ready for sleep yet. Willpower at 11 PM cannot move a clock that light sets. The lever that actually shifts it is **bright light within an hour of waking**, which advances the whole cycle earlier over several days. Ten to fifteen minutes of real outdoor light in the morning does more than any amount of forcing the pillow at night.",
+      "depth": "Melatonin onset, not bedtime, anchors the rhythm. Evening screens push it later; morning light pulls it forward through the retinal pathway to the suprachiasmatic nucleus. The concrete move: light first, then caffeine and a hard first task. And hold the wake time fixed even on weekends, because a drifting wake time lets the late clock quietly reset later all over again.",
+      "id": "burrow-0404",
+      "date": "2026-10-16"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "insight",
+      "hook": "Try enough strategies and one looks brilliant by pure luck.",
+      "body": "Overfitting is not only about tuning parameters. It hides in the count of strategies you tried before keeping the winner. Test a hundred random rules on the same data and, by chance alone, a few will post gorgeous Sharpe ratios. Report only the survivor and you have fooled yourself completely. The fix is to **penalize the Sharpe for the number of trials**, the way the deflated Sharpe ratio does. A 2.0 Sharpe from one honest test and a 2.0 cherry-picked from five hundred are not the same discovery.",
+      "depth": "Under the null of no skill, the expected maximum Sharpe across many trials rises with both the number of trials and the backtest length. Bailey and Lopez de Prado's deflated Sharpe adjusts for exactly that, plus the return series' skew and fat tails. If you cannot state how many configurations you ran, your best result is uninterpretable. Track the trial count like a cost.",
+      "id": "burrow-0405",
+      "date": "2026-10-16"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1153,56 +1204,6 @@
       "depth": "A fast sanity check: rerun the backtest filling at the bid on buys and the ask on sells, then again at mid, and compare. If the edge survives the pessimistic fill it is real. If it only exists at the mid, you found a market-maker's profit, not yours.",
       "id": "burrow-0290",
       "date": "2026-09-20"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "insight",
-      "hook": "A covered call is a short put in disguise.",
-      "body": "Put-call parity is not abstract. Long stock plus a short call at strike K equals, in payoff and risk, a short put at K. Your 'conservative' buy-write is **synthetically a short put**: same capped upside, same downside all the way to zero, same short-volatility exposure. The income-strategy branding hides that you are running the identical position a cash-secured put seller runs, just with more capital tied up and worse assignment and tax mechanics. If you would flinch at naked-putting the name, you should flinch at buy-writing it.",
-      "depth": "Practical tell: the two have the same delta, gamma, vega and theta at every point. Choose between them on capital efficiency, borrow, dividends and tax treatment, not on how safe the label happens to sound.",
-      "id": "burrow-0281",
-      "date": "2026-09-19"
-    },
-    {
-      "topic": "ai-orchestration",
-      "topicLabel": "AI Systems",
-      "type": "mechanism",
-      "hook": "Make the checker a different call than the writer.",
-      "body": "Generation and verification are asymmetric: spotting a flaw in a finished answer is cheaper and more reliable than producing that answer was. A model grading its own output in the same context inherits its own blind spots, so it rubber-stamps. Spin up a **separate verifier call** with a narrow, adversarial instruction, find the error, assume one exists, and it catches mistakes the author structurally cannot see. This is why fresh-eyes review works for humans, and why single-agent self-critique so often just confirms the first draft instead of breaking it.",
-      "depth": "Design move: give the verifier a different job than 'is this good?' Ask it to locate the specific wrong line or produce the failing case. Judging invites agreement; locating forces it to actually go look.",
-      "id": "burrow-0282",
-      "date": "2026-09-19"
-    },
-    {
-      "topic": "hollywood-history",
-      "topicLabel": "Hollywood History",
-      "type": "history",
-      "hook": "In 1948 the studios were ordered to sell their theaters.",
-      "body": "The Paramount antitrust decrees forced the major studios to divest their theater chains and banned **block booking**, the practice of making exhibitors buy films in bundles, sight unseen, to get the ones they actually wanted. This broke the vertical integration that had powered the studio system since the 1920s, made room for independents and television, and shaped how films were sold for decades. A court terminated the decrees in 2020, right as streaming was rebuilding the same vertical control the ruling had spent 72 years dismantling.",
-      "depth": "The rhyme worth noting: bundling never died, it moved. Block booking sold theaters a slate they couldn't unbundle. A streaming subscription sells viewers a catalog they can't unbundle either. Same economics, new pipe.",
-      "id": "burrow-0283",
-      "date": "2026-09-19"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "mechanism",
-      "hook": "Disagree on the forecast? Don't split it. Bet it.",
-      "body": "Two sides stuck on what a business will earn usually compromise on one number, which guarantees both are wrong and someone feels robbed. The sharper move is a **contingent structure**: an earnout, a contingent value right, a backend tied to the actual result. Each side is effectively paid if its own forecast proves right, so the fight over one number becomes a bet each is happy to take. It also flushes out bluffing, because whoever refuses to tie price to results was quietly inflating the projection.",
-      "depth": "Caveat: contingent terms move the fight to measurement. Define the metric, the audit right, and anti-manipulation covenants up front, because whoever controls the books after close controls the payout. A clean earnout is mostly good definitions.",
-      "id": "burrow-0284",
-      "date": "2026-09-19"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "callback",
-      "hook": "Recall it: is your bias or your scatter the bigger error?",
-      "body": "Take a beat before the answer lands. Measure a set of judges, forecasters, or underwriters on identical cases and you find two errors, not one. Bias is the shared tilt off target. The other is how much they disagree with each other, and Kahneman's work found it contributes **as much total error as bias**, often more. That's noise, and you cannot feel it from inside a single judgment. So the underrated fix is not debiasing yourself. It's averaging several independent estimates of the same thing.",
-      "depth": "Why it matters again: your own repeated calls are a noisy panel of one. Estimating the same trade or case twice, days apart, and averaging beats trusting today's single read, because today's read carries scatter you cannot detect.",
-      "id": "burrow-0285",
-      "date": "2026-09-19"
     }
   ]
 }
