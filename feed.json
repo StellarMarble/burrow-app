@@ -1,6 +1,56 @@
 {
-  "updated": "2026-10-16",
+  "updated": "2026-10-17",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Exercising a call early makes sense only before a dividend.",
+      "body": "An American call is almost never worth exercising before expiry. Exercise and you throw away the option's remaining time value and give up the interest on cash you haven't spent yet. **The lone exception is the day before an ex-dividend date.** If the dividend you'd collect by owning the shares outright exceeds the call's remaining time value, capturing it beats holding the option. That is the only time rational early exercise of a call appears, and it clusters entirely around dividend dates. Miss the ex-date and the reason evaporates.",
+      "depth": "Puts are the mirror. A deep in-the-money put can be worth exercising early for the interest on the proceeds, any time, no dividend needed. Calls need the dividend, puts need the rates. Same parity, opposite triggers.",
+      "id": "burrow-0406",
+      "date": "2026-10-17"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "You overweight tiny probabilities. That is why lottery tickets sell.",
+      "body": "Kahneman and Tversky's prospect theory found people don't use probabilities straight. They run them through a weighting function: a 1% chance feels more like 5%, and a 99% chance feels more like 90%. **Small probabilities get overweighted, large ones underweighted.** Overweighting the tail is why the same person buys both a lottery ticket and flood insurance. Underweighting near-certainty is why people pay a premium to erase the final sliver of risk. In options it shows up as far-out-of-the-money contracts trading persistently rich: buyers are paying for a lottery, not an expected value.",
+      "depth": "The trade looks obvious and is dangerous: sell what others overpay for. But the overweighting isn't pure error. Tails are fatter than the normal curve claims, and the one time the lottery hits, the seller pays back years of collected premium at once.",
+      "id": "burrow-0407",
+      "date": "2026-10-17"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Your best system quietly stops working once it stops being new.",
+      "body": "An ADHD brain under-responds to cues that aren't novel or salient. That is why a new app, a fresh checklist, or a relocated sticky note works for two weeks and then quietly stops. It didn't fail. **It habituated into the background, and an invisible cue cues nothing.** This is tool decay, and it is predictable, not a character flaw. The move: engineer novelty on purpose. Rotate the tool's form, color, or location on a schedule, or swap it before it goes invisible. Treat any single system as a consumable with a short shelf life, not a permanent fix you failed to maintain.",
+      "depth": "Why novelty works: dopamine signaling tracks prediction error, the gap between expected and actual. A novel cue carries prediction error and grabs attention; a fully predicted one carries none. Rotating the system keeps manufacturing small prediction errors, which is what keeps it salient enough to act on.",
+      "id": "burrow-0408",
+      "date": "2026-10-17"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "California voids a vague AI-likeness clause even if you signed it.",
+      "body": "California's AB 2602 took effect January 1, 2025. It makes a contract term allowing a digital replica of someone's voice or likeness, used in place of work they'd otherwise do in person, unenforceable when two things are both true: the clause lacks a reasonably specific description of the intended uses, and the person wasn't represented by a lawyer or a union negotiating for them. **A broad catch-all replica grant, signed, can simply be void.** The old instinct to draft the widest possible rights grant now cuts against you here. For an unrepresented individual, vagueness is no longer leverage, it's a hole in your own contract.",
+      "depth": "The representation prong is the quiet part. If a union or counsel negotiated the clause, the specificity requirement relaxes. The statute is aimed at the unrepresented individual signing a studio's boilerplate, not at a repped client with a lawyer across the table.",
+      "id": "burrow-0409",
+      "date": "2026-10-17"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "callback",
+      "hook": "Recall it: what actually destroyed XIV on Volmageddon day?",
+      "body": "February 5, 2018. The VIX nearly doubled, but that alone wouldn't have killed the product. Before you read on, try to name the mechanical trigger. The answer: inverse-volatility notes like XIV had to rebalance daily, so the spike forced them to **buy VIX futures into the close, in size the market couldn't absorb.** That buying pushed futures higher, which forced still more buying, a loop that fed itself. XIV lost roughly 96% and was terminated within days.",
+      "depth": "The reusable lesson isn't that volatility is dangerous. It's that any product with forced, size-insensitive daily rebalancing becomes its own worst counterparty in a crisis. Before you hold or sell one, ask what it is mechanically required to buy at the worst possible moment.",
+      "id": "burrow-0410",
+      "date": "2026-10-17"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1154,56 +1204,6 @@
       "depth": "Worth re-filing because the other two feel like ego and get caught in the mirror. Overprecision hides inside your risk model as confidence intervals that are simply too tight, so it surfaces as oversized positions and blown stops, never as an obvious mistake you can point to.",
       "id": "burrow-0295",
       "date": "2026-09-21"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "insight",
-      "hook": "Dealers short gamma make the market move more.",
-      "body": "When market makers are net short gamma, staying hedged forces them to **sell as prices fall and buy as prices rise**, feeding the move they are chasing. When they are net long gamma the reverse holds: they buy dips and sell rips, and realized volatility gets pinned down. Around large option expiries the sign of that positioning can flip, which is why a quiet, mean-reverting tape turns into an air pocket with no headline behind it. The flows are mechanical, not discretionary, so they persist until the exposure rolls off.",
-      "depth": "The effect scales with how much open interest sits near spot and how close expiration is, since gamma concentrates there. Dealer positioning is inferred, never published, so treat any single 'gamma flip level' as a reported estimate rather than a fact you can lean on.",
-      "id": "burrow-0286",
-      "date": "2026-09-20"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "The first AI training ruling rejected fair use.",
-      "body": "In early 2025 a federal court in Thomson Reuters v. Ross Intelligence granted summary judgment against a fair-use defense for copying Westlaw headnotes to train a legal-research tool. Practitioners citing it as the answer to the generative cases are **overreading a narrow holding**: Ross built a non-generative search product, and the court expressly said its reasoning might come out differently for generative models. The output competed head-on with the source, which drove the market-harm analysis. It is a signal about direction, not a precedent that binds the Stability or OpenAI fights.",
-      "depth": "The fourth fair-use factor, effect on the market, did the work here because Ross was building a Westlaw substitute. Generative defendants argue their output does not replace any single training input, which is exactly the question the Ross court declined to reach.",
-      "id": "burrow-0287",
-      "date": "2026-09-20"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "Positive expected value can still ruin everyone who takes it.",
-      "body": "The trap is averaging across people instead of across time. Flip a coin: heads grows your stake 50%, tails shrinks it 40%. The **ensemble average is +5% per flip** measured across many gamblers, so it looks like free money. But follow one gambler through repeated flips and the path grinds toward zero, because 1.5 times 0.6 equals 0.9, a loss on every pair. What enriches a crowd measured at one instant bankrupts an individual measured over time. That gap is why position sizing, not edge, decides survival.",
-      "depth": "The ensemble average imagines many parallel gamblers and sums their outcomes; the time average follows one gambler down one road. They only agree when a process is 'ergodic,' and multiplicative bets are not. That is the mathematical spine underneath the Kelly criterion.",
-      "id": "burrow-0288",
-      "date": "2026-09-20"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Don't make the reward bigger. Make it sooner.",
-      "body": "An ADHD brain discounts delayed rewards far more steeply than a neurotypical one, so a payoff months out barely moves the needle no matter how large it is. Trying to self-motivate by inflating the stakes ('this deal is worth six figures') fails, because the size lives in the future and the future is nearly invisible. The move is to **manufacture an immediate consequence**: a deadline today, a visible tally, money on the line this week. You are not weak-willed about the big goal. You are correctly responding to a reward your neurology cannot feel yet.",
-      "depth": "This is temporal discounting, one of the more replicated behavioral findings in ADHD. It is also why body doubling and hard deadlines work when willpower does not: both drag the consequence into the present, where your reward system can actually register it.",
-      "id": "burrow-0289",
-      "date": "2026-09-20"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "practice",
-      "hook": "Your backtest filled at the midpoint. You won't.",
-      "body": "Most backtests price every entry and exit at the quoted mid, but you cross the spread each time you trade, and on options that spread is brutal. A strategy netting four cents of theoretical edge per contract can be entirely eaten by a five-cent-wide market before you count commissions or slippage into a moving book. **Half the round-trip spread times the number of trades** is the tax the backtest silently omits. The more a strategy trades, the more of its paper edge is imaginary, which is where high-turnover systems quietly die.",
-      "depth": "A fast sanity check: rerun the backtest filling at the bid on buys and the ask on sells, then again at mid, and compare. If the edge survives the pessimistic fill it is real. If it only exists at the mid, you found a market-maker's profit, not yours.",
-      "id": "burrow-0290",
-      "date": "2026-09-20"
     }
   ]
 }
