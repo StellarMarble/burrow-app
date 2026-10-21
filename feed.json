@@ -1,6 +1,56 @@
 {
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "callback",
+      "hook": "Recall it: why does index vol trade below its components?",
+      "body": "Hint: it isn't averaging, and it isn't a pricing error. Index variance depends on how tightly the members move together. When correlation sits below one, idiosyncratic moves cancel inside the index, so **implied index vol runs below the average component vol**. The gap is implied correlation, and dispersion desks sell the richer index leg against the cheaper single names. That makes the book short correlation: it collects in calm, stock-picking markets and gets hurt when everything sells off together.",
+      "depth": "Whenever you hear 'dispersion', translate it to 'short correlation'. The losing scenario is the same one that hurts every short-vol book: correlation snaps toward one in a crash, and index vol reprices upward faster than the single names you own. Cheap insurance on the wrong leg.",
+      "id": "burrow-0421",
+      "date": "2026-10-21"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "mechanism",
+      "hook": "Every peek at your holdout data spends it.",
+      "body": "A holdout set is only clean the first time you score it. Look at the result, adjust a filter, rerun, and the data has quietly become **training data that you labeled as test data**. Ten rounds of peeking is ten rounds of fitting, just done by hand instead of by optimizer. The discipline is procedural: decide the final candidate before touching the last slice, score it once, and accept whatever comes back, including a bad number.",
+      "depth": "Financial data adds a second leak: overlapping labels. If a trade's outcome spans several days, neighboring train and test rows share information. Purging and embargoing the rows near each split boundary, as in purged cross-validation, closes that leak, and it matters more the longer your holding period.",
+      "id": "burrow-0422",
+      "date": "2026-10-21"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "The first AI-training fair-use loss involved no chatbot.",
+      "body": "In February 2025, a Delaware federal court ruled in Thomson Reuters v. Ross Intelligence that Ross's use of Westlaw headnotes to train a legal search tool was not fair use. The tool was **non-generative**: it returned existing case links, not new text. The court leaned on market substitution, since Ross aimed to compete with Westlaw. Later 2025 rulings involving generative models reached different conclusions on training, so the line practitioners now argue over is what the output does to the original's market.",
+      "depth": "The decision went up on interlocutory appeal to the Third Circuit, so check its current status before citing it. Its practical value for deal work: a training-data warranty should be analyzed by what the model does with the data, not by the label 'AI'.",
+      "id": "burrow-0423",
+      "date": "2026-10-21"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Future rewards shrink faster for you. Pull one forward.",
+      "body": "Delay discounting is how steeply a reward loses value as it gets further away, and research reports steeper discounting on average in ADHD. A deadline three weeks out is worth almost nothing to the part of the brain that decides what to do now. The move is not more willpower. **Attach something small and immediate to the first step**: the good coffee only while drafting, the podcast only during the filing. Then cut the far deadline into milestones due today or tomorrow.",
+      "depth": "This is temptation bundling plus deadline shortening. The test is behavioral: if the reward is available without doing the task, it is not bundled and it will not work. Keep the bundle exclusive, or it decays like every other system.",
+      "id": "burrow-0424",
+      "date": "2026-10-21"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Don't buy information that can't change your decision.",
+      "body": "The value of information is the expected improvement in your decision, not how much you learn. If you would take the same action whatever the answer turns out to be, the information is worth **exactly zero**, however interesting or reassuring it feels. Before commissioning another report, comp analysis, or backtest, ask: which result would flip my choice, and how likely is that? If you cannot name one, you are paying for comfort.",
+      "depth": "The flip side is also useful. Information is most valuable when you are near the decision threshold, close to indifferent, and the stakes are large. Spend your diligence there, and stop spending it where the answer is already lopsided.",
+      "id": "burrow-0425",
+      "date": "2026-10-21"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1154,56 +1204,6 @@
       "depth": "This is ergodicity, and it is why sizing beats edge for survival. Every real trade is multiplicative on your capital, so the number that governs you is the time-average growth rate, not the expected value the crowd would collect standing side by side.",
       "id": "burrow-0310",
       "date": "2026-09-25"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Full Kelly maximizes growth and still feels like ruin.",
-      "body": "Kelly sizing maximizes long-run geometric growth, but the growth-optimal bet endures gut-wrenching drawdowns. At full Kelly, a 50% peak-to-trough fall is routine, and you have roughly even odds of halving your stake before you double it. That is why survivors run **fractional Kelly**, typically a quarter to a half of the formula's output. They accept slightly slower compounding to make the ride survivable, because a strategy you abandon at the bottom of a drawdown has an effective growth rate of zero.",
-      "depth": "The math is why it works: at half-Kelly you keep about 75% of the maximum growth rate for half the volatility. Growth is quadratic near the optimum while risk is linear, so cutting size is cheap in return and expensive-saving in variance.",
-      "id": "burrow-0301",
-      "date": "2026-09-23"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Music's AI suits attack the training set, not the songs.",
-      "body": "In June 2024 the major labels sued Suno and Udio, and the striking feature is how little the complaints argue that the outputs infringe. The theory is that copying millions of sound recordings to train the model is **itself the infringement**, whatever the model later produces. Both companies effectively conceded they trained on copyrighted recordings and leaned on fair use. That flips the usual music playbook, which fixates on output similarity in the 'Blurred Lines' mold, and puts the ingestion step on trial instead.",
-      "depth": "Why the stakes are existential: if training on recordings is not fair use, exposure is per-work statutory damages across a corpus of millions of tracks. That arithmetic, not any single output, is what reportedly pushed the posture toward licensing talks.",
-      "id": "burrow-0302",
-      "date": "2026-09-23"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "Praise seemed to hurt and scolding seemed to help. Neither did.",
-      "body": "Kahneman watched flight instructors conclude that praising a good landing produced a worse next one, and berating a bad landing produced a better one. Both patterns were **regression to the mean** and nothing else. An unusually good landing is partly luck, so the next is likely closer to average, meaning worse, no matter what you say. An unusually bad one is likely followed by better. The instructors were reading a statistical artifact as causation, and it taught them exactly the wrong lesson about how to treat people.",
-      "depth": "The same illusion runs through trading and management: a hot month regresses, a cold one regresses, and whatever you did in between gets the credit or the blame. Before crediting an intervention, ask what the extreme value would have done on its own.",
-      "id": "burrow-0303",
-      "date": "2026-09-23"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Time blindness is a broken internal clock. Buy an external one.",
-      "body": "The deficit is not caring about deadlines, it is **feeling time pass**. Duration and elapsed time are estimated poorly, so a quick task silently eats an hour and a deadline stays abstract until it is on top of you. Willpower cannot fix a missing sense. The move is to externalize the clock: a visible analog countdown, a shrinking colored wedge rather than digits, turns elapsed time into something your eyes register continuously, the way a fuel gauge shows a tank draining. The urgency then comes from perception instead of a calculation your brain does not reliably run.",
-      "depth": "Why analog beats digital here: reading '1:47:00' requires you to compute what is left, an abstract step an under-aroused brain skips. A shrinking wedge is read pre-attentively, no arithmetic, which is the entire point.",
-      "id": "burrow-0304",
-      "date": "2026-09-23"
-    },
-    {
-      "topic": "story-craft",
-      "topicLabel": "Story Craft",
-      "type": "callback",
-      "hook": "Recall it: which connector between beats means a list, not a story?",
-      "body": "Read your beats aloud and listen to the seams between them. Give yourself a moment before the answer lands. It is **'and then.'** When scenes link with 'and then' they are merely adjacent, a pile of events with no engine. Trey Parker's fix: each beat should follow the last by 'but' (a reversal) or 'therefore' (a consequence). Those two words carry causation, and causation is what an ear feels as momentum. Every 'and then' in your outline is a seam to cut or rebuild.",
-      "depth": "Why it stays useful for you: audio fiction has no visuals to carry a slack scene, so a bored ear just wanders off. Mapping the connectors is a structural diagnostic you can run on a whole draft in minutes.",
-      "id": "burrow-0305",
-      "date": "2026-09-23"
     }
   ]
 }
