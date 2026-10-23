@@ -1,6 +1,56 @@
 {
-  "updated": "2026-10-22",
+  "updated": "2026-10-23",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Halve the time left, and an ATM option loses only 29%.",
+      "body": "At-the-money option value scales roughly with the **square root of time**, not time itself. The Brenner-Subrahmanyam approximation puts an ATM price near 0.4 x spot x vol x sqrt(T). Cut T in half and sqrt(0.5) is about 0.71, so the option keeps roughly 71% of its value. Going from 60 days to 30 sheds about 29%, and 30 to 15 sheds another 29%. Dollar decay per day therefore accelerates as expiry nears, because it runs roughly as 1 over sqrt(T). Linear-decay intuition makes the first month of a short position look more generous than it is.",
+      "depth": "This is an ATM, low-rate, flat-vol approximation. Away from the money the decay profile differs, and skew shifts it further. Treat it as a mental model for sizing time exposure, not a pricing tool.",
+      "id": "burrow-0431",
+      "date": "2026-10-23"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "history",
+      "hook": "He sold cheap puts for years. One Monday erased everything.",
+      "body": "Victor Niederhoffer ran a celebrated fund and, reportedly, sold large quantities of deep out-of-the-money S&P 500 puts for premium. On October 27, 1997, Asian currency turmoil dragged the S&P down roughly 7% in one session. Puts that were nearly worthless became deeply in the money, margin calls hit, and his brokers liquidated positions into the panic. The market bounced hard within days, but the fund was already gone. **Being right eventually did not matter because he was liquidated first.** Short-tail strategies fail on the path, not the average.",
+      "depth": "The lesson is about funding and margin, not forecasting. A position you can't hold through the worst print isn't an edge, it's a countdown. Size to the liquidation path, not the expected value.",
+      "id": "burrow-0432",
+      "date": "2026-10-23"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "insight",
+      "hook": "Experts anchor on the first number too, and deny it.",
+      "body": "In a classic 1987 study by Northcraft and Neale, real estate agents toured a house, then appraised it. Each saw a different listing price. Their appraisals tracked the listing price closely, yet the agents insisted they had ignored it. **Expertise did not protect them from the anchor.** So when the other side opens with a number, your private knowledge of the market won't shield you from it. Counter by putting your own principled number on the table before you respond to theirs, with a reason attached. Reacting to their figure is already negotiating on their ground.",
+      "depth": "Later anchoring research reported that deliberately focusing on the counterpart's target and alternatives, rather than their opening number, weakens the effect. Prepare that view before the call, not during it.",
+      "id": "burrow-0433",
+      "date": "2026-10-23"
+    },
+    {
+      "topic": "ai-orchestration",
+      "topicLabel": "AI Systems",
+      "type": "practice",
+      "hook": "A subagent only knows what your brief tells it.",
+      "body": "A subagent starts with a blank context. It can't see your conversation, your files, or what you've already ruled out. That makes **the brief the entire interface**. A good one states the goal, what done looks like, what's already been tried, the boundaries, and the exact output format you want back. Anthropic reported that early versions of its multi-agent research system suffered from vague task descriptions, with agents duplicating each other's work or misreading the assignment. If two subagents could plausibly do the same thing from your brief, you have written it badly.",
+      "depth": "A cheap test: hand the brief to a smart contractor with no background. If they'd need to ask clarifying questions, the subagent will guess instead.",
+      "id": "burrow-0434",
+      "date": "2026-10-23"
+    },
+    {
+      "topic": "kid-development",
+      "topicLabel": "Little Humans",
+      "type": "callback",
+      "hook": "Recall it: which predicted kids' language-brain activity, words or turns?",
+      "body": "Think of the 2018 MIT scans of 4- to 6-year-olds. Hart and Risley's famous gap counted words heard. The brain data pointed elsewhere. **Back-and-forth conversational turns** predicted activity in Broca's area during language tasks, and verbal scores, independent of family income. Raw adult word count did not carry the effect. So the move is to say less and take more turns: ask something open, wait a beat, then build on what the child actually said.",
+      "depth": "It matters again because it changes the unit you track. Counting words rewards narrating at a child. Counting turns rewards listening, and a one-year-old's babble counts as a turn.",
+      "id": "burrow-0435",
+      "date": "2026-10-23"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1153,56 +1203,6 @@
       "depth": "Why it matters again: every impressive small-account result carries an invisible capacity ceiling. Before sizing up, ask what fraction of daily volume your fills represent, then re-run the numbers with a square-root cost term added. The edge that dies on contact with real money usually dies right here.",
       "id": "burrow-0320",
       "date": "2026-09-27"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "The only reason to exercise a call early is the dividend.",
-      "body": "An American call on a non-dividend stock is never worth exercising early. Selling it always beats exercising, because you keep the remaining time value and defer paying the strike. The one exception is a dividend. When the payout exceeds the interest earned on the strike plus the call's remaining time value, exercising the day before the ex-date to capture the dividend can win. **Early exercise trades your time value for the dividend**, so it only pays when the dividend is bigger than what you surrender.",
-      "depth": "This is why deep-in-the-money calls on high-yield names get assigned early, and why short-call holders face assignment risk right before ex-date. Puts flip the logic: the interest saved by receiving the strike now makes early exercise of a deep put rational even with no dividend at all.",
-      "id": "burrow-0311",
-      "date": "2026-09-26"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Pure AI output has no copyright. Your edits around it might.",
-      "body": "The US Copyright Office has held that material generated entirely from a prompt is not protectable, because a prompt does not give the human enough control over the expressive result. But a person who selects, arranges, and edits AI outputs can claim copyright in **those human-authored contributions**, not the raw generations. The registration has to disclaim the machine-made parts. So the protectable layer is the arrangement and the edits sitting on top, and that layer can be very thin.",
-      "depth": "Reported in the Office's 2025 copyrightability guidance and the earlier Zarya of the Dawn decision, where a comic's text and panel layout were protected but the Midjourney images were not. Practitioners overclaim here: telling a client they 'own the output' because they wrote a clever prompt is simply wrong.",
-      "id": "burrow-0312",
-      "date": "2026-09-26"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Stop mid-sentence so restarting needs no decision.",
-      "body": "The hardest part of a task is the activation threshold: the cold start where you have to decide what to do and force yourself to begin. You can pre-load tomorrow's start by quitting today in the middle of something easy and concrete, a half-finished sentence or a test that is written but not run. Re-entry then asks for no decision, just finishing a line already in front of you. **Leave the task mid-motion, not at a clean stopping point.**",
-      "depth": "Two mechanisms stack. The unfinished action stays mentally active and slightly nags, which lowers the pull to walk away, and the concrete next move removes the executive-function cost of choosing what to do. Hemingway used it on purpose: stop when you still know exactly what happens next.",
-      "id": "burrow-0313",
-      "date": "2026-09-26"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "mechanism",
-      "hook": "Look at your holdout twice and it becomes training data.",
-      "body": "A hold-out set gives an honest out-of-sample estimate exactly once. The moment you check it, see a bad result, and go back to tweak the strategy, that data has leaked into your design decisions. Every look after the first is contaminated, and your 'out-of-sample' Sharpe is now an in-sample number wearing a disguise. **The test set is a one-shot resource, not a dial you tune against.** Iterate on training data or a validation split, and touch the true hold-out last, only to report.",
-      "depth": "This is why published strategies decay after release: the whole community kept iterating against the same historical window. Walk-forward design helps by advancing the test period, but even that erodes if you re-run it repeatedly and keep only the parameter sets that happened to survive.",
-      "id": "burrow-0314",
-      "date": "2026-09-26"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "callback",
-      "hook": "Recall it: why does a metric rot the moment you target it?",
-      "body": "You saw this a few days back. When a measure becomes a target, people optimize the proxy instead of the goal it stood for, so the correlation that made it useful quietly breaks. **The number keeps climbing while the thing you actually cared about stops moving.** In trading it shows up when you optimize a backtest statistic, Sharpe or win-rate, until you have maximized the number and hollowed out the edge it was supposed to represent. Its name: Goodhart's law.",
-      "depth": "The defense is to keep the real objective separate from the proxy you steer by, and to rotate or add proxies before they get gamed. A metric nobody is allowed to optimize against stays informative the longest, which is why some firms guard their true evaluation set.",
-      "id": "burrow-0315",
-      "date": "2026-09-26"
     }
   ]
 }
