@@ -1,6 +1,56 @@
 {
-  "updated": "2026-10-23",
+  "updated": "2026-10-24",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Your delta is wrong if you assume the wrong skew dynamic.",
+      "body": "Black-Scholes delta assumes implied vol stays put as spot moves. In equity indexes it doesn't: spot falls, vol rises, and the correlation is strongly negative. So a put's real delta is **BS delta plus vega times the vol change per point of spot**, and that second term is also negative. Short a put and hedge with plain BS delta, and you are under-hedged exactly when it hurts: the spot loss and the vol gain on the option stack on the same side. Whether your model treats the smile as sticky-strike or sticky-delta quietly changes the number you trade.",
+      "depth": "Sticky-strike says each strike keeps its vol. Sticky-delta says vol follows moneyness, so the smile slides with spot. Index options usually sit between the two, and the balance shifts by regime. To see your gap, compare your broker's delta against a scenario reprice with a 1-point spot move plus a vol shift.",
+      "id": "burrow-0436",
+      "date": "2026-10-24"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "practice",
+      "hook": "Turnover, not Sharpe, tells you how fragile your edge is.",
+      "body": "Say a signal earns 6 bps per round trip gross. Costs are 3 bps round trip. Net edge is half the gross, and **break-even cost multiple** (gross edge divided by round-trip cost) is 2x. That ratio, not Sharpe, tells you how much slippage error you can survive. Turnover multiplies the exposure: the same signal traded daily pays costs roughly 20 times as often as traded monthly. Options make it harsher because spreads are wide in percentage terms and widen in stress, when your signal fires hardest. Under 2x, assume live trading kills it.",
+      "depth": "Compute the multiple per strategy before you compare Sharpes. Then stress it: double the spread and add a 1 tick adverse fill on every order. If the strategy survives that, the edge is more likely real. If it only works at mid-price, you have a model of the quote screen, not of the market.",
+      "id": "burrow-0437",
+      "date": "2026-10-24"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "Until the 1990s, networks were barred from owning their own hits.",
+      "body": "The FCC's financial interest and syndication rules, adopted in 1970, restricted the big three networks from taking ownership stakes in the shows they aired and from domestic syndication. The aim was to break network control of programming. The result was a **separation of distribution from ownership** that fed a studio-driven production and syndication business. The rules were repealed in the 1990s, and within a few years networks and studios merged back together under common owners. Streaming rhymes with the pre-1970 world: the platform that distributes is again the entity that owns the show.",
+      "depth": "The practical effect for lawyers was the shape of every network deal: license fees below cost, with the studio deficit-financing and betting on the back end. When the rules fell, that bet changed. A vertically integrated owner can afford to lose on the first run because it keeps the whole life of the asset.",
+      "id": "burrow-0438",
+      "date": "2026-10-24"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Write 'if X, then Y' in advance. It offloads inhibition.",
+      "body": "Implementation intentions, studied by Peter Gollwitzer since the 1990s, are plans in the form **if cue, then action**. The mechanism: the cue itself triggers the response more automatically, so you spend less effortful inhibition in the moment. That is the resource ADHD taxes. Reported effects in ADHD samples are smaller and less studied than in general populations, so treat this as a cheap test, not a cure. Pick your single top derailer and write one rule: if I sit at my desk, then my phone goes face-down in the drawer. Rehearse the sentence, not the intention.",
+      "depth": "Specificity is the whole trick. 'If I get distracted, I refocus' has no cue to attach to. A good cue is an observable event (sitting down, closing a call, hearing the dishwasher finish) and a good action takes under 10 seconds. Review after a week and replace any rule you never triggered.",
+      "id": "burrow-0439",
+      "date": "2026-10-24"
+    },
+    {
+      "topic": "ai-orchestration",
+      "topicLabel": "AI Systems",
+      "type": "insight",
+      "hook": "An agent that passes once may fail every third run.",
+      "body": "Agent evals often report pass@k: did at least one of k tries succeed? That flatters you. What users feel is pass^k: did **all k runs succeed**. At a 90% per-run success rate, five consecutive successes happen only about 59% of the time (0.9 to the fifth power). A workflow that runs daily is a pass^k problem. So report per-run reliability alongside best-of-k, and pick the threshold from how often the task actually repeats. Reliability, not peak capability, usually decides whether you can leave an agent unattended.",
+      "depth": "The pass^k framing appears in tau-bench, which tests tool-using agents on repeated trials of the same task. Practical move: run each eval case 5 to 10 times, log the success rate per case, and sort by the flakiest. Those cases usually point at a missing instruction or an unverified tool result.",
+      "id": "burrow-0440",
+      "date": "2026-10-24"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1153,56 +1203,6 @@
       "depth": "The trap is passing the writer's reasoning into the checker to 'save tokens.' That reintroduces the very shared context you were trying to break, and the check quietly becomes a rubber stamp. Fresh eyes means fresh context: the artifact, the spec, and nothing else.",
       "id": "burrow-0325",
       "date": "2026-09-28"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "insight",
-      "hook": "Short options aren't one bet. Near-term risks moves, long-term risks repricing.",
-      "body": "Selling a weekly and selling a LEAPS both collect premium, but the risk you're actually short is different. **Short-dated options carry most of their risk in gamma**: a sharp move over the next few days can gut you before implied vol even twitches. Long-dated options carry it in vega: the position bleeds when the market simply reprices volatility higher, even with the underlying flat. A front-month seller loses to realized moves. A LEAPS seller loses to a vol-regime shift. Match the tenor to whichever risk you can actually stomach and hedge.",
-      "depth": "The rule of thumb: gamma scales inversely with time to expiry while vega scales with roughly its square root. So the near-dated book whipsaws on price and the long-dated book whipsaws on the vol surface. Two different Greeks, two different hedges, one premium check.",
-      "id": "burrow-0316",
-      "date": "2026-09-27"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "SAG-AFTRA split digital replicas into two kinds. Consent differs.",
-      "body": "The 2023 SAG-AFTRA TV/theatrical contract created two categories most coverage flattens into one. An **Employment-Based Digital Replica** is a scan made during a job you were hired for. An Independently Created Digital Replica is built from pre-existing footage outside that employment. Both require consent, but the consent and payment terms differ, and the replica can't be dropped into other productions without a fresh deal. The practitioner error is treating any signed AI clause as blanket permission. Which replica, made when, for what use, is the whole negotiation.",
-      "depth": "The consent also has to be specific: it must describe the replica's intended use with enough particularity that a general 'we may use your likeness with AI' grant sits closer to unenforceable than airtight. Specificity is the load-bearing term here, same as in every likeness license.",
-      "id": "burrow-0317",
-      "date": "2026-09-27"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "A 90%-accurate test, a positive result, and your odds are 8%.",
-      "body": "Take a condition that affects 1 in 100 people and a test that's 90% accurate both ways. You test positive. Most people, including doctors in the classic 1978 studies, guess the odds near 90%. The real answer is **about 8%**. Out of 1,000 people, 10 are sick and about 9 test positive. But 990 are healthy, and roughly 99 of them test positive falsely. Ninety-nine false alarms swamp nine true ones. The base rate, not the test's accuracy, drives the answer. Same trap in every 'strong signal' that fires against a rare event.",
-      "depth": "For a trader or a lawyer this is the alarm-fatigue math: a rare event plus an imperfect detector produces mostly false positives, no matter how sharp the detector sounds. To move the posterior you need a rarer false-positive rate or independent confirming evidence, not one louder signal.",
-      "id": "burrow-0318",
-      "date": "2026-09-27"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "A silent witness lowers the cost of starting.",
-      "body": "Body doubling means doing your task while another person is simply present, in the room or on a video call, not helping, just there. It reliably lowers activation cost for ADHD brains, and the mechanism isn't willpower. **A present observer adds external accountability and a small arousal bump**, two things an under-stimulated brain can't manufacture alone for a boring task. The task hasn't changed. The context around it has. The concrete move: schedule the dull thing with a witness. A coworking call, a friend on mute, a parent in the kitchen. Presence is the intervention.",
-      "depth": "It's why the same person who can't start a form alone finishes it in a cafe. Not the caffeine: the ambient social presence supplies the salience and mild self-monitoring the task itself fails to trigger. You're externalizing accountability, the same way you'd externalize the next step onto a sticky note.",
-      "id": "burrow-0319",
-      "date": "2026-09-27"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "callback",
-      "hook": "Recall it: a great backtest, worthless at scale. What broke?",
-      "body": "Think back before the answer lands. A signal that printed beautiful returns on a small book can be worthless on a large one, and the culprit isn't the edge. It's **market impact**: your own orders eat liquidity and push the price against you, and the cost grows roughly with the square root of your order as a fraction of daily volume. So ten times the size is more than ten times the cost. The backtest filled at the quote and never charged you for moving it. Capacity, not raw edge, decides whether it survives real money.",
-      "depth": "Why it matters again: every impressive small-account result carries an invisible capacity ceiling. Before sizing up, ask what fraction of daily volume your fills represent, then re-run the numbers with a square-root cost term added. The edge that dies on contact with real money usually dies right here.",
-      "id": "burrow-0320",
-      "date": "2026-09-27"
     }
   ]
 }
