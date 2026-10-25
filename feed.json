@@ -1,6 +1,56 @@
 {
-  "updated": "2026-10-24",
+  "updated": "2026-10-25",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "One vega in front month isn't one vega in back month.",
+      "body": "Raw vega adds across expiries, but implied vol does not move in parallel. Shocks hit the front hard and fade with maturity, so a 1-point jump in 30-day vol often arrives with a much smaller move in 120-day vol. A common fix is **time-weighted vega**: scale each expiry's vega by roughly the square root of (reference days divided by days to expiry). A calendar that looks vega-flat on the screen can still carry real front-month exposure, because the front leg is the part of the surface that actually moves.",
+      "depth": "The weighting is a rule of thumb, not a law. The true ratio shifts by regime: in a panic the whole curve inverts and front vol overshoots, while in quiet markets the back end barely stirs. Estimate your own term-structure beta from your underlying's history before trusting any single exponent.",
+      "id": "burrow-0441",
+      "date": "2026-10-25"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Recall it: why distrust a parameter that beats its neighbors by far?",
+      "body": "Picture the peak you optimized. If the settings one step either side performed far worse, the winner was probably fitted noise. The payoff: **prefer a broad plateau over a sharp peak**. A 14-day lookback that shines while 13 and 15 collapse is not an edge. A robust strategy degrades gracefully when you nudge its settings, and live markets will nudge them for you through different spreads, fills, and regimes.",
+      "depth": "Run the sweep as a heat map, not a leaderboard. Pick the center of the largest flat, high region instead of the top cell, then check that the plateau survives a second asset or out-of-sample period. It pairs with multiple-testing bias: the more settings you try, the larger the luck share of the best one.",
+      "id": "burrow-0442",
+      "date": "2026-10-25"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "insight",
+      "hook": "An MFN is only as good as its definition of 'better'.",
+      "body": "Most MFN fights are not about whether the clause exists. They are about the comparison. Term by term, or whole package? Same role, or any role? Same project, or the whole slate? Term-by-term lets the holder cherry-pick and ratchet, which is why payers resist it. Package-level comparison lets the payer **relabel value into a non-comparable form**, like a producer fee, a bonus, or a back-end definition. Whoever drafts the comparison basis controls what the MFN is worth.",
+      "depth": "Two practical tells: does the MFN carry a notice or audit right, and does it reach deals signed after yours? Without those, it is a promise nobody can verify. Holders should also ask whether the payer can sidestep it by routing economics through an affiliate.",
+      "id": "burrow-0443",
+      "date": "2026-10-25"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "practice",
+      "hook": "Assume the trade already failed. Your reasons list gets longer.",
+      "body": "In a 1989 study, Mitchell, Russo and Pennington found that imagining an outcome as already having happened, called prospective hindsight, reportedly raised the ability to identify reasons for it by roughly 30%. The mechanism is simple. \"It might fail\" invites hedged, vague worry. \"It did fail, why?\" invites **a causal story**, and the mind is far better at explaining the past than forecasting the future. This is the logic behind Gary Klein's pre-mortem.",
+      "depth": "Run it before you size the position or sign the deal, not after. Write reasons privately first, then pool them, so the loudest voice does not anchor the list. The output is not a verdict. It is a list of specific failure paths you can monitor, hedge, or price.",
+      "id": "burrow-0444",
+      "date": "2026-10-25"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Don't resist the distraction. Make it cost three extra steps.",
+      "body": "If inhibition is the weak link, a plan that depends on in-the-moment resistance is built on the weakest part. Use the environment instead. Delay discounting is hyperbolic, meaning the steepest drop in value comes at the **shortest delays**. So a tiny delay on the impulsive option cuts its pull far more than its size suggests. Log out after each use, pull the app off the home screen, and store the password in a manager you must open. Then do the reverse for the task you want: remove steps until starting takes one click.",
+      "depth": "This works because it changes the choice architecture, not your character. Add friction only to the two or three sinks that actually eat your hours, and re-check monthly. A workaround you stop noticing has decayed, and you will drift back to the old pattern.",
+      "id": "burrow-0445",
+      "date": "2026-10-25"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1153,56 +1203,6 @@
       "depth": "It matters again at your P&L. Your best month and worst month both partly regress next month, so 'what did I change after the bad stretch' quietly collects false credit for a rebound that was coming anyway. Judge the process, not the swing that was always going to fade.",
       "id": "burrow-0330",
       "date": "2026-09-29"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "insight",
-      "hook": "Shorting vol pays twice: the premium and the roll.",
-      "body": "The VIX futures curve usually slopes upward in calm markets. A future priced above spot must fall toward spot as expiration nears, all else equal. If you are short that future, that decay is money even if realized volatility never changes. This is **roll yield**, and in quiet regimes it can dwarf the raw variance premium. The catch is symmetry: when the curve inverts in a panic the same roll works violently against you, and it inverts exactly when you are already bleeding on the spot move.",
-      "depth": "Contango-to-backwardation flips are fast and correlated with the drawdown itself. That is why short-vol curves show long calm stretches punctuated by cliffs. The roll is not free carry. It is compensation for agreeing to hold the crash when it comes.",
-      "id": "burrow-0321",
-      "date": "2026-09-28"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Whether AI can resurrect you depends on where you died.",
-      "body": "Right of publicity has no federal statute. It is a **state-by-state patchwork**, and the state that governs is usually the performer's domicile at death, not where the ad runs. California and Tennessee recognize robust post-mortem rights lasting decades. New York only recently added a 40-year post-mortem digital-replica right for performers. Several states recognize no descendible right at all. So a synthetic performance of a dead actor can be lawful or actionable based purely on the estate's chosen home. Talent estates now plan domicile the way the wealthy plan trusts.",
-      "depth": "This is why AI-resurrection clauses increasingly specify governing law and the performer's declared domicile rather than leaning on the forum of production. Estates that want protection migrate toward California or Tennessee; those that do not can stay exposed no matter how the deal reads. The choice-of-law fight is the ballgame.",
-      "id": "burrow-0322",
-      "date": "2026-09-28"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "practice",
-      "hook": "Don't ask how long this will take. Ask how long they took.",
-      "body": "The **inside view** builds an estimate from the specifics of your case: your plan, your team, your reasons this time is different. It runs optimistic because it cannot see the failures it has not imagined yet. The outside view ignores your details and asks a base-rate question instead: how did the reference class of similar efforts actually turn out? Kahneman and Lovallo argued the outside view routinely beats the confident inside estimate. The move is mechanical. Define the class, get its distribution, then adjust only slightly for what is genuinely unique to you.",
-      "depth": "The failure mode is picking a flattering class of one. 'Projects like mine' quietly becomes 'my best project.' Force the class wider than feels fair, count the disasters honestly, and let the distribution, not the story, anchor the number you commit to.",
-      "id": "burrow-0323",
-      "date": "2026-09-28"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Take the pill 90 minutes before the task, not at it.",
-      "body": "Lisdexamfetamine is a **prodrug**: it is inactive until your body cleaves off the lysine and releases the active stimulant. That conversion is gradual, so meaningful effect builds over roughly one to two hours after you swallow it, not on contact. The practical move is to dose against your hardest activation window, not the moment you sit down. If the wall you avoid is 9 a.m. email, taking it at 9 means you fight the wall unmedicated and peak after the morning is already gone. Front-load the clock instead.",
-      "depth": "This also explains the flat, gradual feel versus immediate-release stimulants, and why rushing it changes little: the rate limit is enzymatic, not about dose size. Pair the timing with a fixed wake anchor so the curve lands in the same place every day.",
-      "id": "burrow-0324",
-      "date": "2026-09-28"
-    },
-    {
-      "topic": "ai-orchestration",
-      "topicLabel": "AI Systems",
-      "type": "callback",
-      "hook": "Recall it: why separate the checker from the writer?",
-      "body": "A model grading its own fresh output tends to ratify it. The same context, the same assumptions, and the same blind spots that produced the answer also approve it. **Separation forces independence.** A checker spun up as its own call, without the writer's reasoning in context, has to reconstruct the judgment from the artifact alone, and that is exactly when errors surface. Give it a narrow question and the original spec, not the writer's chain of thought. That is why review is a different call, not a polite second paragraph tacked onto the same one.",
-      "depth": "The trap is passing the writer's reasoning into the checker to 'save tokens.' That reintroduces the very shared context you were trying to break, and the check quietly becomes a rubber stamp. Fresh eyes means fresh context: the artifact, the spec, and nothing else.",
-      "id": "burrow-0325",
-      "date": "2026-09-28"
     }
   ]
 }
