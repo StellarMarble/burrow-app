@@ -1,6 +1,56 @@
 {
-  "updated": "2026-10-26",
+  "updated": "2026-10-27",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Full Kelly gives you a coin flip on halving your bankroll.",
+      "body": "In the continuous Kelly model, the probability that your wealth ever touches a fraction x of its starting level is exactly x. So full Kelly carries a 50% chance of halving at some point, and a 10% chance of falling to a tenth. That is the price of maximizing the growth rate. Bet a fraction f of Kelly and the odds of ever halving become 0.5 raised to the power (2/f minus 1). At half Kelly that is 12.5%, while you keep roughly 75% of the growth rate. **Fractional Kelly** is a drawdown purchase, not timidity.",
+      "depth": "The model assumes you know your edge. You never do, and estimated edges skew high after selection, so full Kelly on an estimated edge is usually an overbet. Sizing at half Kelly or below also absorbs that estimation error, which is why practitioners treat Kelly as a ceiling.",
+      "id": "burrow-0451",
+      "date": "2026-10-27"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Recall it: why can averaging ten forecasters buy you nothing?",
+      "body": "Think about the identity behind the diversity prediction theorem. The crowd's squared error equals the average individual error minus one term. Which term? The **variance of the predictions**. If all ten read the same sources and share the same blind spot, that variance is near zero, so the crowd is exactly as wrong as the typical member. Averaging only helps when the errors point in different directions.",
+      "depth": "It matters again whenever you assemble a panel of analysts, models, or friends. Pick for different information and methods, not just top individual accuracy. Ask of any new member: what do they know or do differently that the rest of the panel does not?",
+      "id": "burrow-0452",
+      "date": "2026-10-27"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Write the first physical action, not the task.",
+      "body": "A task like 'prep the negotiation outline' is not one step. Starting it forces you to plan, sequence, and choose, all executive-function work that raises the activation threshold before anything gets done. Pay that cost in advance, when you are calm, by rewriting the entry as a verb plus an object you can touch: 'open the term sheet, paste the three open issues into a blank page'. **The first action, not the project**, goes on the list. When the moment comes, the decision has already been made.",
+      "depth": "Test the wording: could you begin it with no further thought? If you still have to decide something, split the line again. Put it where you will see it at the moment of starting, such as the top of the doc or a sticky note on the screen.",
+      "id": "burrow-0453",
+      "date": "2026-10-27"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "insight",
+      "hook": "A precise first offer anchors harder than a round one.",
+      "body": "In experiments by Mason, Lee, Wiley, and Ames (2013), negotiators who opened with precise figures like $79,300 rather than $80,000 got counteroffers that stayed closer to their number. Counterparties read precision as evidence of homework, so they adjust less and argue less. The effect appeared across several settings, including real estate pricing. A round number invites haggling in round steps. A **precise anchor** signals a basis, even when it has none. The practical move: build your opening figure from components you can name, then state it unrounded.",
+      "depth": "The caveat is that a precise number you cannot defend collapses on the first question about where it came from. Anchoring effects also shrink when the other side has done its own valuation, so use this most where information is thin.",
+      "id": "burrow-0454",
+      "date": "2026-10-27"
+    },
+    {
+      "topic": "ai-orchestration",
+      "topicLabel": "AI Systems",
+      "type": "mechanism",
+      "hook": "Your LLM judge likes text that sounds like itself.",
+      "body": "Research on LLM evaluators has reported self-preference bias: a model rates its own outputs higher than equally good outputs from other sources, and the effect is linked to how familiar the text is to the model. If the same model writes and grades, your eval quietly rewards its own habits. The fix is structural. Use a **different model family as judge**, or a rubric with checkable criteria, and spot-check a sample against human grades. Treat any score from a same-model loop as optimistic until calibrated.",
+      "depth": "Judge-agreement with your own labels is the number to track. Hand-grade 30 to 50 outputs, compare, and rerun that comparison whenever you change the judge model or the rubric. A judge that cannot match you on that sample should not gate anything.",
+      "id": "burrow-0455",
+      "date": "2026-10-27"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1153,56 +1203,6 @@
       "depth": "Why it matters again: a single flattering equity curve gives you no gap to look at, so nothing ever warns you. Walk-forward forces the comparison into existence. Run only one backtest and you have thrown away the one diagnostic that tells you whether the edge is real or imagined.",
       "id": "burrow-0340",
       "date": "2026-10-01"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Long gamma always costs theta. Convexity is never free.",
-      "body": "Buy an option and you own positive gamma: the position improves as the underlying moves either way. But you pay for that curvature every day in theta. The link is mechanical. For a given implied volatility, the gamma you hold fixes the decay you bleed, dollar for dollar. So being long options is never a free bet on a big move. **You win only if realized movement outruns the implied vol you paid.** Direction barely matters; the whole trade is realized versus implied.",
-      "depth": "This is why gamma scalping is a volatility trade, not a directional one. You delta-hedge to strip out direction and harvest the gap between how much the underlying actually moves and how much its options priced in. Positive when realized beats implied, negative when it lags.",
-      "id": "burrow-0331",
-      "date": "2026-09-30"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "A voice can't be copyrighted. Bette Midler still won.",
-      "body": "In 1988 Midler sued Ford for hiring a sound-alike to imitate her recording. Copyright didn't help, since she didn't own the song and they used a different singer. She won anyway, on California's right of publicity: a distinctive voice is part of identity, and imitating it to sell a product is misappropriation. Tom Waits later beat Frito-Lay the same way. **AI voice clones inherit this framework, not copyright.** The winning theory against a cloned voice is publicity and unfair competition, because the voice itself was never copyrightable subject matter.",
-      "depth": "That is why the recent statutes, Tennessee's ELVIS Act and California's replica laws, extend publicity rights rather than copyright. They target the unauthorized use of identity. A practitioner drafting AI clauses should protect the voice as identity, not as a work, and lean on state publicity law where copyright has nothing to grab.",
-      "id": "burrow-0332",
-      "date": "2026-09-30"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "Superforecasters don't predict better. They update more often.",
-      "body": "Tetlock's forecasting tournaments found the top performers weren't smarter or better informed. Their edge was process: they broke questions into pieces, started from base rates, then adjusted in small, frequent increments as news arrived. Ordinary forecasters anchor on a first guess and move in rare, dramatic leaps. **The skill is granular updating, not the initial call.** A forecaster who nudges from 60% to 63% on real evidence beats one who jumps 50% to 90% on a hunch and then freezes for a month.",
-      "depth": "The trading parallel is exact. A thesis is a starting probability, not a commitment. Each earnings print, each tape reaction is an update, and the discipline is sizing the move to the evidence. Big convictions that never revise are how good analysts blow up.",
-      "id": "burrow-0333",
-      "date": "2026-09-30"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Stuck on a task? Change the room, not the plan.",
-      "body": "Novelty spikes dopamine, and an under-stimulated reward system disengages fastest from the stale and familiar. That's why a task you've stared at for an hour feels impossible, while the same task at a different desk suddenly moves. You're not fixing motivation; you're handing a novelty-hungry system a fresh context to latch onto. **Rotate the environment to reset engagement, not the workload.** A cafe, another room, even facing a different wall can restart a stalled task without changing one thing about the work itself.",
-      "depth": "Same reason changing the task's surface helps: a new font, reading it aloud, switching from screen to paper. The novelty is doing the work, not the medium. Reach for it deliberately and cheaply before you reach for willpower or a second dose.",
-      "id": "burrow-0334",
-      "date": "2026-09-30"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "callback",
-      "hook": "Recall it: 20 strategies tested, best kept. Why distrust its Sharpe?",
-      "body": "Answer: multiple-testing bias. Search enough variations and one will look brilliant by luck alone. Test 20 strategies and, even if none has real edge, the best backtest posts a Sharpe that looks significant, because you selected on noise. The more you tried, the higher that lucky peak climbs. **The number of things you tested is part of the result, and it usually gets hidden.** The fix is the deflated Sharpe ratio, which discounts the winner by how many candidates you searched to find it.",
-      "depth": "It is different from overfitting one model. Here each strategy might be honestly built, yet choosing the best of many inflates the result on its own. Report how many you tried, or hold out data you never touched during the search.",
-      "id": "burrow-0335",
-      "date": "2026-09-30"
     }
   ]
 }
