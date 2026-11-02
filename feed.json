@@ -1,6 +1,306 @@
 {
-  "updated": "2026-10-27",
+  "updated": "2026-11-02",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "insight",
+      "hook": "A 30-delta put is not a 30% chance of loss.",
+      "body": "Delta is a rough proxy for the **risk-neutral probability** of finishing in the money, not the real-world one. Risk-neutral pricing bakes in the volatility risk premium: implied vol has historically exceeded subsequent realized vol on average for index options, and equities drift upward. So the real-world chance that a 30-delta index put finishes in the money is typically lower than 30%. That gap is why selling puts wins often. It is also the premium for bearing a tail where losses are large and clustered. A high win rate is the price of that payoff shape, not proof of skill.",
+      "depth": "Strictly, delta is N(d1) while the risk-neutral in-the-money probability is N(d2) for a call, or N(-d2) for a put. They differ by a term that grows with vol and time. The cleaner read of risk-neutral odds is the slope of option price against strike, scaled by the discount factor.",
+      "id": "burrow-0481",
+      "date": "2026-11-02"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "mechanism",
+      "hook": "Daily bars can't tell you if your stop or target hit first.",
+      "body": "When a daily bar's range touches both your stop and your profit target, the bar does not record which came first. Backtests that quietly assume the target fills first, or that use the close, **resolve the ambiguity in your favor**. The error is largest for tight brackets on volatile days, and it makes tight-stop, tight-target strategies look better than they are. Fix it by assuming the worst order on ambiguous bars, or by replaying those days on intraday data. If the result only survives under the optimistic ordering, you were measuring the assumption.",
+      "depth": "Count how many trades hit both levels inside a single bar. If it is more than a few percent of trades, the ordering rule is effectively a parameter, and you should report results under both orderings. The same logic applies to limit orders that were touched but not necessarily filled, since queue position decides those.",
+      "id": "burrow-0482",
+      "date": "2026-11-02"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "SAG-AFTRA treats a synthetic performer differently from a digital replica.",
+      "body": "In the 2023 TV/theatrical agreement, a digital replica of a real performer needs **informed consent with a reasonably specific description** of intended use, plus compensation. A synthetic performer, an AI-generated figure not recognizable as any particular human, is handled through notice to the union and an opportunity to bargain, not individual consent. The seam is the composite: a synthetic that resembles a real performer's face or voice is arguably a replica in disguise, and the text gives no clean answer. Draft for that seam, because the lookalike dispute will land there.",
+      "depth": "Talent side: add a representation that no synthetic is trained on or tuned to the client's likeness without consent. Production side: document generation provenance. Check the current cycle's terms, since these agreements get renegotiated and the 2023 text may have been updated.",
+      "id": "burrow-0483",
+      "date": "2026-11-02"
+    },
+    {
+      "topic": "brain-science",
+      "topicLabel": "Brain & Focus",
+      "type": "mechanism",
+      "hook": "Rereading feels like learning. Testing yourself actually is.",
+      "body": "In Roediger and Karpicke's 2006 study, students read a prose passage and then either restudied it or took recall tests. Five minutes later, restudying won. A week later, **testing beat restudying**, with roughly 60% retained versus about 40%. Rereading creates fluency, the feeling that material is familiar, and fluency is a poor proxy for retrievable memory. Effortful retrieval strengthens the route back to the memory itself. The move: after reading anything you need, close it, write what you remember, then check. The ugly feeling of not remembering is the part that works.",
+      "depth": "The benefit is largest when retrieval is hard but still succeeds, and when feedback afterward corrects errors. Spacing multiplies it. This is the logic behind the callback cards in this feed.",
+      "id": "burrow-0484",
+      "date": "2026-11-02"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "callback",
+      "hook": "Recall it: why did a precise opening number outperform a round one?",
+      "body": "Think about what the other side infers when they see $79,300 instead of $80,000. Take a beat. The answer: they read precision as **evidence of homework**, so they adjust less. In Mason, Lee, Wiley, and Ames (2013), precise openers drew counteroffers that stayed closer to the opening number than round ones did. Round numbers invite haggling in round steps. Precise numbers signal a basis whether or not one exists. The move: build your opening figure from components you can name, then state it unrounded.",
+      "depth": "Worth retrieving again before your next first offer. The failure mode is precision without a basis: a sharp counterparty will ask how you got there, and a number you cannot decompose collapses faster than a round one.",
+      "id": "burrow-0485",
+      "date": "2026-11-02"
+    },
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A deep in-the-money put is worth more dead than alive.",
+      "body": "An American put can be exercised any time, so it never trades below intrinsic value. Deep in the money, its remaining optionality is tiny, because the stock has little room to fall further. Exercising converts the stock into **strike cash that earns interest starting today**. When that interest exceeds the leftover time value, holding is the mistake. Higher rates pull the early-exercise boundary closer to the money. This is the mirror image of the call-and-dividend case, with the carry running the other way.",
+      "depth": "A European put has no such floor: it can trade below K minus S, because the strike arrives only at expiry. Dividends work against early put exercise, since the ex-date drop in the stock helps the put holder who waits.",
+      "id": "burrow-0476",
+      "date": "2026-11-01"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "insight",
+      "hook": "A voice isn't copyrightable, which is why it's protectable.",
+      "body": "Practitioners often assume copyright preemption will sink a voice-clone claim. The Ninth Circuit rejected that logic decades before generative AI. In Midler v. Ford (1988), an ad agency hired a sound-alike after Bette Midler declined. The court held that a **voice is not a copyrightable work**, so the Copyright Act did not preempt her state-law claim. Waits v. Frito-Lay (1992) followed the same path. Preemption only applies to rights within the subject matter of copyright, and a vocal identity sits outside it. The synthetic-voice cases are built on this foundation.",
+      "depth": "The caveat is that outcomes turn on state law. Midler rested on California common-law misappropriation, and statutes like Tennessee's ELVIS Act now codify voice rights. A defendant's best argument is usually not preemption but First Amendment or lack of identifiability.",
+      "id": "burrow-0477",
+      "date": "2026-11-01"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "Perfect calibration can still make you a useless forecaster.",
+      "body": "Say it rains on 30% of days, and you forecast 30% every single day. You are perfectly calibrated: of your 30% calls, 30% come true. You are also worthless, because the forecast never changes with the situation. The Murphy decomposition splits the Brier score into reliability (calibration), resolution, and uncertainty. **Resolution is the part that rewards discrimination**: pushing forecasts away from the base rate when the evidence warrants it. A good forecaster needs both, and most calibration training only teaches the first.",
+      "depth": "Brier = reliability minus resolution plus uncertainty, where uncertainty is fixed by the base rate. Your score improves only by lowering reliability error or raising resolution. Check which one you are actually moving.",
+      "id": "burrow-0478",
+      "date": "2026-11-01"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Lisdexamfetamine is inactive until your blood cells cut it.",
+      "body": "Lisdexamfetamine is a prodrug: dextroamphetamine bonded to the amino acid lysine. It does nothing until enzymes, mainly in red blood cells, cleave the bond. That makes activation **rate-limited by hydrolysis, not by your stomach**, which is why onset feels slower and smoother than immediate-release, with dextroamphetamine peaking roughly 3.5 hours after the dose. The concrete move: do not judge a dose by the first hour. Feeling nothing at 45 minutes is the expected pharmacology, not a failed dose.",
+      "depth": "Because activation does not depend on gastric pH, food mainly delays the peak slightly rather than changing the total. Duration is reported at roughly 10 to 14 hours, so dosing time matters for sleep. This is a good reason to log timestamps for your prescriber.",
+      "id": "burrow-0479",
+      "date": "2026-11-01"
+    },
+    {
+      "topic": "story-craft",
+      "topicLabel": "Story Craft",
+      "type": "practice",
+      "hook": "If a scene ends where it began, cut it.",
+      "body": "Robert McKee's test for a scene is simple: it must turn a value. Name the value at the opening in one word (safe, trusting, winning) and again at the close. If both words match, you wrote a transition, not a scene. **The turn must be the point of the scene**, not a side effect of it. For audio fiction this matters more, because the listener has no visual cut to reset attention. The turn has to land as a line, a sound, or a silence the listener can hear.",
+      "depth": "Run it as an edit pass on any script: write the opening and closing value next to each scene heading. Runs of three or more identical pairs mark the sag. Merge those scenes or give one of them a reversal.",
+      "id": "burrow-0480",
+      "date": "2026-11-01"
+    },
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Calls get exercised early only when the dividend beats time value.",
+      "body": "American calls on dividend payers are almost never exercised early, with one exception: the session before the ex-dividend date. The holder rationally exercises only when **the dividend exceeds the call's remaining extrinsic value**. A deep in-the-money call with a few cents of extrinsic and a dividend on the calendar is the candidate. If you are short that call, overnight assignment leaves you short stock going into the ex-date, and you owe the dividend. So before every ex-date, scan your short calls for extrinsic value below the dividend.",
+      "depth": "Exercising early also forfeits interest on the strike cash you would otherwise hold, which raises the hurdle slightly. Short call spreads are the classic trap: the short leg gets assigned overnight while the long leg stays unexercised, leaving you with unwanted stock and margin exposure.",
+      "id": "burrow-0471",
+      "date": "2026-10-31"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "mechanism",
+      "hook": "Signal at the close, fill at the close: a quiet look-ahead.",
+      "body": "A signal computed from today's close cannot be traded at today's close. The close is only known once it prints, yet many backtests compute on a bar and fill at that same bar's price. It is look-ahead bias in its quietest form. The damage concentrates in **short-horizon reversal and breakout signals**, where the last tick drives both the signal and the fill. The fix is mechanical: lag the signal one bar and fill at the next open, or at the next close if you trade the auction. If the edge shrinks sharply, it was partly borrowed from the future.",
+      "depth": "Test it directly: shift your signal one bar later and rerun. A real edge decays gently with delay. A phantom edge collapses. Plotting performance against 0, 1, 2 and 3 bars of lag is a cheap robustness curve most backtests never produce.",
+      "id": "burrow-0472",
+      "date": "2026-10-31"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "California voids vague digital-replica clauses unless the performer had counsel.",
+      "body": "California's AB 2602, effective January 1, 2025, makes a contract provision unenforceable if it lets a company create and use a digital replica of a performer's voice or likeness in place of work they would otherwise have done in person. The trigger is twofold: the provision lacks a **reasonably specific description of the intended uses**, and the performer was not represented by counsel or a union. Boilerplate like \"all media now known or hereafter devised\" is exactly what the statute targets. Practitioners drafting replica grants should list the uses and document representation.",
+      "depth": "The contested edge is scope: whether a general grant reaches a replica performing work the individual never would have done is less clear. Treat the statute as a floor for specificity, not a safe harbor, and expect guild terms to set a higher bar for covered performers.",
+      "id": "burrow-0473",
+      "date": "2026-10-31"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Swap the clock for a shrinking visual countdown.",
+      "body": "Time blindness in ADHD shows up in research as impaired time estimation and reproduction, not mere lateness. A numeric clock demands that you convert digits into elapsed time, which is exactly the step that fails. A **shrinking visual countdown** turns remaining time into an area you can see, like a red disc or a draining bar. Set it for the work block, not the deadline, and put it in your line of sight. You are not trying to feel time better. You are moving the computation out of your head and onto the desk.",
+      "depth": "A passive countdown can still be ignored in hyperfocus, so add an audible alarm at the end, plus a travel buffer if the next commitment is offsite. Run it for a week and keep whichever cue actually got you moving.",
+      "id": "burrow-0474",
+      "date": "2026-10-31"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "callback",
+      "hook": "Recall it: what rule change broke the Hunt brothers' silver squeeze?",
+      "body": "Nudge: the position was legal, but the rulebook was not fixed. In early 1980, COMEX imposed **position limits and liquidation-only trading** in silver. The Hunts could no longer add to the position propping up the price, while margin calls on the existing one kept coming. Silver fell from roughly $50 in January to around $11 on March 27, 1980, Silver Thursday. The exchange rewrote the rules while the squeeze was live.",
+      "depth": "Any strategy leaning on a venue's rules, such as squeezes, pinned expiries, or margin regimes, carries rule-change risk that no backtest prices. Ask who can edit the rulebook, and what they gain by doing it mid-game.",
+      "id": "burrow-0475",
+      "date": "2026-10-31"
+    },
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A hard-to-borrow stock makes puts expensive without anyone being bearish.",
+      "body": "Put-call parity pins calls, puts, and the forward. The forward is spot plus carry, minus dividends, minus the **borrow fee** that shorts pay. When a stock is hard to borrow, the forward drops, so puts price above calls at the same strike. A synthetic long looks cheap and a synthetic short looks rich. That skew on a heavily shorted name can be pure financing, not fear. Back out the implied borrow rate from parity before you read a bearish signal into the chain.",
+      "depth": "Back out the forward from the strike where call and put mids match: F = K + e^(rT)(C - P). Then borrow is roughly r - q - ln(F/S)/T. Use near-ATM, short-dated quotes. American early-exercise premium contaminates single-stock puts, so treat the result as an estimate.",
+      "id": "burrow-0466",
+      "date": "2026-10-30"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "insight",
+      "hook": "Try 100 useless strategies for five years; the best shows Sharpe 1.3.",
+      "body": "With five years of data, the annualized Sharpe of a zero-skill strategy has a standard error near 0.45. The best of N independent trials sits roughly sigma times the square root of 2 ln N above zero. For N = 100 that is about three standard errors, so a Sharpe near 1.3 appears from **pure selection**. The backtest did not find an edge. It found the luckiest noise in your search space. Count every variant you tried, including the ones you discarded, and demand the winner clear that bar.",
+      "depth": "This is the logic behind the deflated Sharpe ratio (Bailey and Lopez de Prado). It also assumes independent trials. Correlated variants lower the effective N, but you rarely know by how much, so log your trial count honestly.",
+      "id": "burrow-0467",
+      "date": "2026-10-30"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Tennessee's ELVIS Act can reach the tool maker, not just the user.",
+      "body": "Most practitioners read digital-replica statutes as targeting whoever publishes the fake. Tennessee's ELVIS Act, effective July 1, 2024, goes further. It adds liability for distributing or making available an algorithm, software, or tool whose **primary purpose** is producing an unauthorized likeness or voice. It also protects voice as such, including simulations, not just recordings of the actual person. The risk analysis for a voice-cloning vendor or a studio's AI tool licensor therefore starts at the product's stated purpose, not at user misuse.",
+      "depth": "The 'primary purpose' test is untested in reported decisions as far as I know. Marketing copy and onboarding flows are likely evidence, so vendor reps and indemnities should be drafted around how the product is described, not just how it is used.",
+      "id": "burrow-0468",
+      "date": "2026-10-30"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Schedule your hardest task for hours three to four after dosing.",
+      "body": "Lisdexamfetamine is a prodrug. It has to be converted to dextroamphetamine in red blood cells before it does anything. The prodrug itself peaks around an hour after the dose, but the active d-amphetamine peaks roughly **three to four hours** in. That means the first hour is a poor slot for your most demanding work, and the mid-morning window is the best one. Put the task that needs sustained inhibition and working memory there. Put email and admin on either side of it.",
+      "depth": "Timing varies by person, food, and dose. Mid-titration, check this against your own timestamps instead of the average curve. The point is to place the demanding task by where your own peak lands.",
+      "id": "burrow-0469",
+      "date": "2026-10-30"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "The 1948 Paramount decrees lasted 72 years.",
+      "body": "The Supreme Court ruled against the major studios in 1948, and consent decrees followed that forced them to divest their theater chains. They also banned block booking and circuit dealing. The decrees were meant to restore competition, but they outlived the industry they described. The Justice Department moved to terminate them in 2019, and a federal judge ended them in August 2020 with a **two-year sunset** on block booking and circuit dealing. A rule written for 1940s exhibition governed streaming-era distribution until then.",
+      "depth": "The rhyme is with fin-syn, which was also an antitrust remedy and was repealed in the mid-1990s. Both show how long structural remedies persist after the facts that justified them have changed.",
+      "id": "burrow-0470",
+      "date": "2026-10-30"
+    },
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A variance swap hands you convexity you didn't ask for.",
+      "body": "A variance swap pays notional times (realized variance minus strike variance). Variance is vol squared, so the payoff is convex in vol. Say the strike is 20. Realized vol of 30 pays about 12.5 vol points of vega notional. Realized vol of 10 costs you about 7.5. Same 10-point miss either way, unequal result. The long side owns **free convexity in volatility**, so the seller charges for it. The variance strike sits above the equivalent vol swap strike, and by more when skew is steep. Quote it as a straight vol bet and you misprice the exact thing you are buying.",
+      "depth": "Replication explains the skew link. A variance swap is a strip of options weighted by 1/K squared, which loads heavily on far downside puts. So its strike embeds the tail. Vega notional is conventionally set as variance notional times 2K, which linearizes the payoff at the strike. Short variance is the purest bet that the tail never shows up.",
+      "id": "burrow-0461",
+      "date": "2026-10-29"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "The Copyright Office won't register prompts, but will register your arrangement.",
+      "body": "Practitioners keep saying AI-assisted work is unprotectable. That is too blunt. The Copyright Office's January 2025 report concluded that prompts alone do not give enough control to make the user an author. But **human-authored elements still register**: your own text, your modifications to output, and your selection and arrangement. The 2023 Zarya of the Dawn decision showed the split. The comic's text and layout were registered, while the Midjourney images were not. The real work is documentation: keep drafts, edits, and the human choices that shaped the final asset, because the claim will need to be itemized.",
+      "depth": "Applicants must disclose AI-generated material that is more than de minimis and disclaim it in the registration. Omitting the disclosure risks invalidating the registration later. For chain-of-title diligence, ask for the generation and edit history, not just a rep that the work is original.",
+      "id": "burrow-0462",
+      "date": "2026-10-29"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Kahneman's team guessed two years. Comparable teams took seven to ten.",
+      "body": "Kahneman describes a curriculum project he worked on in which each team member estimated roughly two years. He then asked the curriculum expert, Seymour Fox, how similar teams had fared. Fox said about 40% never finished, and the ones that did took seven to ten years. Kahneman's project took about eight. **The outside view** starts from the distribution of comparable cases, not from your plan. The team had the base rate in the room and ignored it until someone asked. Ask the reference-class question first. Then adjust for what makes you different, and be honest that it is usually less than you think.",
+      "depth": "The inside view builds a scenario step by step, and every step feels plausible, so the total feels safe. That is the planning fallacy. The fix is mechanical: pick a reference class, take its median and spread, then adjust a little. Apply it to a production schedule or a trade's holding period the same way.",
+      "id": "burrow-0463",
+      "date": "2026-10-29"
+    },
+    {
+      "topic": "brain-science",
+      "topicLabel": "Brain & Focus",
+      "type": "mechanism",
+      "hook": "Your 3pm coffee is still half-present at bedtime.",
+      "body": "Caffeine's half-life averages roughly five to six hours in healthy adults, with wide individual variation. So a 200 mg dose at 3pm leaves about 100 mg circulating near 9pm. It works by blocking adenosine receptors, which does not erase sleep pressure. It just masks it. A well-known 2013 lab study (Drake and colleagues) found that 400 mg taken six hours before bed measurably cut sleep time. Participants did not feel the loss. **Perceived sleep disruption understates the measured loss**, so your gut is a poor judge here. Since you track sleep, run the test on your own data: cutoff at noon for two weeks, then compare.",
+      "depth": "Half-life varies with genetics (CYP1A2), smoking, hormonal contraceptives, and pregnancy. Change one variable at a time, otherwise your Oura trend line will blame the wrong thing. Judge by deep sleep and resting heart rate over weeks, not a single night.",
+      "id": "burrow-0464",
+      "date": "2026-10-29"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Recall it: what ratio decides whether a signal survives its costs?",
+      "body": "Think of a signal earning 6 bps gross per round trip, with 3 bps of round-trip costs. Half the edge is gone before slippage error. Retrieve the ratio before reading on. It is the **break-even cost multiple**: gross edge divided by round-trip cost, here 2x. That, not Sharpe, tells you how much execution error you can absorb. Below 2x, assume live trading kills it. Then multiply by turnover: daily trading pays costs about 20 times as often as monthly.",
+      "depth": "It matters again because options spreads are wide in percentage terms and widen in stress, exactly when your signal fires hardest. Re-run any backtest at double the assumed cost. If the edge disappears, you never had a margin of safety.",
+      "id": "burrow-0465",
+      "date": "2026-10-29"
+    },
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "An ATM straddle prices a 0.8 sigma move, not one sigma.",
+      "body": "An ATM straddle does not price a one-sigma move. It prices the **expected absolute move, roughly 0.8 sigma**, because the mean absolute deviation of a normal distribution is about 0.8 of its standard deviation. At 20% implied vol on a 30-day option, one sigma is about 5.7% of spot, while the straddle costs roughly 4.6%. So the 'implied move' people quote from a straddle is the typical size of a move, and a one-sigma move is a bigger event than that. Compare realized absolute moves to 0.8 sigma, not 1.",
+      "depth": "With real fat-tailed returns, the mean absolute deviation often falls below 0.8 sigma, so the ratio is not a constant. To back out the implied one-sigma move from a straddle, divide its price by roughly 0.8 and sanity check against the stock's own history.",
+      "id": "burrow-0456",
+      "date": "2026-10-28"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "practice",
+      "hook": "Backtesting options at mid-price quietly hands you the spread.",
+      "body": "Backtesting options at mid-price gives you the bid-ask spread for free. A four-leg iron condor crosses four spreads on entry and four on exit. With a hypothetical **nickel of half-spread per leg**, that is 20 cents in and 20 out, or 40 cents round trip against a $1.50 credit, roughly 27% of the premium gone before any loss. Edge in short premium is often only a few percent a year, so friction of this size can erase it entirely. Spreads also widen in stress, which is exactly when you adjust.",
+      "depth": "Rerun the test with fills 25%, 50%, and 100% of the way from mid to the worse quote, and plot return against that fraction. If the curve crosses zero before 50%, your live fills will decide whether you have a strategy at all.",
+      "id": "burrow-0457",
+      "date": "2026-10-28"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "In 1952 the actors' union let a talent agency produce TV.",
+      "body": "In 1952 the Screen Actors Guild, led by Ronald Reagan, granted talent agency MCA a **blanket waiver** from the rule barring agents from producing. MCA's Revue Productions then made television shows starring its own clients, which put the agency on both sides of the table. It bought the Universal backlot in 1958, then Decca, Universal's parent, in 1962. Antitrust pressure from the Justice Department forced it to drop the agency business and keep the studio.",
+      "depth": "The same conflict resurfaced in the 2019 WGA fight with the major agencies over packaging fees and agency-affiliated production arms, and the 2020 agreements restricted agency-owned production. The 1962 split held for roughly sixty years.",
+      "id": "burrow-0458",
+      "date": "2026-10-28"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Urine pH changes how fast amphetamine leaves your body.",
+      "body": "Amphetamine is a weak base, and how much of it is excreted unchanged depends on urine pH. **Acidic urine speeds clearance** and shortens the effect, while alkaline urine slows clearance and lengthens it. Prescribing labels list urinary acidifiers and alkalinizers, such as large doses of vitamin C or sodium bicarbonate, as interactions. The move: if a dose feels unusually short or long, add 'big vitamin C, antacid, or heavy citrus today?' to your timestamp log, and ask your prescriber before supplementing regularly.",
+      "depth": "Lisdexamfetamine is a prodrug converted to dextroamphetamine in red blood cells, so absorption is fairly insensitive to stomach acid. The excretion side is still pH-dependent. Treat it as one variable among several to rule out, not a dial to adjust yourself.",
+      "id": "burrow-0459",
+      "date": "2026-10-28"
+    },
+    {
+      "topic": "story-craft",
+      "topicLabel": "Story Craft",
+      "type": "practice",
+      "hook": "Show the bomb before the conversation. Suspense is information asymmetry.",
+      "body": "Hitchcock's famous example: two people talk at a table, and a bomb goes off. That is **15 seconds of surprise**. Show the audience the bomb under the table first, and the same ordinary conversation becomes 15 minutes of suspense, because they know what the characters do not. For audio fiction, the tool is a sound cue only the listener can interpret: a ticking, a lock turning, a second set of footsteps. Plant it in the first line of the scene, then let the dialogue stay mundane. The gap between what they know and what the characters know does the work.",
+      "depth": "Surprise gives a single jolt; suspense gives sustained attention. Use surprise sparingly for reveals and suspense for scenes you need the listener to lean into. Hitchcock described the bomb example in his interviews with Truffaut.",
+      "id": "burrow-0460",
+      "date": "2026-10-28"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -903,306 +1203,6 @@
       "depth": "Worth re-flagging because it stacks with the other sins. Survivorship inflates the return curve first, then you overfit to that inflated curve, so two biases compound. Any backtest built on a universe you sourced today is suspect before you even look at the Sharpe.",
       "id": "burrow-0370",
       "date": "2026-10-09"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Long gamma pays you to rebalance. That's the edge.",
-      "body": "A delta-hedged long option is **long gamma**: when the stock rises your delta climbs, so you sell shares into the move; when it falls your delta drops, so you buy. Every oscillation forces you to sell high and buy low, and you book the difference. The position harvests the stock's realized movement one re-hedge at a time. You pay theta each day for the right to keep scalping. It wins only when realized volatility, summed across all those hedges, beats the implied volatility you paid at entry.",
-      "depth": "This is why a long straddle can bleed to zero in a quiet market even if the stock eventually gaps. The path between your hedges, not the final price, is what pays. Set the re-hedge band too wide and you miss the scalp; too narrow and transaction costs eat it alive.",
-      "id": "burrow-0361",
-      "date": "2026-10-08"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Training on the books was fair use. Getting them wasn't.",
-      "body": "In **Bartz v. Anthropic**, a federal judge ruled that using copyrighted books to train a model was transformative fair use. But the same opinion held that downloading pirated copies to build the training library was ordinary infringement, fair use or not. The lesson practitioners keep missing: how you acquired the data is a separate claim from how you used it. A clean fair-use defense on the output does nothing for a tainted-provenance claim on the inputs. The case reportedly settled for roughly $1.5 billion on the acquisition side.",
-      "depth": "It splits the AI-copyright question in two. 'Was the use transformative?' is the headline fight, but 'did you have the right to possess the copy you learned from?' is the quieter and often stronger claim. Scraped-from-the-open-web and bought-then-pirated sit very differently on that second axis.",
-      "id": "burrow-0362",
-      "date": "2026-10-08"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Rebound fools you into chasing a higher dose.",
-      "body": "As a long-acting stimulant like **lisdexamfetamine** clears, blood levels can dip below baseline for a stretch before settling. That rebound window feels like inattention roaring back, which tempts a dose increase when the real fix is timing. The mechanism: the medication effect tracks the blood-level curve, and the tail of that curve is predictable. The move is to schedule your highest-activation work, the thing you most dread starting, inside the peak window, and leave the fading tail for low-stakes or already-running tasks. Do not start the hard thing at 4 p.m.",
-      "depth": "Titration is partly about finding the dose, but just as much about mapping your own curve: note when focus arrives, when it peaks, when it fades. That map, not the milligram number alone, tells you where to put the work that needs the most push to begin.",
-      "id": "burrow-0363",
-      "date": "2026-10-08"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "Your 90% confident range is wrong about half the time.",
-      "body": "Ask people for a range they are **90% sure** contains the true answer, and the right answer falls outside it far more than 10 percent of the time. Reported hit rates in calibration studies cluster around 40 to 50 percent. The mechanism is anchoring: you fix on a best guess, then nudge the edges out too timidly, so your 'wide' range is still built around your point estimate. The fix is mechanical. Set your interval, then widen it until it feels absurd, because absurd is usually where calibrated actually lives.",
-      "depth": "This is why a trader sizing to a 'worst case' still gets wrecked, and why a lawyer's 'range of outcomes' misses the tail. The failure is not ignorance of the number; it is false precision about how well you know it. Track your own intervals for a month and you can measure your true hit rate.",
-      "id": "burrow-0364",
-      "date": "2026-10-08"
-    },
-    {
-      "topic": "brain-science",
-      "topicLabel": "Brain & Focus",
-      "type": "callback",
-      "hook": "Recall it: caffeine blocks the alarm. What keeps piling up?",
-      "body": "**Adenosine.** Across waking hours it accumulates in the brain and binds the receptors that signal sleep pressure. Caffeine works by blocking those receptors, so you stop feeling the pressure, but the adenosine keeps building the entire time. When the caffeine clears, all of it is still there and binds at once. That is the crash. The debt was never paid down, only hidden, and the only thing that truly clears adenosine is sleep.",
-      "depth": "Practical read: caffeine late in the day blocks receptors for hours, since its half-life runs several hours, so it can blunt the very pressure you need to fall asleep and deepen tomorrow's deficit. Timing beats dose.",
-      "id": "burrow-0365",
-      "date": "2026-10-08"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "A stock pinned to your strike is a Monday-morning mystery.",
-      "body": "Expiration lands with the underlying sitting almost exactly on your short strike. Now you have a problem: whether you get assigned depends on whether the long holder chooses to exercise, and at a penny in or out of the money that choice is unpredictable. So you can go home Friday thinking you're flat and wake up Monday unexpectedly long or short 100 shares per contract, carrying a full weekend of unhedged gap risk. **Pin risk is uncertainty about your position, not your price.** Market makers hedge hard into the close precisely to avoid being caught naked by it.",
-      "depth": "It bites worst in low-priced, heavily-optioned names where huge open interest clusters at round strikes, and dealer hedging can actually drag the price toward that strike into the bell. The fix is boring: close or roll a near-the-money short before expiration rather than hoping it settles clean.",
-      "id": "burrow-0356",
-      "date": "2026-10-07"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "The Warhol ruling quietly reshaped every AI fair-use defense.",
-      "body": "Practitioners still reach for the Google Books era, when 'the machine learned something new' made a use transformative and factor one fell their way. Warhol v. Goldsmith (2023) narrowed that. The Supreme Court held the first factor weighs a use's purpose against its commercial character and whether it serves the **same market** as the original. Applied to AI, learning from a work is not automatically transformative if the output competes with that work. The question shifted from 'is it new?' to 'does it substitute?'",
-      "depth": "That is why factor four, market harm, is now the real battleground in the training-data suits, and why the Meta authors' loss turned largely on failing to prove the market they were denied. A defense built on pre-2023 transformativeness language is quietly out of date.",
-      "id": "burrow-0357",
-      "date": "2026-10-07"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "callback",
-      "hook": "More detail made it feel likelier. Which rule does that break?",
-      "body": "Picture Linda: thoughtful, outspoken, once a philosophy major. Is she more likely a bank teller, or a bank teller who is also a feminist? Most people pick the second, which is impossible, since every feminist bank teller is already a bank teller. The answer is the **conjunction rule**: P(A and B) can never exceed P(A). Adding a vivid, fitting detail raises a scenario's plausibility while it can only lower its probability. The richer story is the weaker bet.",
-      "depth": "This is the one to keep live at the screen. When a forecast or a thesis arrives fully furnished with reasons, treat each added clause as another condition that must independently come true. The clean, under-specified version is usually the better odds.",
-      "id": "burrow-0358",
-      "date": "2026-10-07"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Make the first step too small to refuse.",
-      "body": "Starting carries a fixed activation cost, and the ADHD brain overweights it, so a task labeled 'write the report' triggers avoidance long before any writing would happen. The size of the step you picture is what your brain prices, not the size of the job. **Shrink the entry point below the threshold:** not 'write the report' but 'open the file and type one bad sentence.' Once you are moving, continuation is cheap, because the expensive part was always the standing start, not the run.",
-      "depth": "This is why 'just do five minutes' works and 'buckle down' doesn't. Five minutes is a step small enough to clear the threshold; buckling down is a mountain your brain refuses to price. Size the first move, not the willpower.",
-      "id": "burrow-0359",
-      "date": "2026-10-07"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "mechanism",
-      "hook": "An MFN you grant can handcuff every future deal.",
-      "body": "A most-favored-nations clause promises your counterparty they will automatically get any better term you later hand someone else. Granting it feels free, because on signing day it costs nothing. The mechanism that bites shows up later: it **strips your ability to price-discriminate.** You can no longer give a bigger, more valuable partner a sweeter deal without retroactively upgrading the MFN holder too, so the clause quietly caps the upside of every negotiation that follows it.",
-      "depth": "The real fights are over scope. Is it compared term-by-term or whole-deal? Which terms count as 'comparable'? Does it reach deals struck by affiliates, or only you? A narrow, term-matched MFN with affiliate carve-outs is survivable; a broad whole-deal one gives away your future leverage.",
-      "id": "burrow-0360",
-      "date": "2026-10-07"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "insight",
-      "hook": "A covered call is a short put wearing a disguise.",
-      "body": "Put-call parity forces it. Long stock plus a short call at strike K has the exact same payoff as a short put at K, same expiry: identical P&L curve, identical downside, identical breakeven. The covered call feels conservative because you own the shares, but all the risk lives in the stock you hold, and the call caps upside the way a short put does. **The only real differences are margin treatment and assignment mechanics, not risk.** If you would never naked-short the put, the covered call is that same bet with better optics.",
-      "depth": "This is why 'safe income' covered-call funds are selling puts in all but name. The premium you collect is the same variance risk premium a put seller earns, and your worst case, stock to zero minus premium, matches the put seller's exactly.",
-      "id": "burrow-0351",
-      "date": "2026-10-05"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "A reward next week barely exists to your brain today.",
-      "body": "The mechanism is steep delay discounting. A reward's motivational pull decays with time-to-payoff far faster in an ADHD reward system, so a deadline that is seven days out generates almost no signal now, no matter how much it will matter then. Willpower does not fix this; it is a valuation problem, not a character one. The move is to **manufacture a near-term stake the task can actually compete with**: a same-day checkpoint, a visible checkmark, a text you owe someone by 5p, money on the line tonight. Pull the payoff into today or nothing fires.",
-      "depth": "This is also why external deadlines beat internal ones for you. An internal 'I should finish this week' sits on the flat, discounted part of the curve; a real consequence due today sits on the steep part where motivation actually lives.",
-      "id": "burrow-0352",
-      "date": "2026-10-05"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "The first training case lost fair use, and it wasn't generative.",
-      "body": "In February 2025, Judge Bibas handed Thomson Reuters the first real win against AI training. Ross Intelligence had copied Westlaw's editorial headnotes to build a competing legal-research tool. Bibas, reversing his own earlier view, held the use was not fair. Two factors decided it: the purpose was **not transformative because Ross wasn't generative**, it was assembling a direct market substitute, and the fourth factor, market harm, pointed hard at Thomson Reuters because Ross aimed at its customers. The takeaway practitioners drew: non-generative copying plus direct competition is the losing combination.",
-      "depth": "Most generative-AI defendants will argue precisely what Ross couldn't, that their output is transformative and serves a different market. Bibas drew that line explicitly, which is why the ruling cut against Ross while handing the OpenAIs and Metas a distinction to stand on.",
-      "id": "burrow-0353",
-      "date": "2026-10-05"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "insight",
-      "hook": "Your fundamentals backtest knows numbers that didn't exist yet.",
-      "body": "Companies restate earnings, and most databases overwrite the original figure with the corrected one. So a strategy that screens on last quarter's EPS is often reading the number as republished months later, not the number the market actually saw on the reporting date. Add filing lag, the data existed in the database before it was legally public, and your backtest is quietly trading on information from the future. **Use point-in-time data: the value as it was known that day, not as the database shows it now.** Otherwise you are grading hindsight.",
-      "depth": "It is a sneakier cousin of survivorship bias. There the row is missing entirely; here the row is present but holds the wrong value, so the backtest looks complete and clean while being contaminated in every cell you restated.",
-      "id": "burrow-0354",
-      "date": "2026-10-05"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "callback",
-      "hook": "Superforecasters beat the experts. What was their actual edge?",
-      "body": "Not raw intelligence, not better sources, not access. Think about what they did differently every time a new fact landed... They broke questions into parts, started from base rates, then **updated in small, frequent increments** as evidence arrived. The ordinary forecaster anchors on a first guess and lurches in rare, dramatic jumps. The winner nudges 60 to 63 on real news and beats the one who leaps 50 to 90 on a hunch and then freezes for a month. The skill is granular updating, not the opening call.",
-      "depth": "Worth re-filing because your trading version is identical: the loss is refusing to move a thesis one notch when a single piece of evidence lands, then overcorrecting hard later. Update often, update small, and the first number matters less than you think.",
-      "id": "burrow-0355",
-      "date": "2026-10-05"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "A deep in-the-money put gets exercised early for interest.",
-      "body": "Everyone learns that an American call is exercised early only to capture a dividend. The mirror case for puts gets skipped. A holder of a deep in-the-money put can exercise to collect the strike in cash now and earn interest on it. The remaining time value that far in the money is tiny, so the interest on the strike can exceed it. **The driver is the time value of money, not volatility.** If you are short that put, early assignment is the risk you never priced.",
-      "depth": "The symmetry is clean. Calls pay you to wait unless a dividend makes holding the stock worth more now. Puts pay you to wait unless interest on the strike makes cash-in-hand worth more now. Higher rates widen the window where early put exercise is rational, which is why it was routine in high-rate decades and nearly vanished near zero.",
-      "id": "burrow-0346",
-      "date": "2026-10-03"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Regurgitation is the plaintiff's best exhibit in an AI suit.",
-      "body": "Training on copyrighted text may be fair use. Producing a near-verbatim copy of that text is a different problem, and plaintiffs know it. **The strongest evidence in the training-data cases is memorization**: a prompt that makes the model spit back long passages close to the original. The New York Times complaint against OpenAI leaned on exactly this, showing article text the model reproduced. It bridges the gap between 'trained on my work' and 'copied my work,' which is the gap defendants most want to keep open. Expect every complaint to go hunting for it.",
-      "depth": "Why it matters: fair use turns partly on market harm and the amount taken. Verbatim output is hard to sell as transformative and reads as a substitute for the original. It also reframes the case from an abstract training theory, which courts treat skeptically, into ordinary copying, which they understand. The engineering fix, output filters that block regurgitation, is itself a quiet admission the risk is real.",
-      "id": "burrow-0347",
-      "date": "2026-10-03"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Every task switch reloads working memory, your weakest part.",
-      "body": "Switching tasks is not free. Each switch forces your brain to drop the current context and reload the next one, and that reload lives in working memory. For an ADHD brain, working memory is the constrained resource, so the switch tax lands harder and the dropped context is harder to recover. **The move is to batch by mode, not by project.** Answer every email in one block, make every call in another. You are not saving time on the tasks themselves. You are paying the reload tax once instead of fifteen times.",
-      "depth": "The hidden version is the 'quick check' of a phone or inbox mid-task. It feels like seconds, but it evicts the context you were holding and forces a full reload when you come back. The cost is not the thirty seconds on the phone. It is the two minutes rebuilding where you were, every single time.",
-      "id": "burrow-0348",
-      "date": "2026-10-03"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "insight",
-      "hook": "Your backtest only trades the companies that survived.",
-      "body": "Pull a universe of stocks as it exists today, backtest a strategy over the last twenty years, and you have already cheated. The names on that list are the ones that did not go bankrupt, get delisted, or get bought at a loss. **The losers were deleted from the data, not from history.** Your strategy never had to hold the ones that went to zero, because they are not in the file. A long-biased system looks brilliant against a universe scrubbed of its own failures. The fix is a point-in-time database that still includes the dead.",
-      "depth": "This is why index backtests overstate returns, and why mean-reversion looks especially strong: buying the dip works beautifully until you buy a dip that keeps falling to zero, and survivorship bias has quietly removed every one of those. The same flaw hides in fund-performance studies, where closed and merged funds vanish and the survivors alone define the average.",
-      "id": "burrow-0349",
-      "date": "2026-10-03"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "callback",
-      "hook": "You're estimating how long a project takes. What beats your gut?",
-      "body": "Think back a few days before the answer lands. The unreliable path reasons from your own plan and your reasons this time is special, and it runs optimistic because it cannot picture the failures it has not imagined yet. The better move is the **outside view**: ignore your specifics and ask how the reference class of similar efforts actually turned out. Define the class, get its distribution, then adjust only slightly for what is genuinely unique to you. Kahneman and Lovallo showed the base rate beats the confident inside story almost every time.",
-      "depth": "Why it matters again: it is the same engine behind a trading edge. Your setup feels special, but the honest prior is what that setup has paid across hundreds of past instances, not the story you are telling about this one. Inside view for the narrative, outside view for the number.",
-      "id": "burrow-0350",
-      "date": "2026-10-03"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "insight",
-      "hook": "An at-the-money straddle prices the expected move.",
-      "body": "Buy the at-the-money call and put and you've bought a clean read on the market's expected move. The mechanism: an ATM straddle is worth **roughly 0.8 times the one-standard-deviation move** to expiry (about 0.8 x S x sigma x sqrt(T) in Black-Scholes, since each ATM leg runs near 0.4 x S x sigma x sqrt(T)). So a straddle quoted at 5% of spot implies a one-sigma move near 6%. Earnings desks trade the gap between that implied move and what actually prints, not the direction.",
-      "depth": "The 0.8 factor assumes a roughly normal distribution and an exactly at-the-money strike. Fat tails and heavy put skew pull it around, which is why desks calibrate the multiplier to each name rather than trusting the textbook number.",
-      "id": "burrow-0341",
-      "date": "2026-10-02"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "Judging a decision by its outcome is a bug.",
-      "body": "Annie Duke calls it **resulting**: grading the quality of a choice by how it happened to turn out. A good decision can lose and a reckless one can win, because the world runs on probability and you only ever see one draw. The fix is to keep two separate ledgers. Score the decision against what you knew and the odds you faced at the time. Score the outcome separately, as a single data point that updates your model. Conflate them and you abandon a sound process after one bad beat and double down on a lucky mistake.",
-      "depth": "This is why poker players and traders keep decision journals written before the result lands. The journal freezes your reasoning so you can audit the process without hindsight contaminating it. Outcome-only review quietly trains you to get more risk-averse after losses and more reckless after wins, which is exactly backwards.",
-      "id": "burrow-0342",
-      "date": "2026-10-02"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Pre-decide the trigger, not just the task.",
-      "body": "Executive function is weakest at the moment of starting, when you have to both notice the cue and choose to act. An **implementation intention** collapses that into one step: a pre-written 'when X, then Y.' When my coffee is poured, I open the brief. When I sit at the desk, the first file is already on screen. The if-then fires on the cue without routing through the part of your brain that negotiates. You are not relying on remembering, or on wanting to. You have wired the start to something that already happens anyway.",
-      "depth": "Gollwitzer's studies found the effect largest exactly where self-regulation is hardest, which is the population you care about. Make the cue something already reliable in your day, not a new habit you also have to install. The failure mode is a vague cue like 'when I have time'; the cue has to be a specific, observable moment.",
-      "id": "burrow-0343",
-      "date": "2026-10-02"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Training infringement and output infringement are two different suits.",
-      "body": "Practitioners keep blurring two claims that live on opposite ends of the model. **Input-side** is about copying works to build the training set; that is where the fair-use fights happen, and courts have split. **Output-side** is about whether a specific generation is substantially similar to a protected work, which is ordinary infringement and does not care how the model was trained. A model can win the training fight and still produce an infringing image. Advising a client, you scope both: how the thing was built, and, separately, what it spits out and how they use it.",
-      "depth": "The practical tell: an indemnity that only covers 'training data rights' leaves the client exposed on outputs, and the reverse leaves them exposed on inputs. Vendors increasingly offer output indemnities precisely because the training question is unsettled while the output question is old, familiar copyright law they can price.",
-      "id": "burrow-0344",
-      "date": "2026-10-02"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "callback",
-      "hook": "Recall it: a decade of great returns. What did it learn?",
-      "body": "If a single backtest nailed 2010 to 2020, ask what it actually encoded. Often the answer is **the regime, not an edge**: a persistent bull, falling rates, one volatility environment. The strategy did not discover a durable relationship. It memorized the shape of a particular decade and will keep betting that shape forward. The test is regime slicing. Break the history into distinct environments (rates up vs down, high vs low vol, bull vs bear) and check whether the edge survives each one. An edge that only exists in one regime is just a bet that the regime continues.",
-      "depth": "This is the quiet cousin of overfitting. You did not torture the parameters; the market handed you one long, friendly environment and the backtest took the credit. A strategy that holds across regimes is rarer and far more valuable than one with a higher headline Sharpe in a single era.",
-      "id": "burrow-0345",
-      "date": "2026-10-02"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "A 25-delta put costs more than its mirror call.",
-      "body": "Equity index options show a persistent skew: out-of-the-money puts trade at higher implied vol than equidistant out-of-the-money calls. Two forces drive it. The leverage effect, where a falling stock's debt-to-equity rises and its volatility mechanically climbs, so down moves really are more volatile. And crash-o-phobia, the structural demand from hedgers who will overpay for downside protection. The result is that **skew is a risk premium you either harvest or pay**, depending on your side. Selling that rich put vol works right up until the crash it was priced for actually shows up.",
-      "depth": "Skew also makes your hedges asymmetric. The same move down changes your option's vol, not just its price, so a put seller is short both spot and the vol that spikes exactly when spot drops. That correlation is why short-put books unwind faster than their Greeks suggest on a calm day.",
-      "id": "burrow-0336",
-      "date": "2026-10-01"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "California voids a digital-replica clause if it's too vague.",
-      "body": "AB 2602, effective 2025, makes a performer's consent to an AI digital replica **unenforceable when the clause is too vague about how the replica will be used** and the performer signed without a lawyer or a union representative. A blanket grant covering all uses, all media, forever, the studio default, is exactly what fails. It bites where the replica would replace work the person would otherwise have done live. So the statute attacks the contract's specificity, not the technology. Breadth, usually the drafter's shield, becomes the weakness here.",
-      "depth": "This inverts normal drafting instinct. Ordinarily the broadest grant protects the buyer. Here breadth is the exposure: a court can strike the clause for vagueness and leave a producer holding footage with no license behind it. The defensive move is narrow, enumerated, use-by-use consent, which is the opposite of how rights usually get papered.",
-      "id": "burrow-0337",
-      "date": "2026-10-01"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "Every added detail makes a forecast feel likelier and be less likely.",
-      "body": "The conjunction rule is just arithmetic: the probability of A and B can never exceed the probability of A alone. Yet add a vivid, coherent detail to a prediction and people rate the fuller story as more probable, not less. Kahneman and Tversky's Linda problem found most respondents judged 'bank teller and feminist' more likely than 'bank teller,' which is impossible. For a forecaster the lesson is sharp: **specificity buys plausibility at the cost of probability**. The rich, convincing scenario is usually the one to bet against, because every clause you add is one more condition that has to come true.",
-      "depth": "This bites hardest in deal and trade theses. The compelling narrative, clean mechanism, named catalyst, feels like the strong call. But it has stacked conjunctions, and each one multiplies the others downward. The vaguer, uglier 'something breaks' thesis often carries the higher true probability.",
-      "id": "burrow-0338",
-      "date": "2026-10-01"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Your new system didn't fail. Its novelty did.",
-      "body": "Every productivity system you adopt works beautifully for about two weeks, then quietly dies. The usual read is a discipline failure. The mechanism is narrower: the system ran on **novelty-driven interest, not on habit**, and ADHD attention is powered by interest, not importance. When the newness wears off, the dopamine that was carrying adherence stops, and the system has no fuel left. Willpower was never holding it up. The move is to expect the decay and design around it: rotate tools before they go stale, or build the system so it runs without needing your attention to stay alive.",
-      "depth": "This is why 'just use a planner' advice fails on repeat. The planner is not the problem, the expectation of permanence is. A tool that survives is usually one that got automated, handed to someone else, or rebuilt often enough that each version is briefly novel again. Plan the replacement before you need it.",
-      "id": "burrow-0339",
-      "date": "2026-10-01"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "callback",
-      "hook": "Recall it: what does the in-sample minus walk-forward Sharpe gap measure?",
-      "body": "Think back to the method that trades only unseen slices. One backtest fit over all of history just measures how well you explained a past you already knew happened. Walk-forward refits on a rolling window and trades the next slice it has never seen, again and again, so the P&L you keep is out-of-sample by construction. The answer: **the gap between the in-sample Sharpe and the walk-forward Sharpe is the honest size of your overfit**. A small gap points to real structure. A large gap means you curve-fit a story onto noise.",
-      "depth": "Why it matters again: a single flattering equity curve gives you no gap to look at, so nothing ever warns you. Walk-forward forces the comparison into existence. Run only one backtest and you have thrown away the one diagnostic that tells you whether the edge is real or imagined.",
-      "id": "burrow-0340",
-      "date": "2026-10-01"
     }
   ]
 }
