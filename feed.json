@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Dispersion trades profit from selling correlation, not volatility.",
+      "body": "Index options are bought as portfolio insurance, so index implied vol carries a bid that single-stock options lack. The gap shows up as implied correlation sitting above the correlation that later realizes. A dispersion trade shorts index variance and buys component variance, which makes you **short correlation**, not short volatility. You collect when stocks move on their own stories. You lose when a macro shock pushes every name the same way at once.",
+      "depth": "Correlation is the unhedged tail. In selloffs, realized correlation jumps toward one, so the long component legs fail to offset the short index leg exactly when it matters. Treat it as a short-gamma book with a hidden crash exposure, and size it for that.",
+      "id": "burrow-0486",
+      "date": "2026-11-03"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "mechanism",
+      "hook": "Your backtest assumes your order didn't move the price.",
+      "body": "Market impact empirically follows roughly a square-root law: cost scales with volatility times the square root of order size over daily volume. Double your size and impact rises about 41 percent, not 100. That sounds gentle, but it creates a **capacity ceiling**, the size where marginal impact eats marginal alpha. A backtest with fixed one-lot fills hides this completely, which is why a small-account Sharpe of 2 often fails to scale.",
+      "depth": "For options, the analog is quoted size at the touch and spreads widening as you work the order. Estimate capacity by rerunning with fills at the bid or ask plus a size-dependent penalty, then find the notional where net Sharpe halves.",
+      "id": "burrow-0487",
+      "date": "2026-11-03"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "history",
+      "hook": "XIV had to buy volatility after volatility had already doubled.",
+      "body": "On February 5, 2018, the VIX roughly doubled in a day, closing near 37 from about 17. XIV and similar inverse-volatility products were short VIX futures, and their rules required rebalancing at the close to restore their exposure. After a doubling, restoring that exposure meant buying futures at the day's worst prices, into the very rally that was hurting them. That **forced same-direction buying** fed the spike. XIV reportedly fell roughly 90 percent or more after hours and was then terminated.",
+      "depth": "The lesson is structural: a product whose mechanical rebalance runs in the direction of the move is short gamma at scale. Sponsors reportedly had an acceleration trigger tied to a very large one-day drop in indicative value, and it was hit.",
+      "id": "burrow-0488",
+      "date": "2026-11-03"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Keep a parking-lot note open before you start.",
+      "body": "Mid-task, a stray thought (check that invoice, reply to that text) competes for working memory. Acting on it costs a task switch you then pay to reverse. The move: open one plain file titled Parking Lot before you begin. When an urge arrives, type five words and return to the task. This **offloads working memory** without obeying the impulse, and the capture gives the thought somewhere trustworthy to live. Review the list only at a planned break.",
+      "depth": "This is externalizing, not suppression; pushing a thought away is the weaker move. Keep the file one keystroke from where you work. If the list is never reviewed, the system decays, so attach review to a fixed stop point like lunch, not to a feeling.",
+      "id": "burrow-0489",
+      "date": "2026-11-03"
+    },
+    {
+      "topic": "kid-development",
+      "topicLabel": "Little Humans",
+      "type": "insight",
+      "hook": "A toddler's pointing at 14 months predicts later vocabulary.",
+      "body": "In a well-cited study by Rowe and Goldin-Meadow, the number of distinct things children pointed to at 14 months predicted their vocabulary at about 54 months. It also helped explain the vocabulary gap between higher and lower income households, because parents who gestured more had children who gestured more. The practical move is cheap: **name what they point to**. Point, label it in a short phrase, and let them point again.",
+      "depth": "The proposed mechanism is that gesture lets a child pick the topic before they have the words, so the parent supplies the translation at the exact moment attention is joined. It is a correlational finding with a plausible path, not proof that pointing drills build vocabulary.",
+      "id": "burrow-0490",
+      "date": "2026-11-03"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1153,56 +1203,6 @@
       "depth": "The planning fallacy is not a motivation problem, it is a sampling problem. Your own plan carries no record of the interruptions, scope creep, and plain bad luck that hit every project before it. Their finished timelines do. Trust the record over the story you are telling yourself.",
       "id": "burrow-0375",
       "date": "2026-10-10"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Implied volatility is a biased forecast. That bias is your premium.",
-      "body": "Everyone treats implied volatility as the market's forecast of future movement. It isn't a clean one. Across S&P index options, implied vol has historically run above the volatility that actually prints, roughly three to four vol points on average over long samples. That persistent gap is the variance risk premium, and it is why systematically selling options carries an edge independent of direction. **You are paid to insure other people against moves that, on average, are smaller than priced.** The premium is the bias itself, not a mispricing you have to predict.",
-      "depth": "The caveat: the premium is compensation for real tail risk, not free money. It is largest exactly when it should scare you, and it goes negative in the crashes that wipe out naive sellers. Harvesting it is a bet on surviving the fat left tail, sized accordingly.",
-      "id": "burrow-0366",
-      "date": "2026-10-09"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Tennessee made distributing a voice-clone tool its own offense.",
-      "body": "Tennessee's ELVIS Act (Ensuring Likeness, Voice, and Image Security Act) took effect July 1, 2024, and it did something federal copyright can't: it made voice an explicit, protectable property right. The part practitioners skip is the liability hook. The statute reaches anyone who makes available a tool or service whose primary purpose is producing an unauthorized replica of a specific artist's voice. **You can be liable without ever publishing a single fake.** Distributing the cloning tool is itself the actionable act. For a client building voice-AI, that shifts the exposure from the output to the product.",
-      "depth": "Why it matters now: most AI-liability analysis still fixates on the generated clip and asks whether a given output infringes. The ELVIS Act moves the risk upstream to the tool, which is a different diligence question and a different insurance conversation than output review.",
-      "id": "burrow-0367",
-      "date": "2026-10-09"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "Assume the plan already failed. You'll find more reasons why.",
-      "body": "A premortem, from Gary Klein, flips the question before you commit. Instead of asking 'what could go wrong,' you assume the plan has already failed a year from now and work backward to explain why. The change is grammatical, and that is the whole trick. **Stating the failure as a fact unlocks concrete causes that a hypothetical never surfaces.** The research, reported in late-1980s work on prospective hindsight, found roughly a 30% increase in the number of reasons people could generate. Certainty of failure is a sharper search prompt than mere possibility.",
-      "depth": "It pairs with resulting, the habit of grading a decision by how it happened to turn out. A premortem forces you to price the failure paths while the odds are still in front of you, so a later bad draw doesn't look like a surprise you should have seen.",
-      "id": "burrow-0368",
-      "date": "2026-10-09"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Your internal clock is broken. Make time take up space.",
-      "body": "Time blindness is a measurable deficit, not a character flaw: the ADHD brain poorly represents how much time has elapsed or how much remains. You cannot will the internal clock into working, so the move is to stop relying on it. **Externalize time into something spatial you can see.** A depleting visual timer, like the shrinking colored disc of a Time Timer, turns an invisible quantity into a shape that visibly contracts in your field of view. The point is passive glanceability: you read remaining time without stopping to query it, because that query is the one that never happens.",
-      "depth": "This is why a number on a phone fails for this brain: it requires an act of checking, and checking is the executive step that drops out. A shape simply sitting in view removes the decision. Put it up before you start the task, not when you notice you've already lost the thread.",
-      "id": "burrow-0369",
-      "date": "2026-10-09"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "callback",
-      "hook": "Recall it: your backtest looks brilliant. Which names are missing?",
-      "body": "You pulled today's stock universe and ran the strategy back twenty years. Give it a beat before the answer. Every name on that list is one that didn't go bankrupt, get delisted, or get bought at a loss. The losers were deleted from the data, not from history. That is **survivorship bias**, and it is why a long-biased system looks like genius against a universe scrubbed of its own failures. Your strategy never had to hold the ones that went to zero. The fix is a point-in-time database that still carries the dead.",
-      "depth": "Worth re-flagging because it stacks with the other sins. Survivorship inflates the return curve first, then you overfit to that inflated curve, so two biases compound. Any backtest built on a universe you sourced today is suspect before you even look at the Sharpe.",
-      "id": "burrow-0370",
-      "date": "2026-10-09"
     }
   ]
 }
