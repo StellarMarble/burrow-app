@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-03",
+  "updated": "2026-11-04",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Your SPX monthly stopped trading a session before it expired.",
+      "body": "Standard SPX monthly options expire on the third Friday, but they are AM-settled. Trading stops at Thursday's close, and the settlement value comes from the **opening prices** of the index constituents on Friday. The weekly SPXW series is PM-settled, so two contracts can share an expiration date and still be different instruments. If you hold a monthly spread into expiry, you carry a full overnight gap that you cannot trade out of in the option. A futures or ETF hedge is a different exposure with its own basis. Pin risk is murkier too, because the final settle is not any price you saw trade.",
+      "depth": "Check the root symbol and settlement style before you roll or close. Same date, different cutoff. VIX options have a similar quirk: they settle on a special opening quotation built from SPX option prices on Wednesday morning, not on a traded VIX print.",
+      "id": "burrow-0491",
+      "date": "2026-11-04"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Recall it: why do 100 junk strategies yield a 1.3 Sharpe?",
+      "body": "Hint: the standard error of a zero-skill Sharpe over five years is about 0.45, and you ran 100 trials. The best of N noise draws sits roughly sigma times the square root of 2 ln N above zero. That is about three standard errors, or a Sharpe near 1.3. The answer is **selection, not skill**. The winner is the luckiest noise in your search space, so the number of variants you tried, including the ones you discarded, is part of the result.",
+      "depth": "Report the trial count next to every Sharpe. Without it the number cannot be interpreted, and it is exactly the input a deflated Sharpe calculation needs.",
+      "id": "burrow-0492",
+      "date": "2026-11-04"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Investors realize gains about 1.5 times as often as losses.",
+      "body": "Terrance Odean's 1998 study of a discount brokerage's accounts found that investors sold winners at a much higher rate than losers. Reported figures were roughly 15% of paper gains realized against roughly 10% of paper losses. Loss aversion makes closing a loser feel like **crystallizing the mistake**, so the position stays open. It is also backwards on taxes, since realized losses are the ones that are useful. Odean reported that the winners people sold went on to beat the losers they kept. For a trader the fix is mechanical: decide the exit before entry, so the position never gets a vote.",
+      "depth": "The tell in your own book is holding period. If your average losing trade lasts longer than your average winner, the disposition effect is probably running your exits. Pull the numbers once a quarter.",
+      "id": "burrow-0493",
+      "date": "2026-11-04"
+    },
+    {
+      "topic": "ai-orchestration",
+      "topicLabel": "AI Systems",
+      "type": "mechanism",
+      "hook": "A tool's error message is a prompt to the agent.",
+      "body": "When a tool fails, the model reads the error text and decides what to do next. A bare \"400 Bad Request\" gives it nothing to work with, so it retries the same call or invents a workaround. An error that says **what was wrong and what a valid call looks like** lets it self-correct in one step. Name the offending parameter, state the accepted format or range, and suggest the nearest valid option. Treat every error string as part of your prompt surface. It is the one piece of instruction the agent is guaranteed to read at the exact moment it is confused.",
+      "depth": "Test it by replaying failures. Feed your actual error strings to a fresh model with only the tool schema and see if it fixes the call. If it cannot, a person reading the log will struggle too.",
+      "id": "burrow-0494",
+      "date": "2026-11-04"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "Hollywood sued over the VCR, then earned more from it than theaters.",
+      "body": "Universal and Disney sued Sony in 1976 over the Betamax. Jack Valenti told Congress in 1982 that the VCR was to the film industry what the Boston strangler was to a woman home alone. The Supreme Court ruled 5-4 for Sony in 1984. It held that home time-shifting was fair use and that selling a device **capable of substantial noninfringing uses** was not contributory infringement. Within a few years, home video revenue rivaled and then passed theatrical rentals for the studios. The technology they tried to enjoin became their largest profit center.",
+      "depth": "The Sony standard still frames tool-maker liability fights, from Grokster in 2005 to AI cases today. Statutes like Tennessee's ELVIS Act are partly a reaction to it, because they target a tool's primary purpose rather than its capacity for lawful use.",
+      "id": "burrow-0495",
+      "date": "2026-11-04"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1153,56 +1203,6 @@
       "depth": "Why it bites again: look-ahead bias does not announce itself. The strategy looks clean and the Sharpe looks real, because the leak is baked into the inputs, not the logic. Every fundamental backtest you run inherits it unless the data vendor stamps each value with the date it was actually knowable.",
       "id": "burrow-0380",
       "date": "2026-10-11"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Delta flatters you. It overstates your odds twice.",
-      "body": "Traders read a 0.30 delta as a 30% chance the option finishes in the money. It isn't. Delta equals N(d1) in Black-Scholes, but the risk-neutral probability of expiring in the money is N(d2), which is always smaller. So **delta overstates even the risk-neutral odds**. Then a second gap opens: implied vol usually runs above realized, so the contract prices in a bigger move than the stock tends to make. The real-world probability sits below the risk-neutral one. Both errors push the same way, making your short strike feel safer than it reads.",
-      "depth": "The practical read: when you sell a 16-delta strangle, your actual odds of expiring outside the strikes are a touch better than 84%, because the variance risk premium is on your side. When you buy delta hoping it pays off, that same premium quietly works against you. Same number, opposite sign, depending on which side you take.",
-      "id": "burrow-0371",
-      "date": "2026-10-10"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "insight",
-      "hook": "In a waterfall, recoupment order beats the headline split.",
-      "body": "Negotiators burn their energy on the percentage split of net proceeds. The bigger lever is **who recoups first, and how fast**. Money flows top down through the waterfall: senior recoupment, then fees, then the splits. A party sitting in a junior tier only sees dollars if the pool survives everything stacked above it, which on most projects it never does. A 50% split of a tier that stays dry is worth zero. A 20% split that sits above a guaranteed recoupment is worth real cash. Position in the stack is the term. The split is the decoration.",
-      "depth": "This is why sharp counsel trade split points for a better recoupment position or a first-dollar corridor. A corridor carves a slice off the top before senior recoupment, so you get paid even on a project that technically loses money. Winning the percentage while ceding the position is the classic rookie giveaway.",
-      "id": "burrow-0372",
-      "date": "2026-10-10"
-    },
-    {
-      "topic": "hollywood-history",
-      "topicLabel": "Hollywood History",
-      "type": "history",
-      "hook": "The rule that built indie TV, then streaming undid it.",
-      "body": "In 1970 the FCC adopted the **Financial Interest and Syndication Rules**, called fin-syn. They barred the three broadcast networks from owning financial stakes in, or syndicating, most of the primetime shows they aired. The networks could rent airtime but not own the library or the lucrative rerun rights. That forced a split between distribution and ownership, and it seeded a thriving independent studio economy that produced and owned the hits. By the mid-1990s the rules were gone. Ownership and distribution fused back together, and the studio-network mergers of the next decade followed directly from that opening.",
-      "depth": "The rhyme is loud. Streamers now own the pipe and the library at once, the exact concentration fin-syn was built to prevent. The difference is that no rule stops them, so leverage has swung back to whoever controls distribution. Creators pushing for backend ownership today are fighting the same vertical-integration fight, minus the referee.",
-      "id": "burrow-0373",
-      "date": "2026-10-10"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "You won't remember to remember. Bolt it to a habit.",
-      "body": "The failure is rarely forgetting what to do. It is **prospective memory**, the job of spontaneously retrieving an intention at the right future moment with no prompt. ADHD hits this hard, because self-initiated retrieval leans on exactly the executive function that runs weak. A mental note and a dose of willpower both lose to it. The move is to stop asking your brain to generate the cue. Anchor the new action to an existing, unavoidable one: take the pill when the coffee starts brewing, send the invoice the moment you sit down Monday. The habit you already have becomes the alarm.",
-      "depth": "This is why a reminder app often fails while a sticky note on the steering wheel works. The app fires on a schedule you have already tuned out. The anchor fires on an action you cannot skip, so the cue lives out in the world, not in the part of your head that keeps dropping it.",
-      "id": "burrow-0374",
-      "date": "2026-10-10"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "callback",
-      "hook": "Recall it: your gut says two weeks. What question beats it?",
-      "body": "Your inside view builds the estimate from the specifics of this project, step by step, and it comes out too optimistic almost every time. The fix is the outside view: **ask how long similar projects actually took**, then start from that base rate. This is reference-class forecasting. You find the class of comparable efforts, take their real distribution of outcomes, and anchor on it before adjusting for anything genuinely unusual about yours. The reference class already knows about the delays you cannot yet see.",
-      "depth": "The planning fallacy is not a motivation problem, it is a sampling problem. Your own plan carries no record of the interruptions, scope creep, and plain bad luck that hit every project before it. Their finished timelines do. Trust the record over the story you are telling yourself.",
-      "id": "burrow-0375",
-      "date": "2026-10-10"
     }
   ]
 }
