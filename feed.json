@@ -1,6 +1,206 @@
 {
-  "updated": "2026-11-04",
+  "updated": "2026-11-08",
   "cards": [
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Recall it: why does doubling order size not double impact cost?",
+      "body": "Think of the square-root law before you read on. Impact scales with volatility times the square root of size over daily volume. So doubling your size multiplies cost by the square root of two, about 1.41, an increase of roughly 41 percent. Cost per share rises more slowly than size, but total cost still grows, and your edge per share does not. Eventually marginal impact meets marginal alpha. That point is your **capacity ceiling**, and a fixed one-lot backtest never shows it.",
+      "depth": "Before trusting a Sharpe, ask what size it was earned at. Rerun the backtest with fills penalized by a square-root impact term at two, five and ten times your size. The size where the net edge hits zero is the real capacity of the strategy.",
+      "id": "burrow-0511",
+      "date": "2026-11-08"
+    },
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Your calendar spread trades forward variance, not just theta.",
+      "body": "Selling the front month and buying the back at the same strike looks like a theta harvest. The cleaner view: total variance is additive in time, so the market implies a **forward variance** between the two expiries, equal to (back vol squared times back time, minus front vol squared times front time) divided by the time gap. You are long that forward window and short the near one. If front IV is bid for an event, the forward vol embedded in your spread is low, and the trade is cheap. If the term structure is inverted, you are paying for a window the market already fears.",
+      "depth": "Practical check: compute the forward vol before entering. Compare it to your estimate of realized vol for that window, not to either leg's quoted IV. After an event, the front leg's IV collapses far more than the back's, which is why earnings calendars are really forward-vol trades.",
+      "id": "burrow-0512",
+      "date": "2026-11-08"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "Imagine the deal already failed; you will find more reasons.",
+      "body": "Gary Klein's pre-mortem rests on a 1989 study by Mitchell, Russo and Pennington. Subjects who imagined an event had already happened generated reasons for it with roughly 30 percent more accuracy and detail than those asked what might happen. The mechanism is **prospective hindsight**: certainty about the outcome shifts the brain from judging plausibility to explaining a fact. The group also loses the social cost of being the doubter, because failure is assumed, not predicted. Run it before signing, not after the post-mortem.",
+      "depth": "Write the failure in the past tense, privately and silently, for two minutes before any discussion. Pooling the lists afterward avoids the anchoring that a first speaker creates. Then rank causes by how cheaply you could still prevent them.",
+      "id": "burrow-0513",
+      "date": "2026-11-08"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Delay discounting means a deadline next week doesn't exist yet.",
+      "body": "Reward value falls hyperbolically with delay, and meta-analyses find that the curve is steeper in ADHD. A deadline seven days out is heavily discounted, so it exerts almost no pull today, while the cost of starting is immediate. The move is not more willpower. **Shorten the delay**: convert the distant deadline into a chain of near ones, each with an outside witness. Send a draft of section one to someone by 4pm today. Book a 20-minute review for tomorrow morning. Consequence now beats consequence later.",
+      "depth": "Medication shifts the curve for some people but does not remove it. Checkpoints should be small, dated, and visible to another person, since a private promise has no one to discount against. Judge each by whether it changes what you do in the next two hours.",
+      "id": "burrow-0514",
+      "date": "2026-11-08"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "SAG's 1960 strike traded past residuals for a pension fund.",
+      "body": "In 1960 the Screen Actors Guild, led by Ronald Reagan, struck over payment when films were released to television. The studios argued that pre-1960 pictures had been made under contracts that did not reserve those rights. The settlement gave actors no residuals on that backlog. Instead, the studios paid a lump sum, reported at roughly 2.25 million dollars, into the guild's **pension and welfare fund**. Residuals applied only to later films. The guild chose a durable institution over a one-time payout to individuals.",
+      "depth": "The same structure recurs in streaming-era bargaining: a new exhibition window is monetized by converting backlog claims into fund contributions, with per-use payments applying only to future work. When reading any new residual formula, ask which cohort got the cash and which got the fund.",
+      "id": "burrow-0515",
+      "date": "2026-11-08"
+    },
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Your delta-hedged P&L depends on realized minus implied variance.",
+      "body": "A delta-hedged long option earns roughly **half gamma times spot squared times the gap between realized and implied variance**, per unit of time. Direction drops out. What remains is a bet on squared moves, weighted by dollar gamma. Dollar gamma peaks at the money and near expiry, so the same vol miss pays far more there than in a wing. That is how you can be right that vol is cheap and still lose: the variance arrived while spot sat far from your strike, where your gamma was small.",
+      "depth": "The formula holds per period when the option is valued at its implied vol, which is why implied vol is your breakeven, not your forecast. The result is path-dependent. Two paths with identical realized vol can produce different P&L depending on where spot spent its time relative to the strike.",
+      "id": "burrow-0506",
+      "date": "2026-11-07"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "practice",
+      "hook": "Trade the plateau of your parameter sweep, not its peak.",
+      "body": "A parameter sweep gives you a surface. **Choose the center of the broad plateau**, not the highest cell. If a 20-day lookback shows a Sharpe of 1.4 but 18 and 22 days show 0.6, you have not found an edge. You have found noise that happened to line up. A real effect degrades smoothly as you nudge its inputs, because the underlying behavior does not care about your exact number. The peak is also where selection bias is largest, since you picked the maximum of many noisy draws. The plateau is the part of the surface you can still believe out of sample.",
+      "depth": "Practical check: plot the metric across each parameter pair and look for a wide, flat region. Then size the live position off the plateau's average, not its best cell. If no plateau exists anywhere on the surface, the strategy is the problem, not the parameter.",
+      "id": "burrow-0507",
+      "date": "2026-11-07"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "Ninety-five percent confidence, right 70% of the time, loses to 50/50.",
+      "body": "Brier score is squared error: forecast minus outcome, squared, where the outcome is 0 or 1. A constant 50% forecast scores 0.25 every time. Now take a forecaster who says 95% on everything and is right only 70% of the time. Expected score: 0.7 x 0.0025 plus 0.3 x 0.9025, about 0.27. **Overconfidence at that level is worse than a coin flip.** The quadratic penalty means a confident miss costs about 0.90, while a confident hit saves at most 0.25 versus a coin flip. The asymmetry punishes the wrong kind of conviction.",
+      "depth": "Lower is better. This is why proper scoring rules matter: they make honest probabilities the best strategy. The practical move is to track your hit rate at each confidence level and shade your stated numbers toward it before you act.",
+      "id": "burrow-0508",
+      "date": "2026-11-07"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "Fin-syn rules made networks rent shows they were forbidden to own.",
+      "body": "The FCC's financial interest and syndication rules, adopted in 1970 and effective in 1971, barred the three networks from taking syndication rights or equity in shows produced by outsiders, and from domestic syndication themselves. So **studios kept the back end** while networks held only a license window. That produced deficit financing: studios licensed episodes below cost, then recouped in syndication. The rules were largely relaxed in 1993 and then phased out by 1995. Networks promptly bought or built studios. Streaming platforms are now doing the same thing at larger scale.",
+      "depth": "Notice the rhyme with the Paramount decrees: both rules separated distribution from production, and both vanished when a new distribution technology made the old structure look quaint. The back end is where the leverage always was, and it is why talent deals still fight over ownership.",
+      "id": "burrow-0509",
+      "date": "2026-11-07"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "More stimulant is not more focus; the dose-response is an inverted U.",
+      "body": "Prefrontal working memory depends on catecholamine signaling being in a middle range. Too little norepinephrine and dopamine impairs it, and too much impairs it as well. Preclinical work from Arnsten and colleagues describes this as an inverted U. Mid-titration, the practical implication is that **more drug can feel like focus while working memory actually degrades**. Overshoot tends to look like tunnel vision on the wrong task, difficulty switching away, jitter, or flattened affect, rather than a dramatic high.",
+      "depth": "Concrete move: during titration, test flexibility, not output. Note whether you can drop a task when the calendar says to, and hold three items in mind without writing them down. Bring those observations to your prescriber. Dose decisions are theirs; the data is yours to collect.",
+      "id": "burrow-0510",
+      "date": "2026-11-07"
+    },
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Pin risk is a weekend gap you chose to hold.",
+      "body": "When a short equity option expires with the stock sitting at your strike, you cannot know whether you will be assigned. Holders can decide on exercise after the closing bell, so the answer arrives after the market has shut. If you guess wrong, you walk into Monday with **a stock position you never intended**, plus whatever news landed over the weekend. Hedging on Friday against an assignment that may not come leaves you either naked or doubly long. The cleanest fix is mechanical: close or roll any short strike within a hair of the close before expiration day ends, and pay the spread to avoid the coin flip.",
+      "depth": "Cash-settled index options sidestep this, since there is no stock to be delivered. The risk is concentrated in single names and ETFs. Positions that look flat on paper at 4pm can be exposed through the weekend, which is why the cost of closing is usually cheaper than it feels.",
+      "id": "burrow-0501",
+      "date": "2026-11-06"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "mechanism",
+      "hook": "Autocorrelated returns make an annualized Sharpe lie.",
+      "body": "The standard move is multiplying a monthly Sharpe by the square root of 12. That formula assumes returns are independent month to month. If your strategy has positive autocorrelation, as with **smoothed marks, stale prices, or short-option books that bleed slowly**, the true annual volatility is higher than the naive scaling implies, so the annualized Sharpe is overstated. Andrew Lo's 2002 paper on the topic reported overstatement of up to roughly 65% for some hedge fund return series. Before trusting any annualized Sharpe, compute the first-order autocorrelation of your returns. If it is meaningfully positive, rescale using the actual annual-horizon variance.",
+      "depth": "Illiquid assets and strategies priced from stale quotes are the usual culprits. A quick check: compare the Sharpe computed on monthly returns with one computed on non-overlapping annual returns. A big gap points to serial correlation hiding in the data.",
+      "id": "burrow-0502",
+      "date": "2026-11-06"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Calibrate time with your own ratio, not effort.",
+      "body": "Time estimation is a documented weak point in ADHD, and research reports larger errors in judging and reproducing durations than in controls. Willpower does not fix an internal clock, so replace the clock with data. For ten tasks, write the estimate before starting, then log the actual time. Divide actual by estimate for each task and take the median. That is **your personal multiplier**. If it comes out at 2.0, every future estimate gets doubled before it goes on the calendar. The move is the same one Kahneman prescribed for planning fallacy: stop consulting your inside view and consult your own reference class.",
+      "depth": "Track by task type, since your multiplier for email may differ from the one for drafting. Review the ratio monthly. A shifting multiplier during titration is useful information to bring to the prescriber, because it is an observed number rather than a feeling.",
+      "id": "burrow-0503",
+      "date": "2026-11-06"
+    },
+    {
+      "topic": "ai-orchestration",
+      "topicLabel": "AI Systems",
+      "type": "insight",
+      "hook": "Give subagents the question, not the conversation.",
+      "body": "Forwarding a full parent context to a subagent feels safe, but it defeats the reason to spawn one. The parent's context window is the scarce resource, and a subagent exists to **spend its own context so the parent does not have to**. Hand it a brief instead: the goal, constraints, what done looks like, and the output format. Require a compact return, such as findings with file paths, not a transcript of the search. A good test: if you could not hand this brief to a contractor with no access to your chat, the subagent will also guess at what you meant.",
+      "depth": "Failure mode on the return side: a subagent that reports confident conclusions without evidence forces the parent to either trust blindly or redo the work. Ask for citations to specific locations so verification costs seconds.",
+      "id": "burrow-0504",
+      "date": "2026-11-06"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "callback",
+      "hook": "Recall it: why did Midler's voice claim dodge copyright preemption?",
+      "body": "Think about what preemption actually requires before you answer. The Copyright Act only preempts state claims that fall within the subject matter of copyright. Bette Midler's sound-alike case in the Ninth Circuit, decided in 1988, turned on exactly that: **a voice is not a copyrightable work**, so her state-law claim was never inside the preemption zone. Waits v. Frito-Lay followed in 1992. The very thing that denies a voice copyright protection is what leaves it open to state right-of-publicity and misappropriation theories.",
+      "depth": "It matters again because synthetic-voice claims are routinely framed as copyright problems when the stronger theory is often state publicity law. The preemption defense is weakest precisely where the identity, not a recording, is the thing taken.",
+      "id": "burrow-0505",
+      "date": "2026-11-06"
+    },
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "SPX options tax a short-term gain at a blended 26.8%.",
+      "body": "SPX options are Section 1256 contracts. 60% of any gain is taxed as long-term and 40% as short-term, whatever the holding period. At top federal rates that is 0.6 x 20% + 0.4 x 37%, a blended **26.8%**, against 37% on a one-day SPY trade in a taxable account. Positions are also marked to market on December 31. On a strategy netting 15% pre-tax, that 10.2 point rate gap is worth roughly 1.5 points of return a year. Cash settlement also removes assignment risk.",
+      "depth": "The same treatment applies to losses, and a net 1256 loss can be carried back three years against prior 1256 gains. The wash sale rule does not apply to these contracts. The cost is the year-end mark: unrealized gains are taxed whether or not you closed.",
+      "id": "burrow-0496",
+      "date": "2026-11-05"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "mechanism",
+      "hook": "Overlapping labels leak your test set into training.",
+      "body": "Say your label is a 10-day forward return. Row t and row t+1 share nine days of the same price path, so they are nearly the same observation. Random k-fold puts one in training and the other in test, and the model scores well by **memorizing neighbors**. The fix is purging: drop any training row whose label window overlaps the test fold. Then add an embargo gap after the test fold to catch serial correlation in the features. Without both, your out-of-sample number is partly in-sample.",
+      "depth": "Purged k-fold with an embargo is laid out in Marcos Lopez de Prado's Advances in Financial Machine Learning. A practical starting embargo is about the label horizon, longer if your features are slow moving averages.",
+      "id": "burrow-0497",
+      "date": "2026-11-05"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "The auction winner is usually the one who overestimated most.",
+      "body": "Suppose ten bidders each estimate a common-value asset with unbiased noise. The winner is whoever's error was most positive, so the winning bid lands above true value even though every estimate was fair. This is the **winner's curse**. It gets worse as bidders are added and as estimates get noisier. The rational correction is to shade your bid below your estimate, by more when you face more competitors. It applies to any bidding war where everyone reads the same noisy comps, like a hot package or spec script.",
+      "depth": "Capen, Clapp and Campbell argued in 1971 that Gulf of Mexico oil lease bidders earned below-expected returns, a claim later debated. Lab experiments by Kagel and Levin found that inexperienced bidders routinely overbid in common-value auctions.",
+      "id": "burrow-0498",
+      "date": "2026-11-05"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Breakfast can delay your lisdexamfetamine peak by about an hour.",
+      "body": "Lisdexamfetamine converts to dextroamphetamine after absorption, but food still moves the peak. Per the label, a high-fat meal pushes time to peak back by roughly an hour, while total exposure stays about the same. So during titration, **a consistent breakfast time** matters more than what the breakfast is. If onset on Tuesday arrives later than Monday, check when and what you ate before you conclude the dose behaved differently.",
+      "depth": "Add a meal timestamp to your dose timestamp and your first-focused-work timestamp. Three clocks plus one meal line make the pattern readable. Take it to your prescriber as data; don't adjust the dose yourself on one day's reading.",
+      "id": "burrow-0499",
+      "date": "2026-11-05"
+    },
+    {
+      "topic": "story-craft",
+      "topicLabel": "Story Craft",
+      "type": "practice",
+      "hook": "In audio, a room doesn't exist until you hear it.",
+      "body": "Film gets an establishing shot for free. Audio fiction gets nothing, so the listener builds the room only from sound. Give every new location **one anchoring sound** within the first few seconds: a specific footstep surface, a distinctive reverb, a machine hum that only exists there. Then reuse that sound when you return, and the listener relocates instantly without a line of narration. Name the place in dialogue only if the sound can't carry it. Narrated scene-setting is the weakest tool you have.",
+      "depth": "Test it by muting your dialogue track and listening to the ambience alone. If you can't tell the kitchen from the car, the listener can't either. Change the room tone, not the script.",
+      "id": "burrow-0500",
+      "date": "2026-11-05"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1002,207 +1202,6 @@
       "depth": "The failure mode is letting the same model, same prompt, grade itself, which just re-confirms its first mistake. The verifier has to differ: a new lens, a demand to locate the evidence rather than opine on it, or an adversary told to refute. Diversity in the checker is what makes the asymmetry pay.",
       "id": "burrow-0400",
       "date": "2026-10-15"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "The VIX isn't a price. You can't actually trade it.",
-      "body": "The VIX is a calculation squeezed out of a strip of SPX option prices, engineered to express 30-day implied variance as a single constant-maturity number. Nothing holds that number. What trades is VIX futures, each with its own expiry and its own level, usually in contango above spot. So when spot VIX spikes 40%, your front-month future might move 15%, and your VIX-linked ETP decays as it rolls up the curve. **You are long the futures curve, not the index.** Treating the quoted VIX as your exposure is the first mistake.",
-      "depth": "Spot and the futures converge only at expiration. Between now and then, roll yield dominates. In calm regimes contango bleeds a long-vol position daily even if realized vol never falls. That bleed is the exact mirror of the premium short-vol sellers collect for sitting on the other side.",
-      "id": "burrow-0391",
-      "date": "2026-10-14"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Your lisdexamfetamine does nothing until your blood cuts it apart.",
-      "body": "Lisdexamfetamine is a prodrug: dextroamphetamine chemically bonded to the amino acid lysine, which is inert. It only becomes active after enzymes in your red blood cells cleave the lysine off, and that conversion runs at a roughly fixed rate no matter how fast you swallow it. **The bloodstream, not the pill coating, is the time-release mechanism.** That is why it ramps smoothly, why crushing or chewing it changes little, and why an empty stomach barely speeds onset.",
-      "depth": "The practical move: onset is set by your metabolism, not by timing tricks, so take it at the same clock time daily and judge the curve across a week, not one morning. Heavy acid loads near the dose (citrus, high-dose vitamin C) can blunt amphetamine absorption, so space them out.",
-      "id": "burrow-0392",
-      "date": "2026-10-14"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "You can be perfectly calibrated and still completely useless.",
-      "body": "Calibration means your 70% forecasts come true 70% of the time. You can guarantee it trivially: predict the base rate for everything. If it rains 30% of days, say \"30%\" every single day and you will be flawlessly calibrated and worthless, because you never told anyone which days. The missing ingredient is **resolution: how far you dare to move off the base rate and still land right.** Elite forecasters are both calibrated and high-resolution. Scoring only one of the two hides the sharpest signal of actual skill.",
-      "depth": "The Brier score decomposes exactly into calibration, resolution, and irreducible uncertainty. A superforecaster's edge lives in resolution: pushing confident calls toward 95% or 5% and being correct there. Rewarding calibration alone rewards timidity, and quietly promotes the forecaster who hedges everything.",
-      "id": "burrow-0393",
-      "date": "2026-10-14"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "California now protects the dead from digital replicas too.",
-      "body": "Everyone tracked AB 2602, the 2024 law letting living performers void vague AI digital-replica clauses. Its quieter sibling, AB 1836, aimed at the dead. It requires consent from a deceased personality's estate before using an AI-generated replica of their voice or likeness in most expressive works, backed by statutory damages. **The post-mortem right of publicity now has explicit teeth against synthetic resurrection.** For documentary, biopic, and archival work, \"they're gone, so clear it with no one\" is no longer a safe assumption in California.",
-      "depth": "Both took effect in 2025. Carve-outs exist for news, public affairs, satire, and certain documentary uses, but they are narrower than practitioners assume and do not cover a fabricated performance stitched together to sell something. Estate sign-off, not a general fair-use shrug, is the clearance path.",
-      "id": "burrow-0394",
-      "date": "2026-10-14"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "callback",
-      "hook": "Recall it: you tuned six parameters on three years. The cost?",
-      "body": "The answer is degrees of freedom. Every parameter you optimize against the same fixed history is a knob you turned until the past looked good. With six knobs and one dataset you are no longer testing a hypothesis, you are drawing a curve through your own noise. **More free parameters demand exponentially more independent data before the result means anything.** The tell is a backtest that dazzles in-sample and dies the month you trade it, because the only thing it learned was last cycle's accidents.",
-      "depth": "A rough discipline: count your free parameters, then ask whether your sample holds enough genuinely independent regimes to support them. Walk-forward testing and a deflated Sharpe ratio exist to charge you for the search. If you can't say how many variations you tried, you can't trust the one you kept.",
-      "id": "burrow-0395",
-      "date": "2026-10-14"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Long volatility bleeds even when the market does nothing.",
-      "body": "VIX futures usually trade in contango: contracts further out price higher than spot, because fear is expected to mean-revert upward from calm. If you hold a long-vol position built from those futures, each day they roll down the curve toward a lower spot, and you lose that difference even when realized volatility never moves. **Contango is rent you pay to stay long fear.** This is why long-vol ETPs grind lower for years, then spike. The structure quietly taxes patience and rewards only precise timing.",
-      "depth": "Flip it: in backwardation, when spot vol sits above the futures, the roll pays you to stay long. That regime shows up in a crisis and vanishes fast, which is exactly when holding vol is both cheapest to carry and most valuable.",
-      "id": "burrow-0386",
-      "date": "2026-10-13"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "SAG-AFTRA split digital replicas in two. Consent differs.",
-      "body": "The 2023 TV/theatrical contract drew a line practitioners still blur. An **employment-based digital replica** is made from a performer's work on that specific job; an independently created one is built outside it. Both need the performer's clear, separately bargained consent, and the consent must describe the actual uses, not grant a blanket license. A signature on the deal memo does not cover a replica. The frontier fight now is how specific 'specific use' has to be, and whether that consent can survive to the next production.",
-      "depth": "The trap is treating replica consent like a standard likeness clause. It is closer to a per-use license: scope it to the project, the medium, and the term, because a vague grant is exactly what newer state statutes are starting to void.",
-      "id": "burrow-0387",
-      "date": "2026-10-13"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "callback",
-      "hook": "You give a 90% sure range. How often is it right?",
-      "body": "Take a beat before the number lands. Most people, asked for a range they are 90 percent confident contains the truth, are right far less than that. Reported calibration studies cluster the real hit rate around **40 to 50 percent**, not 90. The cause is anchoring: you fix on a best guess, then widen the edges too timidly, so your 'wide' interval still hugs your point estimate. The fix stays mechanical. Set the range, then stretch it until it feels absurd, because absurd is usually where calibrated lives.",
-      "depth": "Why it matters again: every position size, every deal reserve, every 'worst case' you set runs on an interval. If the interval is secretly a coin flip, so is the cushion you built on it. Widen first, then size.",
-      "id": "burrow-0388",
-      "date": "2026-10-13"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Open loops run in your head rent-free. Close them on paper.",
-      "body": "An unfinished intention tends to stay active in memory, nagging for attention until it is either done or recorded somewhere you trust. That background hum is cheap for most brains and expensive for yours, because **working memory is your scarcest resource** and every live 'I need to...' is holding a slot. The move is not to try harder to remember. It is to dump each open loop into one capture spot the instant it appears, so the loop closes externally and stops firing while you work the task in front of you.",
-      "depth": "The capture spot only works if it is single and trusted. Two lists, or one you doubt, and the brain keeps holding the loop as backup, which defeats the offload. One inbox, reviewed on a schedule, is what lets you actually let go.",
-      "id": "burrow-0389",
-      "date": "2026-10-13"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "practice",
-      "hook": "Your backtest fills at a price the market never offered.",
-      "body": "Most backtests assume you buy and sell at the closing or midpoint price. Real orders cross the bid-ask spread, suffer slippage when size moves the book, and pay impact in thin names. None of that appears in the equity curve, so a strategy looks clean on screen and bleeds in production. **The more it trades, the bigger the fantasy.** A high-turnover edge that earns a few basis points per trade gross can go flatly negative once realistic costs land on every fill.",
-      "depth": "Test it honestly: re-run assuming fills at the far side of the spread plus a slippage estimate, and scale costs with your order size versus average volume. If the edge dies under that, it was never an edge, just an accounting artifact.",
-      "id": "burrow-0390",
-      "date": "2026-10-13"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "insight",
-      "hook": "Full Kelly maximizes growth. Half-Kelly keeps most of it.",
-      "body": "Bet the full Kelly fraction and you maximize long-run geometric growth. The catch: the growth curve is flat on top. Because growth falls off quadratically around the optimum, betting **half of Kelly surrenders only about a quarter of your growth rate while cutting volatility roughly in half.** Overbet instead and the penalty is not symmetric: at twice Kelly your expected growth drops to zero. Since you never know your true edge, and overestimating it pushes you past the peak, sizing below the estimate is cheap insurance. Most pros who invoke Kelly actually run a fraction of it.",
-      "depth": "The asymmetry is the whole point. A measurement error that makes you overbet costs far more growth than the same error underbetting, because the right half of the curve falls to zero while the left half stays gentle. When your edge is uncertain, shrink the fraction. The uncertainty itself is a reason to bet smaller, not a detail to ignore.",
-      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"50\" y1=\"200\" x2=\"370\" y2=\"200\" stroke=\"#35302a\"/><line x1=\"50\" y1=\"200\" x2=\"50\" y2=\"20\" stroke=\"#35302a\"/><path d=\"M50 200 Q210 -140 370 200\" stroke=\"#d9a441\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"210\" cy=\"30\" r=\"4\" fill=\"#7fb4a2\"/><circle cx=\"130\" cy=\"72\" r=\"4\" fill=\"#7fb4a2\"/><line x1=\"210\" y1=\"30\" x2=\"210\" y2=\"200\" stroke=\"#35302a\" stroke-dasharray=\"3 3\"/><line x1=\"130\" y1=\"72\" x2=\"130\" y2=\"200\" stroke=\"#35302a\" stroke-dasharray=\"3 3\"/><line x1=\"134\" y1=\"74\" x2=\"214\" y2=\"114\" stroke=\"#7fb4a2\" stroke-dasharray=\"2 2\"/><text x=\"196\" y=\"217\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">full</text><text x=\"112\" y=\"217\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">half</text><text x=\"218\" y=\"120\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">Half-Kelly keeps</text><text x=\"218\" y=\"138\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">~75% of growth</text><text x=\"218\" y=\"156\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">at half the swings</text><text x=\"46\" y=\"30\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"end\">growth</text><text x=\"330\" y=\"217\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">bet size</text></svg>",
-      "id": "burrow-0381",
-      "date": "2026-10-12"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "Punishment seems to work, praise seems to fail. Neither is true.",
-      "body": "Performance has a skill component and a luck component. Extreme results lean on luck, and luck does not repeat, so the next attempt drifts back toward the average no matter what you did in between. **The intervention gets credit that belongs to regression to the mean.** Scream at a pilot after a terrible landing and the next one improves; praise one after a brilliant landing and the next is worse. The feedback felt causal. It was arithmetic. Any time you act only on an extreme reading, expect the follow-up to look like your action worked, or backfired, when it did neither.",
-      "depth": "The rule of thumb: whenever a correlation is imperfect, there will be regression, and the weaker the true signal the more any outlier is just noise that reverses. It is why the rookie of the year slumps, why the fund on the magazine cover lags next year, and why you judge an intervention against a control group, never against the before-reading that triggered it.",
-      "id": "burrow-0382",
-      "date": "2026-10-12"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "A silent witness lowers the cost of starting.",
-      "body": "Activation, not motivation, is the bottleneck: the task sits because the brain cannot generate enough arousal to cross the starting threshold. A second person present, even one doing unrelated work and saying nothing, supplies that arousal from outside. Mild social presence raises alertness and adds light accountability, and together they push you over a line you could not cross alone. **This is body doubling, and the mechanism is external activation, not willpower borrowed from someone else.** The move: schedule a standing silent co-working call for the task you keep deferring. The partner's only job is to exist on the screen.",
-      "depth": "Why it beats a reminder: a reminder re-states the task you already know. Body doubling changes your physiological state instead. It works best on activation-gated chores, admin, email, filing, and worst on tasks needing deep private thought, where another presence becomes noise. Match the tool to the failure. Use it when starting is the problem, not when sustained focus is.",
-      "id": "burrow-0383",
-      "date": "2026-10-12"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Your AI consent was for one job, not all of them.",
-      "body": "The 2023 SAG-AFTRA film and television contract did not ban digital replicas. It made **consent specific and non-transferable the default.** A studio that scans a performer to build a digital replica needs a clear, separate consent describing how the replica will be used, and use outside that description requires fresh consent and additional pay. Consent on one production does not travel to the next, and in most cases use after death still requires consent from the performer's estate. The practitioner error is treating an AI-replica clause like a standard work-for-hire grant. It behaves more like a license with a scope you must police.",
-      "depth": "The deeper shift is drafting posture. A digital-replica right now reads like a scoped license: who, which production, what uses, what duration, renewable only by new consent. Broad or vague grants are exactly what the newer California and New York replica statutes also target. Paper it as a blanket assignment and you are both out of step with the guild floor and likely unenforceable under state law.",
-      "id": "burrow-0384",
-      "date": "2026-10-12"
-    },
-    {
-      "topic": "market-history",
-      "topicLabel": "Market History",
-      "type": "history",
-      "hook": "The short-vol trade that had to buy exactly what was killing it.",
-      "body": "On February 5, 2018, the VIX nearly doubled in a day. That alone was survivable. The structural killer was mechanical: inverse-volatility products like the XIV note had to rebalance daily, and a spike forced them to **buy VIX futures into the close, in a size larger than the market could absorb.** Their own required buying pushed futures higher, which forced still more buying, a reflexive loop. XIV fell roughly 96% and was terminated within days. The lesson is not 'volatility is dangerous.' It is that a product with forced, size-insensitive rebalancing becomes its own worst counterparty in a crisis.",
-      "depth": "The tell was visible beforehand. Assets in short-vol products had ballooned, so the end-of-day rebalance buy was always going to be huge relative to VIX futures liquidity. Anyone sizing that hedge against daily volume saw the trap. The same feature shows up in any strategy that must trade a fixed rule regardless of price, with portfolio insurance in 1987 as the ancestor.",
-      "id": "burrow-0385",
-      "date": "2026-10-12"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "A calendar spread wants stillness now and higher vol later.",
-      "body": "Sell the near-dated option, buy the far-dated one at the same strike, and you hold a position with split personalities. The near leg carries more gamma and decays faster, so net you are short gamma and long theta: you profit when the stock sits still and bleed if it jumps. The far leg carries more vega, so you are also long volatility. **The spread pays you to be right about calm now and nervous later.** It is the rare structure that is at once a bet on realized quiet and on implied vol rising into the back month.",
-      "depth": "Watch the trap: the position is long vega but short gamma, so a sharp move can lose even as the vol you wanted finally shows up. The move hurts through gamma before the vol rise helps through vega. Size it as a view on the term structure of volatility, not on direction.",
-      "id": "burrow-0376",
-      "date": "2026-10-11"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "The Copyright Office split your AI comic in two.",
-      "body": "In 2023 the US Copyright Office ruled on Zarya of the Dawn, a comic whose images came from Midjourney. It did not reject the work wholesale. It canceled the original registration and reissued a narrower one: the human-written text and the selection, coordination, and arrangement of the images were protected, but **the individual AI-generated images were not authored by a human**, so they got nothing. Practitioners keep saying AI work is flatly uncopyrightable. The real rule is more surgical: the human's creative choices around the output can be protected while the output itself stays unprotected.",
-      "depth": "The line is human authorship, applied element by element, not work by work. A prompt is treated more like a commission than like drawing. So the protectable layer is whatever a person actually selected, edited, or arranged. Register those choices explicitly and disclaim the generated pixels.",
-      "id": "burrow-0377",
-      "date": "2026-10-11"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "When a measure becomes a target, it stops measuring.",
-      "body": "This is Goodhart's law, and it is the quiet killer in both your worlds. A number works as a signal only while nobody is optimizing it directly. The moment it becomes the goal, people and systems route around its intent while hitting its letter. **Optimizing the metric and achieving the thing it stood for are not the same act.** A backtest tuned to maximize Sharpe stops predicting live Sharpe. Billable-hour targets grow hours, not value. Teaching to the test raises scores, not learning. The cure is to keep the true objective and the measured proxy visibly separate.",
-      "depth": "The sharper version is Campbell's law: the more a quantitative measure drives decisions, the more it corrupts the process it was meant to monitor. The defense is to hold several proxies that are hard to game at once, and to re-check whether the proxy still tracks the thing you actually want.",
-      "id": "burrow-0378",
-      "date": "2026-10-11"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Starting is half of it. You also can't stop.",
-      "body": "The executive-function cost that blocks starting a task also blocks ending one. Disengaging requires shifting set, pulling attention off a loaded context, and that switch is exactly the weak link. So hyperfocus is not a power you summoned; it is a brake that failed. The concrete move is to **build the exit ramp before you enter**: set a hard external stop tied to a real obligation, not a vague intention. An alarm across the room you must stand up to silence, a meeting at the hour, a person expecting you. Pre-commit the stop while you still have the judgment to.",
-      "depth": "Why the external cue: once you are in, the same system that cannot switch also cannot notice it should. An internal reminder loses to the task every time. A stop that forces a physical action or involves another human borrows the salience your attention cannot generate from inside the tunnel.",
-      "id": "burrow-0379",
-      "date": "2026-10-11"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "callback",
-      "hook": "Recall it: your screen reads last quarter's EPS. The trap?",
-      "body": "Give it a beat before the answer. The earnings number sitting in your database today is often not the number the market saw on the reporting date. Companies restate, and most databases overwrite the original with the correction. Add filing lag, where the figure lived in the data before it was legally public. Put together: **your backtest is quietly trading on information from the future.** A screen on last quarter's EPS reads the republished value, not the one known that day. The fix is point-in-time data: the value as it was knowable that morning, not as the database shows it now.",
-      "depth": "Why it bites again: look-ahead bias does not announce itself. The strategy looks clean and the Sharpe looks real, because the leak is baked into the inputs, not the logic. Every fundamental backtest you run inherits it unless the data vendor stamps each value with the date it was actually knowable.",
-      "id": "burrow-0380",
-      "date": "2026-10-11"
     }
   ]
 }
