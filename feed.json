@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-08",
+  "updated": "2026-11-09",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Under skew, Black-Scholes delta over-hedges your index option.",
+      "body": "Black-Scholes delta assumes volatility stays put when spot moves. In equity index markets it doesn't: spot falls, implied vol rises, and your option reprices on both. The true hedge ratio is delta plus vega times the expected vol change per unit of spot. For index options that second term is negative, so the **minimum-variance delta is smaller than the Black-Scholes delta**. Hull and White reported this empirically for S&P options. Hedge with the textbook number and you carry more hedge than the risk needs. The excess shows up as P&L noise that you will be tempted to blame on gamma.",
+      "depth": "The size of the correction depends on whether the surface behaves sticky-strike or sticky-delta, which is a regime question. In markets with inverse skew, such as some commodities, vol tends to rise with spot and the adjustment flips sign.",
+      "id": "burrow-0516",
+      "date": "2026-11-09"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Training was fair use; the pirated library was the liability.",
+      "body": "In Bartz v. Anthropic, Judge Alsup held in June 2025 that training on purchased books was **fair use, but building a permanent library from pirate sites was not**. That split is what practitioners keep flattening into 'AI training is legal.' The case then settled for a reported $1.5 billion, roughly $3,000 per work across about 500,000 books. The exposure was driven by how the data was acquired, not by what the model learned from it. Diligence on a training set is now a provenance question first and a transformation question second.",
+      "depth": "Kadrey v. Meta, decided days later by Judge Chhabria, also favored the defendant, but on a thin record. He signaled that market dilution of the authors' works could defeat fair use with better evidence. Neither ruling binds the other.",
+      "id": "burrow-0517",
+      "date": "2026-11-09"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "Average your forecasters, then push the average toward the extremes.",
+      "body": "Each forecaster holds a different slice of the evidence. A plain average blends their probabilities toward the middle, as if everyone had the same weak information. If their errors are partly independent, the pooled evidence is stronger than any single view, so the **simple mean is systematically underconfident**. Extremizing means pushing the aggregate away from 50% by a tuned factor. The Good Judgment Project found this improved accuracy over the raw mean in its tournament data. The more diverse and independent the forecasters, the more extremizing helps.",
+      "depth": "The caveat is correlated sources. If everyone read the same headline, there is no independent information to compound, and extremizing just amplifies a shared error. Tune the factor out of sample, never in sample.",
+      "id": "burrow-0518",
+      "date": "2026-11-09"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Write the if-then trigger; it offloads initiation from willpower to cue.",
+      "body": "Task initiation is where the activation threshold bites. 'I will start the brief today' leaves the start to in-the-moment effort. An implementation intention fixes the trigger in advance: **'If I close the laptop at lunch, then I open the brief and write one line.'** The cue, not a decision, launches the behavior. Gollwitzer and Sheeran's meta-analysis reported a medium-to-large effect on goal attainment. Gawrilow and Gollwitzer also reported benefits for children with ADHD on tasks that depend on inhibition. The trigger must be a concrete event you already hit, and the action must be tiny.",
+      "depth": "Write the plan once, somewhere you will see it at the cue. Stack no more than two or three. Vague triggers like 'when I have time' fail because nothing in the environment fires them.",
+      "id": "burrow-0519",
+      "date": "2026-11-09"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "history",
+      "hook": "Niederhoffer's 1997 wipeout came from selling puts the past called safe.",
+      "body": "On Monday, October 27, 1997, the S&P 500 fell roughly 7% on the Asian crisis, and trading was halted by circuit breakers. Victor Niederhoffer had sold large amounts of deep out-of-the-money S&P puts, which looked like free premium across his sample history. His funds were reported wiped out as the margin calls hit. The market rebounded the next day. That rebound was worth nothing to him, because **margin calls end the game before mean reversion pays**. His strikes were reasonable against the data he had. The loss came from the leverage behind them.",
+      "depth": "Lesson for sizing: a short-tail position has to survive a move larger than anything in your sample, and survive it before the recovery. The sample's worst day is a floor on the risk, not a ceiling.",
+      "id": "burrow-0520",
+      "date": "2026-11-09"
+    },
     {
       "topic": "backtest-lab",
       "topicLabel": "Backtest Lab",
@@ -1152,56 +1202,6 @@
       "depth": "Under the null of no skill, the expected maximum Sharpe across many trials rises with both the number of trials and the backtest length. Bailey and Lopez de Prado's deflated Sharpe adjusts for exactly that, plus the return series' skew and fat tails. If you cannot state how many configurations you ran, your best result is uninterpretable. Track the trial count like a cost.",
       "id": "burrow-0405",
       "date": "2026-10-16"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "insight",
-      "hook": "An index is less volatile than the stocks inside it.",
-      "body": "Index variance isn't the average of its members' variances. It's that average scaled down by how loosely the names move together. When correlation sits below one, the diversification nets out idiosyncratic moves, so **index implied vol trades below the average vol of its components**. That gap is itself a tradeable quantity: implied correlation. Dispersion desks sell the richer index volatility and buy the cheaper single-name volatility, harvesting the spread. The position is really a short bet on correlation. It pays in calm, stock-picking regimes and gets run over when everything crashes together and correlation snaps toward one.",
-      "depth": "The crash risk is the whole story. In a selloff correlations converge toward one, the diversification benefit vanishes, and the short-correlation book loses on both legs at once. That is why implied correlation sits above realized, much the way index vol sits above realized vol. You are paid to hold a tail, not to be clever.",
-      "id": "burrow-0396",
-      "date": "2026-10-15"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "A test's accuracy tells you almost nothing on its own.",
-      "body": "Bayes runs on odds, not percentages, and that reframing kills most intuition errors. Posterior odds equal prior odds times a single number, the **likelihood ratio**: how much more often you'd see this evidence if the claim were true than if it were false. A '95% accurate' test with a matching false-positive rate carries a likelihood ratio around 19. Against a 1-in-1,000 prior, that leaves you under 2% even after a positive result. The accuracy figure is a distraction; the ratio and the base rate are the whole calculation. Weighing any evidence, a deposition, a signal, a screen, asks the same two questions.",
-      "depth": "The trap is updating on how strong the evidence sounds while ignoring how rare the thing was to begin with. A damning-sounding fact with a likelihood ratio of 3 moves a one-in-a-thousand prior to roughly one in 333. Still almost certainly innocent. Strong-sounding is not the same as diagnostic.",
-      "id": "burrow-0397",
-      "date": "2026-10-15"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "callback",
-      "hook": "You can't feel time passing. So what do you do instead?",
-      "body": "Willpower won't fix a measurement deficit, so don't aim there. The move from before: stop querying the clock and **make time occupy space you can see**. A depleting visual timer, the shrinking colored disc of a Time Timer, converts an invisible quantity into a shape that visibly contracts in your field of view. The whole point is passive glanceability, because the act of stopping to check the time is exactly the act that never happens. You read what's left at a glance, with no self-initiated query required.",
-      "depth": "This is the same logic as anchoring a pill to your coffee: don't ask the weak executive function to do the work, offload the job to the environment. Any invisible variable you keep losing to, time, money burn, open task count, gets more reliable the moment you give it a physical, glanceable form.",
-      "id": "burrow-0398",
-      "date": "2026-10-15"
-    },
-    {
-      "topic": "hollywood-history",
-      "topicLabel": "Hollywood History",
-      "type": "history",
-      "hook": "One actress's lawsuit capped every Hollywood contract at seven years.",
-      "body": "Studios in the 1930s held actors to seven-year contracts, then stretched them. Refuse a role, you got suspended, and the suspension time was tacked onto the end, so a seven-year deal could run indefinitely. In 1944 Olivia de Havilland sued Warner Bros. and won: California's limit on personal-service contracts means **seven calendar years, not seven years of actual work**. Section 2855 of the Labor Code still carries that cap. Decades later recording artists have invoked the same statute against labels that tried to measure a contract in albums delivered rather than years elapsed.",
-      "depth": "The rhyme is control dressed as a term of art. Then it was suspension clauses; now it's options, exclusivity windows, and delivery-based terms that count a deal in output, not time. The de Havilland principle keeps resurfacing because the incentive to lock talent up never left, only the drafting did.",
-      "id": "burrow-0399",
-      "date": "2026-10-15"
-    },
-    {
-      "topic": "ai-orchestration",
-      "topicLabel": "AI Systems",
-      "type": "mechanism",
-      "hook": "Checking an answer is easier than producing one. Build on that.",
-      "body": "The most useful asymmetry in LLM system design is the gap between generating and verifying. A model that struggles to produce a correct answer can often reliably judge whether a candidate answer is correct, because judging needs less of the open-ended search that generation does. **Architect the generator and the verifier as separate roles.** Sample several candidates cheaply, then spend your reliability budget on a verifier that kills the bad ones. It's why best-of-N sampling, LLM-as-judge, and adversarial checking work at all. One confident pass is the weakest design; a mediocre generator plus a strict verifier beats it.",
-      "depth": "The failure mode is letting the same model, same prompt, grade itself, which just re-confirms its first mistake. The verifier has to differ: a new lens, a demand to locate the evidence rather than opine on it, or an adversary told to refute. Diversity in the checker is what makes the asymmetry pay.",
-      "id": "burrow-0400",
-      "date": "2026-10-15"
     }
   ]
 }
