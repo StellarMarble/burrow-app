@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-10",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Theta is gamma's rent, set by implied volatility.",
+      "body": "For a delta-hedged long option, theta and gamma are two sides of one trade. Under Black-Scholes, theta is roughly minus half of implied variance times spot squared times gamma. Your daily decay equals the gamma P&L you earn if the underlying moves exactly **one implied-vol daily move**, which is about sigma divided by the square root of 252, times spot. Move less and you bleed. Move more and you profit. A theta-positive book is therefore a short-gamma bet that realized vol finishes below implied, and quoting theta alone hides the real exposure.",
+      "depth": "The identity ignores rates and dividends and assumes constant vol, so it holds best near the money. Away from the money, gamma and theta both fall and vega becomes the dominant risk. Check the break-even move before sizing: a 16 vol implies roughly 1% per day.",
+      "id": "burrow-0521",
+      "date": "2026-11-10"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Ross lost on fair use because it competed, not because it trained.",
+      "body": "In February 2025, Judge Bibas held in Thomson Reuters v. Ross that copying Westlaw headnotes to train a legal search tool was not fair use. The reasoning leaned on the fourth factor: Ross was building a **direct market substitute** for Westlaw. He also stressed that the tool was not generative. Practitioners who cite the Bartz and Kadrey rulings as proof that training is fair use skip this split. Courts are asking what the output does to the plaintiff's market, not merely whether the input was copied. The ruling was reported to be on interlocutory appeal to the Third Circuit.",
+      "depth": "In Kadrey (June 2025), Judge Chhabria said market dilution could be a winning theory for a plaintiff with the right evidence. That is Ross's market-substitution logic applied to generative output. Check the Third Circuit docket before relying on either side, because the appeal outcome may have moved.",
+      "id": "burrow-0522",
+      "date": "2026-11-10"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Vitamin C supplements can lower your amphetamine levels.",
+      "body": "The lisdexamfetamine label lists urinary acidifying agents, such as ascorbic acid, as lowering amphetamine blood levels, because acidic urine speeds renal excretion. Alkalinizing agents, like sodium bicarbonate, do the reverse. The label concerns pharmacological doses, not a glass of orange juice, but during titration it is a variable you can control. **Keep vitamin C supplements away from your dose window** and note any change in your log. Otherwise a lower perceived effect gets blamed on the dose itself.",
+      "depth": "Lisdexamfetamine is absorbed intact and converted in red blood cells, so the warning concerns the clearance of the dextroamphetamine it releases. Ask your prescriber before changing supplements. With a stable routine, the effect from a normal diet is likely small.",
+      "id": "burrow-0523",
+      "date": "2026-11-10"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "insight",
+      "hook": "An MFN is only as strong as its comparison set.",
+      "body": "'No less favorable than any other actor on the picture' and 'than any similarly situated actor on any studio picture' describe different universes. Three drafting points decide the value: who defines **similarly situated**, whether the benefit is automatic or only on request, and whether it covers all terms or just one, such as fee or backend. A clause the studio can satisfy by redefining the peer group, or by paying the peer in a different currency of compensation, delivers nothing at the moment you need it.",
+      "depth": "Add a notice or audit right. Without one you learn about the better deal from the trade press, and delay can weaken your claim. Also check whether the MFN is tested only at signing or continues through the term, since many are drafted as one-time representations.",
+      "id": "burrow-0524",
+      "date": "2026-11-10"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Recall it: why does the auction winner usually overpay?",
+      "body": "Hint: every bidder's estimate was unbiased. Ten bidders, one common-value asset, noisy comps. Now ask whose error set the price. The winner is the bidder with the most positive error, so the winning bid sits above true value even though nobody was biased. That is the **winner's curse**. The fix is to shade your bid below your estimate, by more as the number of bidders and the noise increase.",
+      "depth": "It matters again in any competitive bid where everyone reads the same noisy signals, like a hot package or spec script. Winning is itself information: it tells you that you were the most optimistic person in the room. Condition your bid on having won before you submit it.",
+      "id": "burrow-0525",
+      "date": "2026-11-10"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1151,57 +1201,6 @@
       "depth": "The reusable lesson isn't that volatility is dangerous. It's that any product with forced, size-insensitive daily rebalancing becomes its own worst counterparty in a crisis. Before you hold or sell one, ask what it is mechanically required to buy at the worst possible moment.",
       "id": "burrow-0410",
       "date": "2026-10-17"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Puts cost more than equally far-out calls. Always.",
-      "body": "Equity index options carry a persistent skew: out-of-the-money puts trade at higher implied vol than out-of-the-money calls the same distance away. Two forces drive it. Crash risk is one-sided, so hedgers and funds constantly bid up downside protection. And volatility rises when markets fall, so a lower strike genuinely deserves a higher vol. The result is **the volatility smirk**, and it means your short put is selling expensive insurance while your short call is selling cheap. Skew is not a glitch. It is the market pricing fear asymmetrically.",
-      "depth": "The second force is the leverage effect: as a stock falls, its debt-to-equity ratio rises, making the equity riskier and more volatile, so lower strikes earn higher vol honestly. Buyers of crash protection also pay a variance risk premium on top. That is why selling downside skew pays on average, and why it hurts most exactly when everyone needs the hedge at once.",
-      "svg": "<svg viewBox=\"0 0 400 240\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"60\" y1=\"40\" x2=\"60\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1.5\"/><line x1=\"60\" y1=\"200\" x2=\"380\" y2=\"200\" stroke=\"#35302a\" stroke-width=\"1.5\"/><path d=\"M70 62 C130 96 175 140 240 158 S330 166 375 140\" fill=\"none\" stroke=\"#d9a441\" stroke-width=\"2.5\"/><circle cx=\"70\" cy=\"62\" r=\"4\" fill=\"#7fb4a2\"/><text x=\"80\" y=\"58\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\">OTM puts: highest vol</text><text x=\"300\" y=\"186\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">OTM calls</text><text x=\"20\" y=\"118\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"14\" transform=\"rotate(-90 20 118)\">implied vol</text><text x=\"140\" y=\"224\" fill=\"#a89f8d\" font-family=\"sans-serif\" font-size=\"13\">lower strike to higher strike</text></svg>",
-      "id": "burrow-0401",
-      "date": "2026-10-16"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "A positive expected value can still ruin you.",
-      "body": "Flip a coin each round. Heads, your stake grows 50 percent. Tails, it shrinks 40 percent. The expected value per round is plus 5 percent, so the naive read says bet everything, forever. Do it and you go broke with near certainty. The average across many parallel gamblers rises, but **almost every individual path trends to zero**, because gains and losses compound multiplicatively, not additively. The number that actually governs your fate is the geometric mean, about 0.95 per round, a 5 percent loss every time. Expected value answered the wrong question.",
-      "depth": "This is the ergodicity problem. The ensemble average (many people, one round) and the time average (one person, many rounds) diverge whenever outcomes multiply. Trading is multiplicative. It is also the deep reason Kelly sizing exists: bet to maximize the geometric growth rate, not the arithmetic expectation, or the math that looks like edge quietly bankrupts you over time.",
-      "id": "burrow-0402",
-      "date": "2026-10-16"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "A court made OpenAI keep chats users had deleted.",
-      "body": "In the New York Times copyright suit, a federal magistrate ordered OpenAI to preserve and segregate ChatGPT output logs it would normally delete, including conversations users had chosen to erase. The Times wanted the trove to hunt for regurgitation of its articles. The order collided head-on with OpenAI's own deletion promises and with privacy regimes like the GDPR. **A litigation hold beat the delete button.** For anyone building a product on generative models, the lesson is blunt: your retention policy is only as real as the next discovery request that overrides it.",
-      "depth": "Preservation duties attach once litigation is reasonably anticipated, and they reach data the business would otherwise purge. Synthetic-output products make that scope enormous, because every prompt and completion becomes potentially discoverable evidence. Practitioners are now drafting around it: narrower logging by default, clearer legal-hold carve-outs in privacy notices, and segregation plans built before the first subpoena lands, not after.",
-      "id": "burrow-0403",
-      "date": "2026-10-16"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "ADHD doesn't ignore bedtime. Its body clock runs late.",
-      "body": "A large share of ADHD adults carry a delayed circadian rhythm: the brain releases melatonin one to two hours later than typical, so 'go to bed earlier' fails because the biology is not ready for sleep yet. Willpower at 11 PM cannot move a clock that light sets. The lever that actually shifts it is **bright light within an hour of waking**, which advances the whole cycle earlier over several days. Ten to fifteen minutes of real outdoor light in the morning does more than any amount of forcing the pillow at night.",
-      "depth": "Melatonin onset, not bedtime, anchors the rhythm. Evening screens push it later; morning light pulls it forward through the retinal pathway to the suprachiasmatic nucleus. The concrete move: light first, then caffeine and a hard first task. And hold the wake time fixed even on weekends, because a drifting wake time lets the late clock quietly reset later all over again.",
-      "id": "burrow-0404",
-      "date": "2026-10-16"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "insight",
-      "hook": "Try enough strategies and one looks brilliant by pure luck.",
-      "body": "Overfitting is not only about tuning parameters. It hides in the count of strategies you tried before keeping the winner. Test a hundred random rules on the same data and, by chance alone, a few will post gorgeous Sharpe ratios. Report only the survivor and you have fooled yourself completely. The fix is to **penalize the Sharpe for the number of trials**, the way the deflated Sharpe ratio does. A 2.0 Sharpe from one honest test and a 2.0 cherry-picked from five hundred are not the same discovery.",
-      "depth": "Under the null of no skill, the expected maximum Sharpe across many trials rises with both the number of trials and the backtest length. Bailey and Lopez de Prado's deflated Sharpe adjusts for exactly that, plus the return series' skew and fat tails. If you cannot state how many configurations you ran, your best result is uninterpretable. Track the trial count like a cost.",
-      "id": "burrow-0405",
-      "date": "2026-10-16"
     }
   ]
 }
