@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-10",
+  "updated": "2026-11-11",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Full Kelly has a 50% chance of halving your account.",
+      "body": "Full Kelly maximizes long-run growth, but the ride is brutal. In a continuous model, the probability your bankroll ever falls to fraction x of its starting value is simply x. So **full Kelly has a 50% chance of halving your account** at some point, and a 10% chance of falling 90%. Run half Kelly and the halving probability drops to roughly 12.5%, while you keep about three quarters of the growth rate. This is why practitioners size at a fraction of Kelly: the edge estimate is itself noisy.",
+      "depth": "The result comes from the lognormal approximation in Thorp's Kelly work: P(hit x) = x^(2/f - 1), where f is your fraction of Kelly. Real option payoffs are skewed and fat-tailed, so true drawdown odds are worse than this formula says.",
+      "id": "burrow-0526",
+      "date": "2026-11-11"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "insight",
+      "hook": "Filling option legs at mid can erase your whole edge.",
+      "body": "A backtest that fills multi-leg option trades at the mid assumes you never pay the spread. On an iron condor you cross four markets, and each leg's half-spread comes straight out of a premium that may be only a few dollars. If the strategy's edge is a few cents per share of variance premium, **a realistic fill model can flip the sign**. Test with fills at a fixed fraction of the spread, then rerun at the worst plausible fraction. If the edge only survives at mid, it was never an edge.",
+      "depth": "Also check for stale closing quotes on illiquid strikes, which flatter results. Wide-market strikes with little open interest often show a mid that no one would trade at. Scale your spread haircut with how far out-of-the-money each leg sits.",
+      "id": "burrow-0527",
+      "date": "2026-11-11"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Prompts alone don't earn copyright; your selection and edits might.",
+      "body": "The U.S. Copyright Office's January 2025 report on copyrightability concluded that prompts alone, however detailed, don't give a user enough control over the output to make them the author. What can be protected is human-authored expressive input, human selection and arrangement of AI material, and human modifications to it. **Protection attaches to the human contribution, not the output as a whole.** The D.C. Circuit's 2025 decision in Thaler v. Perlmutter separately affirmed that a work needs a human author.",
+      "depth": "Practical trap: registration applicants must disclose AI-generated content beyond de minimis amounts and disclaim it. Undisclosed AI material can jeopardize a registration. For chain of title on AI-assisted scripts or audio, keep drafts and edit logs showing which expressive choices were human.",
+      "id": "burrow-0528",
+      "date": "2026-11-11"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "End each session by writing the exact next keystroke.",
+      "body": "Restarting a task costs more than continuing one, because you must rebuild context from a working memory that doesn't hold it. Research by Masicampo and Baumeister (2011) found that making a specific plan for an unfinished goal reduced its intrusion on later tasks. So before stopping, write **the literal next action, down to the file and the first line**, not 'work on the brief'. Next session your activation threshold drops, because initiation becomes reading instead of reconstructing.",
+      "depth": "Put it where you will land: top of the document or a pinned note, not a separate app. Test: could you do it with zero thinking while tired? If not, it's still a topic, not an action. Keep it to one line; longer notes become another task to start.",
+      "id": "burrow-0529",
+      "date": "2026-11-11"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "history",
+      "hook": "LTCM's trades converged, but its lenders would not wait.",
+      "body": "Long-Term Capital Management ran roughly 25 times leverage in 1998, reported at about $125 billion of assets on under $5 billion of equity. After Russia's August default, spreads it bet would converge widened instead. The positions were arguably sound; **the financing had a shorter horizon than the trade**. Margin calls forced sales into thin markets, pushing spreads wider still. In September 1998 the New York Fed organized a roughly $3.6 billion recapitalization by 14 banks.",
+      "depth": "The lesson for any convergence or short-vol book: being right eventually is not a risk limit. Size to the worst mark-to-market path your funding can survive, not the expected end state. Same shape as XIV, where the forced buying was structural.",
+      "id": "burrow-0530",
+      "date": "2026-11-11"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1151,56 +1201,6 @@
       "depth": "Caveat: it's a correlational study of 36 children, so it shows an association, not proof that turns cause the growth. But it fits the wider serve-and-return research championed by Harvard's Center on the Developing Child, and the habit has essentially no downside. The extra wait for an answer is the part most adults skip.",
       "id": "burrow-0415",
       "date": "2026-10-18"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Exercising a call early makes sense only before a dividend.",
-      "body": "An American call is almost never worth exercising before expiry. Exercise and you throw away the option's remaining time value and give up the interest on cash you haven't spent yet. **The lone exception is the day before an ex-dividend date.** If the dividend you'd collect by owning the shares outright exceeds the call's remaining time value, capturing it beats holding the option. That is the only time rational early exercise of a call appears, and it clusters entirely around dividend dates. Miss the ex-date and the reason evaporates.",
-      "depth": "Puts are the mirror. A deep in-the-money put can be worth exercising early for the interest on the proceeds, any time, no dividend needed. Calls need the dividend, puts need the rates. Same parity, opposite triggers.",
-      "id": "burrow-0406",
-      "date": "2026-10-17"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "You overweight tiny probabilities. That is why lottery tickets sell.",
-      "body": "Kahneman and Tversky's prospect theory found people don't use probabilities straight. They run them through a weighting function: a 1% chance feels more like 5%, and a 99% chance feels more like 90%. **Small probabilities get overweighted, large ones underweighted.** Overweighting the tail is why the same person buys both a lottery ticket and flood insurance. Underweighting near-certainty is why people pay a premium to erase the final sliver of risk. In options it shows up as far-out-of-the-money contracts trading persistently rich: buyers are paying for a lottery, not an expected value.",
-      "depth": "The trade looks obvious and is dangerous: sell what others overpay for. But the overweighting isn't pure error. Tails are fatter than the normal curve claims, and the one time the lottery hits, the seller pays back years of collected premium at once.",
-      "id": "burrow-0407",
-      "date": "2026-10-17"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Your best system quietly stops working once it stops being new.",
-      "body": "An ADHD brain under-responds to cues that aren't novel or salient. That is why a new app, a fresh checklist, or a relocated sticky note works for two weeks and then quietly stops. It didn't fail. **It habituated into the background, and an invisible cue cues nothing.** This is tool decay, and it is predictable, not a character flaw. The move: engineer novelty on purpose. Rotate the tool's form, color, or location on a schedule, or swap it before it goes invisible. Treat any single system as a consumable with a short shelf life, not a permanent fix you failed to maintain.",
-      "depth": "Why novelty works: dopamine signaling tracks prediction error, the gap between expected and actual. A novel cue carries prediction error and grabs attention; a fully predicted one carries none. Rotating the system keeps manufacturing small prediction errors, which is what keeps it salient enough to act on.",
-      "id": "burrow-0408",
-      "date": "2026-10-17"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "California voids a vague AI-likeness clause even if you signed it.",
-      "body": "California's AB 2602 took effect January 1, 2025. It makes a contract term allowing a digital replica of someone's voice or likeness, used in place of work they'd otherwise do in person, unenforceable when two things are both true: the clause lacks a reasonably specific description of the intended uses, and the person wasn't represented by a lawyer or a union negotiating for them. **A broad catch-all replica grant, signed, can simply be void.** The old instinct to draft the widest possible rights grant now cuts against you here. For an unrepresented individual, vagueness is no longer leverage, it's a hole in your own contract.",
-      "depth": "The representation prong is the quiet part. If a union or counsel negotiated the clause, the specificity requirement relaxes. The statute is aimed at the unrepresented individual signing a studio's boilerplate, not at a repped client with a lawyer across the table.",
-      "id": "burrow-0409",
-      "date": "2026-10-17"
-    },
-    {
-      "topic": "market-history",
-      "topicLabel": "Market History",
-      "type": "callback",
-      "hook": "Recall it: what actually destroyed XIV on Volmageddon day?",
-      "body": "February 5, 2018. The VIX nearly doubled, but that alone wouldn't have killed the product. Before you read on, try to name the mechanical trigger. The answer: inverse-volatility notes like XIV had to rebalance daily, so the spike forced them to **buy VIX futures into the close, in size the market couldn't absorb.** That buying pushed futures higher, which forced still more buying, a loop that fed itself. XIV lost roughly 96% and was terminated within days.",
-      "depth": "The reusable lesson isn't that volatility is dangerous. It's that any product with forced, size-insensitive daily rebalancing becomes its own worst counterparty in a crisis. Before you hold or sell one, ask what it is mechanically required to buy at the worst possible moment.",
-      "id": "burrow-0410",
-      "date": "2026-10-17"
     }
   ]
 }
