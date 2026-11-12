@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A box spread is a loan with a guaranteed payoff.",
+      "body": "Combine a bull call spread and a bear put spread on the same two strikes and expiry. At expiration the package pays exactly the strike width, whatever the underlying does. So its price today is a discounted value of that width, which means **the box is a pure interest rate instrument**. Buy it and you lend. Sell it and you borrow at the implied rate. On European-style cash-settled SPX options, that rate is clean, and it shows what financing the options market is really charging. Check the implied rate against Treasury bills before you treat any box as free money.",
+      "depth": "On American-style equity options the same structure carries early exercise risk. A short leg can be assigned early, which breaks the guaranteed payoff and turns a loan into a position. That is why boxes belong on European-style index options, and why a quoted rate far from Treasuries usually means a cost you have not found yet.",
+      "id": "burrow-0531",
+      "date": "2026-11-12"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Tennessee's ELVIS Act can reach the tool maker, not just the user.",
+      "body": "Most digital-replica statutes target the person who publishes the fake. Tennessee's ELVIS Act, effective July 1, 2024, also reaches anyone who distributes or makes available an algorithm, software or tool whose **primary purpose** is producing a specific individual's voice or likeness without authorization. It also treats voice as protected even when simulated. That is a liability hook aimed at the vendor, with no copyright theory required. The contested hinge is the phrase primary purpose: a general-purpose voice model arguably escapes, a celebrity-clone app arguably does not.",
+      "depth": "For counsel, the practical question is how a client's product is marketed. Feature copy, preset voices named after real artists and prompt galleries are the kind of evidence that could be used to argue primary purpose. I am not aware of settled case law construing the phrase, so treat the scope as open.",
+      "id": "burrow-0532",
+      "date": "2026-11-12"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Plan your wear-off hour before the medication plans it for you.",
+      "body": "Stimulant effect tracks plasma level, and as the level falls some people report rebound: irritability, fatigue or emotional reactivity. The pattern is individual, so **log the hour it shows up** for one week, with a time and a one-word note. Then move the work that needs patience or judgment out of that window. Put admin, transitions, errands and low-stakes tasks in it instead. The point is not to endure the dip. It is to schedule around a predictable, measurable event instead of being surprised by it daily.",
+      "depth": "Mid-titration, this log is also useful data for your prescriber. Timing of onset, peak and wear-off, plus sleep and appetite effects, helps them adjust dose or formulation. If rebound is severe, raise it with them rather than managing it alone.",
+      "id": "burrow-0533",
+      "date": "2026-11-12"
+    },
+    {
+      "topic": "story-craft",
+      "topicLabel": "Story Craft",
+      "type": "practice",
+      "hook": "Start the scene after the hello and leave before the goodbye.",
+      "body": "Greetings, arrivals, settling in and farewells are the lowest-information minutes in a script. Screenwriters call this rule of thumb entering late and leaving early: start at the moment something is already at stake and cut once the turn has landed. In audio it matters more, because the listener cannot see a character cross a room. **Every second of ritual is a second of nothing**, and nothing is hard to follow without pictures. Test each scene: if you cut its first and last lines, does it still work? If so, cut them.",
+      "depth": "The exception is when the ritual itself carries the tension, such as a greeting that is strained, withheld or wrong. Then it is not ritual, it is the scene. Keep it only when it changes what the listener knows or fears.",
+      "id": "burrow-0534",
+      "date": "2026-11-12"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Recall it: why trade the plateau, not the peak of a sweep?",
+      "body": "Picture your parameter sweep as a surface. One cell shows a Sharpe of 1.4, but its neighbors at 18 and 22 days show 0.6. Before you read on, what does that gap tell you? It says **the peak is noise lined up by chance**. You picked the maximum of many noisy draws, so selection bias is largest exactly there. A real effect degrades smoothly as inputs shift. Pick the center of the broad plateau, the region you can still believe out of sample.",
+      "depth": "It matters again whenever you re-tune. Each new sweep adds more draws and more chances to crown a lucky cell. Judging the surface's shape, not its maximum, is the cheapest overfitting defense you have.",
+      "id": "burrow-0535",
+      "date": "2026-11-12"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1150,57 +1200,6 @@
       "depth": "Test it on one recurring commitment this week, such as daycare pickup, and log how often you leave on time with and without the earlier alert. A concrete comparison beats trusting the feeling.",
       "id": "burrow-0420",
       "date": "2026-10-20"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Monthly SPX options settle at a price nobody ever traded.",
-      "body": "Standard third-Friday SPX options are AM-settled. Trading in them stops at Thursday's close, and settlement uses the **Special Opening Quotation**, which is built from each component stock's first trade on Friday morning. Those opens print at different moments, so the SOQ is a composite that may never show up as a live index level. For a short condor, that means an overnight gap you cannot adjust, close, or hedge with the option itself. A Thursday close comfortably inside your strikes guarantees nothing. SPXW weeklies and XSP are PM-settled at Friday's close, so the risk window stays tradable.",
-      "depth": "The SOQ is published under the ticker SET. On volatile mornings it can land well away from both Thursday's close and Friday's first printed index level, because stocks that open late are priced at their own first trade. Practical rule: if you carry a monthly SPX position into expiration, size it as if Friday's open could gap through you, or roll to the PM-settled weekly that expires the same day.",
-      "svg": "<svg viewBox='0 0 400 240' xmlns='http://www.w3.org/2000/svg'><text x='200' y='40' text-anchor='middle' fill='#a89f8d' font-family='sans-serif' font-size='15'>AM-settled SPX monthly</text><line x1='30' y1='130' x2='370' y2='130' stroke='#35302a' stroke-width='2'/><rect x='78' y='118' width='244' height='24' fill='none' stroke='#d9a441' stroke-width='2' stroke-dasharray='6 4'/><circle cx='70' cy='130' r='7' fill='#7fb4a2'/><circle cx='330' cy='130' r='7' fill='#d9a441'/><text x='70' y='100' text-anchor='middle' fill='#a89f8d' font-family='sans-serif' font-size='14'>Thu close</text><text x='70' y='168' text-anchor='middle' fill='#a89f8d' font-family='sans-serif' font-size='13'>last trade</text><text x='330' y='100' text-anchor='middle' fill='#a89f8d' font-family='sans-serif' font-size='14'>Fri open</text><text x='330' y='168' text-anchor='middle' fill='#a89f8d' font-family='sans-serif' font-size='13'>SOQ settles</text><text x='200' y='212' text-anchor='middle' fill='#a89f8d' font-family='sans-serif' font-size='14'>Gap window: no way to adjust</text></svg>",
-      "id": "burrow-0411",
-      "date": "2026-10-18"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "mechanism",
-      "hook": "Your short-premium backtest shows Sharpe 2. Sharpe can't see the tail.",
-      "body": "Sharpe uses only two numbers, mean and standard deviation. A put-selling strategy earns small steady gains and loses rarely but big, so its returns are **negatively skewed with fat tails**. In any sample that happens to miss the crash, the standard deviation looks tame and the ratio looks elite. A better Sharpe estimate from the same data won't fix that. Ask how many tail events your history actually contains that the strategy is exposed to, and judge the ratio by that count, not by the decimal.",
-      "depth": "Bailey and Lopez de Prado's Probabilistic Sharpe Ratio (2012) formalizes this: it discounts an observed Sharpe for negative skew, excess kurtosis, and a short track record, and gives the probability that the true Sharpe beats a benchmark. Run it on a few years of short-vol results and a headline 2.0 often stops looking convincing. Then stress-test by replaying paths like August 2015 and February 2018.",
-      "id": "burrow-0412",
-      "date": "2026-10-18"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Stop mid-task on purpose. Tomorrow's start is already done.",
-      "body": "The expensive moment is restarting, not working. Starting cold means rebuilding the whole context in working memory before the first action is even visible, and that rebuild cost lands right on top of your activation threshold. So end every session **mid-step, with the next physical action written down**: 'paste clause 7 into the redline,' not 'finish the markup.' Leave the file open to that exact spot. Hemingway did a version of this, stopping when he still knew what would happen next. You're doing the hardest part of tomorrow's start while the context is still loaded.",
-      "depth": "Why it works: much of what makes starting hard is the planning that a vague first step demands, and planning is executive work, the exact function under strain. A written next action moves that plan out of your head and onto the page. Pair it with a visible cue, like the open file or a note on the keyboard, so picking it back up doesn't depend on remembering to look.",
-      "id": "burrow-0413",
-      "date": "2026-10-18"
-    },
-    {
-      "topic": "story-craft",
-      "topicLabel": "Story Craft",
-      "type": "practice",
-      "hook": "Every scene ends worse. Every sequel ends with a decision.",
-      "body": "Dwight Swain's Techniques of the Selling Writer (1965) splits fiction into two alternating units, **scene and sequel**. A scene is goal, conflict, disaster: the character wants something now, meets opposition, and leaves worse off or holding a new problem. A sequel is reaction, dilemma, decision: they feel the blow, weigh bad options, and choose, which sets the next goal. Alternating them gives you momentum with room to breathe. To diagnose a dead stretch, ask which unit it is and which beat is missing. Usually it's a scene with no disaster, so nothing changed.",
-      "depth": "For a sleep story, invert it on purpose. Build mostly from sequel-shaped material, like small reactions and gentle choices, and swap each disaster for a resolution, so every beat lowers tension instead of raising it. Knowing how the machine works is what lets you switch tension off deliberately rather than by accident.",
-      "id": "burrow-0414",
-      "date": "2026-10-18"
-    },
-    {
-      "topic": "kid-development",
-      "topicLabel": "Little Humans",
-      "type": "insight",
-      "hook": "Count conversational turns, not words. The brain did.",
-      "body": "Hart and Risley's famous '30 million word gap' counted words heard, and later work has contested both the size of the gap and the method. A 2018 MIT study led by Rachel Romeo scanned 4- to 6-year-olds and found that **back-and-forth conversational turns**, not the raw number of adult words, predicted activity in Broca's area during language tasks and predicted verbal scores, independent of family income. The practical move costs nothing: say less, ask something open, wait an extra beat, then build on what the child actually said. Narrating at a toddler is input. Taking turns is the workout.",
-      "depth": "Caveat: it's a correlational study of 36 children, so it shows an association, not proof that turns cause the growth. But it fits the wider serve-and-return research championed by Harvard's Center on the Developing Child, and the habit has essentially no downside. The extra wait for an answer is the part most adults skip.",
-      "id": "burrow-0415",
-      "date": "2026-10-18"
     }
   ]
 }
