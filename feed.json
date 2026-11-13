@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Short calls get assigned when extrinsic value falls below the dividend.",
+      "body": "Early exercise of an American call is rational only for the night before an ex-dividend date, and only when the option's **extrinsic value is less than the dividend**. A deep in-the-money call has almost no time value left, so the holder converts to stock to capture the payout. If you are short that call, perhaps the short leg of a call spread or a calendar, you wake up assigned and short stock, owing the dividend. Check the extrinsic value of every deep ITM short call the day before ex-date, not on expiration week.",
+      "depth": "Puts have the mirror logic, driven by interest: a deep ITM put gets exercised early when the interest earned on the strike proceeds exceeds the remaining extrinsic value. Large special dividends make the call-side risk sharper, since the threshold is the dividend size.",
+      "id": "burrow-0536",
+      "date": "2026-11-13"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "insight",
+      "hook": "A t-stat of 2 stops meaning anything after hundreds of tries.",
+      "body": "The textbook t-stat of 2 assumes you ran one test. Harvey, Liu and Zhu (2016) surveyed the factor literature, where hundreds of factors had been tested, and argued that **new strategies should clear a t-stat of roughly 3.0**. The logic is plain: run 100 independent junk ideas and about five will pass a 5% threshold by luck alone. Keep a log of every variant you tried, including the abandoned ones, and count them. Your honest hurdle depends on the number of trials, not on the one chart you are looking at.",
+      "depth": "The 3.0 figure is a rough guide for a field-wide search. Your own hurdle depends on how many variants you actually tested. Corrections like Bonferroni or the deflated Sharpe formalize the same idea.",
+      "id": "burrow-0537",
+      "date": "2026-11-13"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "history",
+      "hook": "Kahneman's team knew the base rate, then ignored it.",
+      "body": "Kahneman recounts a curriculum project where his team estimated roughly two years to finish. He then asked a colleague, Seymour Fox, how similar teams had fared. Fox reported that about 40% never finished, and that the rest took seven to ten years. The team **knew the reference class and still stuck with their own estimate**. The project reportedly took about eight years, and the curriculum was hardly used. The inside view feels like analysis because it is detailed. The outside view feels like an insult because it is generic. Ask for the distribution first, then adjust.",
+      "depth": "Kahneman describes this in Thinking, Fast and Slow as the moment he understood the planning fallacy. Bent Flyvbjerg later turned reference-class forecasting into a practical method for large infrastructure projects.",
+      "id": "burrow-0538",
+      "date": "2026-11-13"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "ADHD is a performance gap, so put the cue where you act.",
+      "body": "Barkley's framing is that ADHD is less a failure to know what to do than a failure to **use what you know at the point of performance**. That is why a calendar alert at 9:00 often fails. It fires in the wrong place, and the cue is detached from the moment of action. The move is to relocate the cue to the spot where the behavior happens. Put the pill organizer next to the coffee maker, and the contract to review on the chair you will sit in. Put the cue in the physical path of the action, not in an app.",
+      "depth": "This works by externalizing working memory into the environment, so initiation depends less on internal retrieval. Test it with one recurring task for a week and see whether you needed the reminder at all.",
+      "id": "burrow-0539",
+      "date": "2026-11-13"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "The Paramount decrees banned studios from theaters for 72 years.",
+      "body": "After the Supreme Court's 1948 Paramount ruling, the majors had to separate production from exhibition and give up **block booking and blind bidding**. Consent decrees enforced this for decades, and the Justice Department moved to terminate them in 2019. A federal judge ended them in August 2020, with a two-year sunset on the block booking and circuit dealing bans. The rhyme is that streamers now own both production and distribution to the home, which is the integration the 1948 case was meant to prevent in theaters.",
+      "depth": "The Justice Department's argument was that streaming and changed economics had made the original theory of harm obsolete. Studios can now legally buy theaters, though none has made a major move to do so yet.",
+      "id": "burrow-0540",
+      "date": "2026-11-13"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1150,56 +1200,6 @@
       "depth": "The flip side is also useful. Information is most valuable when you are near the decision threshold, close to indifferent, and the stakes are large. Spend your diligence there, and stop spending it where the answer is already lopsided.",
       "id": "burrow-0425",
       "date": "2026-10-21"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Your short strike's gamma explodes in the last week.",
-      "body": "Gamma on an at-the-money option scales roughly with the inverse of the square root of time left. A 30-day option has a modest gamma. The same strike with 3 days left can carry gamma several times larger. That means **delta swings hardest when you have the least time to adjust**. A 1% index move in the final days can flip a comfortable short strike into a position that gains or loses delta fast. Theta is richest here too, which is exactly why the trade feels safe right up until it isn't.",
-      "depth": "This is why many premium sellers close at 50% of max profit or around 21 days to expiration. They give up the last slice of theta to avoid the steepest part of the gamma curve. The tradeoff is real: you pay more commissions and slippage, but you cut exposure to a single bad week.",
-      "id": "burrow-0416",
-      "date": "2026-10-20"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "insight",
-      "hook": "Your best parameter sits on a cliff edge.",
-      "body": "When you optimize a parameter, the winner is often a sharp peak surrounded by much worse results. That peak is usually noise you fitted. Prefer a **broad plateau**, where neighboring values perform similarly. If a 14-day lookback shines but 13 and 15 collapse, the edge is probably not there. A robust strategy degrades gracefully when you nudge its settings. A fragile one falls apart, and live markets will nudge it for you.",
-      "depth": "A practical check: plot performance across the full parameter grid as a heatmap and pick the center of the largest stable region, not the single best cell. Then confirm it on data the optimizer never touched.",
-      "id": "burrow-0417",
-      "date": "2026-10-20"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Your AI-training license may not cover the model's outputs.",
-      "body": "Many data licenses grant rights to train on a work, but say nothing clear about what the resulting model can generate. That gap matters. A grant to \"use for machine learning\" is not obviously a grant to **commercialize outputs that resemble the source**. Practitioners keep drafting training clauses and leaving output rights, retention, and deletion on model weights undefined. If the licensor later terminates, nobody can say whether the weights must be retrained or destroyed.",
-      "depth": "Fix it in drafting: separate training rights, output rights, and post-termination obligations, and say expressly whether trained weights survive termination. Silence will be litigated, and courts have not settled how.",
-      "id": "burrow-0418",
-      "date": "2026-10-20"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "You keep a loser because selling makes it real.",
-      "body": "The disposition effect is the documented tendency to sell winners too early and hold losers too long. Realizing a loss feels like admitting error, so people wait for a recovery that the market owes them nothing. The fix is to ask a cleaner question: **would I buy this position today at this price**, with fresh cash and no history? If the answer is no, the only thing holding you in is the sunk cost, and sunk costs carry no information about the future.",
-      "depth": "Note the tax wrinkle: harvesting a loss can be worth real money, so the biased behavior is also the expensive one. Pre-committing exit rules before entry removes the in-the-moment emotion entirely.",
-      "id": "burrow-0419",
-      "date": "2026-10-20"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Set the alarm for leaving, not for starting.",
-      "body": "Time blindness makes the transition cost invisible, so people plan to start a task at the last moment and run late. The move is to anchor an alert to the **departure time, minus the real travel and prep buffer**, not to the event itself. Then add a second alert at the buffer's midpoint. The first answers when to stop what you are doing. The second catches the drift that eats the gap. You are externalizing the one calculation your internal clock does not run.",
-      "depth": "Test it on one recurring commitment this week, such as daycare pickup, and log how often you leave on time with and without the earlier alert. A concrete comparison beats trusting the feeling.",
-      "id": "burrow-0420",
-      "date": "2026-10-20"
     }
   ]
 }
