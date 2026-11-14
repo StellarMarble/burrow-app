@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-13",
+  "updated": "2026-11-14",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Deep in-the-money puts get exercised for the interest, not the intrinsic.",
+      "body": "An American put holder who exercises receives the strike in cash today and can earn interest on it. Waiting keeps the optionality but forfeits that interest. When a put's **extrinsic value falls below the interest on the strike** over its remaining life, exercising beats holding. Deep in-the-money, low-vol puts get there first, because their time value has decayed toward zero. If you are short one, assignment tends to arrive when the put trades at or near parity. European-style index options like SPX can't be exercised early, so this risk lives in single names and ETFs.",
+      "depth": "It mirrors the call case: calls get exercised early to capture a dividend, puts to capture interest. On every deep in-the-money short put, compare extrinsic value to strike times rate times time remaining, and roll before it reaches that line. Higher rates raise the threshold and pull the risk forward.",
+      "id": "burrow-0541",
+      "date": "2026-11-14"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "A model is not an infringing copy, said the UK court.",
+      "body": "In Getty Images v Stability AI, the English High Court ruled in November 2025 on the secondary infringement claim. It held that Stable Diffusion's weights do not store or reproduce Getty's works, so the model is **not an \"infringing copy\"** under the statute, even though it was trained on them. Getty had earlier dropped its primary training claim, reportedly because it could not show the training happened in the UK. It won only narrow trademark findings tied to watermarks in generated outputs. Practitioners reading this as 'UK says training is fine' are skipping the territorial point.",
+      "depth": "The real lesson is jurisdictional. Where training physically occurs decides which copyright regime applies, and weights may sit outside the 'copy' concept entirely. That makes the location of compute a diligence item. Check the current appeal status before relying on the reasoning in a memo.",
+      "id": "burrow-0542",
+      "date": "2026-11-14"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Track resting heart rate during stimulant titration; Oura already does.",
+      "body": "Stimulants act on noradrenaline as well as dopamine, and on average they raise resting heart rate and blood pressure by a modest amount. Titration is when you are most likely to see the effect, and the effect varies by person. You already wear a sensor. **Bring two weeks of trend data to the prescriber visit**: resting heart rate, HRV, and sleep latency, with dose changes marked on the dates they happened. That replaces 'I think I sleep worse' with a dated comparison the prescriber can act on.",
+      "depth": "Sleep is the second-order effect to watch, since late-day stimulant exposure can delay sleep onset and your CPAP data adds a second signal. Treat the numbers as questions for the prescriber, not a basis for changing the dose yourself.",
+      "id": "burrow-0543",
+      "date": "2026-11-14"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "insight",
+      "hook": "Max drawdown in a backtest is a lower bound, not an estimate.",
+      "body": "Your backtest is one path drawn from a process that could have produced many. If a future path of the same length comes from the same process, then by symmetry there is **roughly a coin-flip chance it draws down further than your worst historical drawdown**. Over longer horizons, the odds of a deeper hole climb toward certainty, because the expected worst drawdown keeps growing with time. Reporting the historical max drawdown as the risk number quietly assumes you got the median path, and nobody gets to know that.",
+      "depth": "Resample instead. Block-bootstrap your returns to preserve autocorrelation, build a distribution of max drawdowns, and size to the 95th percentile rather than the one you observed. If the strategy sells convexity, assume the bootstrap understates the tail, since the sample may contain no true crisis.",
+      "id": "burrow-0544",
+      "date": "2026-11-14"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Recall it: why does a pre-mortem beat asking what might go wrong?",
+      "body": "Think of the 1989 study by Mitchell, Russo and Pennington, and of one phrase: prospective hindsight. Asked what might happen, people judge plausibility. Told the deal already failed, they explain a fact. Subjects in the failure condition reportedly generated reasons with roughly 30 percent more accuracy and detail. The answer: **certainty about the outcome switches the mind from forecasting to explaining**, and assumed failure removes the social cost of being the doubter in the room.",
+      "depth": "It matters again whenever a deal is close to signing and momentum is high, because that is when dissent is costliest. Run it before the signature, with each person writing their failure story privately first, then compare. The private step stops the loudest voice from anchoring the group.",
+      "id": "burrow-0545",
+      "date": "2026-11-14"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1150,56 +1200,6 @@
       "depth": "Practical protections: fix the metric's accounting policies at signing, add covenants on the specific levers that matter, include audit rights, and consider acceleration if the business is sold before the earn-out period ends.",
       "id": "burrow-0430",
       "date": "2026-10-22"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "callback",
-      "hook": "Recall it: why does index vol trade below its components?",
-      "body": "Hint: it isn't averaging, and it isn't a pricing error. Index variance depends on how tightly the members move together. When correlation sits below one, idiosyncratic moves cancel inside the index, so **implied index vol runs below the average component vol**. The gap is implied correlation, and dispersion desks sell the richer index leg against the cheaper single names. That makes the book short correlation: it collects in calm, stock-picking markets and gets hurt when everything sells off together.",
-      "depth": "Whenever you hear 'dispersion', translate it to 'short correlation'. The losing scenario is the same one that hurts every short-vol book: correlation snaps toward one in a crash, and index vol reprices upward faster than the single names you own. Cheap insurance on the wrong leg.",
-      "id": "burrow-0421",
-      "date": "2026-10-21"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "mechanism",
-      "hook": "Every peek at your holdout data spends it.",
-      "body": "A holdout set is only clean the first time you score it. Look at the result, adjust a filter, rerun, and the data has quietly become **training data that you labeled as test data**. Ten rounds of peeking is ten rounds of fitting, just done by hand instead of by optimizer. The discipline is procedural: decide the final candidate before touching the last slice, score it once, and accept whatever comes back, including a bad number.",
-      "depth": "Financial data adds a second leak: overlapping labels. If a trade's outcome spans several days, neighboring train and test rows share information. Purging and embargoing the rows near each split boundary, as in purged cross-validation, closes that leak, and it matters more the longer your holding period.",
-      "id": "burrow-0422",
-      "date": "2026-10-21"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "The first AI-training fair-use loss involved no chatbot.",
-      "body": "In February 2025, a Delaware federal court ruled in Thomson Reuters v. Ross Intelligence that Ross's use of Westlaw headnotes to train a legal search tool was not fair use. The tool was **non-generative**: it returned existing case links, not new text. The court leaned on market substitution, since Ross aimed to compete with Westlaw. Later 2025 rulings involving generative models reached different conclusions on training, so the line practitioners now argue over is what the output does to the original's market.",
-      "depth": "The decision went up on interlocutory appeal to the Third Circuit, so check its current status before citing it. Its practical value for deal work: a training-data warranty should be analyzed by what the model does with the data, not by the label 'AI'.",
-      "id": "burrow-0423",
-      "date": "2026-10-21"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Future rewards shrink faster for you. Pull one forward.",
-      "body": "Delay discounting is how steeply a reward loses value as it gets further away, and research reports steeper discounting on average in ADHD. A deadline three weeks out is worth almost nothing to the part of the brain that decides what to do now. The move is not more willpower. **Attach something small and immediate to the first step**: the good coffee only while drafting, the podcast only during the filing. Then cut the far deadline into milestones due today or tomorrow.",
-      "depth": "This is temptation bundling plus deadline shortening. The test is behavioral: if the reward is available without doing the task, it is not bundled and it will not work. Keep the bundle exclusive, or it decays like every other system.",
-      "id": "burrow-0424",
-      "date": "2026-10-21"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "Don't buy information that can't change your decision.",
-      "body": "The value of information is the expected improvement in your decision, not how much you learn. If you would take the same action whatever the answer turns out to be, the information is worth **exactly zero**, however interesting or reassuring it feels. Before commissioning another report, comp analysis, or backtest, ask: which result would flip my choice, and how likely is that? If you cannot name one, you are paying for comfort.",
-      "depth": "The flip side is also useful. Information is most valuable when you are near the decision threshold, close to indifferent, and the stakes are large. Spend your diligence there, and stop spending it where the answer is already lopsided.",
-      "id": "burrow-0425",
-      "date": "2026-10-21"
     }
   ]
 }
