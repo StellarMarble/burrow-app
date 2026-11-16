@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-14",
+  "updated": "2026-11-15",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "insight",
+      "hook": "The variance risk premium is wages for holding your worst days.",
+      "body": "Index implied volatility has historically sat above subsequent realized volatility, by roughly three to four vol points on the S&P 500 in many studies. That gap is why systematic short vol looks like free money in a backtest. But the premium is not an inefficiency waiting to be farmed. It is **payment for absorbing crash risk** at the moment marginal utility of money is highest. The return stream is a long run of small gains punctuated by gap losses that arrive when correlations go to one and liquidity vanishes. Size the position for the left tail, because the average month tells you almost nothing about the month that matters.",
+      "depth": "The tell is in the skew: the premium is largest in the OTM puts, where buyers pay most above fair realized-vol value. Selling there collects the most carry and carries the most convexity against you. Sharpe ratios on short-vol books flatter them because the return distribution is not symmetric.",
+      "id": "burrow-0546",
+      "date": "2026-11-15"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "mechanism",
+      "hook": "Signal on the close, fill on the close: that is look-ahead.",
+      "body": "A common bug: compute today's signal from today's closing price, then assume you traded at that same close. In live trading the signal does not exist until the bar prints, so the fill happens after it. The fix is to **lag the signal one bar** and fill at the next open, or model a market-on-close order submitted before the exchange cutoff, which at NYSE is 3:50 pm ET, using data available at that time. The bias is invisible in code review because every line looks correct. It shows up as suspiciously high short-horizon Sharpe ratios that collapse the moment you trade the strategy with real timestamps.",
+      "depth": "Quick test: shift your signal by one bar and rerun. If performance falls off a cliff, the original edge was the same-bar fill. A real edge degrades gradually with delay, a leak dies instantly.",
+      "id": "burrow-0547",
+      "date": "2026-11-15"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "insight",
+      "hook": "A precise first offer anchors harder than a round one.",
+      "body": "First offers anchor the whole negotiation; Galinsky and Mussweiler's 2001 experiments showed this, and the finding has been replicated widely. A refinement from Mason, Lee, Wiley and Ames (2013) reported that **precise numbers anchor more strongly** than round ones. Counterparties seem to infer that a figure like 4.85 million came from detailed analysis, so they adjust their counter less. A round 5 million reads as a placeholder to haggle around. The practical move is to open with a number that looks derived, such as a specific comp-based multiple, rather than a number that looks aspirational. Then say what it is derived from.",
+      "depth": "Caveat: precision helps only when it looks credible. A precise number with no visible logic reads as theater, and a sophisticated counterparty will reprice from their own anchor instead of yours.",
+      "id": "burrow-0548",
+      "date": "2026-11-15"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "mechanism",
+      "hook": "Lisdexamfetamine is rate-limited by your blood, not your stomach.",
+      "body": "Lisdexamfetamine is an inactive prodrug. It is absorbed intact, then **cleaved in red blood cells** to d-amphetamine and lysine, and that enzymatic step controls how fast active drug appears. The label reports peak d-amphetamine around 3.5 to 4 hours after the dose and a duration of roughly 13 to 14 hours in adults. The move: treat dose time as a sleep decision as well as a focus decision. If your Oura shows longer sleep latency or a higher overnight resting heart rate on later-dose days, shift the dose earlier and compare over a week.",
+      "depth": "This is a log-and-compare experiment, not a prescription. Bring the dose-time versus sleep-latency table to your prescriber during titration, since they can act on data far better than on a general report of feeling wired at night.",
+      "id": "burrow-0549",
+      "date": "2026-11-15"
+    },
+    {
+      "topic": "brain-science",
+      "topicLabel": "Brain & Focus",
+      "type": "mechanism",
+      "hook": "Space reviews at roughly 10 to 20 percent of when you need it.",
+      "body": "The spacing effect is among the most robust findings in memory research. Cepeda and colleagues' large 2008 study mapped the optimal gap between study sessions against how long you need to retain the material. The result, roughly: for a test a week away, review about a day later, and for a test a year away, the best gap stretches to weeks. **The ideal gap is a fraction of the retention interval**, around 10 to 20 percent for shorter horizons and a smaller share for longer ones. Too short and review feels easy but builds little. Too long and you relearn from scratch.",
+      "depth": "The cost curve is asymmetric: gaps slightly too long hurt less than gaps too short. When unsure, err toward waiting longer, as long as retrieval still partly succeeds.",
+      "id": "burrow-0550",
+      "date": "2026-11-15"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1150,56 +1200,6 @@
       "depth": "It matters again because it changes the unit you track. Counting words rewards narrating at a child. Counting turns rewards listening, and a one-year-old's babble counts as a turn.",
       "id": "burrow-0435",
       "date": "2026-10-23"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Expiring at your short strike means you might wake up with stock.",
-      "body": "A short put that closes right at the strike on expiration Friday is a coin flip you cannot see. Holders can submit exercise instructions until roughly 5:30 PM ET, well after the 4:00 PM close, so your assignment notice arrives after you can no longer trade out. If you are assigned, you own shares at Monday's open, with the gap risk that comes with them. This is **pin risk**. Close the position Friday afternoon, or trade cash-settled index options like XSP, where no shares ever change hands.",
-      "depth": "OCC auto-exercises equity options that finish $0.01 or more in the money, and holders can still exercise out-of-the-money contracts by instruction. A strike that closes at the money can flip either way, and weekend news lands on a position you can no longer hedge.",
-      "id": "burrow-0426",
-      "date": "2026-10-22"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "mechanism",
-      "hook": "Your train and test folds leak across time. Purge them.",
-      "body": "Standard k-fold cross-validation assumes samples are independent. Financial labels are not. If each label looks five days ahead, a training row that ends the day before your test window shares most of its outcome with the first test row. The model memorizes the overlap and your out-of-sample score inflates. The fix, popularized by Marcos Lopez de Prado, is **purging**: drop any training row whose label window overlaps the test fold, then add an embargo, a short buffer after the test fold, to absorb serial correlation.",
-      "depth": "Purged k-fold is cheap to implement and almost always lowers your scores. Treat the drop from the naive version as information: it measures how much of your apparent edge was leakage rather than signal. If the edge vanishes, it was never there.",
-      "id": "burrow-0427",
-      "date": "2026-10-22"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Eat before the pill kicks in. Appetite won't be there later.",
-      "body": "Appetite suppression is one of the most common stimulant side effects, and it tracks the drug's effect, typically strongest from mid-morning into the afternoon. The move is mechanical: eat a real, protein-heavy breakfast before the dose takes hold, then plan a calorie-dense meal for when it wears off. Skipping lunch and absorbing the whole day's deficit at 9 PM is **front-loading the deficit**, and it is predictable, so you can design around it. If intake stays low for weeks, raise it with your prescriber.",
-      "depth": "Amphetamine raises dopamine and norepinephrine signaling, which dampens hunger cues. Lisdexamfetamine is a prodrug, so onset is gradual, roughly an hour or two, which gives you a real window to eat first.",
-      "id": "burrow-0428",
-      "date": "2026-10-22"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "Averaging forecasters works only if their errors differ.",
-      "body": "The diversity prediction theorem is an identity, not a hope: the crowd's squared error equals the average individual squared error minus the variance of the predictions. Ten forecasters who read the same sources make the same mistake, so the second term is near zero and averaging buys you nothing. **Diversity of error** is the asset. When you build a panel, whether of analysts, models, or friends, select for different information and methods, not just for the highest individual accuracy.",
-      "depth": "Tetlock's forecasting tournaments reported that aggregating independent forecasts beat most individual forecasters. Aggregation helps most when people hold genuinely different information, and least when they all anchor on the same headline.",
-      "id": "burrow-0429",
-      "date": "2026-10-22"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "mechanism",
-      "hook": "Earn-outs price disagreement. They also manufacture it.",
-      "body": "An earn-out lets a buyer and seller who disagree about the future settle with a bet: pay more if the business hits a target. It works until the seller realizes the buyer now controls the levers. Cost allocation, integration choices, and pricing can all push the metric down, and sellers pay for that lack of control with litigation. Earn-out disputes are reported to be among the more commonly litigated M&A provisions. The same logic applies to any **revenue-based bonus**: whoever defines and controls the metric holds the power.",
-      "depth": "Practical protections: fix the metric's accounting policies at signing, add covenants on the specific levers that matter, include audit rights, and consider acceleration if the business is sold before the earn-out period ends.",
-      "id": "burrow-0430",
-      "date": "2026-10-22"
     }
   ]
 }
