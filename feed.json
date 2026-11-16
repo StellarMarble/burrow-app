@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-15",
+  "updated": "2026-11-16",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "callback",
+      "hook": "Recall it: why does half Kelly cut halving risk so sharply?",
+      "body": "Think about the rule that the chance of ever touching a fraction x of your bankroll equals x at full Kelly. Now scale the bet to half. The exponent changes: the probability becomes x raised to the power (2 divided by f, minus 1), where f is your fraction of Kelly. At f = 0.5, the chance of ever halving falls from 50% to **roughly 12.5%**, while you keep about 75% of the growth rate. You give up a quarter of the growth and cut the deep-drawdown risk by about four times.",
+      "depth": "It matters again because your edge estimate is noisy and usually overstated. Overbetting past full Kelly lowers growth and raises ruin risk, while underbetting only lowers growth linearly. The loss is asymmetric, so size to the lower end of your edge estimate.",
+      "id": "burrow-0551",
+      "date": "2026-11-16"
+    },
+    {
+      "topic": "kid-development",
+      "topicLabel": "Little Humans",
+      "type": "insight",
+      "hook": "Conversational turns predict language better than word counts do.",
+      "body": "The famous 30 million word gap has been challenged on replication and methodology. A cleaner finding came from Romeo and colleagues in 2018: among children aged 4 to 6, the number of back-and-forth exchanges with adults tracked language scores and activity in Broca's area. This held even after controlling for the sheer number of words the child heard. **Serve and return beats broadcasting.** Narrating at a toddler from across the room is not the same as pausing, waiting for the babble or the point, and answering it.",
+      "depth": "The practical move is to wait a few seconds after you speak, then respond to whatever came back, even if it is a grunt. The study is correlational, but it fits the broader serve-and-return research. Treat it as a good reason to prefer dialogue, not a guarantee of an outcome.",
+      "id": "burrow-0552",
+      "date": "2026-11-16"
+    },
+    {
+      "topic": "ai-orchestration",
+      "topicLabel": "AI Systems",
+      "type": "mechanism",
+      "hook": "Pass@k flatters your agent; reliability is pass^k.",
+      "body": "Pass@k asks whether at least one of k attempts succeeds. That is the right metric for a human picking the best of several drafts. It is the wrong one for an agent running unattended, where every run must work. Pass^k is the probability that **all k runs succeed**, roughly p to the power k if trials are independent. An agent that succeeds 90% of the time per task passes eight consecutive runs only about 43% of the time. The same agent scores near 100% on pass@8.",
+      "depth": "Report both numbers and match the metric to the deployment. For production agents, run each eval task several times and track the consistency gap. A wide gap between pass@k and pass^k means your problem is variance, which prompt tweaks and tighter tool design often fix better than a bigger model.",
+      "id": "burrow-0553",
+      "date": "2026-11-16"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "history",
+      "hook": "XIV's own rebalance forced it to buy the spike.",
+      "body": "On February 5, 2018, the VIX closed at roughly 37, up from about 17, its largest one-day point jump on record. Inverse VIX products like XIV were short VIX futures, and to keep their daily exposure at minus one they had to **buy futures into the close**, after the spike had already happened. That buying pushed futures higher, which forced more buying. XIV's indicative value reportedly fell by more than 90% after hours, and Credit Suisse announced it would accelerate the note. The instrument did not fail because the thesis was wrong. It failed because the mechanism that held its exposure fixed was pro-cyclical.",
+      "depth": "The lesson is about structure: any product that rebalances daily to a constant leverage target is implicitly short gamma. When the move exceeds what the product can absorb, the rebalance itself feeds the move.",
+      "id": "burrow-0554",
+      "date": "2026-11-16"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Make elapsed time visible; your internal clock will not.",
+      "body": "Meta-analytic work on ADHD reports consistent impairments in time perception and time reproduction, especially in estimating and reproducing durations. Your internal sense of how long a task has taken is a noisy instrument, so stop consulting it. Use an **external countdown that shows time disappearing**, such as a visual timer on your desk, set for a block you chose in advance. The goal is not discipline. It replaces an unreliable internal measurement with a reliable external one, so the cue to switch or stop fires from the environment instead of from your sense of time.",
+      "depth": "Pair it with your own estimate log: write a guess before the task and the actual time after. After a couple of weeks you will have a personal correction ratio, which turns planning from feeling into arithmetic.",
+      "id": "burrow-0555",
+      "date": "2026-11-16"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1150,56 +1200,6 @@
       "depth": "The pass^k framing appears in tau-bench, which tests tool-using agents on repeated trials of the same task. Practical move: run each eval case 5 to 10 times, log the success rate per case, and sort by the flakiest. Those cases usually point at a missing instruction or an unverified tool result.",
       "id": "burrow-0440",
       "date": "2026-10-24"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Halve the time left, and an ATM option loses only 29%.",
-      "body": "At-the-money option value scales roughly with the **square root of time**, not time itself. The Brenner-Subrahmanyam approximation puts an ATM price near 0.4 x spot x vol x sqrt(T). Cut T in half and sqrt(0.5) is about 0.71, so the option keeps roughly 71% of its value. Going from 60 days to 30 sheds about 29%, and 30 to 15 sheds another 29%. Dollar decay per day therefore accelerates as expiry nears, because it runs roughly as 1 over sqrt(T). Linear-decay intuition makes the first month of a short position look more generous than it is.",
-      "depth": "This is an ATM, low-rate, flat-vol approximation. Away from the money the decay profile differs, and skew shifts it further. Treat it as a mental model for sizing time exposure, not a pricing tool.",
-      "id": "burrow-0431",
-      "date": "2026-10-23"
-    },
-    {
-      "topic": "market-history",
-      "topicLabel": "Market History",
-      "type": "history",
-      "hook": "He sold cheap puts for years. One Monday erased everything.",
-      "body": "Victor Niederhoffer ran a celebrated fund and, reportedly, sold large quantities of deep out-of-the-money S&P 500 puts for premium. On October 27, 1997, Asian currency turmoil dragged the S&P down roughly 7% in one session. Puts that were nearly worthless became deeply in the money, margin calls hit, and his brokers liquidated positions into the panic. The market bounced hard within days, but the fund was already gone. **Being right eventually did not matter because he was liquidated first.** Short-tail strategies fail on the path, not the average.",
-      "depth": "The lesson is about funding and margin, not forecasting. A position you can't hold through the worst print isn't an edge, it's a countdown. Size to the liquidation path, not the expected value.",
-      "id": "burrow-0432",
-      "date": "2026-10-23"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "insight",
-      "hook": "Experts anchor on the first number too, and deny it.",
-      "body": "In a classic 1987 study by Northcraft and Neale, real estate agents toured a house, then appraised it. Each saw a different listing price. Their appraisals tracked the listing price closely, yet the agents insisted they had ignored it. **Expertise did not protect them from the anchor.** So when the other side opens with a number, your private knowledge of the market won't shield you from it. Counter by putting your own principled number on the table before you respond to theirs, with a reason attached. Reacting to their figure is already negotiating on their ground.",
-      "depth": "Later anchoring research reported that deliberately focusing on the counterpart's target and alternatives, rather than their opening number, weakens the effect. Prepare that view before the call, not during it.",
-      "id": "burrow-0433",
-      "date": "2026-10-23"
-    },
-    {
-      "topic": "ai-orchestration",
-      "topicLabel": "AI Systems",
-      "type": "practice",
-      "hook": "A subagent only knows what your brief tells it.",
-      "body": "A subagent starts with a blank context. It can't see your conversation, your files, or what you've already ruled out. That makes **the brief the entire interface**. A good one states the goal, what done looks like, what's already been tried, the boundaries, and the exact output format you want back. Anthropic reported that early versions of its multi-agent research system suffered from vague task descriptions, with agents duplicating each other's work or misreading the assignment. If two subagents could plausibly do the same thing from your brief, you have written it badly.",
-      "depth": "A cheap test: hand the brief to a smart contractor with no background. If they'd need to ask clarifying questions, the subagent will guess instead.",
-      "id": "burrow-0434",
-      "date": "2026-10-23"
-    },
-    {
-      "topic": "kid-development",
-      "topicLabel": "Little Humans",
-      "type": "callback",
-      "hook": "Recall it: which predicted kids' language-brain activity, words or turns?",
-      "body": "Think of the 2018 MIT scans of 4- to 6-year-olds. Hart and Risley's famous gap counted words heard. The brain data pointed elsewhere. **Back-and-forth conversational turns** predicted activity in Broca's area during language tasks, and verbal scores, independent of family income. Raw adult word count did not carry the effect. So the move is to say less and take more turns: ask something open, wait a beat, then build on what the child actually said.",
-      "depth": "It matters again because it changes the unit you track. Counting words rewards narrating at a child. Counting turns rewards listening, and a one-year-old's babble counts as a turn.",
-      "id": "burrow-0435",
-      "date": "2026-10-23"
     }
   ]
 }
