@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-17",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Your gamma scalp breaks even at the implied daily move.",
+      "body": "A delta-hedged long option earns roughly half gamma times S squared times the difference between each day's squared return and implied variance per day. So the **breakeven is the implied daily move**: implied vol divided by the square root of 252. At 16% implied, that is about 1.0% a day. Because P&L sums squared returns, one 3% day pays like nine 1% days. You do not need steady movement. You need total realized variance to beat what you paid, and rehedging frequency only changes how much of it you capture.",
+      "depth": "The caveat is that gamma P&L is weighted by S squared times gamma, which peaks near the strike. A big move away from the strike pays less than the same move near it. Realized variance that happens while you are at-the-money is worth more than variance that happens after the spot has drifted away.",
+      "id": "burrow-0556",
+      "date": "2026-11-17"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "practice",
+      "hook": "A backtested stop fills at the stop. A real one doesn't.",
+      "body": "A stop order becomes a market order once triggered, so it fills at the next available price, not at your level. Daily-bar backtests that exit at the stop price assume zero slippage on exactly the days when liquidity is worst. Gaps through the level, overnight or on news, are where this hurts most. The fix is to **fill stops at the worse of the stop or the next bar's open**, plus a spread penalty. Rerun it. Strategies that look smooth with idealized stops often show fatter left tails, and sometimes the stop turns out to be decoration.",
+      "depth": "For short-premium books this matters twice. Stops on short options are triggered on option prices, which widen and gap with the underlying. Test on quotes if you have them, and treat any mid-based stop fill as optimistic.",
+      "id": "burrow-0557",
+      "date": "2026-11-17"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Instructors saw praise backfire and criticism work. It was regression.",
+      "body": "Kahneman described Israeli Air Force flight instructors who noticed that cadets praised after an excellent landing usually did worse next time, while those scolded after a poor one improved. The instructors concluded that criticism works and praise harms. In fact, **exceptional performances are followed by average ones** because performance mixes skill with luck. Extreme results contain extreme luck, and luck does not repeat. The same trap hides in any feedback loop where you respond to outliers, including a trader who tweaks a system after its best or worst month.",
+      "depth": "The test is simple: would the next result likely be closer to average if you did nothing? If yes, compare against that baseline, not against the last outcome, before crediting your intervention.",
+      "id": "burrow-0558",
+      "date": "2026-11-17"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Schedule your system's decay review before the novelty wears off.",
+      "body": "New tools tend to work well at first, then quietly stop working. Reward-deficit accounts of ADHD suggest unchanging cues lose their pull faster, so a system's early success partly reflects novelty. The move is to **book a review date three weeks out** at the moment you set the system up. At that review, do not abandon the system. Change one parameter: where the cue sits, its form (paper, phone, spoken), or its timing. Keep the function and refresh the surface. Decay is an expected maintenance event, not a personal failure signal.",
+      "depth": "Log one line at the review: what the system did last week and what you changed. If three variants in a row fail, the mechanism is wrong, not the surface, and you should swap the underlying approach.",
+      "id": "burrow-0559",
+      "date": "2026-11-17"
+    },
+    {
+      "topic": "ai-orchestration",
+      "topicLabel": "AI Systems",
+      "type": "practice",
+      "hook": "An agent grading its own work shares its own blind spots.",
+      "body": "When the same context writes and reviews code, the reviewer inherits every assumption, misread requirement, and rationalization the writer built up. It tends to approve what it already believes. A stronger pattern is a **verifier in a fresh context** that receives only the spec and the output, never the reasoning that produced it. It must rediscover the facts, so errors in the original path do not carry over. Add executable checks (tests, schema validation, diffs) before any model judgment, and let the model judge only what code cannot.",
+      "depth": "The cost is an extra call and a lost-context risk if the spec is vague. Treat disagreement between writer and verifier as the signal: route those cases to a human or a third pass, not to a tie-break by the writer.",
+      "id": "burrow-0560",
+      "date": "2026-11-17"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1150,56 +1200,6 @@
       "depth": "This works because it changes the choice architecture, not your character. Add friction only to the two or three sinks that actually eat your hours, and re-check monthly. A workaround you stop noticing has decayed, and you will drift back to the old pattern.",
       "id": "burrow-0445",
       "date": "2026-10-25"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Your delta is wrong if you assume the wrong skew dynamic.",
-      "body": "Black-Scholes delta assumes implied vol stays put as spot moves. In equity indexes it doesn't: spot falls, vol rises, and the correlation is strongly negative. So a put's real delta is **BS delta plus vega times the vol change per point of spot**, and that second term is also negative. Short a put and hedge with plain BS delta, and you are under-hedged exactly when it hurts: the spot loss and the vol gain on the option stack on the same side. Whether your model treats the smile as sticky-strike or sticky-delta quietly changes the number you trade.",
-      "depth": "Sticky-strike says each strike keeps its vol. Sticky-delta says vol follows moneyness, so the smile slides with spot. Index options usually sit between the two, and the balance shifts by regime. To see your gap, compare your broker's delta against a scenario reprice with a 1-point spot move plus a vol shift.",
-      "id": "burrow-0436",
-      "date": "2026-10-24"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "practice",
-      "hook": "Turnover, not Sharpe, tells you how fragile your edge is.",
-      "body": "Say a signal earns 6 bps per round trip gross. Costs are 3 bps round trip. Net edge is half the gross, and **break-even cost multiple** (gross edge divided by round-trip cost) is 2x. That ratio, not Sharpe, tells you how much slippage error you can survive. Turnover multiplies the exposure: the same signal traded daily pays costs roughly 20 times as often as traded monthly. Options make it harsher because spreads are wide in percentage terms and widen in stress, when your signal fires hardest. Under 2x, assume live trading kills it.",
-      "depth": "Compute the multiple per strategy before you compare Sharpes. Then stress it: double the spread and add a 1 tick adverse fill on every order. If the strategy survives that, the edge is more likely real. If it only works at mid-price, you have a model of the quote screen, not of the market.",
-      "id": "burrow-0437",
-      "date": "2026-10-24"
-    },
-    {
-      "topic": "hollywood-history",
-      "topicLabel": "Hollywood History",
-      "type": "history",
-      "hook": "Until the 1990s, networks were barred from owning their own hits.",
-      "body": "The FCC's financial interest and syndication rules, adopted in 1970, restricted the big three networks from taking ownership stakes in the shows they aired and from domestic syndication. The aim was to break network control of programming. The result was a **separation of distribution from ownership** that fed a studio-driven production and syndication business. The rules were repealed in the 1990s, and within a few years networks and studios merged back together under common owners. Streaming rhymes with the pre-1970 world: the platform that distributes is again the entity that owns the show.",
-      "depth": "The practical effect for lawyers was the shape of every network deal: license fees below cost, with the studio deficit-financing and betting on the back end. When the rules fell, that bet changed. A vertically integrated owner can afford to lose on the first run because it keeps the whole life of the asset.",
-      "id": "burrow-0438",
-      "date": "2026-10-24"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Write 'if X, then Y' in advance. It offloads inhibition.",
-      "body": "Implementation intentions, studied by Peter Gollwitzer since the 1990s, are plans in the form **if cue, then action**. The mechanism: the cue itself triggers the response more automatically, so you spend less effortful inhibition in the moment. That is the resource ADHD taxes. Reported effects in ADHD samples are smaller and less studied than in general populations, so treat this as a cheap test, not a cure. Pick your single top derailer and write one rule: if I sit at my desk, then my phone goes face-down in the drawer. Rehearse the sentence, not the intention.",
-      "depth": "Specificity is the whole trick. 'If I get distracted, I refocus' has no cue to attach to. A good cue is an observable event (sitting down, closing a call, hearing the dishwasher finish) and a good action takes under 10 seconds. Review after a week and replace any rule you never triggered.",
-      "id": "burrow-0439",
-      "date": "2026-10-24"
-    },
-    {
-      "topic": "ai-orchestration",
-      "topicLabel": "AI Systems",
-      "type": "insight",
-      "hook": "An agent that passes once may fail every third run.",
-      "body": "Agent evals often report pass@k: did at least one of k tries succeed? That flatters you. What users feel is pass^k: did **all k runs succeed**. At a 90% per-run success rate, five consecutive successes happen only about 59% of the time (0.9 to the fifth power). A workflow that runs daily is a pass^k problem. So report per-run reliability alongside best-of-k, and pick the threshold from how often the task actually repeats. Reliability, not peak capability, usually decides whether you can leave an agent unattended.",
-      "depth": "The pass^k framing appears in tau-bench, which tests tool-using agents on repeated trials of the same task. Practical move: run each eval case 5 to 10 times, log the success rate per case, and sort by the flakiest. Those cases usually point at a missing instruction or an unverified tool result.",
-      "id": "burrow-0440",
-      "date": "2026-10-24"
     }
   ]
 }
