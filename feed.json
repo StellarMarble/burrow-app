@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-18",
+  "updated": "2026-11-19",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A variance swap is a strip of options weighted 1/K squared.",
+      "body": "The replication of a variance swap holds options across every strike, each weighted by **one over strike squared**. That weighting gives constant dollar gamma as spot moves, which is why the payoff tracks realized variance cleanly. It also means far OTM puts carry enormous weight relative to their price. Under a steep index skew, the fair variance strike lands well above the at-the-money implied vol. So when you compare ATM implied to your forecast of realized vol, you are measuring the wrong gap. The swap strike embeds the whole left tail, and that is much of what the variance premium pays you for.",
+      "depth": "Practical check: the gap between the variance swap strike and ATM implied is a rough read on how much skew the market is charging. A flat-skew name has a strike near ATM; a crash-prone index sits several vol points above.",
+      "id": "burrow-0566",
+      "date": "2026-11-19"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "practice",
+      "hook": "Every peek at your holdout set spends it.",
+      "body": "A holdout only works if you look **once**. The moment a bad holdout result sends you back to tweak the rules, the holdout has become training data, and your final number is selected for looking good on it. Ten iterations against the same slice is ten tries at a lucky draw. The fix is procedural, not statistical: freeze the strategy, run the untouched period a single time, and accept the answer. If you must iterate, use walk-forward windows so each test period is genuinely new, and log every variant you tried so you can deflate the result honestly.",
+      "depth": "A cheap discipline: keep the most recent 12 to 24 months in a file you cannot open without committing the code first. Counting your looks is the first input to any multiple-testing correction.",
+      "id": "burrow-0567",
+      "date": "2026-11-19"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Caffeine and lisdexamfetamine stack on the same cardiovascular load.",
+      "body": "Both are sympathomimetic, so each raises heart rate and blood pressure, and the effects are **additive, not separate**. A large coffee on top of a morning dose can read as the medication being too strong, when the dose is fine and the stack is the problem. The concrete move during titration: hold caffeine constant in timing and amount, so any change you notice can be attributed to the dose change. Change one variable per step. Pair that with your Oura resting heart rate and you have a clean signal instead of a muddle.",
+      "depth": "Bring the caffeine log to the prescriber with your heart rate data. They can only adjust the dose sensibly if the other stimulant in the system is a known, steady quantity.",
+      "id": "burrow-0568",
+      "date": "2026-11-19"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Two underwriters at one insurer differed by roughly 55 percent.",
+      "body": "In the audit behind Kahneman's book Noise, an insurer's underwriters priced the same case, and the median gap between two of them was **reportedly about 55 percent**. Executives had guessed around 10 percent. Nobody was biased in a consistent direction; the judgments simply scattered. That is noise, and unlike bias it hides because no single decision looks wrong. The same structure sits inside settlement valuations, deal pricing and your own trade sizing on different days. The remedy is not wisdom but procedure: independent estimates first, then average, and score each factor separately before forming the overall judgment.",
+      "depth": "Kahneman, Sibony and Sunstein call this a mediating assessments protocol. Rate each dimension on its own, defer the gut call until the end, and the scatter shrinks.",
+      "id": "burrow-0569",
+      "date": "2026-11-19"
+    },
+    {
+      "topic": "ai-orchestration",
+      "topicLabel": "AI Systems",
+      "type": "mechanism",
+      "hook": "Prompt caching rewards stable prefixes; put volatile content last.",
+      "body": "Caching matches on an **exact prefix** of the prompt. Put a timestamp, a user name or a freshly retrieved document at the top, and every token after it misses the cache. Order matters: system instructions, tool definitions and long reference material first, then conversation history, then the per-request variable parts. Cached reads are billed at roughly a tenth of base input price on Anthropic's API, and they cut latency too. For an agent that loops through dozens of tool calls on a growing context, a stable prefix is often the largest single cost lever you control.",
+      "depth": "Audit trick: diff two consecutive requests and find the first differing byte. Everything before it is cacheable. Anything surprising at that position is your bug.",
+      "id": "burrow-0570",
+      "date": "2026-11-19"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1150,56 +1200,6 @@
       "depth": "Judge-agreement with your own labels is the number to track. Hand-grade 30 to 50 outputs, compare, and rerun that comparison whenever you change the judge model or the rubric. A judge that cannot match you on that sample should not gate anything.",
       "id": "burrow-0455",
       "date": "2026-10-27"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Your theta already tells you the daily move you need.",
-      "body": "For a delta-hedged option, daily theta decay and gamma P&L cancel exactly when the underlying moves by implied vol divided by the square root of 252. At 20% implied, that is roughly **a 1.26% daily move**. Anything smaller and the short-gamma seller keeps the decay. Anything larger and the long-gamma holder collects more than they paid. So every theta figure on your screen is really a price quote for one specific daily move, and your edge is the gap between that move and the one that actually shows up.",
-      "depth": "This is the Black-Scholes relation theta + 0.5 x gamma x S^2 x sigma^2 = 0 (rates ignored) in disguise. It holds per day only on average. Realized paths are lumpy, so the breakeven is a mean, not a guarantee, and gap days dominate the outcome.",
-      "id": "burrow-0446",
-      "date": "2026-10-26"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "insight",
-      "hook": "A Sharpe of 1.0 over three years can still be zero.",
-      "body": "The standard error of an annualized Sharpe ratio is roughly the square root of (1 + half the Sharpe squared) divided by the years of data. For a Sharpe of 1.0 over three years, that is about 0.7. A 95% interval of **plus or minus 1.4** runs from slightly negative to above 2. Your backtest cannot distinguish a great strategy from a coin flip with a good streak. Before trusting a number, compute its error bar. Then ask how many years you would need to shrink that bar to something you could act on.",
-      "depth": "The formula assumes roughly independent, normal returns. Fat tails and autocorrelation, both common in short-premium strategies, make the true error bar wider. The result goes back to Andrew Lo's work on the statistics of Sharpe ratios.",
-      "id": "burrow-0447",
-      "date": "2026-10-26"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Fair use covered the training. The pirated library copies didn't.",
-      "body": "In Bartz v. Anthropic (June 2025), Judge Alsup held that training on lawfully acquired books was fair use, calling it highly transformative. He refused to extend that to copies pulled from pirate sites and kept as a permanent library. That split opened **statutory damages exposure on acquisition**, not on training. The case then settled for a reported $1.5 billion, roughly $3,000 per work across about half a million books. The diligence question for any dataset is now where each copy came from, before it is what the model does with it.",
-      "depth": "Statutory damages run up to $150,000 per work for willful infringement, which is why class certification created settlement pressure. A district court ruling is not binding precedent, and other judges have weighed the market-harm factor differently. Treat it as a roadmap, not settled law.",
-      "id": "burrow-0448",
-      "date": "2026-10-26"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "During titration, log three timestamps, not how you feel.",
-      "body": "Mid-titration, how a dose feels is a poor guide. Stimulants can feel good at doses that hurt function, and rebound can masquerade as the drug failing. Record **onset, peak function, and the hour it fades**, each tied to a concrete output: when you started the first task, when you last finished something, when your focus fell off. Add appetite and bedtime. After a week, your prescriber sees a dose-response curve in your own data instead of a vague report that it was okay. Adjustments then rest on measurements, not mood.",
-      "depth": "Lisdexamfetamine is labeled to last roughly 12 to 14 hours in adults, but individual offset varies a lot. Bring the log to your prescriber, who decides dose changes. A phone note with three timestamps per day is enough.",
-      "id": "burrow-0449",
-      "date": "2026-10-26"
-    },
-    {
-      "topic": "market-history",
-      "topicLabel": "Market History",
-      "type": "history",
-      "hook": "The exchange changed the rules, and silver fell 80%.",
-      "body": "The Hunt brothers accumulated a huge silver position through 1979, helping push the price from roughly $6 to about $50 by January 1980. Then COMEX adopted position limits and a rule allowing liquidation-only trading. Buyers could no longer add, and margin calls kept coming. On March 27, 1980, Silver Thursday, they could not meet a reported margin call, and silver collapsed to around $11. The lesson is structural: **a squeeze depends on the rulebook**, and the party writing the rules can rewrite them against you at the worst moment.",
-      "depth": "The Hunts were later sued and fined, and Nelson Bunker Hunt filed for bankruptcy in 1988. Exact dates and figures vary by source, so treat the prices as approximate. The pattern recurs in the 2022 LME nickel episode, when the exchange canceled trades.",
-      "id": "burrow-0450",
-      "date": "2026-10-26"
     }
   ]
 }
