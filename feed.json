@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Vega grows with the square root of time, not linearly.",
+      "body": "Black-Scholes vega is S times the normal density at d1 times the square root of T. So a one-year option carries roughly **twice the vega of a three-month option** at the same strike, not four times. That is why a calendar spread is a bet on forward variance, and why front-month vol swings far harder than back-month vol while your back-month P&L moves with the slow parallel shifts. Size vega by expiry bucket, or you will think you are flat when you are long the term structure.",
+      "depth": "Vega also peaks near the money and decays in the wings, so a spot move quietly changes your vega without any trade. Vol-weighted or sqrt(T)-normalized vega lets you compare buckets on equal footing. This is also why the vol surface moves more in front tenors.",
+      "id": "burrow-0576",
+      "date": "2026-11-21"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "insight",
+      "hook": "Once you know the outcome, you misremember your own forecast.",
+      "body": "In Fischhoff's 1975 hindsight studies, people told an event happened rated it as **more predictable than people who were not told**. The follow-up with forecasts of Nixon's 1972 trips showed the same drift in recalled predictions: participants misremembered their own earlier probabilities toward what actually happened. The practical cost is that your review of a trade or a negotiation quietly rewrites what you believed beforehand, so you learn the wrong lesson from noise.",
+      "depth": "The fix is mechanical: write the probability and the reasoning before the outcome, timestamped. Then grade the record, not your memory. A decision journal works only if entries are made ex ante and never edited.",
+      "id": "burrow-0577",
+      "date": "2026-11-21"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Delay discounting runs steeper in ADHD, so shorten the reward lag.",
+      "body": "On average, people with ADHD discount delayed rewards more steeply, so a payoff next week barely registers against a distraction available now. Willpower is a poor counter. The move is to **attach an immediate reward to the start of the task**, not its completion: a specific podcast, coffee, or playlist allowed only during the first 10 minutes of the dreaded work. You are shrinking the gap between action and payoff instead of trying to feel the far one harder.",
+      "depth": "Pair it with a visible finish line. Immediate, small, reliable beats large and late. Reserve the reward strictly for the task, or it stops discriminating and the contingency dies within a couple of weeks.",
+      "id": "burrow-0578",
+      "date": "2026-11-21"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "Fin-syn's sunset let networks buy studios within two years.",
+      "body": "The FCC adopted the financial interest and syndication rules in 1970 to stop networks from owning the shows they aired and profiting from reruns. They were relaxed in 1991 and **fully sunset in 1993-1995**. In 1995 both Disney's deal for Capital Cities/ABC and Westinghouse's deal for CBS were announced. Once a network could own its content, the economic logic of vertical integration took over fast. The same pattern ran after the Paramount decrees fell: remove the structural wall and the industry re-consolidates around whoever controls both pipe and content.",
+      "depth": "The rules were meant to protect independent producers, and they did seed the syndication boom of the 1970s and 80s. The rhyme today is streamers acting as networks and studios at once.",
+      "id": "burrow-0579",
+      "date": "2026-11-21"
+    },
+    {
+      "topic": "ai-orchestration",
+      "topicLabel": "AI Systems",
+      "type": "insight",
+      "hook": "A subagent's real product is the context it throws away.",
+      "body": "The point of delegating is not parallelism, it is **context isolation**. A subagent can read forty files, run dead-end searches, and burn 100k tokens, then return a 300-word conclusion. Your main thread keeps only the conclusion, so its window stays clean and its attention stays sharp. If the subagent returns raw dumps, you paid for isolation and then imported the clutter anyway. Design the return contract first: what question, what shape of answer, what level of evidence.",
+      "depth": "The failure mode is the lossy summary: the subagent drops the one detail you needed. Ask for claims paired with file paths or sources, so the parent can spot-check cheaply instead of re-reading everything.",
+      "id": "burrow-0580",
+      "date": "2026-11-21"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1150,56 +1200,6 @@
       "depth": "It matters again because options spreads are wide in percentage terms and widen in stress, exactly when your signal fires hardest. Re-run any backtest at double the assumed cost. If the edge disappears, you never had a margin of safety.",
       "id": "burrow-0465",
       "date": "2026-10-29"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "An ATM straddle prices a 0.8 sigma move, not one sigma.",
-      "body": "An ATM straddle does not price a one-sigma move. It prices the **expected absolute move, roughly 0.8 sigma**, because the mean absolute deviation of a normal distribution is about 0.8 of its standard deviation. At 20% implied vol on a 30-day option, one sigma is about 5.7% of spot, while the straddle costs roughly 4.6%. So the 'implied move' people quote from a straddle is the typical size of a move, and a one-sigma move is a bigger event than that. Compare realized absolute moves to 0.8 sigma, not 1.",
-      "depth": "With real fat-tailed returns, the mean absolute deviation often falls below 0.8 sigma, so the ratio is not a constant. To back out the implied one-sigma move from a straddle, divide its price by roughly 0.8 and sanity check against the stock's own history.",
-      "id": "burrow-0456",
-      "date": "2026-10-28"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "practice",
-      "hook": "Backtesting options at mid-price quietly hands you the spread.",
-      "body": "Backtesting options at mid-price gives you the bid-ask spread for free. A four-leg iron condor crosses four spreads on entry and four on exit. With a hypothetical **nickel of half-spread per leg**, that is 20 cents in and 20 out, or 40 cents round trip against a $1.50 credit, roughly 27% of the premium gone before any loss. Edge in short premium is often only a few percent a year, so friction of this size can erase it entirely. Spreads also widen in stress, which is exactly when you adjust.",
-      "depth": "Rerun the test with fills 25%, 50%, and 100% of the way from mid to the worse quote, and plot return against that fraction. If the curve crosses zero before 50%, your live fills will decide whether you have a strategy at all.",
-      "id": "burrow-0457",
-      "date": "2026-10-28"
-    },
-    {
-      "topic": "hollywood-history",
-      "topicLabel": "Hollywood History",
-      "type": "history",
-      "hook": "In 1952 the actors' union let a talent agency produce TV.",
-      "body": "In 1952 the Screen Actors Guild, led by Ronald Reagan, granted talent agency MCA a **blanket waiver** from the rule barring agents from producing. MCA's Revue Productions then made television shows starring its own clients, which put the agency on both sides of the table. It bought the Universal backlot in 1958, then Decca, Universal's parent, in 1962. Antitrust pressure from the Justice Department forced it to drop the agency business and keep the studio.",
-      "depth": "The same conflict resurfaced in the 2019 WGA fight with the major agencies over packaging fees and agency-affiliated production arms, and the 2020 agreements restricted agency-owned production. The 1962 split held for roughly sixty years.",
-      "id": "burrow-0458",
-      "date": "2026-10-28"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Urine pH changes how fast amphetamine leaves your body.",
-      "body": "Amphetamine is a weak base, and how much of it is excreted unchanged depends on urine pH. **Acidic urine speeds clearance** and shortens the effect, while alkaline urine slows clearance and lengthens it. Prescribing labels list urinary acidifiers and alkalinizers, such as large doses of vitamin C or sodium bicarbonate, as interactions. The move: if a dose feels unusually short or long, add 'big vitamin C, antacid, or heavy citrus today?' to your timestamp log, and ask your prescriber before supplementing regularly.",
-      "depth": "Lisdexamfetamine is a prodrug converted to dextroamphetamine in red blood cells, so absorption is fairly insensitive to stomach acid. The excretion side is still pH-dependent. Treat it as one variable among several to rule out, not a dial to adjust yourself.",
-      "id": "burrow-0459",
-      "date": "2026-10-28"
-    },
-    {
-      "topic": "story-craft",
-      "topicLabel": "Story Craft",
-      "type": "practice",
-      "hook": "Show the bomb before the conversation. Suspense is information asymmetry.",
-      "body": "Hitchcock's famous example: two people talk at a table, and a bomb goes off. That is **15 seconds of surprise**. Show the audience the bomb under the table first, and the same ordinary conversation becomes 15 minutes of suspense, because they know what the characters do not. For audio fiction, the tool is a sound cue only the listener can interpret: a ticking, a lock turning, a second set of footsteps. Plant it in the first line of the scene, then let the dialogue stay mundane. The gap between what they know and what the characters know does the work.",
-      "depth": "Surprise gives a single jolt; suspense gives sustained attention. Use surprise sparingly for reveals and suspense for scenes you need the listener to lean into. Hitchcock described the bomb example in his interviews with Truffaut.",
-      "id": "burrow-0460",
-      "date": "2026-10-28"
     }
   ]
 }
