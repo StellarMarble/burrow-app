@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-21",
+  "updated": "2026-11-22",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A calendar spread trades forward volatility, not either leg's vol.",
+      "body": "Total variance is additive in time, so the vol the market implies between two expiries is **forward variance**: (σ2² × T2 − σ1² × T1) / (T2 − T1). Take 30-day implied at 20% and 60-day at 22%. The forward variance is (0.0484 × 60 − 0.04 × 30) / 30, which is 0.0568, or roughly 23.8% vol for days 30 to 60. You are not long 22% vol. You are long about 23.8% for that window. Whether it is cheap depends on what you expect realized to be then, not on the headline IV of the back month.",
+      "depth": "This is why an inverted term structure can make a calendar look free while quietly implying a collapse in forward vol. Compare forward vol to your own forecast of realized variance for that specific window. Also remember the front leg expires, so the trade carries vega exposure to the forward period only.",
+      "id": "burrow-0581",
+      "date": "2026-11-22"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "mechanism",
+      "hook": "Overlapping labels leak the future into your training set.",
+      "body": "If your label is the next 5-day return, the sample at day t and the one at day t+1 share four days of the same price path. Split train and test at a date boundary and the last training rows still contain returns that also sit inside the first test rows. Your validation score is inflated by **information shared across the split**. The fix, popularized by Marcos López de Prado, is purging and embargo: drop training samples whose label window overlaps the test period, then leave a further gap after it before training resumes.",
+      "depth": "The effect grows with label horizon and sample frequency. Weekly labels sampled daily are the classic trap. A quick diagnostic: rerun your cross-validation with a gap equal to the label horizon. If performance drops sharply, the leak was doing the work.",
+      "id": "burrow-0582",
+      "date": "2026-11-22"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "SAG-AFTRA's contract splits replicas by how they were made.",
+      "body": "The 2023 TV/theatrical agreement does not treat all digital replicas alike. An **employment-based replica**, created from the performer's work on a production, needs consent with a reasonably specific description of intended use. An independently created replica, built from existing footage or other material, needs consent too, with use terms bargained for. A synthetic performer, not recognizable as a real individual, triggers notice and an opportunity to bargain when a real performer's likeness is not being used. Many practitioners flatten these into one consent form, which misses where the leverage sits.",
+      "depth": "The practical question is the provenance of the asset, not the output. Ask how the replica was created, then map it to the correct consent track. Check the current agreement text, since later contracts and side letters have layered on additional AI terms.",
+      "id": "burrow-0583",
+      "date": "2026-11-22"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Lower the activation threshold instead of waiting for motivation.",
+      "body": "Starting a task requires crossing an activation threshold, and ADHD-related initiation difficulty means the threshold is effectively higher while the cue to start is weaker. Waiting to feel ready is waiting for a signal that may not arrive. The move is to **shrink the first action** until it is physical and under two minutes: open the file, write the heading, put the draft on screen. Pre-stage it the night before so the first step needs no decisions. Once started, momentum and the task's own feedback carry more of the load than willpower does.",
+      "depth": "Test it on one task this week. Define the first action in a single verb phrase, stage the materials, and note whether the start latency drops. If it does not, make the first step smaller, not yourself more disciplined.",
+      "id": "burrow-0584",
+      "date": "2026-11-22"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "callback",
+      "hook": "Recall it: why did criticism seem to work on flight cadets?",
+      "body": "Think of Kahneman's Israeli Air Force instructors. Cadets praised after a great landing did worse next time. Cadets scolded after a bad one improved. What statistical effect fits both observations without any feedback doing anything? The answer: **regression to the mean**. Performance is skill plus luck, extreme results carry extreme luck, and luck does not repeat. So excellent landings are followed by average ones, and awful ones by better ones, whatever the instructor says.",
+      "depth": "It matters again for any system you tweak after an outlier. A strategy changed after its worst month will usually look better next month, whether or not the change helped. Judge the change against a control or a longer sample.",
+      "id": "burrow-0585",
+      "date": "2026-11-22"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1150,56 +1200,6 @@
       "depth": "The rhyme is with fin-syn, which was also an antitrust remedy and was repealed in the mid-1990s. Both show how long structural remedies persist after the facts that justified them have changed.",
       "id": "burrow-0470",
       "date": "2026-10-30"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "A variance swap hands you convexity you didn't ask for.",
-      "body": "A variance swap pays notional times (realized variance minus strike variance). Variance is vol squared, so the payoff is convex in vol. Say the strike is 20. Realized vol of 30 pays about 12.5 vol points of vega notional. Realized vol of 10 costs you about 7.5. Same 10-point miss either way, unequal result. The long side owns **free convexity in volatility**, so the seller charges for it. The variance strike sits above the equivalent vol swap strike, and by more when skew is steep. Quote it as a straight vol bet and you misprice the exact thing you are buying.",
-      "depth": "Replication explains the skew link. A variance swap is a strip of options weighted by 1/K squared, which loads heavily on far downside puts. So its strike embeds the tail. Vega notional is conventionally set as variance notional times 2K, which linearizes the payoff at the strike. Short variance is the purest bet that the tail never shows up.",
-      "id": "burrow-0461",
-      "date": "2026-10-29"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "The Copyright Office won't register prompts, but will register your arrangement.",
-      "body": "Practitioners keep saying AI-assisted work is unprotectable. That is too blunt. The Copyright Office's January 2025 report concluded that prompts alone do not give enough control to make the user an author. But **human-authored elements still register**: your own text, your modifications to output, and your selection and arrangement. The 2023 Zarya of the Dawn decision showed the split. The comic's text and layout were registered, while the Midjourney images were not. The real work is documentation: keep drafts, edits, and the human choices that shaped the final asset, because the claim will need to be itemized.",
-      "depth": "Applicants must disclose AI-generated material that is more than de minimis and disclaim it in the registration. Omitting the disclosure risks invalidating the registration later. For chain-of-title diligence, ask for the generation and edit history, not just a rep that the work is original.",
-      "id": "burrow-0462",
-      "date": "2026-10-29"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "insight",
-      "hook": "Kahneman's team guessed two years. Comparable teams took seven to ten.",
-      "body": "Kahneman describes a curriculum project he worked on in which each team member estimated roughly two years. He then asked the curriculum expert, Seymour Fox, how similar teams had fared. Fox said about 40% never finished, and the ones that did took seven to ten years. Kahneman's project took about eight. **The outside view** starts from the distribution of comparable cases, not from your plan. The team had the base rate in the room and ignored it until someone asked. Ask the reference-class question first. Then adjust for what makes you different, and be honest that it is usually less than you think.",
-      "depth": "The inside view builds a scenario step by step, and every step feels plausible, so the total feels safe. That is the planning fallacy. The fix is mechanical: pick a reference class, take its median and spread, then adjust a little. Apply it to a production schedule or a trade's holding period the same way.",
-      "id": "burrow-0463",
-      "date": "2026-10-29"
-    },
-    {
-      "topic": "brain-science",
-      "topicLabel": "Brain & Focus",
-      "type": "mechanism",
-      "hook": "Your 3pm coffee is still half-present at bedtime.",
-      "body": "Caffeine's half-life averages roughly five to six hours in healthy adults, with wide individual variation. So a 200 mg dose at 3pm leaves about 100 mg circulating near 9pm. It works by blocking adenosine receptors, which does not erase sleep pressure. It just masks it. A well-known 2013 lab study (Drake and colleagues) found that 400 mg taken six hours before bed measurably cut sleep time. Participants did not feel the loss. **Perceived sleep disruption understates the measured loss**, so your gut is a poor judge here. Since you track sleep, run the test on your own data: cutoff at noon for two weeks, then compare.",
-      "depth": "Half-life varies with genetics (CYP1A2), smoking, hormonal contraceptives, and pregnancy. Change one variable at a time, otherwise your Oura trend line will blame the wrong thing. Judge by deep sleep and resting heart rate over weeks, not a single night.",
-      "id": "burrow-0464",
-      "date": "2026-10-29"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "callback",
-      "hook": "Recall it: what ratio decides whether a signal survives its costs?",
-      "body": "Think of a signal earning 6 bps gross per round trip, with 3 bps of round-trip costs. Half the edge is gone before slippage error. Retrieve the ratio before reading on. It is the **break-even cost multiple**: gross edge divided by round-trip cost, here 2x. That, not Sharpe, tells you how much execution error you can absorb. Below 2x, assume live trading kills it. Then multiply by turnover: daily trading pays costs about 20 times as often as monthly.",
-      "depth": "It matters again because options spreads are wide in percentage terms and widen in stress, exactly when your signal fires hardest. Re-run any backtest at double the assumed cost. If the edge disappears, you never had a margin of safety.",
-      "id": "burrow-0465",
-      "date": "2026-10-29"
     }
   ]
 }
