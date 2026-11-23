@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-22",
+  "updated": "2026-11-23",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Pin risk is an assignment problem you cannot hedge after the close.",
+      "body": "Say you are short a $100 put and the stock closes at $100.02. The put is out of the money, but holders can still submit exercise instructions after the bell. A bad after-hours headline can get it exercised anyway. You may learn on Monday that you own 100 shares per contract you thought had expired. Your Friday hedge looked flat, but your weekend exposure was a coin flip you could not see. **Pin risk is overnight delta you cannot hedge.** The fix is mechanical. Close or roll anything within pennies of the strike before the close, and give up the last nickel of premium to do it.",
+      "depth": "OCC exercise notices can be submitted until roughly 5:30 pm ET on expiration day, long after the closing print. Contrary-exercise instructions also mean that some in-the-money options lapse and some out-of-the-money ones get exercised. Cash-settled index options sidestep the problem, which is part of why index structures are popular for expiry management.",
+      "id": "burrow-0586",
+      "date": "2026-11-23"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "insight",
+      "hook": "Restated fundamentals quietly hand your backtest numbers nobody had yet.",
+      "body": "Many fundamentals databases store the latest restated figure, not the number first reported. Test a 2012 signal on that column and you are trading data that was not public until 2013. **Point-in-time data** keyed to the filing date fixes the restatement problem, but not the lag. A quarter ending March 31 is not known until the filing lands weeks later. If your edge shrinks sharply when you delay the signal by a month, it was never an edge, just a peek.",
+      "depth": "A cheap diagnostic is to rerun the whole backtest with the signal lagged by one period, then two. A real effect decays gently with delay. A look-ahead artifact falls off a cliff. Run this before you spend any time on parameter tuning.",
+      "id": "burrow-0587",
+      "date": "2026-11-23"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "history",
+      "hook": "Niederhoffer sold puts that history said were free money.",
+      "body": "In 1997, Victor Niederhoffer's fund sold large quantities of far out-of-the-money S&P 500 put options. They had paid for years. On October 27, 1997, the index fell roughly 7 percent in a day amid the Asian crisis, and trading was halted. The puts moved deep into the money, margin calls followed, and his fund was reportedly wiped out. The track record of small wins is what made the size feel safe. **Selling tails is selling insurance with no ceiling on the loss**, and the pattern of steady wins is exactly what tempts you to scale up.",
+      "depth": "Reportedly it was margin, not the thesis, that ended it. Mark-to-market losses exceeded his equity before any reversion could pay him back. The market recovered much of the drop within days, which is the cruel part: he could have been right and still been liquidated.",
+      "id": "burrow-0588",
+      "date": "2026-11-23"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Log estimate versus actual for a week; apply your own multiplier.",
+      "body": "Time estimation and reproduction tasks show reliable deficits in ADHD in meta-analyses, so your gut forecast of how long something takes is a poor instrument. Do not try to fix the instrument. Calibrate it. Before each task, write your estimate. After it, write the actual time. After ten tasks, take the median ratio of actual to estimate and **multiply every future estimate by your own ratio**. The result is a personal correction factor, not a motivational trick. It changes what you do: you schedule fewer things, and deadlines stop surprising you.",
+      "depth": "Use the median, not the mean, because one runaway task will skew an average. Keep separate ratios for task types, such as drafting versus review, since the error is rarely uniform. Revisit the factor after titration settles, because medication can shift it.",
+      "id": "burrow-0589",
+      "date": "2026-11-23"
+    },
+    {
+      "topic": "deal-craft",
+      "topicLabel": "Deal Craft",
+      "type": "mechanism",
+      "hook": "Two MFNs that reference each other have no stable solution.",
+      "body": "Suppose two co-stars each hold a favored-nations clause pegged to the other's terms. Improve one deal by a dollar and the second MFN triggers, which then triggers the first. Without a carve-out, the bump loops until someone intervenes or a cap stops it. The usual fix is language that excludes **terms obtained through an MFN** from the comparison, so a bump cannot count as a benchmark. The point is that an MFN is only as stable as the clause defining what it compares against. Check that definition before you celebrate getting the MFN.",
+      "depth": "Other fixes include tiered ranking by billing position, a stated ceiling relative to the top-paid performer, or an express order of precedence between the clauses. If your client holds one of the MFNs, ask who else holds one and what it references.",
+      "id": "burrow-0590",
+      "date": "2026-11-23"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1150,56 +1200,6 @@
       "depth": "Any strategy leaning on a venue's rules, such as squeezes, pinned expiries, or margin regimes, carries rule-change risk that no backtest prices. Ask who can edit the rulebook, and what they gain by doing it mid-game.",
       "id": "burrow-0475",
       "date": "2026-10-31"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "A hard-to-borrow stock makes puts expensive without anyone being bearish.",
-      "body": "Put-call parity pins calls, puts, and the forward. The forward is spot plus carry, minus dividends, minus the **borrow fee** that shorts pay. When a stock is hard to borrow, the forward drops, so puts price above calls at the same strike. A synthetic long looks cheap and a synthetic short looks rich. That skew on a heavily shorted name can be pure financing, not fear. Back out the implied borrow rate from parity before you read a bearish signal into the chain.",
-      "depth": "Back out the forward from the strike where call and put mids match: F = K + e^(rT)(C - P). Then borrow is roughly r - q - ln(F/S)/T. Use near-ATM, short-dated quotes. American early-exercise premium contaminates single-stock puts, so treat the result as an estimate.",
-      "id": "burrow-0466",
-      "date": "2026-10-30"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "insight",
-      "hook": "Try 100 useless strategies for five years; the best shows Sharpe 1.3.",
-      "body": "With five years of data, the annualized Sharpe of a zero-skill strategy has a standard error near 0.45. The best of N independent trials sits roughly sigma times the square root of 2 ln N above zero. For N = 100 that is about three standard errors, so a Sharpe near 1.3 appears from **pure selection**. The backtest did not find an edge. It found the luckiest noise in your search space. Count every variant you tried, including the ones you discarded, and demand the winner clear that bar.",
-      "depth": "This is the logic behind the deflated Sharpe ratio (Bailey and Lopez de Prado). It also assumes independent trials. Correlated variants lower the effective N, but you rarely know by how much, so log your trial count honestly.",
-      "id": "burrow-0467",
-      "date": "2026-10-30"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "Tennessee's ELVIS Act can reach the tool maker, not just the user.",
-      "body": "Most practitioners read digital-replica statutes as targeting whoever publishes the fake. Tennessee's ELVIS Act, effective July 1, 2024, goes further. It adds liability for distributing or making available an algorithm, software, or tool whose **primary purpose** is producing an unauthorized likeness or voice. It also protects voice as such, including simulations, not just recordings of the actual person. The risk analysis for a voice-cloning vendor or a studio's AI tool licensor therefore starts at the product's stated purpose, not at user misuse.",
-      "depth": "The 'primary purpose' test is untested in reported decisions as far as I know. Marketing copy and onboarding flows are likely evidence, so vendor reps and indemnities should be drafted around how the product is described, not just how it is used.",
-      "id": "burrow-0468",
-      "date": "2026-10-30"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Schedule your hardest task for hours three to four after dosing.",
-      "body": "Lisdexamfetamine is a prodrug. It has to be converted to dextroamphetamine in red blood cells before it does anything. The prodrug itself peaks around an hour after the dose, but the active d-amphetamine peaks roughly **three to four hours** in. That means the first hour is a poor slot for your most demanding work, and the mid-morning window is the best one. Put the task that needs sustained inhibition and working memory there. Put email and admin on either side of it.",
-      "depth": "Timing varies by person, food, and dose. Mid-titration, check this against your own timestamps instead of the average curve. The point is to place the demanding task by where your own peak lands.",
-      "id": "burrow-0469",
-      "date": "2026-10-30"
-    },
-    {
-      "topic": "hollywood-history",
-      "topicLabel": "Hollywood History",
-      "type": "history",
-      "hook": "The 1948 Paramount decrees lasted 72 years.",
-      "body": "The Supreme Court ruled against the major studios in 1948, and consent decrees followed that forced them to divest their theater chains. They also banned block booking and circuit dealing. The decrees were meant to restore competition, but they outlived the industry they described. The Justice Department moved to terminate them in 2019, and a federal judge ended them in August 2020 with a **two-year sunset** on block booking and circuit dealing. A rule written for 1940s exhibition governed streaming-era distribution until then.",
-      "depth": "The rhyme is with fin-syn, which was also an antitrust remedy and was repealed in the mid-1990s. Both show how long structural remedies persist after the facts that justified them have changed.",
-      "id": "burrow-0470",
-      "date": "2026-10-30"
     }
   ]
 }
