@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-23",
+  "updated": "2026-11-24",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Hedge twice as often and your replication error shrinks only 29 percent.",
+      "body": "Delta hedge a short option at N evenly spaced times. The standard deviation of your replication error then shrinks roughly with **one over the square root of N**. Hedging twice as often cuts it by about 29 percent, not half. You need four times the frequency to halve it. Transaction costs, meanwhile, grow roughly in line with N. So hedge frequency is a cost curve with an interior optimum, not a virtue to maximize. The error is also path dependent. Each interval contributes gamma times the gap between its realized and expected variance, so the damage concentrates near the strike close to expiry.",
+      "depth": "Leland's 1985 work handles costs by widening the volatility you price with. The practical version for a trader: rehedge on delta bands instead of the clock, so you trade only when tracking error has actually accumulated. Clock hedging pays costs in quiet tape and under-hedges in fast tape.",
+      "id": "burrow-0591",
+      "date": "2026-11-24"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Recall it: what happens to a holdout set once you peek?",
+      "body": "Hint: think about what you did after the first bad result. You went back and changed the rules. Answer: the holdout stopped being out of sample the moment it influenced a decision. It **became training data**, and your final number is now selected for looking good on that slice. Ten iterations against it is ten draws at a lucky result. The fix is procedural, not statistical: freeze the strategy, run the untouched period once, and accept whatever comes back. If you must keep iterating, use walk-forward windows so each test period is genuinely new.",
+      "depth": "This matters again because the leak is invisible in the code. Nothing in the backtest changes, only your behavior does. Keep a log of every variant you tried against any shared data, since that count is what you need later to deflate the result honestly.",
+      "id": "burrow-0592",
+      "date": "2026-11-24"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Fair use covered the training; the pirated library was the exposure.",
+      "body": "In Bartz v. Anthropic (N.D. Cal., June 2025), Judge Alsup held that training a model on lawfully acquired books was **exceedingly transformative fair use**. He also held that assembling a permanent central library from pirated copies was not excused by that purpose. That split moved the fight from what the model learned to how the data was obtained. A class was certified, and a settlement was reported in September 2025 at about $1.5 billion, roughly $3,000 per work across about 500,000 works. Practitioners advising on training-data deals should be asking for acquisition provenance, not just licenses to use.",
+      "depth": "A district court ruling binds no other court, and Judge Chhabria's contemporaneous Kadrey v. Meta decision reasoned differently on market harm. The durable lesson is diligence: warranties about how a dataset was sourced now carry more weight than warranties about what it is used for.",
+      "id": "burrow-0593",
+      "date": "2026-11-24"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "Average forecasts, then extremize: the crowd's mean is too timid.",
+      "body": "When forecasters each hold partly independent information, the plain average of their probabilities **under-uses the combined evidence**. Each one shades toward the middle because each sees only a piece. Pool ten people who each lean 70 percent from different clues, and the justified aggregate is more confident than 70. The Good Judgment Project found that pushing the aggregate away from 50 percent improved accuracy on its tournament questions. The technique is a transform of the mean, not a new source of information, so it is cheap to apply.",
+      "depth": "The caveat is correlation. If forecasters read the same news and share the same blind spot, extremizing just amplifies a shared error. Use it when your sources are diverse, and not when they all trace back to one headline. The more independent the inputs, the harder you can push.",
+      "id": "burrow-0594",
+      "date": "2026-11-24"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Urine acidity changes how fast amphetamine leaves your body.",
+      "body": "Amphetamine is a weak base, and its renal clearance rises when urine is acidic and falls when it is alkaline. Product labeling for amphetamine drugs lists urinary acidifiers, such as large doses of ascorbic acid, as increasing excretion and lowering blood levels. Alkalinizers, such as sodium bicarbonate antacids, do the opposite. The concrete move during titration: **log vitamin C megadoses and antacids** alongside dose and caffeine. Otherwise a day that wears off early looks like a dosing problem when the cause was your supplement shelf.",
+      "depth": "Normal diet shifts urine pH only modestly, so this is mostly a megadose issue. It still belongs in the same one-variable-at-a-time discipline as your caffeine log. Raise any supplement or antacid habit with your prescriber or pharmacist before you change the dose.",
+      "id": "burrow-0595",
+      "date": "2026-11-24"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1150,56 +1200,6 @@
       "depth": "Run it as an edit pass on any script: write the opening and closing value next to each scene heading. Runs of three or more identical pairs mark the sag. Merge those scenes or give one of them a reversal.",
       "id": "burrow-0480",
       "date": "2026-11-01"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Calls get exercised early only when the dividend beats time value.",
-      "body": "American calls on dividend payers are almost never exercised early, with one exception: the session before the ex-dividend date. The holder rationally exercises only when **the dividend exceeds the call's remaining extrinsic value**. A deep in-the-money call with a few cents of extrinsic and a dividend on the calendar is the candidate. If you are short that call, overnight assignment leaves you short stock going into the ex-date, and you owe the dividend. So before every ex-date, scan your short calls for extrinsic value below the dividend.",
-      "depth": "Exercising early also forfeits interest on the strike cash you would otherwise hold, which raises the hurdle slightly. Short call spreads are the classic trap: the short leg gets assigned overnight while the long leg stays unexercised, leaving you with unwanted stock and margin exposure.",
-      "id": "burrow-0471",
-      "date": "2026-10-31"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "mechanism",
-      "hook": "Signal at the close, fill at the close: a quiet look-ahead.",
-      "body": "A signal computed from today's close cannot be traded at today's close. The close is only known once it prints, yet many backtests compute on a bar and fill at that same bar's price. It is look-ahead bias in its quietest form. The damage concentrates in **short-horizon reversal and breakout signals**, where the last tick drives both the signal and the fill. The fix is mechanical: lag the signal one bar and fill at the next open, or at the next close if you trade the auction. If the edge shrinks sharply, it was partly borrowed from the future.",
-      "depth": "Test it directly: shift your signal one bar later and rerun. A real edge decays gently with delay. A phantom edge collapses. Plotting performance against 0, 1, 2 and 3 bars of lag is a cheap robustness curve most backtests never produce.",
-      "id": "burrow-0472",
-      "date": "2026-10-31"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "California voids vague digital-replica clauses unless the performer had counsel.",
-      "body": "California's AB 2602, effective January 1, 2025, makes a contract provision unenforceable if it lets a company create and use a digital replica of a performer's voice or likeness in place of work they would otherwise have done in person. The trigger is twofold: the provision lacks a **reasonably specific description of the intended uses**, and the performer was not represented by counsel or a union. Boilerplate like \"all media now known or hereafter devised\" is exactly what the statute targets. Practitioners drafting replica grants should list the uses and document representation.",
-      "depth": "The contested edge is scope: whether a general grant reaches a replica performing work the individual never would have done is less clear. Treat the statute as a floor for specificity, not a safe harbor, and expect guild terms to set a higher bar for covered performers.",
-      "id": "burrow-0473",
-      "date": "2026-10-31"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Swap the clock for a shrinking visual countdown.",
-      "body": "Time blindness in ADHD shows up in research as impaired time estimation and reproduction, not mere lateness. A numeric clock demands that you convert digits into elapsed time, which is exactly the step that fails. A **shrinking visual countdown** turns remaining time into an area you can see, like a red disc or a draining bar. Set it for the work block, not the deadline, and put it in your line of sight. You are not trying to feel time better. You are moving the computation out of your head and onto the desk.",
-      "depth": "A passive countdown can still be ignored in hyperfocus, so add an audible alarm at the end, plus a travel buffer if the next commitment is offsite. Run it for a week and keep whichever cue actually got you moving.",
-      "id": "burrow-0474",
-      "date": "2026-10-31"
-    },
-    {
-      "topic": "market-history",
-      "topicLabel": "Market History",
-      "type": "callback",
-      "hook": "Recall it: what rule change broke the Hunt brothers' silver squeeze?",
-      "body": "Nudge: the position was legal, but the rulebook was not fixed. In early 1980, COMEX imposed **position limits and liquidation-only trading** in silver. The Hunts could no longer add to the position propping up the price, while margin calls on the existing one kept coming. Silver fell from roughly $50 in January to around $11 on March 27, 1980, Silver Thursday. The exchange rewrote the rules while the squeeze was live.",
-      "depth": "Any strategy leaning on a venue's rules, such as squeezes, pinned expiries, or margin regimes, carries rule-change risk that no backtest prices. Ask who can edit the rulebook, and what they gain by doing it mid-game.",
-      "id": "burrow-0475",
-      "date": "2026-10-31"
     }
   ]
 }
