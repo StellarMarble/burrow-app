@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-24",
+  "updated": "2026-11-25",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Black-Scholes delta overstates your hedge when spot and vol move inversely.",
+      "body": "Black-Scholes delta assumes volatility stays put as spot moves. In equity indices it does not. Spot and implied vol are negatively correlated, so rallies tend to compress vol and selloffs tend to expand it. A long call therefore gains less on the way up than its BS delta promises, because vega works against you. The **minimum-variance delta** is smaller than textbook delta for calls and larger in magnitude for puts. Hedge with raw BS delta and you short too much stock against long calls, then wonder why the residual P&L is not noise but a consistent leak.",
+      "depth": "The adjusted hedge is BS delta plus vega times the expected change in implied vol per unit of spot move. Hull and White's work on minimum-variance delta formalized this and fitted the second term empirically. The correction is largest for short-dated options and for strikes away from the money, where vega per unit of delta is highest.",
+      "id": "burrow-0596",
+      "date": "2026-11-25"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "practice",
+      "hook": "Pick the middle of a parameter plateau, never the peak.",
+      "body": "Sweep a parameter and plot the performance surface. A real edge looks like a broad plateau: neighbors at 18, 20, and 22 days all work about equally well. A fitted artifact looks like a spike, where 20 is great and 19 and 21 are mediocre. The spike is where noise happened to line up with your sample. **Choose the center of the widest plateau**, accept a slightly lower headline number, and treat the peak value as an upward-biased estimate of what you will earn. If no plateau exists, you do not have a parameter problem. You have no signal.",
+      "depth": "A quick test: perturb every parameter by 10 to 20 percent at once and rerun. If Sharpe collapses, the strategy lives on a knife edge that live trading will find. Also check the plateau across subperiods, since a surface that is flat in aggregate but peaked differently each year is still unstable.",
+      "id": "burrow-0597",
+      "date": "2026-11-25"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "Decomposed estimates win because independent errors cancel in log space.",
+      "body": "Fermi estimation works for a mechanical reason. Most quantities are products of factors, so errors are multiplicative and live in log space. Guess five factors with independent over and under misses, and the misses partly offset: the total log error grows roughly with the **square root of the number of factors**, not linearly. One gut guess at the whole thing carries a single uncorrelated error with nothing to cancel it. Decomposition also exposes which factor you know least about, so you can spend research there instead of everywhere.",
+      "depth": "The caveat is correlation. If your errors share a cause, such as anchoring every factor to the same optimistic story, they stack instead of cancel, and decomposition can feel rigorous while being just as wrong. Pick factors you can estimate from different reference classes to keep the errors independent.",
+      "id": "burrow-0598",
+      "date": "2026-11-25"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Weak inhibition means add friction to the distraction, not willpower.",
+      "body": "If response inhibition is the impaired step, a plan that depends on inhibiting is a plan that depends on the broken part. Move the intervention upstream of the impulse. Log out of the site after each use, delete the app and use the browser version, put the phone in another room, or route the feed through a blocker that needs a typed passphrase. Each added step gives the slower deliberate system time to catch up before the automatic response completes. **Raise the cost of the distraction** instead of trying to resist it a hundred times a day.",
+      "depth": "Friction works best when it is applied to specific cues you already know trigger you, and when it is cheap for the wanted behavior in the same place. Review it monthly: workarounds creep in, such as saving the password, and each shortcut quietly removes the barrier you built.",
+      "id": "burrow-0599",
+      "date": "2026-11-25"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "SAG sold pre-1960 film residuals for a $2.25 million fund.",
+      "body": "In 1960, under president Ronald Reagan, the Screen Actors Guild struck over payment when studios sold their film libraries to television. The settlement waived any residuals on films made before 1960 and paid **$2.25 million into the guild's pension and welfare fund** instead. Actors in those films got nothing on later TV airings. Studios got decades of library revenue free of a participation claim. It also set the template: a one-time lump sum traded for a permanent right, struck at the moment nobody could yet price the new window.",
+      "depth": "The same pattern recurred with home video in the 1980s, when guilds accepted low video residual formulas, and again with streaming buyouts. The rhyme is that a new exhibition window's value is unknowable at signing, and the party giving up the perpetual right is usually the one who guesses low.",
+      "id": "burrow-0600",
+      "date": "2026-11-25"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1150,56 +1200,6 @@
       "depth": "Worth retrieving again before your next first offer. The failure mode is precision without a basis: a sharp counterparty will ask how you got there, and a number you cannot decompose collapses faster than a round one.",
       "id": "burrow-0485",
       "date": "2026-11-02"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "A deep in-the-money put is worth more dead than alive.",
-      "body": "An American put can be exercised any time, so it never trades below intrinsic value. Deep in the money, its remaining optionality is tiny, because the stock has little room to fall further. Exercising converts the stock into **strike cash that earns interest starting today**. When that interest exceeds the leftover time value, holding is the mistake. Higher rates pull the early-exercise boundary closer to the money. This is the mirror image of the call-and-dividend case, with the carry running the other way.",
-      "depth": "A European put has no such floor: it can trade below K minus S, because the strike arrives only at expiry. Dividends work against early put exercise, since the ex-date drop in the stock helps the put holder who waits.",
-      "id": "burrow-0476",
-      "date": "2026-11-01"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "insight",
-      "hook": "A voice isn't copyrightable, which is why it's protectable.",
-      "body": "Practitioners often assume copyright preemption will sink a voice-clone claim. The Ninth Circuit rejected that logic decades before generative AI. In Midler v. Ford (1988), an ad agency hired a sound-alike after Bette Midler declined. The court held that a **voice is not a copyrightable work**, so the Copyright Act did not preempt her state-law claim. Waits v. Frito-Lay (1992) followed the same path. Preemption only applies to rights within the subject matter of copyright, and a vocal identity sits outside it. The synthetic-voice cases are built on this foundation.",
-      "depth": "The caveat is that outcomes turn on state law. Midler rested on California common-law misappropriation, and statutes like Tennessee's ELVIS Act now codify voice rights. A defendant's best argument is usually not preemption but First Amendment or lack of identifiability.",
-      "id": "burrow-0477",
-      "date": "2026-11-01"
-    },
-    {
-      "topic": "decision-science",
-      "topicLabel": "Decision Science",
-      "type": "mechanism",
-      "hook": "Perfect calibration can still make you a useless forecaster.",
-      "body": "Say it rains on 30% of days, and you forecast 30% every single day. You are perfectly calibrated: of your 30% calls, 30% come true. You are also worthless, because the forecast never changes with the situation. The Murphy decomposition splits the Brier score into reliability (calibration), resolution, and uncertainty. **Resolution is the part that rewards discrimination**: pushing forecasts away from the base rate when the evidence warrants it. A good forecaster needs both, and most calibration training only teaches the first.",
-      "depth": "Brier = reliability minus resolution plus uncertainty, where uncertainty is fixed by the base rate. Your score improves only by lowering reliability error or raising resolution. Check which one you are actually moving.",
-      "id": "burrow-0478",
-      "date": "2026-11-01"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "mechanism",
-      "hook": "Lisdexamfetamine is inactive until your blood cells cut it.",
-      "body": "Lisdexamfetamine is a prodrug: dextroamphetamine bonded to the amino acid lysine. It does nothing until enzymes, mainly in red blood cells, cleave the bond. That makes activation **rate-limited by hydrolysis, not by your stomach**, which is why onset feels slower and smoother than immediate-release, with dextroamphetamine peaking roughly 3.5 hours after the dose. The concrete move: do not judge a dose by the first hour. Feeling nothing at 45 minutes is the expected pharmacology, not a failed dose.",
-      "depth": "Because activation does not depend on gastric pH, food mainly delays the peak slightly rather than changing the total. Duration is reported at roughly 10 to 14 hours, so dosing time matters for sleep. This is a good reason to log timestamps for your prescriber.",
-      "id": "burrow-0479",
-      "date": "2026-11-01"
-    },
-    {
-      "topic": "story-craft",
-      "topicLabel": "Story Craft",
-      "type": "practice",
-      "hook": "If a scene ends where it began, cut it.",
-      "body": "Robert McKee's test for a scene is simple: it must turn a value. Name the value at the opening in one word (safe, trusting, winning) and again at the close. If both words match, you wrote a transition, not a scene. **The turn must be the point of the scene**, not a side effect of it. For audio fiction this matters more, because the listener has no visual cut to reset attention. The turn has to land as a line, a sound, or a silence the listener can hear.",
-      "depth": "Run it as an edit pass on any script: write the opening and closing value next to each scene heading. Runs of three or more identical pairs mark the sag. Merge those scenes or give one of them a reversal.",
-      "id": "burrow-0480",
-      "date": "2026-11-01"
     }
   ]
 }
