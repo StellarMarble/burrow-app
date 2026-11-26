@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-25",
+  "updated": "2026-11-26",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "A call is exercised early only when the dividend beats its time value.",
+      "body": "Holding an American call over an ex-dividend date, you forfeit the dividend, so exercising the day before captures it but throws away the remaining extrinsic value. The rule is simple: exercise early only if **the dividend exceeds the call's remaining time value**, roughly net of the interest you earn on the strike. That is why deep in-the-money calls with little extrinsic left cluster at assignment the night before ex-date. If you are short one, check extrinsic against the dividend before the close, not after the assignment notice arrives.",
+      "depth": "Borrow cost and discrete dividends shift the threshold a little, but the ranking holds. Scan your short ITM calls the day before every ex-date. Extrinsic below the dividend means expect assignment, and the dividend you owe the long is a real cash cost.",
+      "id": "burrow-0601",
+      "date": "2026-11-26"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "callback",
+      "hook": "Recall it: what does an iid shuffle do to your simulated drawdowns?",
+      "body": "Think about how bad days actually arrive: in bunches. Now picture scattering those days randomly across the calendar. Each loss lands next to a gain and gets partly absorbed. The answer: an iid shuffle destroys volatility clustering, so simulated drawdowns come out **too shallow and too short**. The fix was resampling contiguous chunks of days, a block bootstrap, so the clusters survive inside each block.",
+      "depth": "It matters again because shuffled confidence intervals feel rigorous while understating tail risk. If your 95th percentile drawdown grows materially under blocks of 20 to 60 days, size positions off the block number, not the shuffle.",
+      "id": "burrow-0602",
+      "date": "2026-11-26"
+    },
+    {
+      "topic": "ai-media-law",
+      "topicLabel": "AI x Media Law",
+      "type": "frontier",
+      "hook": "Tennessee's ELVIS Act reaches the tool maker, not just the user.",
+      "body": "Effective July 1, 2024, Tennessee's ELVIS Act was the first state statute to expressly protect **voice** as a right of publicity, including AI-simulated voice. The sharper part is secondary liability. It reaches those who distribute an algorithm, software, or tool whose primary purpose is producing an unauthorized voice or likeness of a particular individual. Most practitioners focus on the person who prompts. The statute's exposure sits upstream, with whoever built and shipped the cloning product.",
+      "depth": "The open question is what counts as primary purpose. A general-purpose model arguably falls outside, while a one-click celebrity voice app arguably falls inside. Diligence on any voice-product client should ask how the product is marketed, because marketing is likely the best evidence of purpose.",
+      "id": "burrow-0603",
+      "date": "2026-11-26"
+    },
+    {
+      "topic": "market-history",
+      "topicLabel": "Market History",
+      "type": "history",
+      "hook": "The Hunts' silver squeeze died on a rule change, not a price.",
+      "body": "Silver ran from roughly $6 in early 1979 to about $50 in January 1980 as the Hunt brothers accumulated enormous futures positions. COMEX then adopted a rule limiting new long positions and raised margins sharply, effectively **liquidation only**. On March 27, 1980, Silver Thursday, the price collapsed to roughly $11 and the Hunts could not meet margin calls. The market did not turn against them first. The venue changed the rules on the one side that could not exit.",
+      "depth": "The lesson for any crowded or leveraged position: your counterparty includes the exchange. Margin and position-limit rules are a variable you do not control, and they tend to tighten exactly when you are most exposed.",
+      "id": "burrow-0604",
+      "date": "2026-11-26"
+    },
+    {
+      "topic": "decision-science",
+      "topicLabel": "Decision Science",
+      "type": "mechanism",
+      "hook": "Students beat their own thesis deadline forecast only about 30 percent of the time.",
+      "body": "In Buehler, Griffin and Ross's 1994 study, thesis students predicted they would finish in roughly 34 days. They actually took roughly 56, and only about 30 percent finished by their own prediction. The mechanism is that people build a **best-case scenario plan** and ignore their own history of how similar tasks ran. Asking about the average past project barely helps, because they treat this one as the exception.",
+      "depth": "The fix that works is an outside view: pull the actual durations of your last several comparable projects and anchor on the distribution. For a deal or a production schedule, use the reference class of finished ones, not the story you can narrate.",
+      "id": "burrow-0605",
+      "date": "2026-11-26"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1150,56 +1200,6 @@
       "depth": "The proposed mechanism is that gesture lets a child pick the topic before they have the words, so the parent supplies the translation at the exact moment attention is joined. It is a correlational finding with a plausible path, not proof that pointing drills build vocabulary.",
       "id": "burrow-0490",
       "date": "2026-11-03"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "insight",
-      "hook": "A 30-delta put is not a 30% chance of loss.",
-      "body": "Delta is a rough proxy for the **risk-neutral probability** of finishing in the money, not the real-world one. Risk-neutral pricing bakes in the volatility risk premium: implied vol has historically exceeded subsequent realized vol on average for index options, and equities drift upward. So the real-world chance that a 30-delta index put finishes in the money is typically lower than 30%. That gap is why selling puts wins often. It is also the premium for bearing a tail where losses are large and clustered. A high win rate is the price of that payoff shape, not proof of skill.",
-      "depth": "Strictly, delta is N(d1) while the risk-neutral in-the-money probability is N(d2) for a call, or N(-d2) for a put. They differ by a term that grows with vol and time. The cleaner read of risk-neutral odds is the slope of option price against strike, scaled by the discount factor.",
-      "id": "burrow-0481",
-      "date": "2026-11-02"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "mechanism",
-      "hook": "Daily bars can't tell you if your stop or target hit first.",
-      "body": "When a daily bar's range touches both your stop and your profit target, the bar does not record which came first. Backtests that quietly assume the target fills first, or that use the close, **resolve the ambiguity in your favor**. The error is largest for tight brackets on volatile days, and it makes tight-stop, tight-target strategies look better than they are. Fix it by assuming the worst order on ambiguous bars, or by replaying those days on intraday data. If the result only survives under the optimistic ordering, you were measuring the assumption.",
-      "depth": "Count how many trades hit both levels inside a single bar. If it is more than a few percent of trades, the ordering rule is effectively a parameter, and you should report results under both orderings. The same logic applies to limit orders that were touched but not necessarily filled, since queue position decides those.",
-      "id": "burrow-0482",
-      "date": "2026-11-02"
-    },
-    {
-      "topic": "ai-media-law",
-      "topicLabel": "AI x Media Law",
-      "type": "frontier",
-      "hook": "SAG-AFTRA treats a synthetic performer differently from a digital replica.",
-      "body": "In the 2023 TV/theatrical agreement, a digital replica of a real performer needs **informed consent with a reasonably specific description** of intended use, plus compensation. A synthetic performer, an AI-generated figure not recognizable as any particular human, is handled through notice to the union and an opportunity to bargain, not individual consent. The seam is the composite: a synthetic that resembles a real performer's face or voice is arguably a replica in disguise, and the text gives no clean answer. Draft for that seam, because the lookalike dispute will land there.",
-      "depth": "Talent side: add a representation that no synthetic is trained on or tuned to the client's likeness without consent. Production side: document generation provenance. Check the current cycle's terms, since these agreements get renegotiated and the 2023 text may have been updated.",
-      "id": "burrow-0483",
-      "date": "2026-11-02"
-    },
-    {
-      "topic": "brain-science",
-      "topicLabel": "Brain & Focus",
-      "type": "mechanism",
-      "hook": "Rereading feels like learning. Testing yourself actually is.",
-      "body": "In Roediger and Karpicke's 2006 study, students read a prose passage and then either restudied it or took recall tests. Five minutes later, restudying won. A week later, **testing beat restudying**, with roughly 60% retained versus about 40%. Rereading creates fluency, the feeling that material is familiar, and fluency is a poor proxy for retrievable memory. Effortful retrieval strengthens the route back to the memory itself. The move: after reading anything you need, close it, write what you remember, then check. The ugly feeling of not remembering is the part that works.",
-      "depth": "The benefit is largest when retrieval is hard but still succeeds, and when feedback afterward corrects errors. Spacing multiplies it. This is the logic behind the callback cards in this feed.",
-      "id": "burrow-0484",
-      "date": "2026-11-02"
-    },
-    {
-      "topic": "deal-craft",
-      "topicLabel": "Deal Craft",
-      "type": "callback",
-      "hook": "Recall it: why did a precise opening number outperform a round one?",
-      "body": "Think about what the other side infers when they see $79,300 instead of $80,000. Take a beat. The answer: they read precision as **evidence of homework**, so they adjust less. In Mason, Lee, Wiley, and Ames (2013), precise openers drew counteroffers that stayed closer to the opening number than round ones did. Round numbers invite haggling in round steps. Precise numbers signal a basis whether or not one exists. The move: build your opening figure from components you can name, then state it unrounded.",
-      "depth": "Worth retrieving again before your next first offer. The failure mode is precision without a basis: a sharp counterparty will ask how you got there, and a number you cannot decompose collapses faster than a round one.",
-      "id": "burrow-0485",
-      "date": "2026-11-02"
     }
   ]
 }
