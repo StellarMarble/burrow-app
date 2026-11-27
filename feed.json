@@ -1,6 +1,56 @@
 {
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "cards": [
+    {
+      "topic": "options-edge",
+      "topicLabel": "Options & Edge",
+      "type": "mechanism",
+      "hook": "Puts get exercised early for interest, calls for dividends.",
+      "body": "A call on a non-dividend stock is never worth exercising early. A put is the opposite case. Exercise hands you the strike in cash today, and that cash earns interest. Holding keeps the optionality. Once a deep in-the-money put's remaining time value falls below one day of interest on the strike, **exercise beats waiting**. At 4 percent on a $100 strike, that is roughly 1.1 cents a day. Dividends push the other way, because the stock drops ex-date and rewards patience. That is why the American put always carries a premium over its European twin.",
+      "depth": "The early exercise boundary moves up as rates rise and vol falls. The tell is a deep ITM put trading at parity. If you are short one, assignment is rational, not bad luck, so size your margin and cash as if it will happen.",
+      "id": "burrow-0606",
+      "date": "2026-11-27"
+    },
+    {
+      "topic": "backtest-lab",
+      "topicLabel": "Backtest Lab",
+      "type": "insight",
+      "hook": "Five years of data cannot separate a Sharpe of 1 from zero.",
+      "body": "A Sharpe ratio is an estimate, and its standard error is brutal. Under iid returns, the annualized Sharpe has a standard error of roughly the square root of (1 + 0.5 x SR squared), divided by the square root of years of data. For a true Sharpe of 1 and five years of data, that is about 0.55. **A two-sigma band runs from roughly zero to two.** Your five-year backtest cannot distinguish a strategy worth running from a lucky coin flip. Clearing zero at 95 percent confidence takes roughly six years even if the Sharpe is genuinely 1.",
+      "depth": "This follows Lo's 2002 derivation of Sharpe ratio statistics and assumes iid returns. Negative skew, fat tails, and smoothed or autocorrelated returns, all common in short-vol books, make the true error larger, so the real data requirement is longer.",
+      "id": "burrow-0607",
+      "date": "2026-11-27"
+    },
+    {
+      "topic": "hollywood-history",
+      "topicLabel": "Hollywood History",
+      "type": "history",
+      "hook": "The Paramount decrees ended in 2020, 72 years after they began.",
+      "body": "In 1948 the Supreme Court's Paramount ruling forced the majors to divest their theater chains, and the decrees also banned block booking. They then sat on the books for roughly seven decades. In 2020 a federal judge terminated them, with a two-year sunset on block booking and circuit dealing. The logic was that **theaters were the only toll booth** between studio product and audiences. Streaming then rebuilt a vertically integrated bundle on owned platforms, a toll booth the decrees never contemplated.",
+      "depth": "The rhyme to watch is fin-syn's end in 1993, when networks bought studios soon after the rules lapsed. Both sunsets were followed by consolidation. Neither lapse caused it alone, but both removed the legal friction.",
+      "id": "burrow-0608",
+      "date": "2026-11-27"
+    },
+    {
+      "topic": "adhd-working",
+      "topicLabel": "Working With It",
+      "type": "practice",
+      "hook": "Put your hardest task at the pharmacokinetic peak, not at 9 a.m.",
+      "body": "Lisdexamfetamine is a prodrug, so its effect does not hit at swallowing. Plasma d-amphetamine peaks roughly 3.5 hours after the dose, and a heavy meal can delay that by about an hour. Take it at 7 and your real peak lands near 10:30 or later. **Schedule deep work by the peak, not by the clock.** Use the ramp-up window for low-stakes admin and the tail for review. Treat the schedule as a concrete move, then check it against what you actually notice.",
+      "depth": "During titration, log dose time, meal time, and the hour focus actually arrived for a week. Bring that table to your prescriber. Timing data is more useful to them than a vague sense that it works.",
+      "id": "burrow-0609",
+      "date": "2026-11-27"
+    },
+    {
+      "topic": "kid-development",
+      "topicLabel": "Little Humans",
+      "type": "insight",
+      "hook": "A one-year-old's pointing predicts school-entry vocabulary.",
+      "body": "In a well-known study, Rowe and Goldin-Meadow tracked children from 14 months to about four and a half years. The number of distinct meanings a child conveyed with gesture at 14 months predicted vocabulary at school entry, and it mediated a large share of the gap between higher and lower income families. **Pointing is the child asking for a word.** When your one-year-old points, label the thing in a short phrase and wait a beat. That converts a gesture into the very input the research links to later vocabulary.",
+      "depth": "The finding is correlational, though the timing and mediation analysis are suggestive. The practical move is cheap: translate points into words, since parents who respond to gesture with labels supply targeted vocabulary exactly when it is wanted.",
+      "id": "burrow-0610",
+      "date": "2026-11-27"
+    },
     {
       "topic": "options-edge",
       "topicLabel": "Options & Edge",
@@ -1150,56 +1200,6 @@
       "depth": "The Sony standard still frames tool-maker liability fights, from Grokster in 2005 to AI cases today. Statutes like Tennessee's ELVIS Act are partly a reaction to it, because they target a tool's primary purpose rather than its capacity for lawful use.",
       "id": "burrow-0495",
       "date": "2026-11-04"
-    },
-    {
-      "topic": "options-edge",
-      "topicLabel": "Options & Edge",
-      "type": "mechanism",
-      "hook": "Dispersion trades profit from selling correlation, not volatility.",
-      "body": "Index options are bought as portfolio insurance, so index implied vol carries a bid that single-stock options lack. The gap shows up as implied correlation sitting above the correlation that later realizes. A dispersion trade shorts index variance and buys component variance, which makes you **short correlation**, not short volatility. You collect when stocks move on their own stories. You lose when a macro shock pushes every name the same way at once.",
-      "depth": "Correlation is the unhedged tail. In selloffs, realized correlation jumps toward one, so the long component legs fail to offset the short index leg exactly when it matters. Treat it as a short-gamma book with a hidden crash exposure, and size it for that.",
-      "id": "burrow-0486",
-      "date": "2026-11-03"
-    },
-    {
-      "topic": "backtest-lab",
-      "topicLabel": "Backtest Lab",
-      "type": "mechanism",
-      "hook": "Your backtest assumes your order didn't move the price.",
-      "body": "Market impact empirically follows roughly a square-root law: cost scales with volatility times the square root of order size over daily volume. Double your size and impact rises about 41 percent, not 100. That sounds gentle, but it creates a **capacity ceiling**, the size where marginal impact eats marginal alpha. A backtest with fixed one-lot fills hides this completely, which is why a small-account Sharpe of 2 often fails to scale.",
-      "depth": "For options, the analog is quoted size at the touch and spreads widening as you work the order. Estimate capacity by rerunning with fills at the bid or ask plus a size-dependent penalty, then find the notional where net Sharpe halves.",
-      "id": "burrow-0487",
-      "date": "2026-11-03"
-    },
-    {
-      "topic": "market-history",
-      "topicLabel": "Market History",
-      "type": "history",
-      "hook": "XIV had to buy volatility after volatility had already doubled.",
-      "body": "On February 5, 2018, the VIX roughly doubled in a day, closing near 37 from about 17. XIV and similar inverse-volatility products were short VIX futures, and their rules required rebalancing at the close to restore their exposure. After a doubling, restoring that exposure meant buying futures at the day's worst prices, into the very rally that was hurting them. That **forced same-direction buying** fed the spike. XIV reportedly fell roughly 90 percent or more after hours and was then terminated.",
-      "depth": "The lesson is structural: a product whose mechanical rebalance runs in the direction of the move is short gamma at scale. Sponsors reportedly had an acceleration trigger tied to a very large one-day drop in indicative value, and it was hit.",
-      "id": "burrow-0488",
-      "date": "2026-11-03"
-    },
-    {
-      "topic": "adhd-working",
-      "topicLabel": "Working With It",
-      "type": "practice",
-      "hook": "Keep a parking-lot note open before you start.",
-      "body": "Mid-task, a stray thought (check that invoice, reply to that text) competes for working memory. Acting on it costs a task switch you then pay to reverse. The move: open one plain file titled Parking Lot before you begin. When an urge arrives, type five words and return to the task. This **offloads working memory** without obeying the impulse, and the capture gives the thought somewhere trustworthy to live. Review the list only at a planned break.",
-      "depth": "This is externalizing, not suppression; pushing a thought away is the weaker move. Keep the file one keystroke from where you work. If the list is never reviewed, the system decays, so attach review to a fixed stop point like lunch, not to a feeling.",
-      "id": "burrow-0489",
-      "date": "2026-11-03"
-    },
-    {
-      "topic": "kid-development",
-      "topicLabel": "Little Humans",
-      "type": "insight",
-      "hook": "A toddler's pointing at 14 months predicts later vocabulary.",
-      "body": "In a well-cited study by Rowe and Goldin-Meadow, the number of distinct things children pointed to at 14 months predicted their vocabulary at about 54 months. It also helped explain the vocabulary gap between higher and lower income households, because parents who gestured more had children who gestured more. The practical move is cheap: **name what they point to**. Point, label it in a short phrase, and let them point again.",
-      "depth": "The proposed mechanism is that gesture lets a child pick the topic before they have the words, so the parent supplies the translation at the exact moment attention is joined. It is a correlational finding with a plausible path, not proof that pointing drills build vocabulary.",
-      "id": "burrow-0490",
-      "date": "2026-11-03"
     }
   ]
 }
